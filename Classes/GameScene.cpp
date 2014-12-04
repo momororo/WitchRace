@@ -30,9 +30,12 @@ bool GameScene::init()
         return false;
     }
     
-    //背景色のグラデーション
-    auto bgColor = LayerColor::create(Color4B::ORANGE);
-    this -> addChild(bgColor);
+    //backGroundの追加
+    this -> addChild(BackGround::getInstance()->getBackGround1());
+    this -> addChild(BackGround::getInstance()->getBackGround2());
+    this -> addChild(BackGround::getInstance()->getBackGround3());
+    this -> addChild(BackGround::getInstance()->getBackGround4());
+
     
     //キキちゃんの追加
     this->addChild(Kiki::getInstance()->getKiki());
@@ -68,6 +71,10 @@ bool GameScene::init()
 
     
     this->scheduleUpdate();
+    
+    //デバッグ
+    BackGround::getInstance()->startBackGround();
+
     
     return true;
     
@@ -146,5 +153,13 @@ void GameScene::update( float frame )
 {
     //キキちゃんの1フレーム毎の処理
     Kiki::getInstance()->kikiUpdate();
+    
+    //背景の1フレーム毎の処理(Layerが帰ってきたらaddchildする)
+    Layer *groundLayer = BackGround::getInstance()->backGroundUpdate();
+    if(groundLayer != NULL){
+        addChild(groundLayer);
+    }
+    
+    
     
 }

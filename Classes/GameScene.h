@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "Kiki.h"
+#include "BackGround.h"
 
 using namespace cocos2d;
 

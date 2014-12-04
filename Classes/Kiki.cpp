@@ -54,6 +54,9 @@ Kiki::Kiki(){
     //ポジションの設定
     kiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
     
+    //zポジションの設定
+    kiki->setPositionZ(zPositionOfKiki);
+    
     //タグつけ
     kiki->setName("kiki");
     
@@ -99,7 +102,9 @@ void Kiki::kikiUpdate(){
             
     //タップされていない場合は下降！
             if (pGravity<-1000) {
+                
                 pGravity = -1000;
+                
             }else{
                 
                 pGravity -= 5;
