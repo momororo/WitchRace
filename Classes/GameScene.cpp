@@ -31,7 +31,7 @@ bool GameScene::init()
     }
     
     //背景色のグラデーション
-    auto bgColor = LayerColor::create(Color4B(255,255,255,255));
+    auto bgColor = LayerColor::create(Color4B::ORANGE);
     this -> addChild(bgColor);
     
     //キキちゃんの追加

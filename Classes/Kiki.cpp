@@ -46,13 +46,13 @@ void Kiki::setTappedFlagOfKiki(bool flag){
 Kiki::Kiki(){
  
     //キャラクタースプライトの生成
-    kiki = Sprite::create();
-    kiki->setTextureRect(cocos2d::Rect(0, 0, selfFrame.width/10, selfFrame.width/10));
+    kiki = Sprite::create("kiki.png");
     
-    kiki->setColor(Color3B::BLACK);
+    //キャラクタースプライトの大きさ
+    kiki -> setScale(0.5);
     
     //ポジションの設定
-    kiki->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
+    kiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
     
     //タグつけ
     kiki->setName("kiki");
