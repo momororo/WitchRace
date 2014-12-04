@@ -20,8 +20,15 @@ private:
     //クラス
     static Kiki *kikiInstance;
     
+    
     //キキちゃん
     Sprite *kiki;
+    
+    //タップされているか判定するフラグ
+    bool tappedFlag = false;
+    
+    //重力値
+    int pGravity = 0;
     
 //メソッド
     //コンストラクタ(初期化)
@@ -37,6 +44,12 @@ public:
     
     //getter
     Sprite* getKiki();
+    
+    //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
+    void kikiUpdate();
+    
+    //キキちゃんのタップ状態の変更
+    void setTappedFlagOfKiki(bool flag);
 
 };
 
