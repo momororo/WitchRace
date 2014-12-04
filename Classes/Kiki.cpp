@@ -60,7 +60,10 @@ Kiki::Kiki(){
     //物理体の生成
     auto kikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     auto kikiBody = PhysicsBody::createCircle((kiki->getContentSize().width/2),kikiMaterial);
-    kikiBody->setDynamic(false); // 重力の影響を受けない
+    //重力による影響の可否
+    kikiBody->setGravityEnable(false);
+    //まじない
+    kikiBody->setDynamic(true);
     kikiBody->setEnable(true);
     
     //ビットマスクはてきとう
@@ -85,7 +88,7 @@ void Kiki::kikiUpdate(){
                 
             }else{
                 
-                pGravity+= 10;
+                pGravity+= 8;
                 
             }
             
@@ -99,7 +102,7 @@ void Kiki::kikiUpdate(){
                 pGravity = -1000;
             }else{
                 
-                pGravity -= 10;
+                pGravity -= 5;
                 
             }
             kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
