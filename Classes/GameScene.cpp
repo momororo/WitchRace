@@ -30,6 +30,9 @@ bool GameScene::init()
         return false;
     }
     
+    //staticBackGroundの追加
+    this -> addChild(BackGround::getInstance()->getStaticBackGround());
+    
     //backGroundの追加
     this -> addChild(BackGround::getInstance()->getBackGround1());
     this -> addChild(BackGround::getInstance()->getBackGround2());
@@ -155,7 +158,7 @@ void GameScene::update( float frame )
     Kiki::getInstance()->kikiUpdate();
     
     //背景の1フレーム毎の処理(Layerが帰ってきたらaddchildする)
-    Layer *groundLayer = BackGround::getInstance()->backGroundUpdate();
+    Sprite *groundLayer = BackGround::getInstance()->backGroundUpdate();
     if(groundLayer != NULL){
         addChild(groundLayer);
     }

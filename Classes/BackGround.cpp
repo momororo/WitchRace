@@ -31,60 +31,73 @@ BackGround* BackGround::getInstance(){
     return  backGroundInstance;
 }
 
+//getStacicBackGround
+Sprite* BackGround::getStaticBackGround(){
+    return staticBackGround;
+}
+
 //getter1
-Layer* BackGround::getBackGround1(){
+Sprite* BackGround::getBackGround1(){
     
     return backGrounds->at(0);
     
 }
 
 //getter2
-Layer* BackGround::getBackGround2(){
+Sprite* BackGround::getBackGround2(){
     
     return backGrounds->at(1);
     
 }
 
 //getter3
-Layer* BackGround::getBackGround3(){
+Sprite* BackGround::getBackGround3(){
     
     return backGrounds->at(2);
     
 }
 
 //getter4
-Layer* BackGround::getBackGround4(){
+Sprite* BackGround::getBackGround4(){
     
     return backGrounds->at(3);
     
 }
 
 
+
+
 //コンストラクタ(初期化)
 BackGround::BackGround(){
     
+    //StaticBackGround
+    staticBackGround = Sprite::create("gameBg.png");
+    staticBackGround->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
+    staticBackGround->setPositionZ(zPositionOfStaticBackGround);
+    
+    
     //backGround1を設定
     //背景色
-    auto backGround1 = LayerColor::create(Color4B::ORANGE);
-    backGround1->setPosition(Vec2(selfFrame.width*0, 0));
+    auto backGround1 = Sprite::create();
+    backGround1->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
     backGround1->setPositionZ(zPositionOfBackGround);
     
     //backGround2を設定
     //背景色
-    auto backGround2 = LayerColor::create(Color4B::GREEN);
-    backGround2->setPosition(Vec2(selfFrame.width*1, 0));
+    auto backGround2 = Sprite::create();
+    backGround2->setPosition(Vec2(selfFrame.width*1.5, selfFrame.height/2));
     backGround2->setPositionZ(zPositionOfBackGround);
 
     //backGround3を設定
     //背景色
-    auto backGround3 = LayerColor::create(Color4B::RED);
-    backGround3->setPosition(Vec2(selfFrame.width*2, 0));
+    auto backGround3 = Sprite::create();
+    backGround3->setPosition(Vec2(selfFrame.width*2.5, selfFrame.height/2));
     backGround3->setPositionZ(zPositionOfBackGround);
     
     //backGround4を設定
     //背景色
-    auto backGround4 = LayerColor::create(Color4B::BLUE);
-    backGround4->setPosition(Vec2(selfFrame.width*3, 0));
+    auto backGround4 = Sprite::create();
+    backGround4->setPosition(Vec2(selfFrame.width*3.5, selfFrame.height/2));
     backGround4->setPositionZ(zPositionOfBackGround);
 
     
@@ -102,7 +115,7 @@ void BackGround::startBackGround(){
 
 
 //backGround1の動作
-    auto moveGround1 = MoveTo::create(1, Vec2(-(selfFrame.width),0));
+    auto moveGround1 = MoveTo::create(1, Vec2(-(selfFrame.width/2),selfFrame.height/2));
     
     auto remove1 = RemoveSelf::create();
     
@@ -112,7 +125,7 @@ void BackGround::startBackGround(){
 
     
 //backGround2の動作
-    auto moveGround2 = MoveTo::create(2, Vec2(-(selfFrame.width),0));
+    auto moveGround2 = MoveTo::create(2, Vec2(-(selfFrame.width/2),selfFrame.height/2));
     
     auto remove2 = RemoveSelf::create();
     
@@ -121,7 +134,7 @@ void BackGround::startBackGround(){
     backGrounds->at(1)->runAction(sequence2);
     
 //backGround3の動作
-    auto moveGround3 = MoveTo::create(3, Vec2(-(selfFrame.width),0));
+    auto moveGround3 = MoveTo::create(3, Vec2(-(selfFrame.width/2),selfFrame.height/2));
     
     auto remove3 = RemoveSelf::create();
     
@@ -130,7 +143,7 @@ void BackGround::startBackGround(){
     backGrounds->at(2)->runAction(sequence3);
 
 //backGround4の動作
-    auto moveGround4 = MoveTo::create(4, Vec2(-(selfFrame.width),0));
+    auto moveGround4 = MoveTo::create(4, Vec2(-(selfFrame.width/2),selfFrame.height/2));
     
     auto remove4 = RemoveSelf::create();
     
@@ -164,7 +177,7 @@ void BackGround::stopBackGround(){
  * なんて糞処理！！
  */
 //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
-Layer* BackGround::backGroundUpdate(){
+Sprite* BackGround::backGroundUpdate(){
     
 
     //配列の先頭がアクションを持っていない=ゴールに到達したと判定して
@@ -172,7 +185,7 @@ Layer* BackGround::backGroundUpdate(){
     if(backGrounds->at(0)->getNumberOfRunningActions() == 0){
         
         //配列から取り出す
-        Layer* backGround = backGrounds->at(0);
+        Sprite* backGround = backGrounds->at(0);
         backGround->retain();
         
         //配列から当該レイヤを削除
@@ -184,10 +197,10 @@ Layer* BackGround::backGroundUpdate(){
         
         
         //ポジションの設定
-        backGround->setPosition(Vec2(selfFrame.width * 3, 0));
+        backGround->setPosition(Vec2(selfFrame.width*3.5, 0));
   
         //backGroundの動作
-        auto moveGround = MoveTo::create(4, Vec2(-(selfFrame.width),0));
+        auto moveGround = MoveTo::create(4, Vec2(-(selfFrame.width/2),selfFrame.height/2));
         
         auto remove = RemoveSelf::create();
         

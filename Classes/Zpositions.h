@@ -12,6 +12,8 @@
  */
 #ifndef WitchRace_Zpositions_h
 #define WitchRace_Zpositions_h
+//staticBackGround
+#define zPositionOfStaticBackGround 0
 
 //背景
 #define zPositionOfBackGround 10
