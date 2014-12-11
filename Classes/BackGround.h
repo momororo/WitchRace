@@ -25,7 +25,10 @@ private:
     
 
     //配列
-    cocos2d::Vector<Layer*> *backGrounds = new cocos2d::Vector<Layer*>;
+    cocos2d::Vector<Sprite*> *backGrounds = new cocos2d::Vector<Sprite*>;
+    
+    //staticBackGround
+    cocos2d::Sprite* staticBackGround;
     
     
 //メソッド
@@ -39,16 +42,19 @@ public:
     static BackGround* getInstance();
         
     //getter1
-    cocos2d::Layer* getBackGround1();
+    cocos2d::Sprite* getBackGround1();
     
     //getter2
-    cocos2d::Layer* getBackGround2();
+    cocos2d::Sprite* getBackGround2();
 
     //getter3
-    cocos2d::Layer* getBackGround3();
+    cocos2d::Sprite* getBackGround3();
 
     //getter4
-    cocos2d::Layer* getBackGround4();
+    cocos2d::Sprite* getBackGround4();
+    
+    //staticGackGround
+    cocos2d::Sprite* getStaticBackGround();
     
     //backGroundの動作開始
     void startBackGround();
@@ -57,7 +63,7 @@ public:
     void stopBackGround();
     
     //backGroundの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
-    cocos2d::Layer* backGroundUpdate();
+    cocos2d::Sprite* backGroundUpdate();
     
     CREATE_FUNC(BackGround);
 

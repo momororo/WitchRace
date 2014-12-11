@@ -24,6 +24,8 @@ private:
     
     //キキちゃん
     Sprite *kiki;
+    //キキ影
+    Sprite *kikiShadow;
     
     //タップされているか判定するフラグ
     bool tappedFlag = false;

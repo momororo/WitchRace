@@ -30,16 +30,25 @@ bool GameScene::init()
         return false;
     }
     
+    
+//背景処理
+    //staticBackGroundの追加
+    this -> addChild(BackGround::getInstance()->getStaticBackGround());
+    
     //backGroundの追加
     this -> addChild(BackGround::getInstance()->getBackGround1());
     this -> addChild(BackGround::getInstance()->getBackGround2());
     this -> addChild(BackGround::getInstance()->getBackGround3());
     this -> addChild(BackGround::getInstance()->getBackGround4());
+//背景処理終
 
     
+//キキ処理
     //キキちゃんの追加
     this->addChild(Kiki::getInstance()->getKiki());
-    
+//キキ処理終
+
+//イベント系処理
     /**************　タッチイベント設定  ******************/
     
     //シングルタップ用リスナーを用意する
@@ -72,7 +81,10 @@ bool GameScene::init()
     
     this->scheduleUpdate();
     
-    //デバッグ
+//イベント系処理終
+    
+    
+//デバッグ
     BackGround::getInstance()->startBackGround();
     
     
@@ -122,8 +134,11 @@ bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
     //ポイントの取得
     Point touchPoint = Vec2(touch->getLocation().x,touch->getLocation().y);
     
+    
+//キキ処理
     //キキのタップフラグをtrue
     Kiki::getInstance()->setTappedFlagOfKiki(true);
+//キキ処理終
     
     
     return true;
@@ -149,9 +164,11 @@ void GameScene::onTouchEnded(Touch *touch, Event *unused_event){
     
     //タップ終了時
     CCLOG("touchEnded");
-    
+
+//キキ処理
     //キキのタップフラグをfalse
     Kiki::getInstance()->setTappedFlagOfKiki(false);
+//キキ処理終
 
     
     
@@ -183,14 +200,19 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
 
 void GameScene::update( float frame )
 {
+    
+//キキ処理
     //キキちゃんの1フレーム毎の処理
     Kiki::getInstance()->kikiUpdate();
-    
+//キキ処理終
+
+//背景処理
     //背景の1フレーム毎の処理(Layerが帰ってきたらaddchildする)
-    Layer *groundLayer = BackGround::getInstance()->backGroundUpdate();
+    Sprite *groundLayer = BackGround::getInstance()->backGroundUpdate();
     if(groundLayer != NULL){
         addChild(groundLayer);
     }
+//背景処理終
     
     
     
