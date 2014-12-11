@@ -38,8 +38,6 @@ bool GameScene::init()
     //backGroundの追加
     this -> addChild(BackGround::getInstance()->getBackGround1());
     this -> addChild(BackGround::getInstance()->getBackGround2());
-    this -> addChild(BackGround::getInstance()->getBackGround3());
-    this -> addChild(BackGround::getInstance()->getBackGround4());
 //背景処理終
 
     

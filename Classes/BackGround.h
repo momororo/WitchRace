@@ -38,7 +38,7 @@ private:
     
 public:
     //メソッド
-    //プレイヤーは一体だけなのでシングルトン
+    //シングルトン
     static BackGround* getInstance();
         
     //getter1
@@ -46,12 +46,6 @@ public:
     
     //getter2
     cocos2d::Sprite* getBackGround2();
-
-    //getter3
-    cocos2d::Sprite* getBackGround3();
-
-    //getter4
-    cocos2d::Sprite* getBackGround4();
     
     //staticGackGround
     cocos2d::Sprite* getStaticBackGround();
