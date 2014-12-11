@@ -12,9 +12,13 @@
  */
 #ifndef WitchRace_Zpositions_h
 #define WitchRace_Zpositions_h
+
+/**
+ *  zPosition一覧
+ */
+
 //staticBackGround
 #define zPositionOfStaticBackGround 0
-
 //背景
 #define zPositionOfBackGround 10
 //キキ

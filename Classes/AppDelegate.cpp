@@ -24,7 +24,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
-//横画面ゲームは1136,640,ResolutionPolicy::SHOW_ALLは固定で良いと思われる。
+//  横画面ゲームは1136,640,ResolutionPolicy::SHOW_ALLは固定で良いと思われる。
 //    glview -> setDesignResolutionSize(1136, 640, ResolutionPolicy::SHOW_ALL);
     glview -> setDesignResolutionSize(640, 1136, ResolutionPolicy::SHOW_ALL);
     director->setContentScaleFactor(1.0f);
