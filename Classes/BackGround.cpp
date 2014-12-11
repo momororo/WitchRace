@@ -75,6 +75,7 @@ BackGround::BackGround(){
     staticBackGround->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
     staticBackGround->setPositionZ(zPositionOfStaticBackGround);
     
+
     
     //backGround1を設定
     //背景色
@@ -206,7 +207,10 @@ Sprite* BackGround::backGroundUpdate(){
         
         //ポジションの設定
         backGround->setPosition(Vec2(selfFrame.width*7, 50));
-  
+        
+        //zポジションを設定しなおす
+//        backGround->setPositionZ(zPositionOfBackGround);
+        
         //backGroundの動作
         auto moveGround = MoveTo::create(12, Vec2(-(selfFrame.width), 50));
         
