@@ -63,8 +63,8 @@
 		A4BB07221A3976B600991DCE /* kiki_up_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07201A3976B600991DCE /* kiki_up_shadow.png */; };
 		A4BB07281A399C5100991DCE /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07271A399C5100991DCE /* house.png */; };
 		A4BB072A1A39A10400991DCE /* enemyWitch.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07291A39A10400991DCE /* enemyWitch.png */; };
-		A4BB072D1A39A13000991DCE /* bad.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB072B1A39A13000991DCE /* bad.png */; };
-		A4BB072E1A39A13000991DCE /* bad.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4BB072C1A39A13000991DCE /* bad.plist */; };
+		A4BB07311A39A23000991DCE /* bad.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB072F1A39A23000991DCE /* bad.png */; };
+		A4BB07321A39A23000991DCE /* bad.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07301A39A23000991DCE /* bad.plist */; };
 		A4D549671A31BF6E0066858C /* gameBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D549661A31BF6E0066858C /* gameBg.png */; };
 		A4D5496B1A31BF8B0066858C /* kiki.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D5496A1A31BF8B0066858C /* kiki.png */; };
 		A4E4855A1A2F4F2200780AF3 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4E485581A2F4F2200780AF3 /* TitleScene.cpp */; };
@@ -274,8 +274,8 @@
 		A4BB07201A3976B600991DCE /* kiki_up_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki_up_shadow.png; sourceTree = "<group>"; };
 		A4BB07271A399C5100991DCE /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
 		A4BB07291A39A10400991DCE /* enemyWitch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyWitch.png; sourceTree = "<group>"; };
-		A4BB072B1A39A13000991DCE /* bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bad.png; sourceTree = "<group>"; };
-		A4BB072C1A39A13000991DCE /* bad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bad.plist; sourceTree = "<group>"; };
+		A4BB072F1A39A23000991DCE /* bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bad.png; sourceTree = "<group>"; };
+		A4BB07301A39A23000991DCE /* bad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bad.plist; sourceTree = "<group>"; };
 		A4D549661A31BF6E0066858C /* gameBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameBg.png; sourceTree = "<group>"; };
 		A4D5496A1A31BF8B0066858C /* kiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki.png; sourceTree = "<group>"; };
 		A4E485581A2F4F2200780AF3 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
@@ -490,8 +490,8 @@
 				A4BB07201A3976B600991DCE /* kiki_up_shadow.png */,
 				A4BB07271A399C5100991DCE /* house.png */,
 				A4BB07291A39A10400991DCE /* enemyWitch.png */,
-				A4BB072B1A39A13000991DCE /* bad.png */,
-				A4BB072C1A39A13000991DCE /* bad.plist */,
+				A4BB072F1A39A23000991DCE /* bad.png */,
+				A4BB07301A39A23000991DCE /* bad.plist */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -661,8 +661,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4BB072E1A39A13000991DCE /* bad.plist in Resources */,
-				A4BB072D1A39A13000991DCE /* bad.png in Resources */,
+				A4BB07321A39A23000991DCE /* bad.plist in Resources */,
+				A4BB07311A39A23000991DCE /* bad.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
