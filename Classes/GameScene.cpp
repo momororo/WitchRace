@@ -93,7 +93,7 @@ bool GameScene::init()
     }
     
     //アニメーションの設定
-    Animation *badAnimation = Animation::createWithSpriteFrames(*badFrames,0.5f);
+    Animation *badAnimation = Animation::createWithSpriteFrames(*badFrames,0.1f);
     Animate *badAnimate = Animate::create(badAnimation);
     RepeatForever *repeat = RepeatForever::create(badAnimate);
     bad -> runAction(repeat);

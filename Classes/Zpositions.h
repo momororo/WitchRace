@@ -21,6 +21,7 @@
 #define zPositionOfStaticBackGround 0
 //背景
 #define zPositionOfBackGround 10
+
 //キキ
 #define zPositionOfKiki 100
 

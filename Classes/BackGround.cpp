@@ -78,26 +78,34 @@ BackGround::BackGround(){
     
     //backGround1を設定
     //背景色
-    auto backGround1 = Sprite::create();
-    backGround1->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
+    auto backGround1 = Sprite::create("house1.png");
+    backGround1->setOpacity(150);
+    backGround1->setAnchorPoint(Vec2(0.5,0));
+    backGround1->setPosition(Vec2(selfFrame.width, 50));
     backGround1->setPositionZ(zPositionOfBackGround);
     
     //backGround2を設定
     //背景色
-    auto backGround2 = Sprite::create();
-    backGround2->setPosition(Vec2(selfFrame.width*1.5, selfFrame.height/2));
+    auto backGround2 = Sprite::create("house2.png");
+    backGround2->setOpacity(150);
+    backGround2->setAnchorPoint(Vec2(0.5,0));
+    backGround2->setPosition(Vec2(selfFrame.width*3, 50));
     backGround2->setPositionZ(zPositionOfBackGround);
 
     //backGround3を設定
     //背景色
-    auto backGround3 = Sprite::create();
-    backGround3->setPosition(Vec2(selfFrame.width*2.5, selfFrame.height/2));
+    auto backGround3 = Sprite::create("house1.png");
+    backGround3->setOpacity(150);
+    backGround3->setAnchorPoint(Vec2(0.5,0));
+    backGround3->setPosition(Vec2(selfFrame.width*5, 50));
     backGround3->setPositionZ(zPositionOfBackGround);
     
     //backGround4を設定
     //背景色
-    auto backGround4 = Sprite::create();
-    backGround4->setPosition(Vec2(selfFrame.width*3.5, selfFrame.height/2));
+    auto backGround4 = Sprite::create("house2.png");
+    backGround4->setOpacity(150);
+    backGround4->setAnchorPoint(Vec2(0.5,0));
+    backGround4->setPosition(Vec2(selfFrame.width*7, 50));
     backGround4->setPositionZ(zPositionOfBackGround);
 
     
@@ -115,7 +123,7 @@ void BackGround::startBackGround(){
 
 
 //backGround1の動作
-    auto moveGround1 = MoveTo::create(1, Vec2(-(selfFrame.width/2),selfFrame.height/2));
+    auto moveGround1 = MoveTo::create(3, Vec2(-(selfFrame.width), 50));
     
     auto remove1 = RemoveSelf::create();
     
@@ -125,7 +133,7 @@ void BackGround::startBackGround(){
 
     
 //backGround2の動作
-    auto moveGround2 = MoveTo::create(2, Vec2(-(selfFrame.width/2),selfFrame.height/2));
+    auto moveGround2 = MoveTo::create(6, Vec2(-(selfFrame.width), 50));
     
     auto remove2 = RemoveSelf::create();
     
@@ -134,7 +142,7 @@ void BackGround::startBackGround(){
     backGrounds->at(1)->runAction(sequence2);
     
 //backGround3の動作
-    auto moveGround3 = MoveTo::create(3, Vec2(-(selfFrame.width/2),selfFrame.height/2));
+    auto moveGround3 = MoveTo::create(9, Vec2(-(selfFrame.width), 50));
     
     auto remove3 = RemoveSelf::create();
     
@@ -143,7 +151,7 @@ void BackGround::startBackGround(){
     backGrounds->at(2)->runAction(sequence3);
 
 //backGround4の動作
-    auto moveGround4 = MoveTo::create(4, Vec2(-(selfFrame.width/2),selfFrame.height/2));
+    auto moveGround4 = MoveTo::create(12, Vec2(-(selfFrame.width), 50));
     
     auto remove4 = RemoveSelf::create();
     
@@ -197,10 +205,10 @@ Sprite* BackGround::backGroundUpdate(){
         
         
         //ポジションの設定
-        backGround->setPosition(Vec2(selfFrame.width*3.5, 0));
+        backGround->setPosition(Vec2(selfFrame.width*7, 50));
   
         //backGroundの動作
-        auto moveGround = MoveTo::create(4, Vec2(-(selfFrame.width/2),selfFrame.height/2));
+        auto moveGround = MoveTo::create(12, Vec2(-(selfFrame.width), 50));
         
         auto remove = RemoveSelf::create();
         
