@@ -61,7 +61,6 @@
 		A4BB071E1A3976AD00991DCE /* kiki_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB071D1A3976AD00991DCE /* kiki_down.png */; };
 		A4BB07211A3976B600991DCE /* kiki_up.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB071F1A3976B600991DCE /* kiki_up.png */; };
 		A4BB07221A3976B600991DCE /* kiki_up_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07201A3976B600991DCE /* kiki_up_shadow.png */; };
-		A4BB07281A399C5100991DCE /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07271A399C5100991DCE /* house.png */; };
 		A4BB072A1A39A10400991DCE /* enemyWitch.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07291A39A10400991DCE /* enemyWitch.png */; };
 		A4BB07311A39A23000991DCE /* bad.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB072F1A39A23000991DCE /* bad.png */; };
 		A4BB07321A39A23000991DCE /* bad.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07301A39A23000991DCE /* bad.plist */; };
@@ -278,7 +277,6 @@
 		A4BB071D1A3976AD00991DCE /* kiki_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki_down.png; sourceTree = "<group>"; };
 		A4BB071F1A3976B600991DCE /* kiki_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki_up.png; sourceTree = "<group>"; };
 		A4BB07201A3976B600991DCE /* kiki_up_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki_up_shadow.png; sourceTree = "<group>"; };
-		A4BB07271A399C5100991DCE /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
 		A4BB07291A39A10400991DCE /* enemyWitch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyWitch.png; sourceTree = "<group>"; };
 		A4BB072F1A39A23000991DCE /* bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bad.png; sourceTree = "<group>"; };
 		A4BB07301A39A23000991DCE /* bad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bad.plist; sourceTree = "<group>"; };
@@ -502,7 +500,6 @@
 				A4BB071D1A3976AD00991DCE /* kiki_down.png */,
 				A4BB071F1A3976B600991DCE /* kiki_up.png */,
 				A4BB07201A3976B600991DCE /* kiki_up_shadow.png */,
-				A4BB07271A399C5100991DCE /* house.png */,
 				A4BB07291A39A10400991DCE /* enemyWitch.png */,
 				A4BB072F1A39A23000991DCE /* bad.png */,
 				A4BB07301A39A23000991DCE /* bad.plist */,
@@ -707,7 +704,6 @@
 				A4BB07451A3AC02500991DCE /* factory1.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
-				A4BB07281A399C5100991DCE /* house.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				A4BB07211A3976B600991DCE /* kiki_up.png in Resources */,
 				A4BB071E1A3976AD00991DCE /* kiki_down.png in Resources */,
