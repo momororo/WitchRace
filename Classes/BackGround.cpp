@@ -155,7 +155,7 @@ void BackGround::replaceBackGround(){
     
     //配列から取り出す
     Sprite* backGround = backGrounds->at(0);
-    backGround->retain();
+ //   backGround->retain();
     
     //配列から当該レイヤを削除
     backGrounds->erase(0);
@@ -165,7 +165,7 @@ void BackGround::replaceBackGround(){
 #pragma mark -
     
     //微妙なズレの調整
-    auto fixedX = 5;
+    auto fixedX = 8;
     
     //ポジションの設定
     backGround->setPosition(Vec2(selfFrame.width * 3 - fixedX, selfFrame.height/2));

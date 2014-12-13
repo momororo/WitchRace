@@ -33,6 +33,7 @@ public:
     bool onContactBegin(cocos2d::PhysicsContact& contact);
     //1フレーム毎の処理
     void update(float delta);
+    
 };
 
 #endif /* defined(__WitchRace__GameScene__) */
