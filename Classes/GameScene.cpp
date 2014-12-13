@@ -123,11 +123,12 @@ bool GameScene::init()
     this->scheduleUpdate();
     
 //イベント系処理終
-    
-    
+
+
 //デバッグ
     BackGround::getInstance()->startBackGround();
 //デバッグ終
+
 
 
     
@@ -140,7 +141,8 @@ bool GameScene::init()
 #pragma mark-
 #pragma mark タッチ判定
 bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
-    
+
+
     
     //ポイントの取得
     Point touchPoint = Vec2(touch->getLocation().x,touch->getLocation().y);
@@ -219,10 +221,7 @@ void GameScene::update( float frame )
 
 //背景処理
     //背景の1フレーム毎の処理(Layerが帰ってきたらaddchildする)
-    Sprite *groundLayer = BackGround::getInstance()->backGroundUpdate();
-    if(groundLayer != NULL){
-        addChild(groundLayer);
-    }
+    BackGround::getInstance()->backGroundUpdate();
 //背景処理終
     
     

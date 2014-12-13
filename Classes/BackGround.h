@@ -56,8 +56,11 @@ public:
     //backGroundの動作停止
     void stopBackGround();
     
+    //BackGroundの位置を入れ替え
+    void replaceBackGround();
+    
     //backGroundの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
-    cocos2d::Sprite* backGroundUpdate();
+    void backGroundUpdate();
     
     CREATE_FUNC(BackGround);
 

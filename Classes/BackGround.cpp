@@ -81,36 +81,41 @@ BackGround::BackGround(){
     backGrounds->pushBack(backGround1);
     backGrounds->pushBack(backGround2);
     
+    
+    
+    //最初のスプライトを入れる
+    auto house1 = Sprite::create("house1.png");
+    
+    house1->setPosition(Vec2(house1->getContentSize().width/2,house1->getContentSize().height/2));
+    
+    backGrounds->at(0)->addChild(house1);
+    
+    auto house2 = Sprite::create("house1.png");
+    
+    house2->setPosition(Vec2(house2->getContentSize().width/2,house2->getContentSize().height/2));
+    
+    backGrounds->at(1)->addChild(house2);
+    
+    
+    
+    //最初のスプライトを入れる終
+
+    
 }
 
 //backGroundの動作開始
 void BackGround::startBackGround(){
     
     
-//ここで背景にスプライトを埋め込む
-    auto house1 = Sprite::create("house1.png");
-    
-    house1->setPosition(Vec2(0,house1->getContentSize().height/2));
-    
-    backGrounds->at(0)->addChild(house1);
-    
-    auto house2 = Sprite::create("house2.png");
-
-    house2->setPosition(Vec2(0,house2->getContentSize().height/2));
-    
-    backGrounds->at(1)->addChild(house2);
-
-
-
-//ここで背景にスプライトを埋め込む終
 
 
 //backGround1の動作
     auto moveGround1 = MoveTo::create(3, Vec2(-(selfFrame.width), selfFrame.height/2));
+
+    auto callFunc1 = CallFunc::create(CC_CALLBACK_0(BackGround::replaceBackGround,this));
     
-    auto remove1 = RemoveSelf::create();
+    auto sequence1 = Sequence::create(moveGround1,callFunc1,NULL);
     
-    auto sequence1 = Sequence::create(moveGround1,remove1, NULL);
 
     backGrounds->at(0)->runAction(sequence1);
 
@@ -118,9 +123,9 @@ void BackGround::startBackGround(){
 //backGround2の動作
     auto moveGround2 = MoveTo::create(6, Vec2(-(selfFrame.width), selfFrame.height/2));
     
-    auto remove2 = RemoveSelf::create();
+    auto callFunc2 = CallFunc::create(CC_CALLBACK_0(BackGround::replaceBackGround,this));
     
-    auto sequence2 = Sequence::create(moveGround2,remove2, NULL);
+    auto sequence2 = Sequence::create(moveGround2,callFunc2,NULL);
     
     backGrounds->at(1)->runAction(sequence2);
     
@@ -144,56 +149,52 @@ void BackGround::stopBackGround(){
  * １、配列から取り出すとリファレンスカウンタの都合によりオブジェクトがreleaseされる模様
  * なのでretain()を入れてカウンタを上げることでreleaseを防止してます
  *
- * ２、配列から取り出して配列内のオブジェクトを削除すると親シーンとのリンクが消える模様
- * なので返り値にLayerを返してます。(配列の入れ替えをしない時はNULLを返す)
- * 呼び出し元で、NULLなら放置、NULLじゃない場合はaddchilすることで対応してます。
- * なんて糞処理！！
  */
-//キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
-Sprite* BackGround::backGroundUpdate(){
+//CallBackで呼ばれます。
+void BackGround::replaceBackGround(){
     
-
-    //配列の先頭がアクションを持っていない=ゴールに到達したと判定して
-    //末尾に移動する
-    if(backGrounds->at(0)->getNumberOfRunningActions() == 0){
-        
-        //配列から取り出す
-        Sprite* backGround = backGrounds->at(0);
-        backGround->retain();
-        
-        //配列から当該レイヤを削除
-        backGrounds->erase(0);
-        
+    //配列から取り出す
+    Sprite* backGround = backGrounds->at(0);
+    backGround->retain();
+    
+    //配列から当該レイヤを削除
+    backGrounds->erase(0);
+    
 #pragma mark -
 #pragma mark ここにスプライトを乗っけ直す処理を入れる
 #pragma mark -
+    
+    //微妙なズレの調整
+    auto fixedX = 5;
+    
+    //ポジションの設定
+    backGround->setPosition(Vec2(selfFrame.width * 3 - fixedX, selfFrame.height/2));
+    
+    //backGroundの動作
+    auto moveGround = MoveTo::create(6, Vec2(-(selfFrame.width), selfFrame.height/2));
+    
+    auto callFunc = CallFunc::create(CC_CALLBACK_0(BackGround::replaceBackGround,this));
+    
+    auto sequence = Sequence::create(moveGround,callFunc,NULL);
+    
+    backGround->runAction(sequence);
+    
+    //配列の末尾に入れなおす
+    backGrounds->pushBack(backGround);
+    
+    //デバッグ用
+    if(backGrounds->at(0)->getPosition().x + backGrounds->at(0)->getContentSize().width/2  < backGrounds->at(1)->getPosition().x - backGrounds->at(1)->getContentSize().width/2){
         
-        
-        //ポジションの設定
-        backGround->setPosition(Vec2(selfFrame.width*3, selfFrame.height/2));
-        
-        //zポジションを設定しなおす
-//        backGround->setPositionZ(zPositionOfBackGround);
-        
-        //backGroundの動作
-        auto moveGround = MoveTo::create(6, Vec2(-(selfFrame.width), selfFrame.height/2));
-        
-        auto remove = RemoveSelf::create();
-        
-        auto sequence = Sequence::create(moveGround,remove, NULL);
-        
-        backGround->runAction(sequence);
-        
-        //配列の末尾に入れなおす
-        backGrounds->pushBack(backGround);
-        
+        auto test = (backGrounds->at(0)->getPosition().x + backGrounds->at(0)->getContentSize().width/2)  - (backGrounds->at(1)->getPosition().x - backGrounds->at(1)->getContentSize().width/2);
 
-        return backGround;
         
+        CCLOG("%fずれてる！",test);
     }
     
-    return NULL;
-    
-    
+}
+
+
+//キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
+void BackGround::backGroundUpdate(){
     
 }
