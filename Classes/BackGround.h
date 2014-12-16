@@ -30,6 +30,9 @@ private:
     //staticBackGround
     cocos2d::Sprite* staticBackGround;
     
+    //プレイフラグ
+    bool gamePlayFlag;
+    
     
 //メソッド
     //コンストラクタ(初期化)

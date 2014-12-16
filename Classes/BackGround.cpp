@@ -69,6 +69,23 @@ BackGround::BackGround(){
     backGround1->setPosition(Vec2(selfFrame.width, selfFrame.height/2));
     backGround1->setPositionZ(zPositionOfBackGround);
     
+    //物理体の生成
+    auto backGround1Material = PHYSICSBODY_MATERIAL_DEFAULT;
+    auto backGround1Body = PhysicsBody::createCircle((backGround1->getContentSize().width/2),backGround1Material);
+    //重力による影響の可否
+    backGround1Body->setGravityEnable(false);
+    //まじない
+    backGround1Body->setDynamic(true);
+    backGround1Body->setEnable(true);
+    
+    //ビットマスクはてきとう
+    backGround1Body->setCategoryBitmask(0);
+    backGround1Body->setCollisionBitmask(0);
+    backGround1Body->setContactTestBitmask(0);
+    
+    backGround1->setPhysicsBody(backGround1Body);
+
+    
     //backGround2を設定
     //背景色
     auto backGround2 = Sprite::create();
@@ -76,6 +93,22 @@ BackGround::BackGround(){
     backGround2->setOpacity(0);
     backGround2->setPosition(Vec2(selfFrame.width*3, selfFrame.height/2));
     backGround2->setPositionZ(zPositionOfBackGround);
+    
+    //物理体の設定
+    auto backGround2Material = PHYSICSBODY_MATERIAL_DEFAULT;
+    auto backGround2Body = PhysicsBody::createCircle((backGround1->getContentSize().width/2),backGround2Material);
+    //重力による影響の可否
+    backGround2Body->setGravityEnable(false);
+    //まじない
+    backGround2Body->setDynamic(true);
+    backGround2Body->setEnable(true);
+    
+    //ビットマスクはてきとう
+    backGround2Body->setCategoryBitmask(0);
+    backGround2Body->setCollisionBitmask(0);
+    backGround2Body->setContactTestBitmask(0);
+    
+    backGround2->setPhysicsBody(backGround2Body);
     
     //配列に入れておく
     backGrounds->pushBack(backGround1);
@@ -106,28 +139,7 @@ BackGround::BackGround(){
 //backGroundの動作開始
 void BackGround::startBackGround(){
     
-    
-
-
-//backGround1の動作
-    auto moveGround1 = MoveTo::create(3, Vec2(-(selfFrame.width), selfFrame.height/2));
-
-    auto callFunc1 = CallFunc::create(CC_CALLBACK_0(BackGround::replaceBackGround,this));
-    
-    auto sequence1 = Sequence::create(moveGround1,callFunc1,NULL);
-    
-
-    backGrounds->at(0)->runAction(sequence1);
-
-    
-//backGround2の動作
-    auto moveGround2 = MoveTo::create(6, Vec2(-(selfFrame.width), selfFrame.height/2));
-    
-    auto callFunc2 = CallFunc::create(CC_CALLBACK_0(BackGround::replaceBackGround,this));
-    
-    auto sequence2 = Sequence::create(moveGround2,callFunc2,NULL);
-    
-    backGrounds->at(1)->runAction(sequence2);
+    gamePlayFlag = true;
     
     
 }
@@ -135,10 +147,8 @@ void BackGround::startBackGround(){
 //backGroundの動作停止
 void BackGround::stopBackGround(){
     
-    for (int idx = 0; idx < backGrounds->size(); idx++){
-        
-        backGrounds->at(idx)->stopAllActions();
-    }
+
+    gamePlayFlag = false;
     
 }
 
@@ -164,24 +174,15 @@ void BackGround::replaceBackGround(){
 #pragma mark ここにスプライトを乗っけ直す処理を入れる
 #pragma mark -
     
-    //微妙なズレの調整
-    auto fixedX = 8;
     
     //ポジションの設定
-    backGround->setPosition(Vec2(selfFrame.width * 3 - fixedX, selfFrame.height/2));
+    backGround->setPosition(Vec2(backGrounds->at(backGrounds->size()-1)->getPosition().x + backGrounds->at(backGrounds->size()-1)->getContentSize().width/2 + backGround->getContentSize().width/2,backGrounds->at(backGrounds->size()-1)->getPositionY()));
     
-    //backGroundの動作
-    auto moveGround = MoveTo::create(6, Vec2(-(selfFrame.width), selfFrame.height/2));
-    
-    auto callFunc = CallFunc::create(CC_CALLBACK_0(BackGround::replaceBackGround,this));
-    
-    auto sequence = Sequence::create(moveGround,callFunc,NULL);
-    
-    backGround->runAction(sequence);
     
     //配列の末尾に入れなおす
     backGrounds->pushBack(backGround);
-    
+
+/*
     //デバッグ用
     if(backGrounds->at(0)->getPosition().x + backGrounds->at(0)->getContentSize().width/2  < backGrounds->at(1)->getPosition().x - backGrounds->at(1)->getContentSize().width/2){
         
@@ -190,11 +191,28 @@ void BackGround::replaceBackGround(){
         
         CCLOG("%fずれてる！",test);
     }
+*/
     
 }
 
 
 //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
 void BackGround::backGroundUpdate(){
+    
+    //ゲームプレイ中かフラグで判定
+    if(gamePlayFlag !=  true){
+        return;
+    }
+    
+    //地面の移動を行う
+    for(int idx = 0; idx < backGrounds->size();idx++){
+        backGrounds->at(idx)->getPhysicsBody()->setVelocity(Vec2(-500,0));
+    }
+    
+    //入れ替えの判定を行う
+    if(backGrounds->at(0)->getPosition().x < -(selfFrame.width)){
+        //入れ替えを行う
+        this->replaceBackGround();
+    }
     
 }
