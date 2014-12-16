@@ -31,7 +31,7 @@ private:
     cocos2d::Sprite* staticBackGround;
     
     //プレイフラグ
-    bool gamePlayFlag;
+    bool gamePlayFlag = false;
     
     
 //メソッド

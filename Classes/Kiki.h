@@ -33,6 +33,9 @@ private:
     //重力値
     int pGravity = 0;
     
+    //ゲームプレイフラグ
+    bool gamePlayFlag = false;
+    
 //メソッド
     //コンストラクタ(初期化)
     Kiki();
@@ -53,6 +56,13 @@ public:
     
     //キキちゃんのタップ状態の変更
     void setTappedFlagOfKiki(bool flag);
+    
+    //キキちゃんの動作開始
+    void startKiki();
+    
+    //キキちゃんの動作停止
+    void stopKiki();
+
 
 };
 

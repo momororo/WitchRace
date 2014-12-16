@@ -40,6 +40,23 @@ void Kiki::setTappedFlagOfKiki(bool flag){
     return;
 }
 
+//キキちゃんの動作開始
+void Kiki::startKiki(){
+    
+    kiki->getPhysicsBody()->setEnable(true);
+    gamePlayFlag = true;
+    
+}
+
+//キキちゃんの動作停止
+void Kiki::stopKiki(){
+    
+    kiki->getPhysicsBody()->setEnable(false);
+    gamePlayFlag = false;
+
+    
+}
+
 
 
 //キキちゃんの初期設定
@@ -83,7 +100,7 @@ Kiki::Kiki(){
     kikiBody->setGravityEnable(false);
     //まじない
     kikiBody->setDynamic(true);
-    kikiBody->setEnable(true);
+    kikiBody->setEnable(false);
     
     //ビットマスクはてきとう
     kikiBody->setCategoryBitmask(0x01);
@@ -95,11 +112,18 @@ Kiki::Kiki(){
 
 }
 
+
 //キキちゃんの1フレーム毎の処理
 void Kiki::kikiUpdate(){
     
+    //ゲームプレイ中ではない場合は何もせず終了
+    if(gamePlayFlag != true){
+        return;
+    }
+    
     //タップされている場合は上昇！
         if (tappedFlag == true) {
+            
             
             //透明度を変更
             if(kikiShadow->getOpacity() != 255){

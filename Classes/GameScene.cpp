@@ -125,9 +125,6 @@ bool GameScene::init()
 //イベント系処理終
 
 
-//デバッグ
-    BackGround::getInstance()->startBackGround();
-//デバッグ終
 
 
 
@@ -141,6 +138,14 @@ bool GameScene::init()
 #pragma mark-
 #pragma mark タッチ判定
 bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
+
+    //スワイプ中の処理
+    CCLOG("touchBegan");
+    
+    //デバッグ
+    BackGround::getInstance()->startBackGround();
+    Kiki::getInstance()->startKiki();
+    //デバッグ終
 
 
     
