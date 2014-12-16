@@ -24,5 +24,7 @@
 
 //キキ
 #define zPositionOfKiki 100
+//こうもり
+#define zPositionOfBad 100
 
 #endif

@@ -17,6 +17,8 @@ Scene* GameScene::createScene()
     auto scene = Scene::createWithPhysics();
     auto layer = GameScene::create();
     scene -> addChild(layer);
+    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+
     // return the scene
     return scene;
 }
@@ -67,7 +69,7 @@ bool GameScene::init()
     
     
     
-    
+/*
     //敵スプライト(今回はコウモリ)の画像アニメーションの動作作成
     //羽を上下させるため、２種類(bad_1.png,bad_2.png)の画像をzwoptexにて編集・作成
     //plistから画像データの読み込み
@@ -97,7 +99,7 @@ bool GameScene::init()
     bad -> runAction(repeat);
     delete badFrames;
     
-    
+*/
     
     
     
