@@ -38,7 +38,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     //デバッグのため GameSceneに飛ばしてます。
-    auto scene = GameScene::createScene();
+    //auto scene = GameScene::createScene();
+    auto scene = TitleScene::createScene();
 
     // run
     director->runWithScene(scene);

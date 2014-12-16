@@ -1,4 +1,6 @@
 #include "TitleScene.h"
+#include "StorySelect.h"
+#include "GameScene.h"
 #include <string.h>
 //#include "NendModule.h"
 //#include "NendInterstitialModule.h"
@@ -16,21 +18,9 @@ using namespace CocosDenshion;
 //画面生成
 Scene *TitleScene::createScene(){
     
-    auto scene = Scene::create();//WithPhysics();   ←物理設定の場合
+    auto scene = Scene::create();
     auto layer = TitleScene::create();
     scene -> addChild(layer);
-    
-    
-    /* 物理設定
-    auto world = scene -> getPhysicsWorld();
-    cocos2d::Vect gravity;
-    gravity.setPoint(0, -50);
-    world -> setGravity(gravity);
-    */
-    
-    //物理体の可視化
-    //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-
     
     return scene;
     
@@ -44,9 +34,19 @@ bool TitleScene::init(){
         return false;
     }
     
-    //背景色のグラデーション
-    auto bgColor = LayerColor::create(Color4B(255,246,213,255));
-    this -> addChild(bgColor);
+    auto titleBk = Sprite::create("titleBk.png");
+    titleBk -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
+    this -> addChild(titleBk);
+    
+    
+    setStartBt();
+    
+    
+    
+    
+    
+    
+    
     
    
     /* 効果音の設定
@@ -170,6 +170,42 @@ void TitleScene::onTouchEnded(Touch *touch, Event *unused_event){
     Point touchPoint = Vec2(touch->getLocation().x,touch->getLocation().y);
     
 }
+
+
+void TitleScene::setStartBt(){
+
+    
+    //スタートボタン作成
+    auto startBt = Label::createWithSystemFont("story", "MagicSchoolOne", 150);
+    startBt -> setColor(Color3B::BLACK);
+    
+    auto startBtTaped = Label::createWithSystemFont("story", "MagicSchoolOne", 150);
+    startBtTaped -> setColor(Color3B::BLACK);
+    startBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto pBtnItem = MenuItemSprite::create(startBt, startBtTaped, CC_CALLBACK_1(TitleScene::startCallback, this));
+    
+    //メニューの作成　pMenuの中にpBtnItemを入れる
+    auto startMenu = Menu::create(pBtnItem, NULL);
+    
+    //pMenuを画面中央に配置
+    startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
+    this->addChild(startMenu);
+
+
+
+}
+
+void TitleScene::startCallback(cocos2d::Ref *pSender){
+    
+    //Director::getInstance()->replaceScene(GameScene::createScene());
+    Director::getInstance()->replaceScene(TransitionPageTurn::create(1, StorySelect::createScene(), 0));
+
+}
+
+
+
 
 
 

@@ -70,6 +70,9 @@
 		A4BB07461A3AC02500991DCE /* factory2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07431A3AC02500991DCE /* factory2.png */; };
 		A4BB07471A3AC02500991DCE /* factory3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07441A3AC02500991DCE /* factory3.png */; };
 		A4BB074B1A3AC10D00991DCE /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB074A1A3AC10D00991DCE /* tree.png */; };
+		A4CB43DE1A4035CD00890E53 /* titleBk.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB43DD1A4035CD00890E53 /* titleBk.png */; };
+		A4CB43DF1A40361F00890E53 /* MagicSchoolOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */; };
+		A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4CB43E31A403CFF00890E53 /* StorySelect.cpp */; };
 		A4D549671A31BF6E0066858C /* gameBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D549661A31BF6E0066858C /* gameBg.png */; };
 		A4D5496B1A31BF8B0066858C /* kiki.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D5496A1A31BF8B0066858C /* kiki.png */; };
 		A4E4855A1A2F4F2200780AF3 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4E485581A2F4F2200780AF3 /* TitleScene.cpp */; };
@@ -286,6 +289,10 @@
 		A4BB07431A3AC02500991DCE /* factory2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = factory2.png; sourceTree = "<group>"; };
 		A4BB07441A3AC02500991DCE /* factory3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = factory3.png; sourceTree = "<group>"; };
 		A4BB074A1A3AC10D00991DCE /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
+		A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MagicSchoolOne.ttf; sourceTree = "<group>"; };
+		A4CB43DD1A4035CD00890E53 /* titleBk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleBk.png; sourceTree = "<group>"; };
+		A4CB43E31A403CFF00890E53 /* StorySelect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StorySelect.cpp; path = ../Classes/StorySelect.cpp; sourceTree = "<group>"; };
+		A4CB43E41A403CFF00890E53 /* StorySelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StorySelect.h; path = ../Classes/StorySelect.h; sourceTree = "<group>"; };
 		A4D549661A31BF6E0066858C /* gameBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameBg.png; sourceTree = "<group>"; };
 		A4D5496A1A31BF8B0066858C /* kiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki.png; sourceTree = "<group>"; };
 		A4E485581A2F4F2200780AF3 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
@@ -370,6 +377,8 @@
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				A4E485581A2F4F2200780AF3 /* TitleScene.cpp */,
 				A4E485591A2F4F2200780AF3 /* TitleScene.h */,
+				A4CB43E31A403CFF00890E53 /* StorySelect.cpp */,
+				A4CB43E41A403CFF00890E53 /* StorySelect.h */,
 				040B161E1A2F273900FDC891 /* GameScene.cpp */,
 				040B161F1A2F273900FDC891 /* GameScene.h */,
 				040B16231A2F2A5700FDC891 /* Kiki.cpp */,
@@ -492,6 +501,8 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A4CB43DD1A4035CD00890E53 /* titleBk.png */,
+				A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */,
 				A4BB07331A39BCAE00991DCE /* house1.png */,
 				A4BB07341A39BCAE00991DCE /* house2.png */,
 				A4D549661A31BF6E0066858C /* gameBg.png */,
@@ -676,6 +687,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4CB43DF1A40361F00890E53 /* MagicSchoolOne.ttf in Resources */,
 				A4BB07321A39A23000991DCE /* bad.plist in Resources */,
 				A4BB07311A39A23000991DCE /* bad.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
@@ -689,6 +701,7 @@
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				A4BB074B1A3AC10D00991DCE /* tree.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				A4CB43DE1A4035CD00890E53 /* titleBk.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				A4BB071A1A3976A800991DCE /* kiki_down_shadow.png in Resources */,
@@ -729,6 +742,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */,
+				A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				040B16201A2F273900FDC891 /* GameScene.cpp in Sources */,
 				A4E4855A1A2F4F2200780AF3 /* TitleScene.cpp in Sources */,
