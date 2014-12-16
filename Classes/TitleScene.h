@@ -10,6 +10,13 @@ protected:
     //1フレームごとに呼ばれる。
     void update(float frame );
     
+    //スタートボタンの設定
+    void setStartBt();
+    
+    //コールバック処理
+    void startCallback(cocos2d::Ref *pSender);
+    
+    
 public:
     
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
