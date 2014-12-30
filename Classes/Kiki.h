@@ -10,7 +10,7 @@
 #define __WitchRace__Kiki__
 
 #include "cocos2d.h"
-#include "Zpositions.h"
+#include "Zorder.h"
 
 
 using namespace cocos2d;
