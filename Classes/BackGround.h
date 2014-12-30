@@ -10,7 +10,7 @@
 #define __WitchRace__BackGround__
 #include "GameScene.h"
 #include "cocos2d.h"
-#include "Zpositions.h"
+#include "Zorder.h"
 
 using namespace cocos2d;
 

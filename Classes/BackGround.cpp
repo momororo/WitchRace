@@ -57,7 +57,7 @@ BackGround::BackGround(){
     //StaticBackGround
     staticBackGround = Sprite::create("gameBg.png");
     staticBackGround->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
-    staticBackGround->setPositionZ(zPositionOfStaticBackGround);
+    staticBackGround->setGlobalZOrder(zOrderOfStaticBackGround);
     
 
     
@@ -67,7 +67,7 @@ BackGround::BackGround(){
     backGround1->setTextureRect(Rect(0,0,1280,1136));
     backGround1->setOpacity(0);
     backGround1->setPosition(Vec2(selfFrame.width, selfFrame.height/2));
-    backGround1->setPositionZ(zPositionOfBackGround);
+    backGround1->setGlobalZOrder(zOrderOfBackGround);
     
     //物理体の生成
     auto backGround1Material = PHYSICSBODY_MATERIAL_DEFAULT;
@@ -92,7 +92,7 @@ BackGround::BackGround(){
     backGround2->setTextureRect(Rect(0,0,1280,1136));
     backGround2->setOpacity(0);
     backGround2->setPosition(Vec2(selfFrame.width*3, selfFrame.height/2));
-    backGround2->setPositionZ(zPositionOfBackGround);
+    backGround2->setGlobalZOrder(zOrderOfBackGround);
     
     //物理体の設定
     auto backGround2Material = PHYSICSBODY_MATERIAL_DEFAULT;
@@ -228,7 +228,7 @@ void BackGround::replaceBackGround(){
     //乱数により位置をランダムにしてみる(参考)
     auto randYPosition = arc4random_uniform(5) + 1;
     bad -> setPosition(Vec2(backGround->getContentSize().width/2,backGround->getContentSize().height/(randYPosition)));
-    bad -> setPositionZ(zPositionOfBad);
+    bad -> setGlobalZOrder(zOrderOfBad);
 
 
 #pragma mark -

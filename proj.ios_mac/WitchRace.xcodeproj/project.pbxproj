@@ -235,7 +235,7 @@
 		040B16241A2F2A5700FDC891 /* Kiki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kiki.h; path = ../Classes/Kiki.h; sourceTree = "<group>"; };
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
 		04C9CBD91A30608300E51608 /* BackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackGround.h; path = ../Classes/BackGround.h; sourceTree = "<group>"; };
-		04C9CBDF1A30821500E51608 /* Zpositions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Zpositions.h; path = ../Classes/Zpositions.h; sourceTree = "<group>"; };
+		04DE3B0B1A5254960041D387 /* Zorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zorder.h; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
@@ -379,13 +379,13 @@
 				A4E485591A2F4F2200780AF3 /* TitleScene.h */,
 				A4CB43E31A403CFF00890E53 /* StorySelect.cpp */,
 				A4CB43E41A403CFF00890E53 /* StorySelect.h */,
+				04DE3B0B1A5254960041D387 /* Zorder.h */,
 				040B161E1A2F273900FDC891 /* GameScene.cpp */,
 				040B161F1A2F273900FDC891 /* GameScene.h */,
 				040B16231A2F2A5700FDC891 /* Kiki.cpp */,
 				040B16241A2F2A5700FDC891 /* Kiki.h */,
 				04C9CBD81A30608300E51608 /* BackGround.cpp */,
 				04C9CBD91A30608300E51608 /* BackGround.h */,
-				04C9CBDF1A30821500E51608 /* Zpositions.h */,
 			);
 			name = Classes;
 			path = ../classes;
