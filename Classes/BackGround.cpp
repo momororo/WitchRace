@@ -180,27 +180,54 @@ void BackGround::replaceBackGround(){
     //初回のみスプライト生成(init時に生成して、hideさせられるならその処理に変更すること)
     if(backGround->getChildByName("bad") == NULL){
         
-        //コウモリのスプライトを作成
-        Sprite *bad = Sprite::createWithSpriteFrameName("bad_1.png");
-        bad->setName("bad");
-        backGround -> addChild(bad);
         
+        //physicsbody用
+        Sprite *badForPhysics = Sprite::createWithSpriteFrameName("bad_1.png");
+        //透明に
+        badForPhysics->setOpacity(255);
+        badForPhysics->setName("badForPhysics");
+
+
         //物理体の設定
         auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-        auto badBody = PhysicsBody::createCircle((bad->getContentSize().width/2),badMaterial);
+        auto badBody = PhysicsBody::createCircle((badForPhysics->getContentSize().width/2),badMaterial);
         //重力による影響の可否
         badBody->setGravityEnable(false);
         //まじない
         badBody->setDynamic(false);
-        badBody->setEnable(true);
-        
+        badBody->setEnable(false);
+/*
         //カテゴリビットマスク
         badBody->setCategoryBitmask(0x02);
         badBody->setCollisionBitmask(0);
         badBody->setContactTestBitmask(0x01);
+    */
+        //カテゴリビットマスク
+        badBody->setCategoryBitmask(0);
+        badBody->setCollisionBitmask(0);
+        badBody->setContactTestBitmask(0);
 
+        
         //追加
- //       bad->setPhysicsBody(badBody);
+        badForPhysics->setPhysicsBody(badBody);
+
+        backGround->addChild(badForPhysics);
+ 
+        //乱数により位置をランダムにしてみる(参考)
+        auto randYPosition = arc4random_uniform(5) + 1;
+        badForPhysics -> setPosition(Vec2(backGround->getContentSize().width/2,backGround->getContentSize().height/(randYPosition)));
+        badForPhysics -> setGlobalZOrder(zOrderOfBad);
+
+
+/*
+        //コウモリのスプライトを作成
+        Sprite *bad = Sprite::createWithSpriteFrameName("bad_1.png");
+        bad->setName("bad");
+        badForPhysics -> addChild(bad);
+        
+        //position
+        bad->setPosition(bad->getContentSize().width/2,bad->getContentSize().height/2);
+        
 
     
         //アニメーション用配列を用意
@@ -212,6 +239,8 @@ void BackGround::replaceBackGround(){
             std::string badName = StringUtils::format("bad_%i.png",i);
             SpriteFrame *spBadFrame = SpriteFrameCache::getInstance()-> getSpriteFrameByName(badName.c_str());
             badFrames -> pushBack(spBadFrame);
+            
+
         }
         
         //アニメーションの設定
@@ -220,15 +249,10 @@ void BackGround::replaceBackGround(){
         RepeatForever *repeat = RepeatForever::create(badAnimate);
         bad -> runAction(repeat);
         delete badFrames;
+ */
         
     }
-    
-    //ポジションの設定
-    auto bad = backGround->getChildByName("bad");
-    //乱数により位置をランダムにしてみる(参考)
-    auto randYPosition = arc4random_uniform(5) + 1;
-    bad -> setPosition(Vec2(backGround->getContentSize().width/2,backGround->getContentSize().height/(randYPosition)));
-    bad -> setGlobalZOrder(zOrderOfBad);
+
 
 
 #pragma mark -
@@ -236,6 +260,8 @@ void BackGround::replaceBackGround(){
     
     //ポジションの設定
     backGround->setPosition(Vec2(backGrounds->at(backGrounds->size()-1)->getPosition().x + backGrounds->at(backGrounds->size()-1)->getContentSize().width/2 + backGround->getContentSize().width/2,backGrounds->at(backGrounds->size()-1)->getPositionY()));
+
+    
     
     
     //配列の末尾に入れなおす
@@ -262,6 +288,12 @@ void BackGround::backGroundUpdate(){
     if(gamePlayFlag !=  true){
         return;
     }
+    
+    if(backGrounds->at(0)->getChildByName("badForPhysics") != NULL){
+        Node* bad = backGrounds->at(0)->getChildByName("badForPhysics");
+        CCLOG("xは%f、yは%f",bad->getPositionX(),bad->getPositionY());
+    }
+    
     
     //地面の移動を行う
     for(int idx = 0; idx < backGrounds->size();idx++){

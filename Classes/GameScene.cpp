@@ -211,6 +211,8 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
  
 // auto nodeA = contact.getShapeA()->getBody()->getNode();
 // auto nodeB = contact.getShapeB()->getBody()->getNode();
+     
+     CCLog("イベント走りました");
  
  return true;
  }

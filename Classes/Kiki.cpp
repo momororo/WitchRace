@@ -85,7 +85,7 @@ Kiki::Kiki(){
     kiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
     
     //zポジションの設定
-    kiki->setPositionZ(zPositionOfKiki);
+    kiki->setGlobalZOrder(zOrderOfKiki);
     
     //タグつけ
     kiki->setName("kiki");
