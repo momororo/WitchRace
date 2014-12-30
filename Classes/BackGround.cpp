@@ -71,7 +71,7 @@ BackGround::BackGround(){
     
     //物理体の生成
     auto backGround1Material = PHYSICSBODY_MATERIAL_DEFAULT;
-    auto backGround1Body = PhysicsBody::createCircle((backGround1->getContentSize().width/2),backGround1Material);
+    auto backGround1Body = PhysicsBody::createBox(Size((backGround1->getContentSize().width),selfFrame.height/8),backGround1Material);
     //重力による影響の可否
     backGround1Body->setGravityEnable(false);
     //まじない
@@ -96,7 +96,7 @@ BackGround::BackGround(){
     
     //物理体の設定
     auto backGround2Material = PHYSICSBODY_MATERIAL_DEFAULT;
-    auto backGround2Body = PhysicsBody::createCircle((backGround1->getContentSize().width/2),backGround2Material);
+    auto backGround2Body = PhysicsBody::createBox(Size((backGround1->getContentSize().width),selfFrame.height/8),backGround2Material);
     //重力による影響の可否
     backGround2Body->setGravityEnable(false);
     //まじない
@@ -120,15 +120,16 @@ BackGround::BackGround(){
     auto house1 = Sprite::create("house1.png");
     
     house1->setPosition(Vec2(house1->getContentSize().width/2,house1->getContentSize().height/2));
+    house1->setOpacity(150);
     
     backGrounds->at(0)->addChild(house1);
     
     auto house2 = Sprite::create("house1.png");
     
     house2->setPosition(Vec2(house2->getContentSize().width/2,house2->getContentSize().height/2));
+    house2->setOpacity(150);
     
     backGrounds->at(1)->addChild(house2);
-    
     
     
     //最初のスプライトを入れる終

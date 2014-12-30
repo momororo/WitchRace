@@ -164,7 +164,10 @@ void StorySelect::setStory1(){
     
     //pMenuを画面中央に配置
     startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
+    startMenu->setName("startMenu");
     this->addChild(startMenu);
+    
+    nextScene = true;
     
     
     
@@ -173,7 +176,17 @@ void StorySelect::setStory1(){
 void StorySelect::story1CallBack(cocos2d::Ref *pSender){
     
     //Director::getInstance()->replaceScene(GameScene::createScene());
-    Director::getInstance()->replaceScene(TransitionFade::create(2, GameScene::createScene(), Color3B::WHITE));
+    if (nextScene == true) {
+    
+        Director::getInstance()->replaceScene(TransitionFade::create(2, GameScene::createScene(), Color3B::WHITE));
+        nextScene = false;
+        
+    }else{
+        
+        return;
+    
+    }
+    
 }
 
 void StorySelect::setBackBt(){

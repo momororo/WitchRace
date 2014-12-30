@@ -48,6 +48,8 @@ public:
     void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event);
     void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event);
     
+    bool nextScene;
+    
     //配列を使う場合
     //cocos2d::Vector<cocos2d::Sprite*>dropVector = cocos2d::Vector<cocos2d::Sprite*>();
     

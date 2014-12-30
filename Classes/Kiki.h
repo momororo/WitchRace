@@ -12,7 +12,10 @@
 #include "cocos2d.h"
 #include "Zpositions.h"
 
+
 using namespace cocos2d;
+
+
 
 class Kiki : public cocos2d::Sprite
 {
@@ -62,6 +65,9 @@ public:
     
     //キキちゃんの動作停止
     void stopKiki();
+    
+    bool getGamePlayFlag();
+    
 
 
 };

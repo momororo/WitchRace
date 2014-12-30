@@ -57,6 +57,11 @@ void Kiki::stopKiki(){
     
 }
 
+bool Kiki::getGamePlayFlag(){
+    
+    return gamePlayFlag;
+
+}
 
 
 //キキちゃんの初期設定
@@ -78,14 +83,15 @@ Kiki::Kiki(){
     kikiShadow->setOpacity(180);
     
     //影の大きさ(実体のスケールをgetしてます)※特にスケールせずにぴったり入りました(謎)
-    //    kikiShadow -> setScale(kiki->getScale());
+    //kikiShadow -> setScale(kiki->getScale());
 
     
     //ポジションの設定
     kiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
     
     //zポジションの設定
-    kiki->setPositionZ(zPositionOfKiki);
+    kiki->setGlobalZOrder(zPositionOfKiki);
+    
     
     //タグつけ
     kiki->setName("kiki");
@@ -96,20 +102,37 @@ Kiki::Kiki(){
     //物理体の生成
     auto kikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     auto kikiBody = PhysicsBody::createCircle((kiki->getContentSize().width/2),kikiMaterial);
+
+    
+    /*
+    Point spritePoints[5]={
+        
+        Vec2(-30,-30),Vec2(-40,0),Vec2(-4,40),Vec2(30,30),Vec2(6,-20)
+    
+    };
+    
+    auto kikiBody = PhysicsBody::createPolygon(spritePoints, 5,kikiMaterial);
+     */
+
+    
     //重力による影響の可否
     kikiBody->setGravityEnable(false);
     //まじない
     kikiBody->setDynamic(true);
-    kikiBody->setEnable(false);
+    kikiBody->setEnable(true);
     
+
     //ビットマスクはてきとう
     kikiBody->setCategoryBitmask(0x01);
     kikiBody->setCollisionBitmask(0);
     kikiBody->setContactTestBitmask(0x02);
     
     kiki->setPhysicsBody(kikiBody);
-
-
+    
+    auto particle = ParticleSystemQuad::create("particleFlower.plist");
+    kiki
+    -> addChild(particle);
+    
 }
 
 
@@ -130,7 +153,6 @@ void Kiki::kikiUpdate(){
                 kikiShadow->setOpacity(255);
             }
 
-            
             //画像の交換(下降画像の場合のみ)
             if(kiki->getTag() == 0){
 
@@ -184,6 +206,7 @@ void Kiki::kikiUpdate(){
                 pGravity -= 5;
                 
             }
+            
             kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             
             

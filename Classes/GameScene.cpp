@@ -65,6 +65,13 @@ bool GameScene::init()
     //イベントディスパッチャようにリスナーを追加する
     _eventDispatcher -> addEventListenerWithSceneGraphPriority(listener, this);
     
+    auto upperWall = Sprite::create();
+    upperWall -> setTextureRect(Rect(0, 0, selfFrame.width, 2));
+    upperWall -> setPosition(Vec2(selfFrame.width/2,selfFrame.height));//+upperWall->getContentSize().height/2));
+    upperWall->setColor(Color3B::YELLOW);
+    
+    auto pUpperBody = PhysicsBody::create();
+    
     
     
     
@@ -146,10 +153,14 @@ bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
     
     //デバッグ
     BackGround::getInstance()->startBackGround();
-    Kiki::getInstance()->startKiki();
+    //Kiki::getInstance()->startKiki();
     //デバッグ終
-
-
+    
+    if (Kiki::getInstance()->getGamePlayFlag() == false) {
+        
+        Kiki::getInstance()->startKiki();
+        
+    }
     
     //ポイントの取得
     Point touchPoint = Vec2(touch->getLocation().x,touch->getLocation().y);
@@ -208,9 +219,13 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
  #pragma mark-
  #pragma mark 衝突判定
  bool GameScene::onContactBegin(cocos2d::PhysicsContact& contact){
+     
+     
+     auto nodeA = contact.getShapeA()->getBody()->getNode();
+     auto nodeB = contact.getShapeB()->getBody()->getNode();
+    
  
-// auto nodeA = contact.getShapeA()->getBody()->getNode();
-// auto nodeB = contact.getShapeB()->getBody()->getNode();
+     
  
  return true;
  }
