@@ -212,7 +212,10 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
 // auto nodeA = contact.getShapeA()->getBody()->getNode();
 // auto nodeB = contact.getShapeB()->getBody()->getNode();
      
-     CCLog("イベント走りました");
+
+     //ゲームオーバーの処理へ
+     makeGameOver();
+     
  
  return true;
  }
@@ -237,3 +240,19 @@ void GameScene::update( float frame )
     
 }
 
+void GameScene::makeGameOver(){
+    
+    //キキの処理
+        /**
+         *  キキのスプライトを消してパーティクルを飛ばす
+         */
+    
+    //背景の処理
+    
+    BackGround::getInstance()->stopBackGround();
+    
+    //gameOver画面の生成
+    
+    
+    
+}
