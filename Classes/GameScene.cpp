@@ -67,12 +67,22 @@ bool GameScene::init()
     
     auto upperWall = Sprite::create();
     upperWall -> setTextureRect(Rect(0, 0, selfFrame.width, 2));
-    upperWall -> setPosition(Vec2(selfFrame.width/2,selfFrame.height));//+upperWall->getContentSize().height/2));
+    upperWall -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/3));//+upperWall->getContentSize().height/2));
     upperWall->setColor(Color3B::YELLOW);
     
-    auto pUpperBody = PhysicsBody::create();
+    auto upperBody = PhysicsBody::create();
+    //重力による影響の可否
+    upperBody -> setDynamic(false);
+    upperBody -> setEnable(true);
     
+    //ビットマスクはてきとう
+    upperBody -> setCategoryBitmask(0x02);
+    upperBody -> setCollisionBitmask(0);
+    upperBody -> setContactTestBitmask(0x01);
     
+    upperWall -> setPhysicsBody(upperBody);
+    
+    this -> addChild(upperWall);
     
     
     
@@ -223,11 +233,14 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
      
      auto nodeA = contact.getShapeA()->getBody()->getNode();
      auto nodeB = contact.getShapeB()->getBody()->getNode();
+     
+     CCLOG("ぶつかったよー");
     
  
      
  
  return true;
+ 
  }
  
 #pragma mark-

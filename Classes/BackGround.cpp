@@ -190,27 +190,27 @@ void BackGround::replaceBackGround(){
 
 
         //物理体の設定
-        auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-        auto badBody = PhysicsBody::createCircle((badForPhysics->getContentSize().width/2),badMaterial);
+        //auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+        auto badBody = PhysicsBody::createBox(Size(100,100));//(badForPhysics->getContentSize().width/2),badMaterial);
         //重力による影響の可否
         badBody->setGravityEnable(false);
         //まじない
         badBody->setDynamic(false);
-        badBody->setEnable(false);
-/*
+        badBody->setEnable(true);
+
         //カテゴリビットマスク
         badBody->setCategoryBitmask(0x02);
         badBody->setCollisionBitmask(0);
         badBody->setContactTestBitmask(0x01);
-    */
+    /*
         //カテゴリビットマスク
         badBody->setCategoryBitmask(0);
         badBody->setCollisionBitmask(0);
         badBody->setContactTestBitmask(0);
-
-        
+*/
+    
         //追加
-        badForPhysics->setPhysicsBody(badBody);
+        //badForPhysics->setPhysicsBody(badBody);
 
         backGround->addChild(badForPhysics);
  
@@ -292,7 +292,7 @@ void BackGround::backGroundUpdate(){
     
     if(backGrounds->at(0)->getChildByName("badForPhysics") != NULL){
         Node* bad = backGrounds->at(0)->getChildByName("badForPhysics");
-        CCLOG("xは%f、yは%f",bad->getPositionX(),bad->getPositionY());
+        //CCLOG("xは%f、yは%f",bad->getPositionX(),bad->getPositionY());
     }
     
     

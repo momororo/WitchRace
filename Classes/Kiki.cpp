@@ -90,7 +90,7 @@ Kiki::Kiki(){
     kiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
     
     //zポジションの設定
-    kiki->setGlobalZOrder(zPositionOfKiki);
+    kiki->setGlobalZOrder(zOrderOfKiki);
     
     
     //タグつけ
@@ -101,10 +101,10 @@ Kiki::Kiki(){
     
     //物理体の生成
     auto kikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-    auto kikiBody = PhysicsBody::createCircle((kiki->getContentSize().width/2),kikiMaterial);
+    //auto kikiBody = PhysicsBody::createCircle((kiki->getContentSize().width/2),kikiMaterial);
 
     
-    /*
+    
     Point spritePoints[5]={
         
         Vec2(-30,-30),Vec2(-40,0),Vec2(-4,40),Vec2(30,30),Vec2(6,-20)
@@ -112,7 +112,7 @@ Kiki::Kiki(){
     };
     
     auto kikiBody = PhysicsBody::createPolygon(spritePoints, 5,kikiMaterial);
-     */
+    
 
     
     //重力による影響の可否
