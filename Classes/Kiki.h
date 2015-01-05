@@ -41,6 +41,8 @@ private:
     //ゲームプレイフラグ
     bool gamePlayFlag = false;
     
+    bool gameOverFlag = false;
+    
     ParticleSystemQuad* endParticle;
 
     
@@ -76,7 +78,9 @@ public:
     void stopKiki();
     
     bool getGamePlayFlag();
-    
+
+    bool getGameOverFlag();
+
     
     //gameOverの処理
     void makeGameOver();

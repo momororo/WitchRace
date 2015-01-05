@@ -170,14 +170,13 @@ bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
     //スワイプ中の処理
     CCLOG("touchBegan");
     
-    //デバッグ
-    BackGround::getInstance()->startBackGround();
-    //Kiki::getInstance()->startKiki();
-    //デバッグ終
     
-    if (Kiki::getInstance()->getGamePlayFlag() == false) {
+    if (Kiki::getInstance()->getGamePlayFlag() == false && Kiki::getInstance()->getGameOverFlag() == false) {
         
         Kiki::getInstance()->startKiki();
+        
+        BackGround::getInstance()->startBackGround();
+
         
     }
     
@@ -279,8 +278,6 @@ void GameScene::update( float frame )
 
 void GameScene::makeGameOver(){
     
-    //アンスケジュール
-    this->unscheduleUpdate();
     
     //キキちゃんのgameOver処理
     Kiki::getInstance()->makeGameOver();

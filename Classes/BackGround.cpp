@@ -202,7 +202,7 @@ void BackGround::replaceBackGround(){
         
         //物理体の設定
         auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-        auto badBody = PhysicsBody::createCircle((bad->getContentSize().width/2),badMaterial);
+        auto badBody = PhysicsBody::createBox(bad->getContentSize()*0.9,badMaterial);
         
         //重力による影響の可否
         badBody->setGravityEnable(false);
@@ -269,6 +269,12 @@ void BackGround::replaceBackGround(){
     
 }
 
+void BackGround::makeGameOver(){
+    
+    gamePlayFlag = false;
+    
+    gameOverFlag = true;
+}
 
 //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
 void BackGround::backGroundUpdate(){
@@ -278,10 +284,6 @@ void BackGround::backGroundUpdate(){
         return;
     }
     
-    if(backGrounds->at(0)->getChildByName("badForPhysics") != NULL){
-        Node* bad = backGrounds->at(0)->getChildByName("badForPhysics");
-        //CCLOG("xは%f、yは%f",bad->getPositionX(),bad->getPositionY());
-    }
     
     
     //地面の移動を行う

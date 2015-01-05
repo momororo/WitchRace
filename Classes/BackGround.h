@@ -33,6 +33,8 @@ private:
     //プレイフラグ
     bool gamePlayFlag = false;
     
+    bool gameOverFlag = false;
+    
     
 //メソッド
     //コンストラクタ(初期化)
@@ -64,6 +66,9 @@ public:
     
     //backGroundの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
     void backGroundUpdate();
+    
+    //
+    void makeGameOver();
     
     CREATE_FUNC(BackGround);
 

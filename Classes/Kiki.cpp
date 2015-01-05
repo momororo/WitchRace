@@ -68,6 +68,12 @@ bool Kiki::getGamePlayFlag(){
 
 }
 
+bool Kiki::getGameOverFlag(){
+    
+    return gameOverFlag;
+}
+
+
 
 //キキちゃんの初期設定
 Kiki::Kiki(){
@@ -168,7 +174,10 @@ Kiki::Kiki(){
 void Kiki::makeGameOver(){
     
     //ゲームプレイのフラグをオフに
-    gamePlayFlag=false;
+    gamePlayFlag = false;
+    
+    //ゲームオーバーのフラグをオンに
+    gameOverFlag = true;
     
     //パーティクルの設定
     endParticle->setAutoRemoveOnFinish(true);
