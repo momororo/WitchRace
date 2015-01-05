@@ -34,6 +34,9 @@ public:
     //1フレーム毎の処理
     void update(float delta);
     
+    //GameOverの処理を実装
+    void makeGameOver();
+    
 };
 
 #endif /* defined(__WitchRace__GameScene__) */
