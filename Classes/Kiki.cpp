@@ -106,8 +106,8 @@ Kiki::Kiki(){
     
     
     Point spritePoints[5]={
-        
-        Vec2(-30,-30),Vec2(-40,0),Vec2(-4,40),Vec2(30,30),Vec2(6,-20)
+    
+        Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
     
     };
     

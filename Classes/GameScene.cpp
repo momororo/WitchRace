@@ -259,6 +259,7 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
      CCLOG("ぶつかったよー");
      
      auto particle = ParticleSystemQuad::create("particleFlower.plist");
+     particle ->setPosition(0,0);
      Kiki::getInstance()->getKiki() -> addChild(particle);
     
  
