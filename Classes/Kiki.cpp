@@ -123,7 +123,6 @@ Kiki::Kiki(){
     //まじない
     kikiBody->setDynamic(true);
     kikiBody->setEnable(true);
-    
 
     //ビットマスクはてきとう
     kikiBody->setCategoryBitmask(0x01);
