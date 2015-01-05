@@ -227,7 +227,7 @@ void Kiki::kikiUpdate(){
                 
             }else{
                 
-                pGravity+= 8;
+                pGravity+= 15;
                 
             }
             
@@ -263,7 +263,7 @@ void Kiki::kikiUpdate(){
                 
             }else{
                 
-                pGravity -= 5;
+                pGravity -= 10;
                 
             }
             

@@ -1077,7 +1077,15 @@ void Node::removeChildByName(const std::string &name, bool cleanup)
     CCASSERT(name.length() != 0, "Invalid name");
     
     Node *child = this->getChildByName(name);
+  
+    //修正(対象のnameのスプライトが消えるまでループ)
+    while (child != nullptr) {
+        this->removeChild(child, cleanup);
+        child = this->getChildByName(name);
+    }
     
+    
+/*
     if (child == nullptr)
     {
         CCLOG("cocos2d: removeChildByName(name = %s): child not found!", name.c_str());
@@ -1086,6 +1094,7 @@ void Node::removeChildByName(const std::string &name, bool cleanup)
     {
         this->removeChild(child, cleanup);
     }
+*/
 }
 
 void Node::removeAllChildren()

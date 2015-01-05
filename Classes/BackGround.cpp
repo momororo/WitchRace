@@ -137,10 +137,6 @@ BackGround::BackGround(){
     backGrounds->at(1)->addChild(house2);
     
     
-    //最初のスプライトを入れる終
-    
-    //コウモリの画像をキャッシュしておく
-    SpriteFrameCache::getInstance() -> addSpriteFramesWithFile("bad.plist");
 
 
     
@@ -182,68 +178,7 @@ void BackGround::replaceBackGround(){
     
 #pragma mark -
 #pragma mark ここにスプライトを乗っけ直す処理を入れる
-
-    //初回のみスプライト生成(init時に生成して、hideさせられるならその処理に変更すること)
-    if(backGround->getChildByName("bad") == NULL){
-        
-
-
-        //コウモリのスプライトを作成
-        Sprite *bad = Sprite::createWithSpriteFrameName("bad_1.png");
-        bad->setName("bad");
-        
-        //乱数により位置をランダムにしてみる(参考)
-        auto randYPosition = arc4random_uniform(5) + 1;
-        bad -> setPosition(Vec2(backGround->getContentSize().width/2,backGround->getContentSize().height/(randYPosition)));
-        bad -> setGlobalZOrder(zOrderOfBad);
-        
-
-        backGround->addChild(bad);
-        
-        //物理体の設定
-        auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-        auto badBody = PhysicsBody::createBox(bad->getContentSize()*0.9,badMaterial);
-        
-        //重力による影響の可否
-        badBody->setGravityEnable(false);
-        //まじない
-        badBody->setDynamic(false);
-        badBody->setEnable(true);
-
-        //カテゴリビットマスク
-        badBody->setCategoryBitmask(0x02);
-        badBody->setCollisionBitmask(0);
-        badBody->setContactTestBitmask(0x01);
-        
-        //Bodyの追加
-        bad->setPhysicsBody(badBody);
-
-    
-        //アニメーション用配列を用意
-        auto  badFrames = new Vector<SpriteFrame*>();
-        
-        //画像２枚を配列にセットする
-        //画像をすべて(2枚)を取り出せるよう、ループ文を使用
-        for (int i = 1; i < 3;i++ ) {
-            std::string badName = StringUtils::format("bad_%i.png",i);
-            SpriteFrame *spBadFrame = SpriteFrameCache::getInstance()-> getSpriteFrameByName(badName.c_str());
-            badFrames -> pushBack(spBadFrame);
-            
-
-        }
-        
-        //アニメーションの設定
-        Animation *badAnimation = Animation::createWithSpriteFrames(*badFrames,0.1f);
-        Animate *badAnimate = Animate::create(badAnimation);
-        RepeatForever *repeat = RepeatForever::create(badAnimate);
-        bad -> runAction(repeat);
-        delete badFrames;
- 
-        
-    }
-
-
-
+    Enemy::getInstance()->addEnemyManager(backGround);
 #pragma mark -
     
     
@@ -289,7 +224,7 @@ void BackGround::backGroundUpdate(){
     //地面の移動を行う
     for(int idx = 0; idx < backGrounds->size();idx++){
 //        backGrounds->at(idx)->getPhysicsBody()->setVelocity(Vec2(-500,0));
-        backGrounds->at(idx)->setPosition(backGrounds->at(idx)->getPositionX() - 20, backGrounds->at(idx)->getPositionY());
+        backGrounds->at(idx)->setPosition(backGrounds->at(idx)->getPositionX() - 5, backGrounds->at(idx)->getPositionY());
 
     }
     
