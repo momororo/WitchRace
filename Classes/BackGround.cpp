@@ -68,7 +68,7 @@ BackGround::BackGround(){
     backGround1->setOpacity(0);
     backGround1->setPosition(Vec2(selfFrame.width, selfFrame.height/2));
     backGround1->setGlobalZOrder(zOrderOfBackGround);
-    
+/*
     //物理体の生成
     auto backGround1Material = PHYSICSBODY_MATERIAL_DEFAULT;
     auto backGround1Body = PhysicsBody::createBox(Size((backGround1->getContentSize().width),selfFrame.height/8),backGround1Material);
@@ -84,7 +84,7 @@ BackGround::BackGround(){
     backGround1Body->setContactTestBitmask(0);
     
     backGround1->setPhysicsBody(backGround1Body);
-
+*/
     
     //backGround2を設定
     //背景色
@@ -93,7 +93,7 @@ BackGround::BackGround(){
     backGround2->setOpacity(0);
     backGround2->setPosition(Vec2(selfFrame.width*3, selfFrame.height/2));
     backGround2->setGlobalZOrder(zOrderOfBackGround);
-    
+/*
     //物理体の設定
     auto backGround2Material = PHYSICSBODY_MATERIAL_DEFAULT;
     auto backGround2Body = PhysicsBody::createBox(Size((backGround1->getContentSize().width),selfFrame.height/8),backGround2Material);
@@ -109,7 +109,7 @@ BackGround::BackGround(){
     backGround2Body->setContactTestBitmask(0);
     
     backGround2->setPhysicsBody(backGround2Body);
-    
+*/
     //配列に入れておく
     backGrounds->pushBack(backGround1);
     backGrounds->pushBack(backGround2);
@@ -181,14 +181,20 @@ void BackGround::replaceBackGround(){
     //初回のみスプライト生成(init時に生成して、hideさせられるならその処理に変更すること)
     if(backGround->getChildByName("bad") == NULL){
         
+
+
+        //コウモリのスプライトを作成
+        Sprite *bad = Sprite::createWithSpriteFrameName("bad_1.png");
+        bad->setName("bad");
         
-        //physicsbody用
-        Sprite *badForPhysics = Sprite::createWithSpriteFrameName("bad_1.png");
-        //透明に
-        badForPhysics->setOpacity(255);
-        badForPhysics->setName("badForPhysics");
+        //乱数により位置をランダムにしてみる(参考)
+        auto randYPosition = arc4random_uniform(5) + 1;
+        bad -> setPosition(Vec2(backGround->getContentSize().width/2,backGround->getContentSize().height/(randYPosition)));
+        bad -> setGlobalZOrder(zOrderOfBad);
+        
 
-
+        backGround->addChild(bad);
+        
         //物理体の設定
         //auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
         auto badBody = PhysicsBody::createBox(Size(100,100));//(badForPhysics->getContentSize().width/2),badMaterial);
@@ -229,6 +235,8 @@ void BackGround::replaceBackGround(){
         //position
         bad->setPosition(bad->getContentSize().width/2,bad->getContentSize().height/2);
         
+        //Bodyの追加
+        bad->setPhysicsBody(badBody);
 
     
         //アニメーション用配列を用意
@@ -250,7 +258,7 @@ void BackGround::replaceBackGround(){
         RepeatForever *repeat = RepeatForever::create(badAnimate);
         bad -> runAction(repeat);
         delete badFrames;
- */
+ 
         
     }
 
@@ -298,7 +306,9 @@ void BackGround::backGroundUpdate(){
     
     //地面の移動を行う
     for(int idx = 0; idx < backGrounds->size();idx++){
-        backGrounds->at(idx)->getPhysicsBody()->setVelocity(Vec2(-500,0));
+//        backGrounds->at(idx)->getPhysicsBody()->setVelocity(Vec2(-500,0));
+        backGrounds->at(idx)->setPosition(backGrounds->at(idx)->getPositionX() - 20, backGrounds->at(idx)->getPositionY());
+
     }
     
     //入れ替えの判定を行う
