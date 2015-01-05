@@ -30,6 +30,8 @@ private:
     //キキ影
     Sprite *kikiShadow;
     
+    Sprite *broom;
+    
     //タップされているか判定するフラグ
     bool tappedFlag = false;
     
