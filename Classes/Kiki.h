@@ -39,9 +39,14 @@ private:
     //ゲームプレイフラグ
     bool gamePlayFlag = false;
     
+    ParticleSystemQuad* endParticle;
+
+    
+    
 //メソッド
     //コンストラクタ(初期化)
     Kiki();
+    
     
     
 public:
@@ -53,6 +58,8 @@ public:
     
     //getter
     Sprite* getKiki();
+    
+
     
     //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
     void kikiUpdate();
@@ -67,6 +74,10 @@ public:
     void stopKiki();
     
     bool getGamePlayFlag();
+    
+    
+    //gameOverの処理
+    void makeGameOver();
     
 
 

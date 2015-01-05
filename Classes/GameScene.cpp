@@ -253,9 +253,6 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
  bool GameScene::onContactBegin(cocos2d::PhysicsContact& contact){
      
      
-     auto nodeA = contact.getShapeA()->getBody()->getNode();
-     auto nodeB = contact.getShapeB()->getBody()->getNode();
-     
      CCLOG("ぶつかったよー");
      
      auto particle = ParticleSystemQuad::create("particleFlower.plist");
@@ -295,10 +292,12 @@ void GameScene::update( float frame )
 
 void GameScene::makeGameOver(){
     
-    //キキの処理
-        /**
-         *  キキのスプライトを消してパーティクルを飛ばす
-         */
+    //アンスケジュール
+    this->unscheduleUpdate();
+    
+    //キキちゃんのgameOver処理
+    Kiki::getInstance()->makeGameOver();
+    
     
     //背景の処理
     
