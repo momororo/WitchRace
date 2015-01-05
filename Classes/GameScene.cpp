@@ -65,6 +65,7 @@ bool GameScene::init()
     //イベントディスパッチャようにリスナーを追加する
     _eventDispatcher -> addEventListenerWithSceneGraphPriority(listener, this);
     
+    /*************　　タッチイベント設定  終 ****************/
     
     /********************* 上下に壁を用意 ************************/
     //上の壁
@@ -105,7 +106,8 @@ bool GameScene::init()
     lowerWall -> setPhysicsBody(lowerBody);
     
     this -> addChild(lowerWall);
-    
+    /********************* 上下に壁を用意 終 ************************/
+
     
     
 /*
@@ -141,15 +143,6 @@ bool GameScene::init()
 */
     
     
-    
-    
-    
-    
-    
-    
-    /*************　　タッチイベント設定  終 ****************/
-    
-    
     /*************　  衝突イベント設定   ****************/
     
      auto contactListener = EventListenerPhysicsContact::create();
@@ -159,16 +152,10 @@ bool GameScene::init()
     
     /*************　  衝突イベント設定  終 ****************/
 
-
     
     this->scheduleUpdate();
     
 //イベント系処理終
-
-
-
-
-
     
     return true;
     
@@ -255,6 +242,9 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
      
      CCLOG("ぶつかったよー");
      
+     auto particle = ParticleSystemQuad::create("particleFlower.plist");
+     particle ->setPosition(0,0);
+     Kiki::getInstance()->getKiki() -> addChild(particle);
     
  
      

@@ -47,6 +47,7 @@ void Kiki::setTappedFlagOfKiki(bool flag){
 void Kiki::startKiki(){
     
     kiki->getPhysicsBody()->setEnable(true);
+    broom -> getPhysicsBody()-> setEnable(true);
     gamePlayFlag = true;
     
 }
@@ -55,6 +56,7 @@ void Kiki::startKiki(){
 void Kiki::stopKiki(){
     
     kiki->getPhysicsBody()->setEnable(false);
+    broom -> getPhysicsBody()-> setEnable(false);
     gamePlayFlag = false;
 
     
@@ -109,14 +111,12 @@ Kiki::Kiki(){
     
     
     Point spritePoints[5]={
-        
-        Vec2(-30,-30),Vec2(-40,0),Vec2(-4,40),Vec2(30,30),Vec2(6,-20)
+    
+        Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
     
     };
     
     auto kikiBody = PhysicsBody::createPolygon(spritePoints, 5,kikiMaterial);
-    
-
     
     //重力による影響の可否
     kikiBody->setGravityEnable(false);
@@ -131,15 +131,37 @@ Kiki::Kiki(){
     
     kiki->setPhysicsBody(kikiBody);
     
+    
+    //箒の設定
+    broom = Sprite::create();
+    broom -> setTextureRect(Rect(0, 0, 100, 100));
+    broom -> setPosition(0,0);
+    broom -> setColor(Color3B::YELLOW);
+    
+    auto broomMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+    
+    Point broomPoint[4]={
+        
+        Vec2(-25,-22),Vec2(-30,-20),Vec2(-22,0),Vec2(200,0)
+    
+    };
+    
+    auto broomBody = PhysicsBody::createEdgePolygon(broomPoint,4,broomMaterial);
+    broomBody -> setGravityEnable(false);
+    broomBody -> setDynamic(false);
+    broomBody -> setEnable(true);
+    
+    broom -> setPhysicsBody(broomBody);
+    
+    kiki -> addChild(broom);
+    
     endParticle = ParticleSystemQuad::create("particleFlower.plist");
     //retainしないと勝手に解放されて後々エラーへ
     endParticle->retain();
-
     
 }
 
 void Kiki::makeGameOver(){
-    
     
     //ゲームプレイのフラグをオフに
     gamePlayFlag=false;
@@ -152,7 +174,6 @@ void Kiki::makeGameOver(){
     //キキをremove
     kiki->removeFromParent();
 
-    
 }
 
 
@@ -162,16 +183,19 @@ void Kiki::kikiUpdate(){
     
     //ゲームプレイ中ではない場合は何もせず終了
     if(gamePlayFlag != true){
+        
         return;
+    
     }
     
     //タップされている場合は上昇！
         if (tappedFlag == true) {
             
-            
             //透明度を変更
             if(kikiShadow->getOpacity() != 255){
+            
                 kikiShadow->setOpacity(255);
+            
             }
 
             //画像の交換(下降画像の場合のみ)
@@ -181,6 +205,7 @@ void Kiki::kikiUpdate(){
                 kikiShadow->setTexture("kiki_up_shadow.png");
                 //タグを上昇状態へ変更
                 kiki->setTag(1);
+            
             }
             
             if (pGravity>1000) {
@@ -195,6 +220,7 @@ void Kiki::kikiUpdate(){
             
             
             kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             
         }else{
             
@@ -229,6 +255,8 @@ void Kiki::kikiUpdate(){
             }
             
             kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+
             
             
         }
