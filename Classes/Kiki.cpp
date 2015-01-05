@@ -134,22 +134,26 @@ Kiki::Kiki(){
     
     //箒の設定
     broom = Sprite::create();
-    broom -> setTextureRect(Rect(0, 0, 100, 100));
-    broom -> setPosition(0,0);
-    broom -> setColor(Color3B::YELLOW);
+    broom -> setTextureRect(Rect(0, 0, 10, 10));
+    broom -> setPosition(Vec2(0,0));
+    broom -> setVisible(false);
     
     auto broomMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     
-    Point broomPoint[4]={
+    Point broomPoint[3]={
         
-        Vec2(-25,-22),Vec2(-30,-20),Vec2(-22,0),Vec2(200,0)
+        Vec2(0,0), Vec2(0,40), Vec2(180,35),
     
     };
     
-    auto broomBody = PhysicsBody::createEdgePolygon(broomPoint,4,broomMaterial);
+    auto broomBody = PhysicsBody::createEdgePolygon(broomPoint,3,broomMaterial);
     broomBody -> setGravityEnable(false);
-    broomBody -> setDynamic(false);
-    broomBody -> setEnable(true);
+    broomBody -> setDynamic(true);
+    broomBody -> setEnable(false);
+    
+    broomBody ->setCategoryBitmask(0x01);
+    broomBody ->setCollisionBitmask(0);
+    broomBody ->setContactTestBitmask(0x02);
     
     broom -> setPhysicsBody(broomBody);
     
