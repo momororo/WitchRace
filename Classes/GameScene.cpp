@@ -263,6 +263,10 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
     
  
      
+
+     //ゲームオーバーの処理へ
+     makeGameOver();
+     
  
  return true;
  
