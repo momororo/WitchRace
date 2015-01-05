@@ -34,6 +34,9 @@ Sprite* Kiki::getKiki(){
     return kiki;
 }
 
+
+
+
 //キキちゃんのタップ状態の変更
 void Kiki::setTappedFlagOfKiki(bool flag){
     tappedFlag = flag;
@@ -129,7 +132,30 @@ Kiki::Kiki(){
     
     kiki->setPhysicsBody(kikiBody);
     
+    endParticle = ParticleSystemQuad::create("particleFlower.plist");
+    //retainしないと勝手に解放されて後々エラーへ
+    endParticle->retain();
+
+    
 }
+
+void Kiki::makeGameOver(){
+    
+    
+    //ゲームプレイのフラグをオフに
+    gamePlayFlag=false;
+    
+    //パーティクルの設定
+    endParticle->setAutoRemoveOnFinish(true);
+    endParticle->setPosition(kiki->getPosition());
+    //キキから親ノード(scene)取ってaddchild
+    kiki->getParent()->addChild(endParticle);
+    //キキをremove
+    kiki->removeFromParent();
+
+    
+}
+
 
 
 //キキちゃんの1フレーム毎の処理
