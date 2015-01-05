@@ -71,7 +71,9 @@ BackGround::BackGround(){
 /*
     //物理体の生成
     auto backGround1Material = PHYSICSBODY_MATERIAL_DEFAULT;
-    auto backGround1Body = PhysicsBody::createBox(Size((backGround1->getContentSize().width),selfFrame.height/8),backGround1Material);
+//    auto backGround1Body = PhysicsBody::createCircle((backGround1->getContentSize().width/2),backGround1Material);
+        auto backGround1Body = PhysicsBody::createCircle(0,backGround1Material);
+
     //重力による影響の可否
     backGround1Body->setGravityEnable(false);
     //まじない
@@ -96,7 +98,10 @@ BackGround::BackGround(){
 /*
     //物理体の設定
     auto backGround2Material = PHYSICSBODY_MATERIAL_DEFAULT;
-    auto backGround2Body = PhysicsBody::createBox(Size((backGround1->getContentSize().width),selfFrame.height/8),backGround2Material);
+    auto backGround2Body = PhysicsBody::createCircle((backGround1->getContentSize().width/2),backGround2Material);
+    
+    auto backGround2Body = PhysicsBody::createCircle(0,backGround2Material);
+
     //重力による影響の可否
     backGround2Body->setGravityEnable(false);
     //まじない
@@ -196,8 +201,9 @@ void BackGround::replaceBackGround(){
         backGround->addChild(bad);
         
         //物理体の設定
-        //auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-        auto badBody = PhysicsBody::createBox(Size(100,100));//(badForPhysics->getContentSize().width/2),badMaterial);
+        auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+        auto badBody = PhysicsBody::createCircle((bad->getContentSize().width/2),badMaterial);
+        
         //重力による影響の可否
         badBody->setGravityEnable(false);
         //まじない
@@ -208,32 +214,6 @@ void BackGround::replaceBackGround(){
         badBody->setCategoryBitmask(0x02);
         badBody->setCollisionBitmask(0);
         badBody->setContactTestBitmask(0x01);
-    /*
-        //カテゴリビットマスク
-        badBody->setCategoryBitmask(0);
-        badBody->setCollisionBitmask(0);
-        badBody->setContactTestBitmask(0);
-*/
-    
-        //追加
-        //badForPhysics->setPhysicsBody(badBody);
-
-        backGround->addChild(badForPhysics);
- 
-        //乱数により位置をランダムにしてみる(参考)
-        auto randYPosition = arc4random_uniform(5) + 1;
-        badForPhysics -> setPosition(Vec2(backGround->getContentSize().width/2,backGround->getContentSize().height/(randYPosition)));
-        badForPhysics -> setGlobalZOrder(zOrderOfBad);
-
-
-/*
-        //コウモリのスプライトを作成
-        Sprite *bad = Sprite::createWithSpriteFrameName("bad_1.png");
-        bad->setName("bad");
-        badForPhysics -> addChild(bad);
-        
-        //position
-        bad->setPosition(bad->getContentSize().width/2,bad->getContentSize().height/2);
         
         //Bodyの追加
         bad->setPhysicsBody(badBody);

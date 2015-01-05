@@ -129,10 +129,6 @@ Kiki::Kiki(){
     
     kiki->setPhysicsBody(kikiBody);
     
-    auto particle = ParticleSystemQuad::create("particleFlower.plist");
-    kiki
-    -> addChild(particle);
-    
 }
 
 

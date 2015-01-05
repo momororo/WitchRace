@@ -65,12 +65,14 @@ bool GameScene::init()
     //イベントディスパッチャようにリスナーを追加する
     _eventDispatcher -> addEventListenerWithSceneGraphPriority(listener, this);
     
+    
+    /********************* 上下に壁を用意 ************************/
+    //上の壁
     auto upperWall = Sprite::create();
     upperWall -> setTextureRect(Rect(0, 0, selfFrame.width, 2));
-    upperWall -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/3));//+upperWall->getContentSize().height/2));
-    upperWall->setColor(Color3B::YELLOW);
-    
-    auto upperBody = PhysicsBody::create();
+    upperWall -> setPosition(Vec2(selfFrame.width/2,selfFrame.height+upperWall->getContentSize().height/2));
+    auto upperBody = PhysicsBody::createBox(Size(upperWall->getContentSize()));
+
     //重力による影響の可否
     upperBody -> setDynamic(false);
     upperBody -> setEnable(true);
@@ -83,6 +85,26 @@ bool GameScene::init()
     upperWall -> setPhysicsBody(upperBody);
     
     this -> addChild(upperWall);
+    
+    //下の壁
+    auto lowerWall = Sprite::create();
+    lowerWall -> setTextureRect(Rect(0, 0, selfFrame.width, 2));
+    lowerWall -> setPosition(Vec2(selfFrame.width/2,-(lowerWall->getContentSize().height/2)));
+    
+    auto lowerBody = PhysicsBody::createBox(Size(upperWall->getContentSize()));
+    
+    //重力による影響の可否
+    lowerBody -> setDynamic(false);
+    lowerBody -> setEnable(true);
+    
+    //ビットマスクはてきとう
+    lowerBody -> setCategoryBitmask(0x02);
+    lowerBody -> setCollisionBitmask(0);
+    lowerBody -> setContactTestBitmask(0x01);
+    
+    lowerWall -> setPhysicsBody(lowerBody);
+    
+    this -> addChild(lowerWall);
     
     
     
@@ -235,6 +257,9 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
      auto nodeB = contact.getShapeB()->getBody()->getNode();
      
      CCLOG("ぶつかったよー");
+     
+     auto particle = ParticleSystemQuad::create("particleFlower.plist");
+     Kiki::getInstance()->getKiki() -> addChild(particle);
     
  
      
