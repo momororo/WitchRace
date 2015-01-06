@@ -108,7 +108,8 @@ auto addBad = [](){
         //コウモリのスプライトを予め作成
         Sprite *bad = Sprite::createWithSpriteFrameName("bad_1.png");
         bad->setName("enemy");
-        
+        bad->setGlobalZOrder(zOrderOfBad);
+    
         //物理体の設定
         auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
         auto badBody = PhysicsBody::createBox(bad->getContentSize()*0.9,badMaterial);
@@ -160,6 +161,7 @@ auto addtree = [](){
     //木のスプライトを作成
     Sprite *tree = Sprite::create("tree.png");
     tree->setName("enemy");
+    tree->setGlobalZOrder(zOrderOfBad);
     
     //物理体の設定
     auto treeMaterial = PHYSICSBODY_MATERIAL_DEFAULT;

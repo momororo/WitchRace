@@ -50,12 +50,19 @@ Sprite* BackGround::getBackGround2(){
     
 }
 
+//getter3
+Sprite* BackGround::getBackGround3(){
+    
+    return backGrounds->at(2);
+    
+}
+
 
 //コンストラクタ(初期化)
 BackGround::BackGround(){
     
     //StaticBackGround
-    staticBackGround = Sprite::create("gameBg.png");
+    staticBackGround = Sprite::create("gameBg_stage1.png");
     staticBackGround->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
     staticBackGround->setGlobalZOrder(zOrderOfStaticBackGround);
     
@@ -64,9 +71,9 @@ BackGround::BackGround(){
     //backGround1を設定
     //背景色
     auto backGround1 = Sprite::create();
-    backGround1->setTextureRect(Rect(0,0,1280,1136));
+    backGround1->setTextureRect(Rect(0,0,640,1136));
     backGround1->setOpacity(0);
-    backGround1->setPosition(Vec2(selfFrame.width, selfFrame.height/2));
+    backGround1->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
     backGround1->setGlobalZOrder(zOrderOfBackGround);
 /*
     //物理体の生成
@@ -91,9 +98,9 @@ BackGround::BackGround(){
     //backGround2を設定
     //背景色
     auto backGround2 = Sprite::create();
-    backGround2->setTextureRect(Rect(0,0,1280,1136));
+    backGround2->setTextureRect(Rect(0,0,640,1136));
     backGround2->setOpacity(0);
-    backGround2->setPosition(Vec2(selfFrame.width*3, selfFrame.height/2));
+    backGround2->setPosition(Vec2(selfFrame.width*3/2, selfFrame.height/2));
     backGround2->setGlobalZOrder(zOrderOfBackGround);
 /*
     //物理体の設定
@@ -115,30 +122,40 @@ BackGround::BackGround(){
     
     backGround2->setPhysicsBody(backGround2Body);
 */
+    auto backGround3 = Sprite::create();
+    backGround3->setTextureRect(Rect(0,0,640,1136));
+    backGround3->setOpacity(0);
+    backGround3->setPosition(Vec2(selfFrame.width*5/2, selfFrame.height/2));
+    backGround3->setGlobalZOrder(zOrderOfBackGround);
+    
     //配列に入れておく
     backGrounds->pushBack(backGround1);
     backGrounds->pushBack(backGround2);
+    backGrounds->pushBack(backGround3);
     
     
     
     //最初のスプライトを入れる
-    auto house1 = Sprite::create("house1.png");
+    auto village1 = Sprite::create("village_1.png");
     
-    house1->setPosition(Vec2(house1->getContentSize().width/2,house1->getContentSize().height/2));
-    house1->setOpacity(150);
+    village1->setPosition(Vec2(village1->getContentSize().width/2,village1->getContentSize().height/2));
+    //village1->setOpacity(150);
     
-    backGrounds->at(0)->addChild(house1);
+    backGrounds->at(0)->addChild(village1);
     
-    auto house2 = Sprite::create("house1.png");
+    auto village2 = Sprite::create("village_2.png");
     
-    house2->setPosition(Vec2(house2->getContentSize().width/2,house2->getContentSize().height/2));
-    house2->setOpacity(150);
+    village2->setPosition(Vec2(village2->getContentSize().width/2,village2->getContentSize().height/2));
+    //village2->setOpacity(150);
     
-    backGrounds->at(1)->addChild(house2);
+    backGrounds->at(1)->addChild(village2);
     
+    auto village3 = Sprite::create("village_3.png");
     
-
-
+    village3->setPosition(Vec2(village3->getContentSize().width/2,village3->getContentSize().height/2));
+    //village3->setOpacity(150);
+    
+    backGrounds->at(2)->addChild(village3);
     
 }
 
@@ -171,7 +188,7 @@ void BackGround::replaceBackGround(){
     
     //配列から取り出す
     Sprite* backGround = backGrounds->at(0);
- //   backGround->retain();
+    //backGround->retain();
     
     //配列から当該レイヤを削除
     backGrounds->erase(0);
@@ -224,12 +241,12 @@ void BackGround::backGroundUpdate(){
     //地面の移動を行う
     for(int idx = 0; idx < backGrounds->size();idx++){
 //        backGrounds->at(idx)->getPhysicsBody()->setVelocity(Vec2(-500,0));
-        backGrounds->at(idx)->setPosition(backGrounds->at(idx)->getPositionX() - 5, backGrounds->at(idx)->getPositionY());
+        backGrounds->at(idx)->setPosition(backGrounds->at(idx)->getPositionX() - 4, backGrounds->at(idx)->getPositionY());
 
     }
     
     //入れ替えの判定を行う
-    if(backGrounds->at(0)->getPosition().x < -(selfFrame.width)){
+    if(backGrounds->at(0)->getPosition().x < -(selfFrame.width/2)){
         //入れ替えを行う
         this->replaceBackGround();
     }

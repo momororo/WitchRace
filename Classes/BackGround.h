@@ -52,6 +52,9 @@ public:
     
     //getter2
     cocos2d::Sprite* getBackGround2();
+    //getter3
+    cocos2d::Sprite* getBackGround3();
+
     
     //staticGackGround
     cocos2d::Sprite* getStaticBackGround();

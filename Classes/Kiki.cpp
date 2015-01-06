@@ -128,7 +128,7 @@ Kiki::Kiki(){
     kikiBody->setGravityEnable(false);
     //まじない
     kikiBody->setDynamic(true);
-    kikiBody->setEnable(true);
+    kikiBody->setEnable(false);
 
     //ビットマスクはてきとう
     kikiBody->setCategoryBitmask(0x01);
