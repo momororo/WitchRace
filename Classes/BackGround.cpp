@@ -136,21 +136,30 @@ BackGround::BackGround(){
     
     
     //最初のスプライトを入れる
-    auto village1 = Sprite::create("village_1.png");
+    auto village1 = Sprite::create("forest_1.png");
+
+    //stage2
+    //auto village1 = Sprite::create("village_1.png");
     
     village1->setPosition(Vec2(village1->getContentSize().width/2,village1->getContentSize().height/2));
     //village1->setOpacity(150);
     
     backGrounds->at(0)->addChild(village1);
     
-    auto village2 = Sprite::create("village_2.png");
+    
+    auto village2 = Sprite::create("forest_2.png");
+
+    //stage2
+    //auto village2 = Sprite::create("village_2.png");
     
     village2->setPosition(Vec2(village2->getContentSize().width/2,village2->getContentSize().height/2));
     //village2->setOpacity(150);
     
     backGrounds->at(1)->addChild(village2);
     
-    auto village3 = Sprite::create("village_3.png");
+    auto village3 = Sprite::create("forest_3.png");
+    //stage2
+    //auto village3 = Sprite::create("village_3.png");
     
     village3->setPosition(Vec2(village3->getContentSize().width/2,village3->getContentSize().height/2));
     //village3->setOpacity(150);
