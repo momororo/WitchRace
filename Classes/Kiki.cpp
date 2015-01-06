@@ -169,6 +169,12 @@ Kiki::Kiki(){
     //retainしないと勝手に解放されて後々エラーへ
     endParticle->retain();
     
+    kikiParticle = ParticleSystemQuad::create("kikiparticle.plist");
+    kikiParticle->setAnchorPoint(Vec2(0.5f,0.5f));
+    kikiParticle->setPosition(Vec2(3,kiki->getContentSize().height/3-6));
+    kikiParticle->setName("kikiParticle");
+    kiki->addChild(kikiParticle);
+    
 }
 
 void Kiki::makeGameOver(){
@@ -203,6 +209,12 @@ void Kiki::kikiUpdate(){
     
     //タップされている場合は上昇！
         if (tappedFlag == true) {
+            
+            
+            
+            kikiParticle->cocos2d::ParticleSystem::setSpeed(500);
+            
+            
             
             //透明度を変更
             if(kikiShadow->getOpacity() != 255){
@@ -239,6 +251,11 @@ void Kiki::kikiUpdate(){
             
             
             //タップされていない場合は下降！
+        
+            kikiParticle->cocos2d::ParticleSystem::setSpeed(300);
+
+
+            
             
             //透明度を変更
             if(kikiShadow->getOpacity() != 180){
