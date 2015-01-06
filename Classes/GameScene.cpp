@@ -168,8 +168,6 @@ bool GameScene::init()
 #pragma mark タッチ判定
 bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
 
-    //スワイプ中の処理
-    CCLOG("touchBegan");
     
     
     if (Kiki::getInstance()->getGamePlayFlag() == false && Kiki::getInstance()->getGameOverFlag() == false) {
@@ -197,8 +195,6 @@ bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
 
 void GameScene::onTouchMoved(Touch *touch, Event *unused_event){
     
-    //スワイプ中の処理
-    CCLOG("touchMoved");
     
     
     
@@ -212,8 +208,6 @@ void GameScene::onTouchMoved(Touch *touch, Event *unused_event){
 
 void GameScene::onTouchEnded(Touch *touch, Event *unused_event){
     
-    //タップ終了時
-    CCLOG("touchEnded");
 
 //キキ処理
     //キキのタップフラグをfalse
@@ -229,8 +223,6 @@ void GameScene::onTouchEnded(Touch *touch, Event *unused_event){
 
 void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
     
-    //タッチキャンセル
-    CCLOG("touchCancelled");
     
 }
 
