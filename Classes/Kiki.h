@@ -44,6 +44,7 @@ private:
     bool gameOverFlag = false;
     
     ParticleSystemQuad* endParticle;
+    ParticleSystemQuad* kikiParticle;
 
     
     
