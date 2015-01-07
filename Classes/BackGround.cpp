@@ -132,22 +132,26 @@ BackGround::BackGround(){
 
     
     //StaticBackGround
-    staticBackGround = Sprite::createWithSpriteFrameName(bgName + "_gameBg.png");
+    //staticBackGround = Sprite::createWithSpriteFrameName(bgName + "_gameBg.png");
+    staticBackGround = Sprite::create(bgName + "_gameBg.png");
     staticBackGround->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
     staticBackGround->setGlobalZOrder(zOrderOfStaticBackGround);
     
     //背景1
-    auto sprite1 = Sprite::createWithSpriteFrameName(bgName + "_1.png");
+    //auto sprite1 = Sprite::createWithSpriteFrameName(bgName + "_1.png");
+    auto sprite1 = Sprite::create(bgName + "_1.png");
     sprite1->setPosition(Vec2(sprite1->getContentSize().width/2,sprite1->getContentSize().height/2));
     backGrounds->at(0)->addChild(sprite1);
     
     //背景2
-    auto sprite2 = Sprite::createWithSpriteFrameName(bgName + "_2.png");
+    //auto sprite2 = Sprite::createWithSpriteFrameName(bgName + "_2.png");
+    auto sprite2 = Sprite::create(bgName + "_2.png");
     sprite2->setPosition(Vec2(sprite2->getContentSize().width/2,sprite2->getContentSize().height/2));
     backGrounds->at(1)->addChild(sprite2);
     
     //背景3
-    auto sprite3 = Sprite::createWithSpriteFrameName(bgName + "_3.png");
+    //auto sprite3 = Sprite::createWithSpriteFrameName(bgName + "_3.png");
+    auto sprite3 = Sprite::create(bgName + "_3.png");
     sprite3->setPosition(Vec2(sprite3->getContentSize().width/2,sprite3->getContentSize().height/2));
     backGrounds->at(2)->addChild(sprite3);
         

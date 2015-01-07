@@ -208,7 +208,7 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
  }
  
 #pragma mark-
-#pragma mark:フレーム管理
+#pragma mark フレーム管理
 
 void GameScene::update( float frame )
 {
@@ -227,6 +227,8 @@ void GameScene::update( float frame )
     
 }
 
+#pragma mark-
+#pragma mark ゲームオーバーの処理
 void GameScene::makeGameOver(){
     
     
@@ -240,6 +242,17 @@ void GameScene::makeGameOver(){
     
     //gameOver画面の生成
     
+    auto gameOverBg = Sprite::create("pause_gameBg.png");
+    gameOverBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
+    gameOverBg -> setGlobalZOrder(zOrderOfPause);
+    this -> addChild(gameOverBg);
+    
+    auto gameOverParticle = ParticleSystemQuad::create("particle_gameOver.plist");
+    gameOverParticle -> setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
+    gameOverBg -> addChild(gameOverParticle);
+    
+    
+    
     //仮作成
     auto backBt = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
     backBt -> setColor(Color3B::BLACK);
@@ -249,21 +262,19 @@ void GameScene::makeGameOver(){
     backBtTaped -> setOpacity(150);
     
     //メニューアイテムの作成
-    auto pBtnItem = MenuItemSprite::create(backBt, backBtTaped, CC_CALLBACK_1(GameScene::backBtCallBack, this));
+    auto pBtnItem = MenuItemSprite::create(backBt, backBtTaped,[](Ref *ref){
+    
+        Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("GameScene"));
+        
+        Director::getInstance()->replaceScene(nextScene);
+        
+    });
     
     //メニューの作成　pMenuの中にpBtnItemを入れる
     auto startMenu = Menu::create(pBtnItem, NULL);
     
     //pMenuを配置
     startMenu->setPosition(Vec2(backBt->getContentSize().width/2, selfFrame.height-backBt->getContentSize().height/2));
-    this->addChild(startMenu);
-    
-}
-
-void GameScene::backBtCallBack(cocos2d::Ref *pSender){
-    
-    Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("GameScene"));
-    
-    Director::getInstance()->replaceScene(nextScene);
+    gameOverBg->addChild(startMenu);
     
 }

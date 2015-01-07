@@ -27,4 +27,6 @@
 //こうもり
 #define zOrderOfBad 100
 
+#define zOrderOfPause 200
+
 #endif
