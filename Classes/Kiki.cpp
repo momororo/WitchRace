@@ -29,7 +29,7 @@ Kiki* Kiki::getInstance(){
     
 }
 //デストラクタ
-void Kiki::deleteInstance() {
+void Kiki::destroyInstance() {
     if (kikiInstance != NULL){
         delete kikiInstance;
         

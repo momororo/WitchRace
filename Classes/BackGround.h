@@ -47,7 +47,7 @@ public:
     //シングルトン
     static BackGround* getInstance();
     //シングルトンデストラクタ
-    static void deleteInstance();
+    static void destroyInstance();
         
     //getter1
     cocos2d::Sprite* getBackGround1();

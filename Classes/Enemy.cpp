@@ -23,7 +23,7 @@ Enemy* Enemy::getInstance(){
 }
 
 //デストラクタ
-void Enemy::deleteInstance() {
+void Enemy::destroyInstance() {
     if (enemyInstance != NULL){
         delete enemyInstance;
         
@@ -108,7 +108,7 @@ void Enemy::addEnemy1(Sprite* backGround){
     
 //badを生成するラムダ
 auto addBad = [](){
-        
+    
         //コウモリのスプライトを予め作成
         Sprite *bad = Sprite::createWithSpriteFrameName("bad_1.png");
         bad->setName("enemy");
@@ -163,7 +163,7 @@ auto addBad = [](){
 auto addtree = [](){
 
     //木のスプライトを作成
-    Sprite *tree = Sprite::create("tree.png");
+    Sprite *tree = Sprite::createWithSpriteFrameName("enemy_tree.png");
     tree->setName("enemy");
     tree->setGlobalZOrder(zOrderOfBad);
     
@@ -329,7 +329,75 @@ auto addtree = [](){
 }
 
 void Enemy::addEnemy2(Sprite* backGround){
+//enemy_witchを生成するラムダ
+    auto addWitch = [](){
+        
+        //witchのスプライトを予め作成
+        Sprite *enemy = Sprite::createWithSpriteFrameName("enemy_witch.png");
+        enemy->setName("enemy");
+        enemy->setGlobalZOrder(zOrderOfBad);
+        enemy->setScale(0.5f);
+        
+        //物理体の設定
+        auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+        auto enemyBody = PhysicsBody::createBox(enemy->getContentSize()* enemy->getScale()*0.9,enemyMaterial);
+        
+        //重力による影響の可否
+        enemyBody->setGravityEnable(false);
+        //まじない
+        enemyBody->setDynamic(false);
+        enemyBody->setEnable(true);
+        
+        //カテゴリビットマスク
+        enemyBody->setCategoryBitmask(0x02);
+        enemyBody->setCollisionBitmask(0);
+        enemyBody->setContactTestBitmask(0x01);
+        
+        //witchの追加
+        enemy->setPhysicsBody(enemyBody);
+        
+        
+        return enemy;
+        
+    };
+    
+    
+    
+//ランダムで配置を行う
+    //x軸の移動に利用(X軸を4分割)
+    for(int idxX = 0 ; idxX < 4 ; idxX++){
+ 
+        //Y軸の分割数をランダムで生成
+        auto rndNumberY = arc4random_uniform(5);
+        //0が出たらエラーになるため、1を足し込む
+        rndNumberY = rndNumberY + 5;
+
+        //更に分散しているように見せるために乱数を追加
+        int rnd = arc4random_uniform(120);
+
+        
+        //4体ずつランダムで置いていく
+        for(int count = 0; count < 5; count++){
+            
+            
+            //乱数を生成
+            int rndPositionY = arc4random_uniform(rndNumberY);
+            auto enemy = addWitch();
+            
+            
+            
+            //ポジションの設定
+            enemy->setPosition(Vec2(backGround->getContentSize().width / 5 * idxX + backGround->getContentSize().width/5/2 , backGround->getContentSize().height / rndNumberY * rndPositionY + backGround->getContentSize().height/rndNumberY / 2 + rnd ));
+            
+            backGround->addChild(enemy);
+            
+        }
+        
+    }
+
 }
+
+
 void Enemy::addEnemy3(Sprite* backGround){
 }
 void Enemy::addEnemy4(Sprite* backGround){

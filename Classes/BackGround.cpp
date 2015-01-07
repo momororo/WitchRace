@@ -31,7 +31,7 @@ BackGround* BackGround::getInstance(){
     return  backGroundInstance;
 }
 
-void BackGround::deleteInstance() {
+void BackGround::destroyInstance() {
     if (backGroundInstance != NULL){
         delete backGroundInstance;
     
@@ -150,11 +150,7 @@ BackGround::BackGround(){
     auto sprite3 = Sprite::createWithSpriteFrameName(bgName + "_3.png");
     sprite3->setPosition(Vec2(sprite3->getContentSize().width/2,sprite3->getContentSize().height/2));
     backGrounds->at(2)->addChild(sprite3);
-    
-    //敵のプリロードを行う
-    Enemy::getInstance();
-
-    
+        
 }
 
 //backGroundの動作開始

@@ -36,7 +36,7 @@ public:
     //シングルトン
     static Enemy* getInstance();
     //デストラクタ
-    static void deleteInstance();
+    static void destroyInstance();
 
     //各面のプリロード
     void preLoad1();

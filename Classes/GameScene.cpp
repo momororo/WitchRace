@@ -199,16 +199,6 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
  #pragma mark 衝突判定
  bool GameScene::onContactBegin(cocos2d::PhysicsContact& contact){
      
-     
-     CCLOG("ぶつかったよー");
-     
-     auto particle = ParticleSystemQuad::create("particleFlower.plist");
-     particle ->setPosition(0,0);
-     Kiki::getInstance()->getKiki() -> addChild(particle);
-    
- 
-     
-
      //ゲームオーバーの処理へ
      makeGameOver();
      

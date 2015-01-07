@@ -58,9 +58,10 @@ void LoadScene::onEnterTransitionDidFinish(){
 void LoadScene::replaceGameScene(float delta){
     
     //デストラクタ
-    Kiki::deleteInstance();
-    BackGround::deleteInstance();
-    Enemy::deleteInstance();
+    Kiki::destroyInstance();
+    BackGround::destroyInstance();
+    Enemy::destroyInstance();
+    SpriteFrameCache::destroyInstance();
 
     
     if(this -> getScene() ->getName() == "GameScene"){
