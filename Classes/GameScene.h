@@ -37,6 +37,8 @@ public:
     //GameOverの処理を実装
     void makeGameOver();
     
+    void backBtCallBack(cocos2d::Ref *pSender);
+    
 };
 
 #endif /* defined(__WitchRace__GameScene__) */

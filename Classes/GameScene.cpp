@@ -282,6 +282,28 @@ void GameScene::makeGameOver(){
     
     //gameOver画面の生成
     
+    //仮作成
+    auto backBt = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
+    backBt -> setColor(Color3B::BLACK);
     
+    auto backBtTaped = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
+    backBtTaped-> setColor(Color3B::BLACK);
+    backBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto pBtnItem = MenuItemSprite::create(backBt, backBtTaped, CC_CALLBACK_1(GameScene::backBtCallBack, this));
+    
+    //メニューの作成　pMenuの中にpBtnItemを入れる
+    auto startMenu = Menu::create(pBtnItem, NULL);
+    
+    //pMenuを配置
+    startMenu->setPosition(Vec2(backBt->getContentSize().width/2, selfFrame.height-backBt->getContentSize().height/2));
+    this->addChild(startMenu);
+    
+}
+
+void GameScene::backBtCallBack(cocos2d::Ref *pSender){
+    
+    Director::getInstance()->replaceScene(TransitionPageTurn::create(1.0, GameScene::createScene(), 1));
     
 }
