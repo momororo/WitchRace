@@ -33,6 +33,9 @@ public:
     
     //シングルトン
     static Enemy* getInstance();
+    //デストラクタ
+    static void deleteInstance();
+
     
     //enemyの管理
     void addEnemyManager(Sprite* backGround);

@@ -28,6 +28,15 @@ Kiki* Kiki::getInstance(){
     return kikiInstance;
     
 }
+//デストラクタ
+void Kiki::deleteInstance() {
+    if (kikiInstance != NULL){
+        delete kikiInstance;
+        
+        kikiInstance = NULL;
+    }
+}
+
 
 //キキちゃんのスプライトをGET
 Sprite* Kiki::getKiki(){

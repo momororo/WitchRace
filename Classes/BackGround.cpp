@@ -31,6 +31,14 @@ BackGround* BackGround::getInstance(){
     return  backGroundInstance;
 }
 
+void BackGround::deleteInstance() {
+    if (backGroundInstance != NULL){
+        delete backGroundInstance;
+    
+        backGroundInstance = NULL;
+    }
+}
+
 //getStacicBackGround
 Sprite* BackGround::getStaticBackGround(){
     return staticBackGround;
@@ -65,6 +73,8 @@ BackGround::BackGround(){
     staticBackGround = Sprite::create("gameBg_stage1.png");
     staticBackGround->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
     staticBackGround->setGlobalZOrder(zOrderOfStaticBackGround);
+    
+    
     
 
     

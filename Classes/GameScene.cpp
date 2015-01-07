@@ -7,8 +7,10 @@
 //
 
 #include "GameScene.h"
+#include "LoadScene.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
+
 
 Scene* GameScene::createScene()
 {
@@ -304,6 +306,8 @@ void GameScene::makeGameOver(){
 
 void GameScene::backBtCallBack(cocos2d::Ref *pSender){
     
-    Director::getInstance()->replaceScene(TransitionPageTurn::create(1.0, GameScene::createScene(), 1));
+    Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("GameScene"));
+    
+    Director::getInstance()->replaceScene(nextScene);
     
 }

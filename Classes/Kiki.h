@@ -58,6 +58,8 @@ public:
 //メソッド
     //プレイヤーは一体だけなのでシングルトン
     static Kiki* getInstance();
+    //削除シングルトン削除
+    static void deleteInstance();
     
     CREATE_FUNC(Kiki);
     

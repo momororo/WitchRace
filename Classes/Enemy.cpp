@@ -22,6 +22,16 @@ Enemy* Enemy::getInstance(){
     return  enemyInstance;
 }
 
+//デストラクタ
+void Enemy::deleteInstance() {
+    if (enemyInstance != NULL){
+        delete enemyInstance;
+        
+        enemyInstance = NULL;
+    }
+}
+
+
 
 //コンストラクタ(初期化)
 Enemy::Enemy(){
