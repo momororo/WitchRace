@@ -232,7 +232,6 @@ void BackGround::backGroundUpdate(){
 
 
     
-    CCLOG("%d",(int)backGrounds->size());
     
     //地面の移動を行う
     for(int idx = ((int)backGrounds->size() - 1) ; idx >= 0 ;idx--){
