@@ -29,14 +29,14 @@ public:
     virtual bool init();
     
     // a selector callback
-    void story1CallBack(cocos2d::Ref* pSender);
+    void selectStoryCallBack(cocos2d::Ref* pSender);
     void backBtCallBack(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
     CREATE_FUNC(StorySelect);
     
     //ストーリー選択ボタン設定
-    void setStory1();
+    void setSelectButton();
     
     
     //戻るボタン

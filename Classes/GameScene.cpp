@@ -112,40 +112,6 @@ bool GameScene::init()
     /********************* 上下に壁を用意 終 ************************/
 
     
-    
-/*
-    //敵スプライト(今回はコウモリ)の画像アニメーションの動作作成
-    //羽を上下させるため、２種類(bad_1.png,bad_2.png)の画像をzwoptexにて編集・作成
-    //plistから画像データの読み込み
-    SpriteFrameCache::getInstance() -> addSpriteFramesWithFile("bad.plist");
-    
-    //コウモリのスプライトを作成
-    Sprite *bad = Sprite::createWithSpriteFrameName("bad_1.png");
-    bad -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
-    bad -> setPositionZ(100);
-    this -> addChild(bad);
-    
-    //アニメーション用配列を用意
-    auto  badFrames = new Vector<SpriteFrame*>();
-    
-    //画像２枚を配列にセットする
-    //画像をすべて(2枚)を取り出せるよう、ループ文を使用
-    for (int i = 1; i < 3;i++ ) {
-        std::string badName = StringUtils::format("bad_%i.png",i);
-        SpriteFrame *spBadFrame = SpriteFrameCache::getInstance()-> getSpriteFrameByName(badName.c_str());
-        badFrames -> pushBack(spBadFrame);
-    }
-    
-    //アニメーションの設定
-    Animation *badAnimation = Animation::createWithSpriteFrames(*badFrames,0.1f);
-    Animate *badAnimate = Animate::create(badAnimation);
-    RepeatForever *repeat = RepeatForever::create(badAnimate);
-    bad -> runAction(repeat);
-    delete badFrames;
-    
-*/
-    
-    
     /*************　  衝突イベント設定   ****************/
     
      auto contactListener = EventListenerPhysicsContact::create();

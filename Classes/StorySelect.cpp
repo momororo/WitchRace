@@ -42,11 +42,12 @@ bool StorySelect::init(){
     this -> addChild(titleBk);
     
     
-    setStory1();
     
     setBackBt();
     
-    
+    setSelectButton();
+
+
     
     
     
@@ -145,27 +146,41 @@ void StorySelect::onTouchEnded(Touch *touch, Event *unused_event){
 }
 
 
-void StorySelect::setStory1(){
+void StorySelect::setSelectButton(){
     
     
-    //スタートボタン作成
-    auto story1 = Label::createWithSystemFont("stage1", "MagicSchoolOne", 150);
-    story1 -> setColor(Color3B::BLACK);
     
-    auto story1Taped = Label::createWithSystemFont("stage1", "MagicSchoolOne", 150);
-    story1Taped -> setColor(Color3B::BLACK);
-    story1Taped -> setOpacity(150);
+    auto userDef = UserDefault::getInstance();
+    auto clearStory = userDef->getIntegerForKey("clearStory");
     
-    //メニューアイテムの作成
-    auto pBtnItem = MenuItemSprite::create(story1, story1Taped, CC_CALLBACK_1(StorySelect::story1CallBack, this));
     
-    //メニューの作成　pMenuの中にpBtnItemを入れる
-    auto startMenu = Menu::create(pBtnItem, NULL);
-    
-    //pMenuを画面中央に配置
-    startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
-    startMenu->setName("startMenu");
-    this->addChild(startMenu);
+    for (int idx = 0 ; idx <= clearStory ; idx++){
+        
+        //セレクトボタン作成
+        auto button = Label::createWithSystemFont("stage" + StringUtils::format("%d",idx + 1), "MagicSchoolOne", 100);
+        button -> setColor(Color3B::BLACK);
+        
+        auto tappedButton = Label::createWithSystemFont("stage" + StringUtils::format("%d",idx + 1), "MagicSchoolOne", 100);
+        tappedButton -> setColor(Color3B::BLACK);
+        tappedButton -> setOpacity(150);
+        
+        //メニューアイテムの作成
+        auto pBtnItem = MenuItemSprite::create(button, tappedButton, CC_CALLBACK_1(StorySelect::selectStoryCallBack, this));
+        
+        //メニューの作成　pMenuの中にpBtnItemを入れる
+        auto startMenu = Menu::create(pBtnItem, NULL);
+        
+        //pMenuを配置(適当)
+        startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height/5*4 - selfFrame.height/5*4 / 7 * (idx + 1)));
+        startMenu->setName("startMenu");
+        //タグをつける(後で分岐させるため)
+        startMenu->setTag(idx);
+        
+        this->addChild(startMenu);
+        
+        
+        
+    }
     
     nextScene = true;
     
@@ -173,10 +188,21 @@ void StorySelect::setStory1(){
     
 }
 
-void StorySelect::story1CallBack(cocos2d::Ref *pSender){
+void StorySelect::selectStoryCallBack(cocos2d::Ref *pSender){
     
     //Director::getInstance()->replaceScene(GameScene::createScene());
     if (nextScene == true) {
+        
+        
+        MenuItem* button = (MenuItem*)pSender;
+        
+
+        
+        //選択したステージの値を保存しておく
+        auto userDef = UserDefault::getInstance();
+        userDef->setIntegerForKey("selectStory",button->getTag());
+
+        
     
         Director::getInstance()->replaceScene(TransitionFade::create(2, GameScene::createScene(), Color3B::WHITE));
         nextScene = false;

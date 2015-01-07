@@ -87,7 +87,7 @@ void Enemy::addEnemyManager(Sprite* backGround){
 
     //ステージごとに敵を追加するメソッドを分岐
     auto userDef = UserDefault::getInstance();
-    auto point = userDef->getIntegerForKey("storyPoint");
+    auto point = userDef->getIntegerForKey("selectStory");
     switch (point) {
         //1面の読込
         case 0:

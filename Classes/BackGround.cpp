@@ -99,74 +99,53 @@ BackGround::BackGround(){
     backGrounds->pushBack(backGround3);
     
     
-//
-    
-    
-    //ステージごとに呼び出すスプライトを変える
-    
-    //
-    
-    auto userDef = UserDefault::getInstance();
-    auto point = userDef->getIntegerForKey("storyPoint");
-    switch (point) {
-            //1面の読込
-        case 0:
-            
-            
-            break;
-            
-            //2面の読込
-        case 1:
-            
-            break;
-            
-            
-        default:
-            break;
-    }
-    
 
     
     
+//ステージごとに呼び出すスプライトを変える
+    
+    //呼び出す画像をステージ別に分岐させるために、Stringの変数を作成しておく。
+    std::string bgName;
+    
+    auto userDef = UserDefault::getInstance();
+    auto selectStory = userDef->getIntegerForKey("selectStory");
+    
+    /**
+     *  早見表
+     *  ステージ1:forest
+     *  ステージ2:factory
+     *  ステージ3:village
+     *  ステージ4:town
+     *  ステージ5:field
+     */
+    switch (selectStory) {
+        case 0:bgName = "forest";   break;
+        case 1:bgName = "factory";  break;
+        case 2:bgName = "village";  break;
+        case 3:bgName = "town";     break;
+        case 4:bgName = "field";    break;
+        default:break;
+    }
     
     //StaticBackGround
-    staticBackGround = Sprite::create("gameBg_stage1.png");
+    staticBackGround = Sprite::create(bgName + "_gameBg.png");
     staticBackGround->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
     staticBackGround->setGlobalZOrder(zOrderOfStaticBackGround);
     
+    //背景1
+    auto sprite1 = Sprite::create(bgName + "_1.png");
+    sprite1->setPosition(Vec2(sprite1->getContentSize().width/2,sprite1->getContentSize().height/2));
+    backGrounds->at(0)->addChild(sprite1);
     
+    //背景2
+    auto sprite2 = Sprite::create(bgName + "_2.png");
+    sprite2->setPosition(Vec2(sprite2->getContentSize().width/2,sprite2->getContentSize().height/2));
+    backGrounds->at(1)->addChild(sprite2);
     
-    //最初のスプライトを入れる
-    auto village1 = Sprite::create("forest_1.png");
-    
-    //stage2
-    //auto village1 = Sprite::create("village_1.png");
-    
-    village1->setPosition(Vec2(village1->getContentSize().width/2,village1->getContentSize().height/2));
-    //village1->setOpacity(150);
-    
-    backGrounds->at(0)->addChild(village1);
-    
-    
-    auto village2 = Sprite::create("forest_2.png");
-    
-    //stage2
-    //auto village2 = Sprite::create("village_2.png");
-    
-    village2->setPosition(Vec2(village2->getContentSize().width/2,village2->getContentSize().height/2));
-    //village2->setOpacity(150);
-    
-    backGrounds->at(1)->addChild(village2);
-    
-    auto village3 = Sprite::create("forest_3.png");
-    //stage2
-    //auto village3 = Sprite::create("village_3.png");
-    
-    village3->setPosition(Vec2(village3->getContentSize().width/2,village3->getContentSize().height/2));
-    //village3->setOpacity(150);
-    
-    backGrounds->at(2)->addChild(village3);
-    
+    //背景2
+    auto sprite3 = Sprite::create(bgName + "_3.png");
+    sprite3->setPosition(Vec2(sprite3->getContentSize().width/2,sprite3->getContentSize().height/2));
+    backGrounds->at(2)->addChild(sprite3);
 
     
 }
