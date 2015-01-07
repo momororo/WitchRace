@@ -66,14 +66,14 @@ void LoadScene::replaceGameScene(float delta){
     if(this -> getScene() ->getName() == "GameScene"){
         
         float duration = 0.5f;  //開始→終了にかける時間
-        Scene* nextScene = CCTransitionFade::create(duration, GameScene::createScene());
+        Scene* nextScene = CCTransitionPageTurn::create(duration, GameScene::createScene(),1);
         Director::getInstance()->replaceScene(nextScene);
 
     }
     
     if(this -> getScene() ->getName() == "TitleScene"){
         float duration = 0.5f;  //開始→終了にかける時間
-        Scene* nextScene = CCTransitionFade::create(duration, TitleScene::createScene());
+        Scene* nextScene = CCTransitionPageTurn::create(duration, TitleScene::createScene(),1);
         Director::getInstance()->replaceScene(nextScene);
     }
 
