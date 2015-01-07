@@ -199,8 +199,16 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
  #pragma mark 衝突判定
  bool GameScene::onContactBegin(cocos2d::PhysicsContact& contact){
      
+     
+     
+     if (Kiki::getInstance()->getGamePlayFlag() == true && Kiki::getInstance()->getGameOverFlag() == false) {
+
+     
      //ゲームオーバーの処理へ
      makeGameOver();
+         
+         
+     }
      
  
  return true;

@@ -84,13 +84,13 @@ BackGround::BackGround(){
     auto backGround2 = Sprite::create();
     backGround2->setTextureRect(Rect(0,0,640,1136));
     backGround2->setOpacity(0);
-    backGround2->setPosition(Vec2(selfFrame.width*3/2, selfFrame.height/2));
+    backGround2->setPosition(Vec2(backGround1->getPositionX() + backGround2->getContentSize().width, selfFrame.height/2));
     backGround2->setGlobalZOrder(zOrderOfBackGround);
     
     auto backGround3 = Sprite::create();
     backGround3->setTextureRect(Rect(0,0,640,1136));
     backGround3->setOpacity(0);
-    backGround3->setPosition(Vec2(selfFrame.width*5/2, selfFrame.height/2));
+    backGround3->setPosition(Vec2(backGround2->getPositionX() + backGround3->getContentSize().width, selfFrame.height/2));
     backGround3->setGlobalZOrder(zOrderOfBackGround);
     
     //配列に入れておく
@@ -148,7 +148,7 @@ BackGround::BackGround(){
     
     //背景3
     auto sprite3 = Sprite::createWithSpriteFrameName(bgName + "_3.png");
-    sprite3->setPosition(Vec2(sprite3->getContentSize().width/2,sprite3->getContentSize().height/2));
+    sprite3->setPosition(Vec2(sprite3->getContentSize().width/2 ,sprite3->getContentSize().height/2));
     backGrounds->at(2)->addChild(sprite3);
         
 }
@@ -194,7 +194,7 @@ void BackGround::replaceBackGround(){
     
     
     //ポジションの設定
-    backGround->setPosition(Vec2(backGrounds->at(backGrounds->size()-1)->getPosition().x + backGrounds->at(backGrounds->size()-1)->getContentSize().width/2 + backGround->getContentSize().width/2,backGrounds->at(backGrounds->size()-1)->getPositionY()));
+    backGround->setPosition(Vec2(backGrounds->at(backGrounds->size()-1)->getPosition().x + backGround->getContentSize().width,backGrounds->at(backGrounds->size()-1)->getPositionY()));
 
     
     
@@ -229,15 +229,17 @@ void BackGround::backGroundUpdate(){
     if(gamePlayFlag !=  true){
         return;
     }
+
+
     
-    
+    CCLOG("%d",(int)backGrounds->size());
     
     //地面の移動を行う
-    for(int idx = 0; idx < backGrounds->size();idx++){
-//        backGrounds->at(idx)->getPhysicsBody()->setVelocity(Vec2(-500,0));
+    for(int idx = ((int)backGrounds->size() - 1) ; idx >= 0 ;idx--){
         backGrounds->at(idx)->setPosition(backGrounds->at(idx)->getPositionX() - 4, backGrounds->at(idx)->getPositionY());
 
     }
+
     
     //入れ替えの判定を行う
     if(backGrounds->at(0)->getPosition().x < -(selfFrame.width/2)){
