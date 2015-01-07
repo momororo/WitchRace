@@ -57,10 +57,9 @@ public:
     //getter3
     cocos2d::Sprite* getBackGround3();
 
-    
     //staticGackGround
     cocos2d::Sprite* getStaticBackGround();
-    
+        
     //backGroundの動作開始
     void startBackGround();
     
@@ -73,7 +72,7 @@ public:
     //backGroundの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
     void backGroundUpdate();
     
-    //
+    //ゲームオーバーシーンの作成
     void makeGameOver();
     
     CREATE_FUNC(BackGround);
