@@ -60,8 +60,6 @@ Enemy::Enemy(){
 
     
 
-    //コウモリの画像をキャッシュしておく
-    SpriteFrameCache::getInstance() -> addSpriteFramesWithFile("bad.plist");
 
     
 
