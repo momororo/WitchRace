@@ -340,7 +340,14 @@ void Enemy::addEnemy2(Sprite* backGround){
         
         //物理体の設定
         auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-        auto enemyBody = PhysicsBody::createBox(enemy->getContentSize()* enemy->getScale()*0.9,enemyMaterial);
+        
+        Point spritePoints[6]={
+            
+            Vec2(30,-30),Vec2(0,-25), Vec2(-51,5),Vec2(-5,30),Vec2(50,-5),Vec2(40,-30)
+            
+        };
+        
+        auto enemyBody = PhysicsBody::createPolygon(spritePoints, 6,enemyMaterial);
         
         //重力による影響の可否
         enemyBody->setGravityEnable(false);
