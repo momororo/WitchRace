@@ -167,14 +167,19 @@ void StorySelect::setSelectButton(){
         //メニューアイテムの作成
         auto pBtnItem = MenuItemSprite::create(button, tappedButton, CC_CALLBACK_1(StorySelect::selectStoryCallBack, this));
         
+        /**
+         *  コールバックのメソッドでgetTagする用に設定
+         *  なお、メニューアイテムをコールバックする際の引数は上記変数
+         */
+        pBtnItem->setTag(idx);
+
+        
         //メニューの作成　pMenuの中にpBtnItemを入れる
         auto startMenu = Menu::create(pBtnItem, NULL);
         
         //pMenuを配置(適当)
         startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height/5*4 - selfFrame.height/5*4 / 7 * (idx + 1)));
         startMenu->setName("startMenu");
-        //タグをつける(後で分岐させるため)
-        startMenu->setTag(idx);
         
         this->addChild(startMenu);
         
@@ -193,7 +198,11 @@ void StorySelect::selectStoryCallBack(cocos2d::Ref *pSender){
     //Director::getInstance()->replaceScene(GameScene::createScene());
     if (nextScene == true) {
         
-        
+        /**
+         *  pSenderをMenuItemにキャスト
+         *  なお、中身は
+         *
+         */
         MenuItem* button = (MenuItem*)pSender;
         
 
