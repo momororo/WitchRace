@@ -28,6 +28,8 @@ private:
     //コンストラクタ
     Enemy();
     
+
+    
 public:
     
     
@@ -36,23 +38,22 @@ public:
     //デストラクタ
     static void deleteInstance();
 
+    //各面のプリロード
+    void preLoad1();
+    void preLoad2();
+    void preLoad3();
+    void preLoad4();
+    void preLoad5();
+    
     
     //enemyの管理
     void addEnemyManager(Sprite* backGround);
     
-    //1面の的追加
+    //各面の敵追加メソッド
     void addEnemy1(Sprite* backGround);
-
-    //2面の的追加
     void addEnemy2(Sprite* backGround);
-
-    //3面の的追加
     void addEnemy3(Sprite* backGround);
-
-    //4面の的追加
     void addEnemy4(Sprite* backGround);
-
-    //5面の的追加
     void addEnemy5(Sprite* backGround);
 
     

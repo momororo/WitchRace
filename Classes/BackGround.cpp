@@ -113,15 +113,15 @@ BackGround::BackGround(){
     /**
      *  早見表
      *  ステージ1:forest
-     *  ステージ2:factory
-     *  ステージ3:village
+     *  ステージ2:village
+     *  ステージ3:factory
      *  ステージ4:town
      *  ステージ5:field
      */
     switch (selectStory) {
         case 0:bgName = "forest";   break;
-        case 1:bgName = "factory";  break;
-        case 2:bgName = "village";  break;
+        case 1:bgName = "village";  break;
+        case 2:bgName = "factory";  break;
         case 3:bgName = "town";     break;
         case 4:bgName = "field";    break;
         default:break;

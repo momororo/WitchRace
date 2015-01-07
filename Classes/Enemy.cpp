@@ -36,36 +36,30 @@ void Enemy::deleteInstance() {
 //コンストラクタ(初期化)
 Enemy::Enemy(){
     
-    //ストーリーに合わせて必要なスプライトを読込しておく？？
-    //今はいーや！(今後ポイントで読み込ませる画像を分岐する予定)
-    /*
-     
-     auto userDef = UserDefault::getInstance();
-     auto point =userDef->getIntegerForKey("storyPoint");
-     switch (point) {
-        //1面の読込
-         case 0:
-                
-                //plistでうまいことやればいいでしょう
-         
+    //ステージごとのプリロードをする
+    auto userDef = UserDefault::getInstance();
+    auto point = userDef->getIntegerForKey("selectStory");
+    switch (point) {
+            //1面の読込
+        case 0:
+            
+            
+            
             break;
-
-        //2面の読込
+            
+            //2面の読込
         case 1:
-     
+            
+            
             break;
+            
+            
+        default:
+            break;
+    }
 
-     
-         default:
-         break;
-     }
-     
-     
-     
-     */
     
-    
-    //とりあえずデバッグ用途
+
     //コウモリの画像をキャッシュしておく
     SpriteFrameCache::getInstance() -> addSpriteFramesWithFile("bad.plist");
 
@@ -98,6 +92,8 @@ void Enemy::addEnemyManager(Sprite* backGround){
             
         //2面の読込
         case 1:
+            
+            this->addEnemy2(backGround);
             
             break;
             
@@ -342,4 +338,23 @@ void Enemy::addEnemy4(Sprite* backGround){
 }
 void Enemy::addEnemy5(Sprite* backGround){
 }
+
+//各面のプリロード
+void preLoad1(){
+    
+}
+void preLoad2(){
+    
+    
+}
+void preLoad3(){
+    
+}
+void preLoad4(){
+    
+}
+void preLoad5(){
+    
+}
+
 

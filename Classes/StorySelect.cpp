@@ -151,7 +151,8 @@ void StorySelect::setSelectButton(){
     
     
     auto userDef = UserDefault::getInstance();
-    auto clearStory = userDef->getIntegerForKey("clearStory");
+//    auto clearStory = userDef->getIntegerForKey("clearStory");
+    auto clearStory = 1;
     
     
     for (int idx = 0 ; idx <= clearStory ; idx++){
