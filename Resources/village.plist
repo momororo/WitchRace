@@ -9,9 +9,9 @@
         <key>format</key>
         <integer>3</integer>
         <key>size</key>
-        <string>{1288.0,1854.0}</string>
+        <string>{234.0,358.0}</string>
         <key>name</key>
-        <string>Untitled</string>
+        <string>village_witchRace</string>
         <key>textureFileName</key>
         <string>village.png</string>
     </dict>
@@ -30,7 +30,7 @@
             <key>spriteTrimmed</key>
             <true/>
             <key>textureRect</key>
-            <string>{{2.0,1622.0},{200.0,122.0}}</string>
+            <string>{{2.0,232.0},{200.0,122.0}}</string>
             <key>textureRotated</key>
             <false/>
             <key>aliases</key>
@@ -50,87 +50,7 @@
             <key>spriteTrimmed</key>
             <true/>
             <key>textureRect</key>
-            <string>{{204.0,1622.0},{228.0,228.0}}</string>
-            <key>textureRotated</key>
-            <false/>
-            <key>aliases</key>
-            <array>
-            </array>
-        </dict>
-        <key>village_1.png</key>
-        <dict>
-            <key>spriteSize</key>
-            <string>{640.0,474.0}</string>
-            <key>spriteOffset</key>
-            <string>{0.0,-0.0}</string>
-            <key>spriteSourceSize</key>
-            <string>{640.0,474.0}</string>
-            <key>spriteSourceColorRect</key>
-            <string>{{0.0,0.0},{640.0,474.0}}</string>
-            <key>spriteTrimmed</key>
-            <true/>
-            <key>textureRect</key>
-            <string>{{644.0,2.0},{640.0,474.0}}</string>
-            <key>textureRotated</key>
-            <false/>
-            <key>aliases</key>
-            <array>
-            </array>
-        </dict>
-        <key>village_2.png</key>
-        <dict>
-            <key>spriteSize</key>
-            <string>{640.0,480.0}</string>
-            <key>spriteOffset</key>
-            <string>{0.0,-0.0}</string>
-            <key>spriteSourceSize</key>
-            <string>{640.0,480.0}</string>
-            <key>spriteSourceColorRect</key>
-            <string>{{0.0,0.0},{640.0,480.0}}</string>
-            <key>spriteTrimmed</key>
-            <true/>
-            <key>textureRect</key>
-            <string>{{2.0,1140.0},{640.0,480.0}}</string>
-            <key>textureRotated</key>
-            <false/>
-            <key>aliases</key>
-            <array>
-            </array>
-        </dict>
-        <key>village_3.png</key>
-        <dict>
-            <key>spriteSize</key>
-            <string>{640.0,474.0}</string>
-            <key>spriteOffset</key>
-            <string>{0.0,-0.0}</string>
-            <key>spriteSourceSize</key>
-            <string>{640.0,474.0}</string>
-            <key>spriteSourceColorRect</key>
-            <string>{{0.0,0.0},{640.0,474.0}}</string>
-            <key>spriteTrimmed</key>
-            <true/>
-            <key>textureRect</key>
-            <string>{{644.0,478.0},{640.0,474.0}}</string>
-            <key>textureRotated</key>
-            <false/>
-            <key>aliases</key>
-            <array>
-            </array>
-        </dict>
-        <key>village_gameBg.png</key>
-        <dict>
-            <key>spriteSize</key>
-            <string>{640.0,1136.0}</string>
-            <key>spriteOffset</key>
-            <string>{0.0,-0.0}</string>
-            <key>spriteSourceSize</key>
-            <string>{640.0,1136.0}</string>
-            <key>spriteSourceColorRect</key>
-            <string>{{0.0,0.0},{640.0,1136.0}}</string>
-            <key>spriteTrimmed</key>
-            <true/>
-            <key>textureRect</key>
-            <string>{{2.0,2.0},{640.0,1136.0}}</string>
+            <string>{{2.0,2.0},{228.0,228.0}}</string>
             <key>textureRotated</key>
             <false/>
             <key>aliases</key>

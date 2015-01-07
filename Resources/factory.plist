@@ -9,9 +9,9 @@
         <key>format</key>
         <integer>3</integer>
         <key>size</key>
-        <string>{1288.0,1992.0}</string>
+        <string>{447.0,589.0}</string>
         <key>name</key>
-        <string>Untitled</string>
+        <string>factory_witchRace</string>
         <key>textureFileName</key>
         <string>factory.png</string>
     </dict>
@@ -30,7 +30,7 @@
             <key>spriteTrimmed</key>
             <true/>
             <key>textureRect</key>
-            <string>{{644.0,1300.0},{139.0,583.0}}</string>
+            <string>{{2.0,2.0},{139.0,583.0}}</string>
             <key>textureRotated</key>
             <false/>
             <key>aliases</key>
@@ -50,87 +50,7 @@
             <key>spriteTrimmed</key>
             <true/>
             <key>textureRect</key>
-            <string>{{785.0,1300.0},{300.0,300.0}}</string>
-            <key>textureRotated</key>
-            <false/>
-            <key>aliases</key>
-            <array>
-            </array>
-        </dict>
-        <key>factory_1.png</key>
-        <dict>
-            <key>spriteSize</key>
-            <string>{640.0,618.0}</string>
-            <key>spriteOffset</key>
-            <string>{0.0,-0.0}</string>
-            <key>spriteSourceSize</key>
-            <string>{640.0,618.0}</string>
-            <key>spriteSourceColorRect</key>
-            <string>{{0.0,0.0},{640.0,618.0}}</string>
-            <key>spriteTrimmed</key>
-            <true/>
-            <key>textureRect</key>
-            <string>{{2.0,1140.0},{640.0,618.0}}</string>
-            <key>textureRotated</key>
-            <false/>
-            <key>aliases</key>
-            <array>
-            </array>
-        </dict>
-        <key>factory_2.png</key>
-        <dict>
-            <key>spriteSize</key>
-            <string>{640.0,584.0}</string>
-            <key>spriteOffset</key>
-            <string>{0.0,-0.0}</string>
-            <key>spriteSourceSize</key>
-            <string>{640.0,584.0}</string>
-            <key>spriteSourceColorRect</key>
-            <string>{{0.0,0.0},{640.0,584.0}}</string>
-            <key>spriteTrimmed</key>
-            <true/>
-            <key>textureRect</key>
-            <string>{{644.0,714.0},{640.0,584.0}}</string>
-            <key>textureRotated</key>
-            <false/>
-            <key>aliases</key>
-            <array>
-            </array>
-        </dict>
-        <key>factory_3.png</key>
-        <dict>
-            <key>spriteSize</key>
-            <string>{640.0,710.0}</string>
-            <key>spriteOffset</key>
-            <string>{0.0,-0.0}</string>
-            <key>spriteSourceSize</key>
-            <string>{640.0,710.0}</string>
-            <key>spriteSourceColorRect</key>
-            <string>{{0.0,0.0},{640.0,710.0}}</string>
-            <key>spriteTrimmed</key>
-            <true/>
-            <key>textureRect</key>
-            <string>{{644.0,2.0},{640.0,710.0}}</string>
-            <key>textureRotated</key>
-            <false/>
-            <key>aliases</key>
-            <array>
-            </array>
-        </dict>
-        <key>factory_gameBg.png</key>
-        <dict>
-            <key>spriteSize</key>
-            <string>{640.0,1136.0}</string>
-            <key>spriteOffset</key>
-            <string>{0.0,-0.0}</string>
-            <key>spriteSourceSize</key>
-            <string>{640.0,1136.0}</string>
-            <key>spriteSourceColorRect</key>
-            <string>{{0.0,0.0},{640.0,1136.0}}</string>
-            <key>spriteTrimmed</key>
-            <true/>
-            <key>textureRect</key>
-            <string>{{2.0,2.0},{640.0,1136.0}}</string>
+            <string>{{143.0,2.0},{300.0,300.0}}</string>
             <key>textureRotated</key>
             <false/>
             <key>aliases</key>
@@ -150,7 +70,7 @@
             <key>spriteTrimmed</key>
             <true/>
             <key>textureRect</key>
-            <string>{{2.0,1760.0},{228.0,228.0}}</string>
+            <string>{{143.0,304.0},{228.0,228.0}}</string>
             <key>textureRotated</key>
             <false/>
             <key>aliases</key>
