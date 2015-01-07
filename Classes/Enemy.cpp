@@ -92,7 +92,7 @@ void Enemy::addEnemyManager(Sprite* backGround){
         //1面の読込
         case 0:
             
-            this->addEnemyFirst(backGround);
+            this->addEnemy1(backGround);
             
             break;
             
@@ -110,7 +110,7 @@ void Enemy::addEnemyManager(Sprite* backGround){
 }
 
 //1面の的追加
-void Enemy::addEnemyFirst(Sprite* backGround){
+void Enemy::addEnemy1(Sprite* backGround){
     
 //badを生成するラムダ
 auto addBad = [](){
@@ -332,11 +332,14 @@ auto addtree = [](){
         
     }
 
-    
-    
-    
-
-    
-    
-    
 }
+
+void Enemy::addEnemy2(Sprite* backGround){
+}
+void Enemy::addEnemy3(Sprite* backGround){
+}
+void Enemy::addEnemy4(Sprite* backGround){
+}
+void Enemy::addEnemy5(Sprite* backGround){
+}
+
