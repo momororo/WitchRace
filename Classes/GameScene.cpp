@@ -37,12 +37,12 @@ bool GameScene::init()
     
 //背景処理
     //staticBackGroundの追加
-    this -> addChild(BackGround::getInstance()->getStaticBackGround());
+    this -> addChild(BackGround::getInstance()->getStaticBackGround(),0);
     
     //backGroundの追加
-    this -> addChild(BackGround::getInstance()->getBackGround1());
-    this -> addChild(BackGround::getInstance()->getBackGround2());
-    this -> addChild(BackGround::getInstance()->getBackGround3());
+    this -> addChild(BackGround::getInstance()->getBackGround1(),1);
+    this -> addChild(BackGround::getInstance()->getBackGround2(),1);
+    this -> addChild(BackGround::getInstance()->getBackGround3(),1);
 //背景処理終
 
     
@@ -143,6 +143,12 @@ bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
         Kiki::getInstance()->startKiki();
         
         BackGround::getInstance()->startBackGround();
+        
+#pragma mark デバッグ用
+        struct timeval time;
+        gettimeofday(&time, NULL);
+        startTime = time.tv_sec * 1000ull + time.tv_usec / 1000ull;
+
 
         
     }
@@ -231,6 +237,29 @@ void GameScene::update( float frame )
     BackGround::getInstance()->backGroundUpdate();
 //背景処理終
     
+if(Kiki::getInstance()->getGamePlayFlag() == true){
+#pragma  mark デバッグ用
+    //時間の計測
+    struct timeval time2;
+    gettimeofday(&time2, NULL);
+    unsigned long long currentTime = time2.tv_sec * 1000ull + time2.tv_usec / 1000ull;
+    currentTime = currentTime - startTime;
+    
+    //秒数を取り出す
+    unsigned long sec = currentTime / 1000;
+    //ミリ秒を取り出す
+    unsigned long mSec = (currentTime % 1000) / 10;
+    
+    //分を作る
+    unsigned long min = (int)sec / 60;
+    
+    //分の量だけ秒から削る
+    sec = sec - (min * 60);
+    
+    CCLOG("時間 %02lu:%02lu:%02lu",min,sec,mSec);
+    CCLOG("%d",BackGround::getInstance()->getReplaceCount());
+}
+    
     
     
 }
@@ -246,20 +275,34 @@ void GameScene::makeGameOver(){
     
     //背景の処理
     BackGround::getInstance()->stopBackGround();
+    BackGround::getInstance()->makeGameOver();
     
-    
+
     //gameOver画面の生成
     auto gameOverBg = Sprite::create("pause_gameBg.png");
     gameOverBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
-    gameOverBg -> setGlobalZOrder(zOrderOfPause);
-    this -> addChild(gameOverBg);
-    
+    gameOverBg -> setGlobalZOrder(0);
+    gameOverBg -> setOpacity(255);
+    this -> addChild(gameOverBg,2);
+
     
     //gameOverのlabel用スプライト
     auto gameOverOfLabel = Sprite::create();
+    gameOverOfLabel -> setTextureRect(Rect( 0,0,selfFrame.width,selfFrame.height));
     gameOverOfLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
+    gameOverOfLabel -> setOpacity(0);
     gameOverOfLabel -> setGlobalZOrder(zOrderOfPauseLabel);
-    this -> addChild(gameOverOfLabel);
+    this -> addChild(gameOverOfLabel,3);
+/*
+    auto testSprite = Sprite::create();
+    testSprite ->setColor(Color3B::WHITE);
+    testSprite -> setOpacity(125);
+    testSprite -> setTextureRect(Rect(0,0,selfFrame.width,selfFrame.height));
+    testSprite -> setGlobalZOrder(0);
+    testSprite -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/4*3));
+    this -> addChild(testSprite);
+*/
+    
     
     
     
@@ -268,17 +311,20 @@ void GameScene::makeGameOver(){
     //gameOver画面のparticle
     auto gameOverParticle = ParticleSystemQuad::create("particle_gameOver.plist");
     gameOverParticle -> setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
-    //gameOverParticle -> setGlobalZOrder(zOrderOfPause);
-    gameOverBg -> addChild(gameOverParticle);
+    gameOverParticle -> setGlobalZOrder(zOrderOfPause);
+    gameOverOfLabel -> addChild(gameOverParticle);
     
     
     //リトライボタン作成
     auto retryBt = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
     retryBt -> setColor(Color3B::BLACK);
+    retryBt ->setGlobalZOrder(zOrderOfPauseLabel);
     
     auto retryBtTaped = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
     retryBtTaped-> setColor(Color3B::BLACK);
     retryBtTaped -> setOpacity(150);
+    retryBtTaped ->setGlobalZOrder(zOrderOfPauseLabel);
+
     
     auto retryBtnItem = MenuItemSprite::create(retryBt, retryBtTaped,[](Ref *ref){
     
@@ -287,10 +333,13 @@ void GameScene::makeGameOver(){
         Director::getInstance()->replaceScene(nextScene);
         
     });
+    retryBtnItem ->setGlobalZOrder(zOrderOfPauseLabel);
     
     auto retryMenu = Menu::create(retryBtnItem, NULL);
     
     retryMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height/3));
+    retryMenu ->setGlobalZOrder(zOrderOfPauseLabel);
+
 
     gameOverOfLabel->addChild(retryMenu);
     
@@ -323,4 +372,6 @@ void GameScene::makeGameOver(){
     gameOverLabel -> setColor(Color3B::BLACK);
     gameOverOfLabel -> addChild(gameOverLabel);
     
+    gameOverOfLabel -> setGlobalZOrder(300);
+        
 }

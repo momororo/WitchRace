@@ -101,6 +101,7 @@ Kiki::Kiki(){
     kikiShadow->setPosition(kiki->getContentSize().width/2,kiki->getContentSize().height/2);
     //影の透明度を設定
     kikiShadow->setOpacity(180);
+    kikiShadow->setGlobalZOrder(zOrderOfKikiShadow);
     
     //影の大きさ(実体のスケールをgetしてます)※特にスケールせずにぴったり入りました(謎)
     //kikiShadow -> setScale(kiki->getScale());
@@ -182,6 +183,7 @@ Kiki::Kiki(){
     kikiParticle->setAnchorPoint(Vec2(0.5f,0.5f));
     kikiParticle->setPosition(Vec2(3,kiki->getContentSize().height/3-6));
     kikiParticle->setName("kikiParticle");
+    kikiParticle->setGlobalZOrder(zOrderOfKikiShadow);
     kiki->addChild(kikiParticle);
     
 }

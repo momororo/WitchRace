@@ -23,6 +23,10 @@ public:
     static cocos2d::Scene *createScene();
     CREATE_FUNC(GameScene);
     
+
+#pragma mark デバッグ用
+    unsigned long long startTime;
+
     
 
     //タップイベントの宣言

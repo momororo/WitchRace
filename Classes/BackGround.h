@@ -23,6 +23,9 @@ private:
     //クラス
     static BackGround *backGroundInstance;
     
+    //カウント(背景のreplace回数)
+    int count = 0;
+    
     
 
     //配列
@@ -74,6 +77,9 @@ public:
     
     //ゲームオーバーシーンの作成
     void makeGameOver();
+    
+    //背景のreplace回数を返す
+    int getReplaceCount();
     
     CREATE_FUNC(BackGround);
 

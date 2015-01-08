@@ -103,7 +103,7 @@ auto addBad = [](){
         //コウモリのスプライトを予め作成
         Sprite *bad = Sprite::createWithSpriteFrameName("bad_1.png");
         bad->setName("enemy");
-        bad->setGlobalZOrder(zOrderOfBad);
+        bad->setGlobalZOrder(zOrderOfEnemy);
     
         //物理体の設定
         auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
@@ -156,7 +156,7 @@ auto addtree = [](){
     //木のスプライトを作成
     Sprite *tree = Sprite::createWithSpriteFrameName("enemy_tree.png");
     tree->setName("enemy");
-    tree->setGlobalZOrder(zOrderOfBad);
+    tree->setGlobalZOrder(zOrderOfEnemy);
     
     //物理体の設定
     auto treeMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
@@ -208,7 +208,7 @@ auto addtree = [](){
         
         Vector<Sprite*> *bads = new Vector<Sprite*>();
         
-        //コウモリを3匹生成(面倒なので配列)
+        //コウモリを4匹生成(面倒なので配列)
         for (int idx = 0; idx < 3 ;idx++){
             
             bads->pushBack(addBad());
@@ -241,16 +241,38 @@ auto addtree = [](){
     
     
     
-    //2の場合(コウモリ1匹上に、木が下に(2/3くらい出てる感じ))
+    //2の場合(コウモリ2匹上に、木が下に(2/3くらい出てる感じ))
     if(positionRnd == 2){
         
-        //コウモリの生成
-        auto bad = addBad();
-        //ポジション
-        bad->setPosition(Vec2(positionX,backGround->getContentSize().height - bad->getContentSize().height/2));
+        Vector<Sprite*> *bads = new Vector<Sprite*>();
+        
+        //コウモリを2匹生成(面倒なので配列)
+        for (int idx = 0; idx < 2 ;idx++){
+            
+            bads->pushBack(addBad());
+            backGround->addChild(bads->at(idx));
+        }
+        
+        //positionの調整
+        for (int idx = 0; idx < 2 ;idx++){
+            
+            //0の時は上に位置を合わせる
+            if(idx == 0){
+                
+                bads->at(idx)->setPosition(Vec2(positionX,backGround->getContentSize().height - bads->at(idx)->getContentSize().height/2));
+                
+                
+                
+            }else{
+                
+                
+                bads->at(idx)->setPosition(Vec2(positionX,bads->at(idx-1)->getPositionY() - bads->at(idx)->getContentSize().height));
+                
+                
+            }
+            
+        }
 
-        //追加
-        backGround->addChild(bad);
         
         //木の生成
         auto tree = addtree();
@@ -268,22 +290,22 @@ auto addtree = [](){
     
     
     
-    //3の場合(コウモリ2匹上に、木が下に(1/3くらい出てる感じ))
+    //3の場合(コウモリ3匹上に、木が下に(1/3くらい出てる感じ))
     if(positionRnd == 3){
         
-        //コウモリを2匹生成するのは面倒なので上の配列使いました。
+        //コウモリを3匹生成するのは面倒なので上の配列使いました。
         
         Vector<Sprite*> *bads = new Vector<Sprite*>();
         
-        //コウモリを2匹生成(面倒なので配列)
-        for (int idx = 0; idx < 2 ;idx++){
+        //コウモリを3匹生成(面倒なので配列)
+        for (int idx = 0; idx < 3 ;idx++){
             
             bads->pushBack(addBad());
             backGround->addChild(bads->at(idx));
         }
         
         //positionの調整
-        for (int idx = 0; idx < 2 ;idx++){
+        for (int idx = 0; idx < 3 ;idx++){
             
             //0の時は上に位置を合わせる
             if(idx == 0){
@@ -326,7 +348,7 @@ void Enemy::addEnemy2(Sprite* backGround){
         //witchのスプライトを予め作成
         Sprite *enemy = Sprite::createWithSpriteFrameName("enemy_witch.png");
         enemy->setName("enemy");
-        enemy->setGlobalZOrder(zOrderOfBad);
+        enemy->setGlobalZOrder(zOrderOfEnemy);
         enemy->setScale(0.5f);
 
         
@@ -405,7 +427,7 @@ void Enemy::addEnemy3(Sprite* backGround){
         //chimneyのスプライトを予め作成
         Sprite *enemy = Sprite::createWithSpriteFrameName("enemy_chimney.png");
         enemy->setName("enemy");
-        enemy->setGlobalZOrder(zOrderOfBad);
+        enemy->setGlobalZOrder(zOrderOfEnemy);
         enemy->setScale(0.5f);
         
         //物理体の設定
@@ -444,19 +466,14 @@ void Enemy::addEnemy3(Sprite* backGround){
         //chimneyのスプライトを予め作成
         Sprite *enemy = Sprite::createWithSpriteFrameName("enemy_cloud.png");
         enemy->setName("enemy");
-        enemy->setGlobalZOrder(zOrderOfBad);
+        enemy->setGlobalZOrder(zOrderOfEnemy);
         enemy->setScale(0.1f);
         
         //物理体の設定
         auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
         
-        Point spritePoints[6]={
-            
-            Vec2(30,-30),Vec2(0,-25), Vec2(-51,5),Vec2(-5,30),Vec2(50,-5),Vec2(40,-30)
-            
-        };
+        auto enemyBody = PhysicsBody::createCircle(enemy->getContentSize().width/2 * enemy->getScale(),enemyMaterial);
         
-        auto enemyBody = PhysicsBody::createPolygon(spritePoints, 6,enemyMaterial);
         
         //重力による影響の可否
         enemyBody->setGravityEnable(false);
@@ -469,8 +486,8 @@ void Enemy::addEnemy3(Sprite* backGround){
         enemyBody->setCollisionBitmask(0);
         enemyBody->setContactTestBitmask(0x01);
         
-        //chimneyの追加
-    //    enemy->setPhysicsBody(enemyBody);
+        //重力体の追加
+        enemy->setPhysicsBody(enemyBody);
         
         
         return enemy;
@@ -506,9 +523,15 @@ void Enemy::addEnemy3(Sprite* backGround){
         //更に分散しているように見せるために乱数を追加(Y座標をずらします)
         int rnd = arc4random_uniform(20);
         
-        
-        //4体ずつランダムで置いていく
-        for(int count = 0; count < 5; count++){
+
+        //雲の配置
+        int limit;
+        if(BackGround::getInstance()->getReplaceCount() <= 20){
+            limit = 3;
+        }else{
+            limit = 3;
+        }
+        for(int count = 0; count < limit; count++){
             
             
             //乱数を生成
@@ -530,7 +553,7 @@ void Enemy::addEnemy3(Sprite* backGround){
             if(idxX == 4){
                 enemy->setScale(((float)arc4random_uniform(2) + 1.5)/10);
             }else{
-                enemy->setScale(((float)arc4random_uniform(3) + 2.0)/10);
+                enemy->setScale(((float)arc4random_uniform(3) + 3.0)/10);
             }
             
             //少し横にずらしてみる(2分の1でマイナス方向へ)

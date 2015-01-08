@@ -18,14 +18,20 @@
  */
 
 //staticBackGround
-#define zOrderOfStaticBackGround 0
+#define zOrderOfStaticBackGround -3
 //背景
-#define zOrderOfBackGround 10
+#define zOrderOfBackGround -2
+//背景部品
+#define zOrderOfBackGroundParts -2
+
 
 //キキ
-#define zOrderOfKiki 100
+#define zOrderOfKiki 10
+//キキ(影)
+#define zOrderOfKikiShadow 5
+
 //こうもり
-#define zOrderOfBad 100
+#define zOrderOfEnemy 0
 
 #define zOrderOfPause 200
 

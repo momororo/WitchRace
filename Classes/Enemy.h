@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 #include "Zorder.h"
-
+#include "BackGround.h"
 
 using namespace cocos2d;
 

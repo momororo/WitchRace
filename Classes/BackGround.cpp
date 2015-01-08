@@ -65,6 +65,11 @@ Sprite* BackGround::getBackGround3(){
     
 }
 
+//countGetter
+int BackGround::getReplaceCount(){
+    return count;
+}
+
 
 //コンストラクタ(初期化)
 BackGround::BackGround(){
@@ -139,16 +144,20 @@ BackGround::BackGround(){
     //背景1
     auto sprite1 = Sprite::create(bgName + "_1.png");
     sprite1->setPosition(Vec2(sprite1->getContentSize().width/2,sprite1->getContentSize().height/2));
+    sprite1->setGlobalZOrder(zOrderOfBackGroundParts);
     backGrounds->at(0)->addChild(sprite1);
     
     //背景2
     auto sprite2 = Sprite::create(bgName + "_2.png");
     sprite2->setPosition(Vec2(sprite2->getContentSize().width/2,sprite2->getContentSize().height/2));
+    sprite2->setGlobalZOrder(zOrderOfBackGroundParts);
+
     backGrounds->at(1)->addChild(sprite2);
     
     //背景3
     auto sprite3 = Sprite::create(bgName + "_3.png");
     sprite3->setPosition(Vec2(sprite3->getContentSize().width/2 ,sprite3->getContentSize().height/2));
+    sprite3->setGlobalZOrder(zOrderOfBackGroundParts);
     backGrounds->at(2)->addChild(sprite3);
         
 }
@@ -201,6 +210,9 @@ void BackGround::replaceBackGround(){
     
     //配列の末尾に入れなおす
     backGrounds->pushBack(backGround);
+    
+    //カウント足し込み
+    count++;
 
 /*
     //デバッグ用
@@ -220,6 +232,7 @@ void BackGround::makeGameOver(){
     gamePlayFlag = false;
     
     gameOverFlag = true;
+    
 }
 
 //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
