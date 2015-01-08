@@ -642,7 +642,15 @@ auto addFireldTree = [](){
         auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
         
     
-    auto enemyBody = PhysicsBody::createBox(enemy->getContentSize()*0.9,enemyMaterial);
+        Point spritePoints[6]={
+        
+            Vec2(-180,-150),Vec2(-120,100),Vec2(10,330),Vec2(120,100), Vec2(180,-150),Vec2(10,-350)
+            
+        };
+    
+        auto enemyBody = PhysicsBody::createPolygon(spritePoints, 6,enemyMaterial);
+
+    
     
         //重力による影響の可否
         enemyBody->setGravityEnable(false);
@@ -663,7 +671,7 @@ auto addFireldTree = [](){
         
     };
     
-    //badを生成するラムダ
+    //birdを生成するラムダ
     auto addBird = [](){
         
         //コウモリのスプライトを予め作成
@@ -674,7 +682,18 @@ auto addFireldTree = [](){
         
         //物理体の設定
         auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-        auto enemyBody = PhysicsBody::createBox(enemy->getContentSize()*0.9,enemyMaterial);
+        //auto enemyBody = PhysicsBody::createBox(enemy->getContentSize()*0.9,enemyMaterial);
+        
+        Point spritePoints[8]={
+            
+            Vec2(-200,250),Vec2(10,400), Vec2(200,250),Vec2(160,-20) ,Vec2(70,-280), Vec2(10,-330),Vec2(-40,-280),Vec2(-140,0)
+            
+            //Vec2(-180,-150),Vec2(-120,100),Vec2(10,330),Vec2(120,100), Vec2(180,-150),Vec2(10,-350)
+            
+        };
+        
+        auto enemyBody = PhysicsBody::createPolygon(spritePoints, 8,enemyMaterial);
+
         
         
         //重力による影響の可否
