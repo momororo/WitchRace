@@ -80,24 +80,15 @@ void Enemy::addEnemyManager(Sprite* backGround){
     //ステージごとに敵を追加するメソッドを分岐
     auto userDef = UserDefault::getInstance();
     auto point = userDef->getIntegerForKey("selectStory");
+
+    //各面の読込(1ずつずれているため注意すること)
     switch (point) {
-        //1面の読込
-        case 0:
-            
-            this->addEnemy1(backGround);
-            
-            break;
-            
-        //2面の読込
-        case 1:
-            
-            this->addEnemy2(backGround);
-            
-            break;
-            
-        
-        default:
-            break;
+        case 0:this->addEnemy1(backGround);break;
+        case 1:this->addEnemy2(backGround);break;
+        case 2:this->addEnemy3(backGround);break;
+        case 3:this->addEnemy4(backGround);break;
+        case 4:this->addEnemy5(backGround);break;
+        default:break;
     }
 
     
@@ -407,6 +398,209 @@ void Enemy::addEnemy2(Sprite* backGround){
 
 
 void Enemy::addEnemy3(Sprite* backGround){
+    
+//enemy_chimneyを生成するラムダ
+    auto addchimney = [](){
+        
+        //chimneyのスプライトを予め作成
+        Sprite *enemy = Sprite::createWithSpriteFrameName("enemy_chimney.png");
+        enemy->setName("enemy");
+        enemy->setGlobalZOrder(zOrderOfBad);
+        enemy->setScale(0.5f);
+        
+        //物理体の設定
+        auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+        
+        Point spritePoints[6]={
+            
+            Vec2(30,-30),Vec2(0,-25), Vec2(-51,5),Vec2(-5,30),Vec2(50,-5),Vec2(40,-30)
+            
+        };
+        
+        auto enemyBody = PhysicsBody::createPolygon(spritePoints, 6,enemyMaterial);
+        
+        //重力による影響の可否
+        enemyBody->setGravityEnable(false);
+        //まじない
+        enemyBody->setDynamic(false);
+        enemyBody->setEnable(true);
+        
+        //カテゴリビットマスク
+        enemyBody->setCategoryBitmask(0x02);
+        enemyBody->setCollisionBitmask(0);
+        enemyBody->setContactTestBitmask(0x01);
+        
+        //chimneyの追加
+        enemy->setPhysicsBody(enemyBody);
+        
+        
+        return enemy;
+        
+    };
+    
+    //enemy_cloudを生成するラムダ
+    auto addcloud = [](){
+        
+        //chimneyのスプライトを予め作成
+        Sprite *enemy = Sprite::createWithSpriteFrameName("enemy_cloud.png");
+        enemy->setName("enemy");
+        enemy->setGlobalZOrder(zOrderOfBad);
+        enemy->setScale(0.1f);
+        
+        //物理体の設定
+        auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+        
+        Point spritePoints[6]={
+            
+            Vec2(30,-30),Vec2(0,-25), Vec2(-51,5),Vec2(-5,30),Vec2(50,-5),Vec2(40,-30)
+            
+        };
+        
+        auto enemyBody = PhysicsBody::createPolygon(spritePoints, 6,enemyMaterial);
+        
+        //重力による影響の可否
+        enemyBody->setGravityEnable(false);
+        //まじない
+        enemyBody->setDynamic(false);
+        enemyBody->setEnable(true);
+        
+        //カテゴリビットマスク
+        enemyBody->setCategoryBitmask(0x02);
+        enemyBody->setCollisionBitmask(0);
+        enemyBody->setContactTestBitmask(0x01);
+        
+        //chimneyの追加
+    //    enemy->setPhysicsBody(enemyBody);
+        
+        
+        return enemy;
+        
+    };
+    
+    
+    //ランダムで配置を行う
+    //x軸の移動に利用(X軸を4分割)
+    for(int idxX = 0 ; idxX < 5 ; idxX++){
+
+        
+        //後でこいつの座標を使うため、addchildしない場合でも宣言は行う必要がある。
+        //煙突を追加
+        auto chimney = addchimney();
+        //ポジションを設定
+        chimney->setPosition(Vec2(backGround->getContentSize().width / 5 * idxX + backGround->getContentSize().width/5/2, chimney->getContentSize().height/2 * chimney->getScale()));
+        
+        //1/3の確率で煙突を追加
+        if(arc4random_uniform(3) == 0){
+            
+
+            //backGroundにスプライトを追加
+            backGround->addChild(chimney);
+
+        }
+        
+        //Y軸の分割数をランダム生成
+        auto rndNumberY = arc4random_uniform(5);
+        //0が出たらエラーになるため、1を足し込む
+        rndNumberY = rndNumberY + 5;
+        
+        //更に分散しているように見せるために乱数を追加(Y座標をずらします)
+        int rnd = arc4random_uniform(20);
+        
+        
+        //4体ずつランダムで置いていく
+        for(int count = 0; count < 5; count++){
+            
+            
+            //乱数を生成
+            int rndPositionY = arc4random_uniform(rndNumberY);
+            auto enemy = addcloud();
+            
+            
+            
+            //ポジションの設定(樹海化怖くて触れません)
+            enemy->setPosition(Vec2(backGround->getContentSize().width / 5 * idxX + backGround->getContentSize().width/5/2 , backGround->getContentSize().height / rndNumberY * rndPositionY + backGround->getContentSize().height/rndNumberY / 2 + rnd + chimney->getPositionY() + chimney->getContentSize().height/2 * chimney->getScale() ));
+            
+            
+            /**
+             *  スケールを乱数で決定(隣のbackGroundの重なりは検知できないため、
+             *  idxが4(画面右端)の時は小さめの球をだして、見かけ上重ならないように調整して
+             *  す。
+             *  隣のbackGroundも含めて走査したら処理が重くなると思われるため、しません！
+             */
+            if(idxX == 4){
+                enemy->setScale(((float)arc4random_uniform(2) + 1.5)/10);
+            }else{
+                enemy->setScale(((float)arc4random_uniform(3) + 2.0)/10);
+            }
+            
+            //少し横にずらしてみる(2分の1でマイナス方向へ)
+            int rndX = arc4random_uniform(20);
+            if(arc4random_uniform(2) == 0){
+                
+                rndX = rndX * -1;
+            }
+            
+            enemy->setPositionX(enemy->getPositionX() + rndX);
+            
+            backGround->addChild(enemy);
+            
+            
+            
+            //重なりを確認(重なっていた場合は再度配置)
+            //一時的なnameをset(重なりとご検知されないように)
+            enemy->setName("target");
+            auto rect1 = enemy->getBoundingBox();
+            
+            //スプライトを取得
+            Vector<Node*>allSprite = backGround->getChildren();
+            
+            //走査
+            for(int idx = 0 ; idx < allSprite.size() ;idx++){
+                
+                auto sprite = allSprite.at(idx);
+                
+                //enemyではないネームをif文に入れる。
+                if(sprite->getName() != "enemy"){
+                    
+                    //targetのスプライトが来た = 配列の最後まで回ったため、
+                    //nameをenemyに戻して終了
+                    if(sprite->getName() == "target"){
+                        sprite->setName("enemy");
+                        
+                    }
+                    
+                    continue;
+                }
+                
+                
+                
+                //座標取得
+                auto rect2 = sprite->getBoundingBox();
+                
+                
+                //重なりがある場合
+                if(rect1.intersectsRect(rect2)){
+                    //backGroundから削除
+                    enemy->removeFromParent();
+                    //カウントを減らして調整(再配置するため)
+                    count--;
+                    //デバグ
+                    CCLOG("重なり探知で削除");
+                    //ループから出る
+                    break;
+                }
+   
+                
+            }
+            
+            
+        }
+        
+    }
+
+    
+    
+
 }
 void Enemy::addEnemy4(Sprite* backGround){
 }
