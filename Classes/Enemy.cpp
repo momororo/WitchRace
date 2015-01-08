@@ -337,6 +337,7 @@ void Enemy::addEnemy2(Sprite* backGround){
         enemy->setName("enemy");
         enemy->setGlobalZOrder(zOrderOfBad);
         enemy->setScale(0.5f);
+
         
         //物理体の設定
         auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;

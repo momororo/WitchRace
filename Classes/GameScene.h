@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "Kiki.h"
 #include "BackGround.h"
+#include "Zorder.h"
 
 using namespace cocos2d;
 

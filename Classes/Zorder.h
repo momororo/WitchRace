@@ -29,4 +29,6 @@
 
 #define zOrderOfPause 200
 
+#define zOrderOfPauseLabel 300
+
 #endif

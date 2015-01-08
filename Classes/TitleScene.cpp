@@ -34,21 +34,15 @@ bool TitleScene::init(){
         return false;
     }
     
-    auto titleBk = Sprite::create("titleBk.png");
-    titleBk -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
-    this -> addChild(titleBk);
+    auto titleBg = Sprite::create("titleBk.png");
+    titleBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
+    this -> addChild(titleBg);
     
     
     setStartBt();
     
     
     
-    
-    
-    
-    
-    
-   
     /* 効果音の設定
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("cursor1.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("decision7.mp3");

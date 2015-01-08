@@ -245,32 +245,42 @@ void GameScene::makeGameOver(){
     
     
     //背景の処理
-    
     BackGround::getInstance()->stopBackGround();
     
-    //gameOver画面の生成
     
+    //gameOver画面の生成
     auto gameOverBg = Sprite::create("pause_gameBg.png");
     gameOverBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     gameOverBg -> setGlobalZOrder(zOrderOfPause);
     this -> addChild(gameOverBg);
     
+    
+    //gameOverのlabel用スプライト
+    auto gameOverOfLabel = Sprite::create();
+    gameOverOfLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
+    gameOverOfLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    this -> addChild(gameOverOfLabel);
+    
+    
+    
+    
+    
+    //gameOver画面のparticle
     auto gameOverParticle = ParticleSystemQuad::create("particle_gameOver.plist");
     gameOverParticle -> setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
+    //gameOverParticle -> setGlobalZOrder(zOrderOfPause);
     gameOverBg -> addChild(gameOverParticle);
     
     
+    //リトライボタン作成
+    auto retryBt = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
+    retryBt -> setColor(Color3B::BLACK);
     
-    //仮作成
-    auto backBt = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
-    backBt -> setColor(Color3B::BLACK);
+    auto retryBtTaped = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
+    retryBtTaped-> setColor(Color3B::BLACK);
+    retryBtTaped -> setOpacity(150);
     
-    auto backBtTaped = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
-    backBtTaped-> setColor(Color3B::BLACK);
-    backBtTaped -> setOpacity(150);
-    
-    //メニューアイテムの作成
-    auto pBtnItem = MenuItemSprite::create(backBt, backBtTaped,[](Ref *ref){
+    auto retryBtnItem = MenuItemSprite::create(retryBt, retryBtTaped,[](Ref *ref){
     
         Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("GameScene"));
         
@@ -278,11 +288,39 @@ void GameScene::makeGameOver(){
         
     });
     
-    //メニューの作成　pMenuの中にpBtnItemを入れる
-    auto startMenu = Menu::create(pBtnItem, NULL);
+    auto retryMenu = Menu::create(retryBtnItem, NULL);
     
-    //pMenuを配置
-    startMenu->setPosition(Vec2(backBt->getContentSize().width/2, selfFrame.height-backBt->getContentSize().height/2));
-    gameOverBg->addChild(startMenu);
+    retryMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height/3));
+
+    gameOverOfLabel->addChild(retryMenu);
+    
+    
+    //ホームボタン作成
+    auto homeBt = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
+    homeBt -> setColor(Color3B::BLACK);
+    
+    auto homeBtTaped = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
+    homeBtTaped-> setColor(Color3B::BLACK);
+    homeBtTaped -> setOpacity(150);
+    
+    auto homeBtnItem = MenuItemSprite::create(homeBt, homeBtTaped,[](Ref *ref){
+        
+        Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("TitleScene"));
+        
+        Director::getInstance()->replaceScene(nextScene);
+        
+    });
+    
+    auto homeMenu = Menu::create(homeBtnItem, NULL);
+    
+    homeMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height/3));
+    gameOverOfLabel->addChild(homeMenu);
+    
+    
+    //「Game Over」ラベル作成
+    auto gameOverLabel = Label::createWithSystemFont("Game Over", "MagicSchoolOne", 150);
+    gameOverLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/3));
+    gameOverLabel -> setColor(Color3B::BLACK);
+    gameOverOfLabel -> addChild(gameOverLabel);
     
 }
