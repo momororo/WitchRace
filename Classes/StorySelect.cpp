@@ -152,7 +152,7 @@ void StorySelect::setSelectButton(){
     
     auto userDef = UserDefault::getInstance();
 //    auto clearStory = userDef->getIntegerForKey("clearStory");
-    auto clearStory = 2;
+    auto clearStory = 4;
     
     
     for (int idx = 0 ; idx <= clearStory ; idx++){
