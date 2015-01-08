@@ -628,6 +628,122 @@ void Enemy::addEnemy3(Sprite* backGround){
 void Enemy::addEnemy4(Sprite* backGround){
 }
 void Enemy::addEnemy5(Sprite* backGround){
+    
+//FieldTreeを生成するラムダ
+auto addFireldTree = [](){
+        
+    //chimneyのスプライトを予め作成
+        Sprite *enemy = Sprite::createWithSpriteFrameName("enemy_fieldTree.png");
+        enemy->setName("enemy");
+        enemy->setGlobalZOrder(zOrderOfEnemy);
+        enemy->setScale(1.3f);
+    
+        //物理体の設定
+        auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+        
+    
+    auto enemyBody = PhysicsBody::createBox(enemy->getContentSize()*0.9,enemyMaterial);
+    
+        //重力による影響の可否
+        enemyBody->setGravityEnable(false);
+        //まじない
+        enemyBody->setDynamic(false);
+        enemyBody->setEnable(true);
+        
+        //カテゴリビットマスク
+        enemyBody->setCategoryBitmask(0x02);
+        enemyBody->setCollisionBitmask(0);
+        enemyBody->setContactTestBitmask(0x01);
+        
+        //chimneyの追加
+        enemy->setPhysicsBody(enemyBody);
+        
+        
+        return enemy;
+        
+    };
+    
+    //badを生成するラムダ
+    auto addBird = [](){
+        
+        //コウモリのスプライトを予め作成
+        Sprite *enemy = Sprite::createWithSpriteFrameName("bird_1.png");
+        enemy->setName("enemy");
+        enemy->setGlobalZOrder(zOrderOfEnemy);
+        enemy->setScale(1.3f);
+        
+        //物理体の設定
+        auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+        auto enemyBody = PhysicsBody::createBox(enemy->getContentSize()*0.9,enemyMaterial);
+        
+        
+        //重力による影響の可否
+        enemyBody->setGravityEnable(false);
+        //まじない
+        enemyBody->setDynamic(false);
+        enemyBody->setEnable(true);
+        
+        //カテゴリビットマスク
+        enemyBody->setCategoryBitmask(0x02);
+        enemyBody->setCollisionBitmask(0);
+        enemyBody->setContactTestBitmask(0x01);
+        
+        //Bodyの追加
+        enemy->setPhysicsBody(enemyBody);
+        
+        
+        //アニメーション用配列を用意
+        auto  enemyFrames = new Vector<SpriteFrame*>();
+        
+        //画像２枚を配列にセットする
+        //画像をすべて(2枚)を取り出せるよう、ループ文を使用
+        for (int i = 1; i < 3;i++ ) {
+            std::string enemyName = StringUtils::format("bird_%i.png",i);
+            SpriteFrame *spEnemyFrame = SpriteFrameCache::getInstance()-> getSpriteFrameByName(enemyName.c_str());
+            enemyFrames -> pushBack(spEnemyFrame);
+            
+            
+        }
+        
+        //アニメーションの設定
+        Animation *enemyAnimation = Animation::createWithSpriteFrames(*enemyFrames,0.1f);
+        Animate *enemyAnimate = Animate::create(enemyAnimation);
+        RepeatForever *repeat = RepeatForever::create(enemyAnimate);
+        enemy -> runAction(repeat);
+        delete enemyFrames;
+        
+        
+        return enemy;
+        
+    };
+    
+    //調整用の変数
+    int limit = 1;
+    
+    //木を配置
+    for(int idx = 0; idx < limit ; idx++){
+        
+        auto fieldTree = addFireldTree();
+        
+        fieldTree->setPosition(Vec2(backGround->getContentSize().width/(limit*2) * (idx * 2), 0 + fieldTree -> getContentSize().height/2 * fieldTree->getScale()));
+        
+        backGround->addChild(fieldTree);
+        
+    }
+    
+    //鳥を配置
+    for(int idx = 0; idx < limit ; idx++){
+        
+        auto bird = addBird();
+
+        bird->setPosition(Vec2(backGround->getContentSize().width/(limit*2) * (idx * 2 + 1), backGround->getContentSize().height - bird -> getContentSize().height/2 * bird->getScale()));
+        
+        backGround->addChild(bird);
+
+    }
+    
+
+
 }
 
 //各面のプリロード
