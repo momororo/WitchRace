@@ -81,6 +81,9 @@ public:
     //背景のreplace回数を返す
     int getReplaceCount();
     
+    //4面のみメソッドで背景にスプライトを追加
+    void addBackGroundParts4();
+    
     CREATE_FUNC(BackGround);
 
     

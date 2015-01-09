@@ -159,7 +159,21 @@ BackGround::BackGround(){
     sprite3->setPosition(Vec2(sprite3->getContentSize().width/2 ,sprite3->getContentSize().height/2));
     sprite3->setGlobalZOrder(zOrderOfBackGroundParts);
     backGrounds->at(2)->addChild(sprite3);
-        
+    
+    
+    
+    
+    //背景に更にスプライトを追加する場合ここにメソッド入れてね
+    switch (selectStory) {
+        case 0:;                        break;
+        case 1:;                        break;
+        case 2:;                        break;
+        case 3:addBackGroundParts4();   break;
+        case 4:                         break;
+        default:break;
+    }
+
+    
 }
 
 //backGroundの動作開始
@@ -235,7 +249,7 @@ void BackGround::makeGameOver(){
     
 }
 
-//キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
+//背景の1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
 void BackGround::backGroundUpdate(){
     
     //ゲームプレイ中かフラグで判定
@@ -258,5 +272,79 @@ void BackGround::backGroundUpdate(){
         //入れ替えを行う
         this->replaceBackGround();
     }
+    
+}
+
+void BackGround::addBackGroundParts4(){
+    
+    
+        //道路の生成
+        Sprite *road = Sprite::createWithSpriteFrameName("road.png");
+        //ポジションの設定
+        road->setPosition(Vec2(staticBackGround->getContentSize().width/2,staticBackGround->getContentSize().height/11*1));
+        road->setGlobalZOrder(zOrderOfEnemy);
+    
+    
+        //物理体の設定
+        auto roadMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+
+    
+        auto roadBody = PhysicsBody::createBox(road->getContentSize(),roadMaterial);
+    
+    
+    
+        //重力による影響の可否
+        roadBody->setGravityEnable(false);
+        //まじない
+        roadBody->setDynamic(false);
+        roadBody->setEnable(true);
+        
+        //カテゴリビットマスク
+        roadBody->setCategoryBitmask(0x02);
+        roadBody->setCollisionBitmask(0);
+        roadBody->setContactTestBitmask(0x01);
+        
+        //物理体の追加
+        road->setPhysicsBody(roadBody);
+
+        //追加
+        staticBackGround->addChild(road);
+
+        //天井の追加
+        Sprite *roof = Sprite::createWithSpriteFrameName("roof.png");
+        //ポジションの設定
+        roof->setPosition(Vec2(staticBackGround->getContentSize().width/2,staticBackGround->getContentSize().height/11*9 + roof->getContentSize().height/2));
+        roof->setGlobalZOrder(zOrderOfEnemy);
+    
+        //物理体の設定
+        auto roofMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+        
+        
+        auto roofBody = PhysicsBody::createBox(roof->getContentSize(),roofMaterial);
+        
+        
+        
+        //重力による影響の可否
+        roofBody->setGravityEnable(false);
+        //まじない
+        roofBody->setDynamic(false);
+        roofBody->setEnable(true);
+        
+        //カテゴリビットマスク
+        roofBody->setCategoryBitmask(0x02);
+        roofBody->setCollisionBitmask(0);
+        roofBody->setContactTestBitmask(0x01);
+    
+        //物理体の追加
+        roof->setPhysicsBody(roofBody);
+
+
+
+        //追加
+        staticBackGround->addChild(roof);
+
+        
+    
+    
     
 }

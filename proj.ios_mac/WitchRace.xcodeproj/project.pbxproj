@@ -13,6 +13,8 @@
 		041EF6901A5CC01A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		048578701A5AA1C80020DDF5 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0485786E1A5AA1C80020DDF5 /* Enemy.cpp */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
+		04FEE77C1A6015EA00098655 /* town.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77A1A6015EA00098655 /* town.plist */; };
+		04FEE77D1A6015EA00098655 /* town.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77B1A6015EA00098655 /* town.png */; };
 		1AC6FB1F180E996B004C840B /* libbox2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAFF180E9839004C840B /* libbox2d Mac.a */; };
 		1AC6FB20180E996B004C840B /* libchipmunk Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAFD180E9839004C840B /* libchipmunk Mac.a */; };
 		1AC6FB21180E996B004C840B /* libcocos2dx Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2dx Mac.a */; };
@@ -63,8 +65,6 @@
 		A419A9791A5D547B00478212 /* pause_gameBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A419A9781A5D547B00478212 /* pause_gameBg.png */; };
 		A41A6F2D1A52A68D0049829A /* particleFlower.plist in Resources */ = {isa = PBXBuildFile; fileRef = A41A6F2B1A52A68D0049829A /* particleFlower.plist */; };
 		A41A6F2E1A52A68D0049829A /* particleFlower.png in Resources */ = {isa = PBXBuildFile; fileRef = A41A6F2C1A52A68D0049829A /* particleFlower.png */; };
-		A42E0E651A5FB70C0005E670 /* town.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E631A5FB70C0005E670 /* town.png */; };
-		A42E0E661A5FB70C0005E670 /* town.plist in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E641A5FB70C0005E670 /* town.plist */; };
 		A42E0E6D1A5FB7280005E670 /* town_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E691A5FB7280005E670 /* town_1.png */; };
 		A42E0E6E1A5FB7280005E670 /* town_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6A1A5FB7280005E670 /* town_2.png */; };
 		A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6B1A5FB7280005E670 /* town_3.png */; };
@@ -272,6 +272,8 @@
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
 		04C9CBD91A30608300E51608 /* BackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackGround.h; path = ../Classes/BackGround.h; sourceTree = "<group>"; };
 		04DE3B0B1A5254960041D387 /* Zorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zorder.h; sourceTree = "<group>"; };
+		04FEE77A1A6015EA00098655 /* town.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = town.plist; sourceTree = "<group>"; };
+		04FEE77B1A6015EA00098655 /* town.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town.png; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
@@ -315,8 +317,6 @@
 		A419A9781A5D547B00478212 /* pause_gameBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_gameBg.png; sourceTree = "<group>"; };
 		A41A6F2B1A52A68D0049829A /* particleFlower.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particleFlower.plist; sourceTree = "<group>"; };
 		A41A6F2C1A52A68D0049829A /* particleFlower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleFlower.png; sourceTree = "<group>"; };
-		A42E0E631A5FB70C0005E670 /* town.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town.png; sourceTree = "<group>"; };
-		A42E0E641A5FB70C0005E670 /* town.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = town.plist; sourceTree = "<group>"; };
 		A42E0E691A5FB7280005E670 /* town_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_1.png; sourceTree = "<group>"; };
 		A42E0E6A1A5FB7280005E670 /* town_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_2.png; sourceTree = "<group>"; };
 		A42E0E6B1A5FB7280005E670 /* town_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_3.png; sourceTree = "<group>"; };
@@ -570,12 +570,12 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04FEE77A1A6015EA00098655 /* town.plist */,
+				04FEE77B1A6015EA00098655 /* town.png */,
 				A42E0E691A5FB7280005E670 /* town_1.png */,
 				A42E0E6A1A5FB7280005E670 /* town_2.png */,
 				A42E0E6B1A5FB7280005E670 /* town_3.png */,
 				A42E0E6C1A5FB7280005E670 /* town_gameBg.png */,
-				A42E0E631A5FB70C0005E670 /* town.png */,
-				A42E0E641A5FB70C0005E670 /* town.plist */,
 				A48D62A81A5E65CE003448B8 /* field_1.png */,
 				A48D62A91A5E65CE003448B8 /* field_2.png */,
 				A48D62A41A5E5DA3003448B8 /* field_3.png */,
@@ -796,6 +796,7 @@
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
+				04FEE77D1A6015EA00098655 /* town.png in Resources */,
 				A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
@@ -810,6 +811,7 @@
 				A4A8E8371A5BF9F000E3E346 /* kikiparticle.plist in Resources */,
 				A48D629C1A5E5D95003448B8 /* field.png in Resources */,
 				A42E0E701A5FB7280005E670 /* town_gameBg.png in Resources */,
+				04FEE77C1A6015EA00098655 /* town.plist in Resources */,
 				A47F2DB51A5D3A400050F464 /* factory_gameBg.png in Resources */,
 				A47F2DB11A5D3A2B0050F464 /* forest_2.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -836,10 +838,8 @@
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				A48D62A11A5E5D9E003448B8 /* field_gameBg.png in Resources */,
-				A42E0E661A5FB70C0005E670 /* town.plist in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				A47F2DB21A5D3A2B0050F464 /* forest_3.png in Resources */,
-				A42E0E651A5FB70C0005E670 /* town.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				A42E0E6E1A5FB7280005E670 /* town_2.png in Resources */,
 				A47F2DC41A5D3DD70050F464 /* particle_gameOver.plist in Resources */,

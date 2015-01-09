@@ -36,35 +36,19 @@ void Enemy::destroyInstance() {
 //コンストラクタ(初期化)
 Enemy::Enemy(){
     
-    //ステージごとのプリロードをする
+    //ステージごとに敵を追加するメソッドを分岐
     auto userDef = UserDefault::getInstance();
     auto point = userDef->getIntegerForKey("selectStory");
+    
+    //各面の読込(1ずつずれているため注意すること)
     switch (point) {
-            //1面の読込
-        case 0:
-            
-            
-            
-            break;
-            
-            //2面の読込
-        case 1:
-            
-            
-            break;
-            
-            
-        default:
-            break;
+        case 0:this->preLoad1();break;
+        case 1:this->preLoad2();break;
+        case 2:this->preLoad3();break;
+        case 3:this->preLoad4();break;
+        case 4:this->preLoad5();break;
+        default:break;
     }
-
-    
-
-
-    
-
-    
-    
     
 }
 
@@ -626,6 +610,600 @@ void Enemy::addEnemy3(Sprite* backGround){
 
 }
 void Enemy::addEnemy4(Sprite* backGround){
+    
+//各オブジェクトの生成
+    
+
+//高さ1のルート
+auto addRoute1 = [&](){
+    
+    Vector<Sprite*> *enemies = new Vector<Sprite*>;
+    
+    //電球を3つ設置
+    
+    for(int idx = 0; idx < 3; idx++){
+        auto light = addEnemyParts4(96);
+        //電球の高さ
+        float height = backGround->getContentSize().height/22*12;
+
+        if(idx == 0){
+            
+            light->setPosition(backGround->getContentSize().width/3*0+light->getContentSize().width/2, height);
+        }else{
+
+            light->setPosition(enemies->at(enemies->size()-1)->getPositionX() + light->getContentSize().width, height);
+
+        }
+
+        enemies->pushBack(light);
+    }
+    
+    return enemies;
+
+};
+
+    
+//高さ2のルート
+auto addRoute2 = [&](){
+    
+    Vector<Sprite*> *enemies = new Vector<Sprite*>;
+    
+    //電球を3つ設置
+    
+    for(int idx = 0; idx < 3; idx++){
+        auto light = addEnemyParts4(95);
+        //電球の高さ
+        float height = backGround->getContentSize().height/22*13;
+
+        if(idx == 0){
+            
+            light->setPosition(backGround->getContentSize().width/3*0+light->getContentSize().width/2, height);
+        }else{
+            
+            light->setPosition(enemies->at(enemies->size()-1)->getPositionX() + light->getContentSize().width, height);
+            
+        }
+        
+        enemies->pushBack(light);
+    }
+    
+    //車を3台設置
+    for(int idx = 0; idx < 3; idx++){
+        
+        auto car = addEnemyParts4(11);
+        //高さ
+        float height = backGround->getContentSize().height/22*5;
+
+        if(idx == 0){
+            
+            car->setPosition(backGround->getContentSize().width/3*0+car->getContentSize().width/2, height);
+        }else{
+            
+            car->setPosition(enemies->at(enemies->size()-1)->getPositionX() + car->getContentSize().width, height);
+            
+        }
+        
+        enemies->pushBack(car);
+    }
+
+    
+    
+    return enemies;
+    
+};
+    
+//高さ3のルート
+auto addRoute3 = [&](){
+    
+    Vector<Sprite*> *enemies = new Vector<Sprite*>;
+    
+    //電球を3つ設置
+    
+    for(int idx = 0; idx < 3; idx++){
+        auto light = addEnemyParts4(94);
+        //電球の高さ
+        float height = backGround->getContentSize().height/22*14;
+        
+        if(idx == 0){
+            
+            light->setPosition(backGround->getContentSize().width/3*0+light->getContentSize().width/2, height);
+        }else{
+            
+            light->setPosition(enemies->at(enemies->size()-1)->getPositionX() + light->getContentSize().width, height);
+            
+        }
+        
+        enemies->pushBack(light);
+    }
+    
+    //車を3台設置
+    for(int idx = 0; idx < 3; idx++){
+        
+        auto car = addEnemyParts4(12);
+        //高さ
+        float height = backGround->getContentSize().height/22*6;
+        
+        if(idx == 0){
+            
+            car->setPosition(backGround->getContentSize().width/3*0+car->getContentSize().width/2, height);
+        }else{
+            
+            car->setPosition(enemies->at(enemies->size()-1)->getPositionX() + car->getContentSize().width, height);
+            
+        }
+        
+        enemies->pushBack(car);
+    }
+    
+    
+    
+    return enemies;
+    
+};
+    
+//高さ4のルート
+auto addRoute4 = [&](){
+    
+    Vector<Sprite*> *enemies = new Vector<Sprite*>;
+    
+    //電球を3つ設置
+    
+    for(int idx = 0; idx < 3; idx++){
+        auto light = addEnemyParts4(93);
+        //電球の高さ
+        float height = backGround->getContentSize().height/22*15;
+        
+        if(idx == 0){
+            
+            light->setPosition(backGround->getContentSize().width/3*0+light->getContentSize().width/2, height);
+        }else{
+            
+            light->setPosition(enemies->at(enemies->size()-1)->getPositionX() + light->getContentSize().width, height);
+            
+        }
+        
+        enemies->pushBack(light);
+    }
+    
+    //車を1台設置
+    for(int idx = 0; idx < 1; idx++){
+        
+        auto car = addEnemyParts4(33);
+        //高さ
+        float height = backGround->getContentSize().height/22*7;
+        
+        
+            car->setPosition(backGround->getContentSize().width/3*0+car->getContentSize().width/2, height);
+        
+        enemies->pushBack(car);
+        
+    }
+    
+    
+    
+    return enemies;
+    
+};
+
+//高さ5のルート
+auto addRoute5 = [&](){
+    
+    Vector<Sprite*> *enemies = new Vector<Sprite*>;
+    
+    //電球を3つ設置
+    
+    for(int idx = 0; idx < 3; idx++){
+        auto light = addEnemyParts4(92);
+        //電球の高さ
+        float height = backGround->getContentSize().height/22*16;
+        
+        if(idx == 0){
+            
+            light->setPosition(backGround->getContentSize().width/3*0+light->getContentSize().width/2, height);
+        }else{
+            
+            light->setPosition(enemies->at(enemies->size()-1)->getPositionX() + light->getContentSize().width, height);
+            
+        }
+        
+        enemies->pushBack(light);
+    }
+    
+    //車を1台設置
+    for(int idx = 0; idx < 1; idx++){
+        
+        auto car = addEnemyParts4(34);
+        //高さ
+        float height = backGround->getContentSize().height/22*8;
+        
+        
+        car->setPosition(backGround->getContentSize().width/3*0+car->getContentSize().width/2, height);
+        
+        enemies->pushBack(car);
+        
+    }
+    
+    
+    
+    return enemies;
+        
+};
+    
+//高さ6のルート
+auto addRoute6 = [&](){
+    
+    Vector<Sprite*> *enemies = new Vector<Sprite*>;
+    
+    //電球を3つ設置
+    
+    for(int idx = 0; idx < 3; idx++){
+        auto light = addEnemyParts4(91);
+        //電球の高さ
+        float height = backGround->getContentSize().height/22*17;
+        
+        if(idx == 0){
+            
+            light->setPosition(backGround->getContentSize().width/3*0+light->getContentSize().width/2, height);
+        }else{
+            
+            light->setPosition(enemies->at(enemies->size()-1)->getPositionX() + light->getContentSize().width, height);
+            
+        }
+        
+        enemies->pushBack(light);
+    }
+
+
+    
+    bool carSwitch;
+
+    if(arc4random_uniform(2) == 0){
+
+        carSwitch = true;
+        
+    }
+    
+    
+    
+    //車を1台設置
+    for(int idx = 0; idx < 2; idx++){
+        Sprite* car;
+        
+        if(carSwitch == true){
+            car = addEnemyParts4(25);
+            carSwitch = false;
+        }else{
+            car = addEnemyParts4(15);
+            carSwitch = true;
+        }
+        
+        
+        //高さ
+        float height = backGround->getContentSize().height/22*9;
+        
+        if(idx == 0){
+            car->setPosition(backGround->getContentSize().width/3*0+car->getContentSize().width/2, height);
+        }else{
+            car->setPosition(Vec2(enemies->at(enemies->size()-1)->getPositionX() + enemies->at(enemies->size()-1)->getContentSize().width/2 + car->getContentSize().width/2 , height));
+            
+        }
+        
+        enemies->pushBack(car);
+        
+    }
+    
+    
+    
+    return enemies;
+    
+};
+
+//高さ7のルート
+auto addRoute7 = [&](){
+    
+    Vector<Sprite*> *enemies = new Vector<Sprite*>;
+    
+    
+    bool carSwitch;
+    
+    if(arc4random_uniform(2) == 0){
+        
+        carSwitch = true;
+        
+    }
+    
+    
+    
+    //車を2台設置
+    for(int idx = 0; idx < 2; idx++){
+        Sprite* car;
+        
+        if(carSwitch == true){
+            car = addEnemyParts4(26);
+            carSwitch = false;
+        }else{
+            car = addEnemyParts4(16);
+            carSwitch = true;
+        }
+        
+        
+        //高さ
+        float height = backGround->getContentSize().height/22*10;
+        
+        if(idx == 0){
+            car->setPosition(backGround->getContentSize().width/3*0+car->getContentSize().width/2, height);
+        }else{
+            car->setPosition(Vec2(enemies->at(enemies->size()-1)->getPositionX() + enemies->at(enemies->size()-1)->getContentSize().width/2 + car->getContentSize().width/2 , height));
+            
+        }
+        
+        enemies->pushBack(car);
+        
+    }
+    
+    
+    
+    return enemies;
+    
+};
+    
+auto addRouteChange = [&](int preHeightPosition, int heightPosition){
+    
+    Vector<Sprite*> *enemies = new Vector<Sprite*>;
+    
+//低いところから高いところに行くパターン
+if(preHeightPosition < heightPosition){
+//地面部分の生成
+        //車を3台設置
+        for(int idx = 0; idx < 3; idx++){
+            
+            Sprite* car;
+
+        //Spriteの生成
+            if(idx < 2){
+                
+                //車が不要なのでreturn
+                if(preHeightPosition == 1){
+                    continue;
+                }
+                
+                int number = 10 + (preHeightPosition - 1);
+                car = addEnemyParts4(number);
+            }
+            
+            if(idx == 2){
+
+                int number = 10 + (heightPosition - 1);
+                 car = addEnemyParts4(number);
+
+            }
+            
+        //positionの生成
+            if(idx != 2){
+                
+                //高さ
+                float height = backGround->getContentSize().height/22*(3 + preHeightPosition);
+
+                
+                if(idx == 0 ){
+                    car->setPosition(backGround->getContentSize().width/3*0+car->getContentSize().width/2, height);
+                }else{
+
+                    car->setPosition(Vec2(enemies->at(enemies->size()-1)->getPositionX() + enemies->at(enemies->size()-1)->getContentSize().width/2 + car->getContentSize().width/2 , height));
+
+                }
+                
+                
+            }else{
+                
+                float height = backGround->getContentSize().height/22*(3 + heightPosition);
+
+                //例外
+                if(preHeightPosition == 1){
+                    car->setPosition(backGround->getContentSize().width/3*2+car->getContentSize().width/2, height);
+
+                }else{
+                
+                car->setPosition(Vec2(enemies->at(enemies->size()-1)->getPositionX() + enemies->at(enemies->size()-1)->getContentSize().width/2 + car->getContentSize().width/2 , height));
+                }
+
+            }
+            
+            enemies->pushBack(car);
+            
+        }
+        
+//天井部分の生成
+        for(int idx = 0; idx < 3; idx++){
+            
+            //何もせず配列を返す
+            if(heightPosition == 7){
+                return enemies;
+            }
+            
+            Sprite* light;
+            //Spriteの生成
+                int number = 90 + (7 - heightPosition);
+                light = addEnemyParts4(number);
+            
+                //電球の高さ
+                float height = backGround->getContentSize().height/22*(11 +heightPosition);
+                
+                if(idx == 0){
+                    
+                    light->setPosition(backGround->getContentSize().width/3*0+light->getContentSize().width/2, height);
+                }else{
+                    
+                    light->setPosition(enemies->at(enemies->size()-1)->getPositionX() + light->getContentSize().width, height);
+                    
+                }
+            
+            enemies->pushBack(light);
+            
+        }
+
+        
+
+
+
+        
+    }
+    
+//高いところから低いところに行くパターン
+else
+{
+
+//天井部分の生成
+        for(int idx = 0; idx < 3; idx++){
+            
+            Sprite* light;
+            
+            //Spriteの生成
+            if(idx < 2){
+                
+                if(preHeightPosition == 7){
+                    continue;
+                }
+                
+                int number = 90 + (7 - preHeightPosition);
+                light = addEnemyParts4(number);
+            }
+            
+            if(idx == 2){
+                
+                int number = 90 + (7 - heightPosition);
+                light = addEnemyParts4(number);
+                
+            }
+            
+            //positionの生成
+            if(idx != 2){
+                
+                //高さ
+                float height = backGround->getContentSize().height/22*(11 +preHeightPosition);
+                
+                
+                if(idx == 0 ){
+                    light->setPosition(backGround->getContentSize().width/3*0+light->getContentSize().width/2, height);
+                }else{
+                    
+                    light->setPosition(enemies->at(enemies->size()-1)->getPositionX() + light->getContentSize().width, height);
+                    
+                }
+                
+                
+            }else{
+                
+                //高さ
+                float height = backGround->getContentSize().height/22*(11 +heightPosition);
+                
+                //例外
+                if(preHeightPosition == 7){
+                    light->setPosition(backGround->getContentSize().width/3*2+light->getContentSize().width/2, height);
+                }else{
+                
+                light->setPosition(enemies->at(enemies->size()-1)->getPositionX() + light->getContentSize().width, height);
+                }
+            }
+            
+            enemies->pushBack(light);
+            
+        }
+    
+//地面部分の生成
+    for(int idx = 0; idx < 3; idx++){
+        
+        //何もせず配列を返す
+        if(heightPosition == 1){
+            return enemies;
+        }
+        
+        Sprite* car;
+        //Spriteの生成
+        int number = 10 + (heightPosition - 1);
+        car = addEnemyParts4(number);
+        
+        //車の高さ
+        float height = backGround->getContentSize().height/22*(3 + heightPosition);
+        
+        if(idx == 0 ){
+            car->setPosition(backGround->getContentSize().width/3*0+car->getContentSize().width/2, height);
+        }else{
+            
+            car->setPosition(Vec2(enemies->at(enemies->size()-1)->getPositionX() + enemies->at(enemies->size()-1)->getContentSize().width/2 + car->getContentSize().width/2 , height));
+            
+        }
+        
+
+    
+        enemies->pushBack(car);
+        
+    }
+    
+    
+    
+    
+}
+        return enemies;
+    
+};
+    
+    Vector<Sprite*> *enemies;
+    
+    //初回は高さ3で行ってみる
+    if(BackGround::getInstance()->getReplaceCount() == 0){
+        enemies = addRoute4();
+        preHeightPosition = 4;
+    }
+    
+    //初回以外
+    if(BackGround::getInstance()->getReplaceCount() != 0){
+
+        
+        //乱数を生成
+        int heightPosition = arc4random_uniform(7);
+        //乱数を調整
+        heightPosition++;
+        
+        
+        //面倒なのでぽい
+        if(preHeightPosition == heightPosition){
+            switch (heightPosition) {
+                case 1:enemies = addRoute1();break;
+                case 2:enemies = addRoute2();break;
+                case 3:enemies = addRoute3();break;
+                case 4:enemies = addRoute4();break;
+                case 5:enemies = addRoute5();break;
+                case 6:enemies = addRoute6();break;
+                case 7:enemies = addRoute7();break;
+                default:break;
+            }
+            
+        }else{
+            
+            //誤差がある場合に生成
+            enemies = addRouteChange(preHeightPosition,heightPosition);
+            
+        }
+        
+        preHeightPosition = heightPosition;
+
+
+    }
+    
+
+    
+    //追加
+    for(auto enemy : *enemies){
+        backGround->addChild(enemy);
+    }
+    
+
+
+
+
+
+
 }
 void Enemy::addEnemy5(Sprite* backGround){
     
@@ -766,21 +1344,106 @@ auto addFireldTree = [](){
 }
 
 //各面のプリロード
-void preLoad1(){
+void Enemy::preLoad1(){
     
 }
-void preLoad2(){
+void Enemy::preLoad2(){
     
     
 }
-void preLoad3(){
+void Enemy::preLoad3(){
     
 }
-void preLoad4(){
+void Enemy::preLoad4(){
     
 }
-void preLoad5(){
+void Enemy::preLoad5(){
     
 }
 
+
+//4面の各オブジェクトを生成するメソッド
+//引数二桁xy(xは幅、yは高さ)で返すスプライトを分岐(ライトは幅を9にすること)
+Sprite* Enemy::addEnemyParts4(int widthAndHeight){
+    
+    //与えられた引数に応じて呼び出すpngNameを変える
+    std::string pngName;
+    switch (widthAndHeight) {
+        case 11: pngName = "car_1_1.png";break;
+        case 12: pngName = "car_1_2.png";break;
+        case 13: pngName = "car_1_3.png";break;
+        case 14: pngName = "car_1_4.png";break;
+        case 15: pngName = "car_1_5.png";break;
+        case 16: pngName = "car_1_6.png";break;
+        case 25: pngName = "car_2_5.png";break;
+        case 26: pngName = "car_2_6.png";break;
+        case 33: pngName = "car_3_3.png";break;
+        case 34: pngName = "car_3_4.png";break;
+        case 91: pngName = "light_1.png";break;
+        case 92: pngName = "light_2.png";break;
+        case 93: pngName = "light_3.png";break;
+        case 94: pngName = "light_4.png";break;
+        case 95: pngName = "light_5.png";break;
+        case 96: pngName = "light_6.png";break;
+        default:break;
+    }
+            
+            Sprite *enemy = Sprite::createWithSpriteFrameName(pngName);
+            enemy->setName("enemy");
+            enemy->setGlobalZOrder(zOrderOfEnemy);
+            enemy->setScale(1.0f);
+            
+            //物理体の設定
+            auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+
+/*
+    //与えられた引数に応じて物理体のポイントを変える。(後で)
+
+    PhysicsBody enemyBody;
+
+ 
+    switch (widthAndHeight) {
+        case 11: pngName = "car_1_1.png";break;
+        case 12: pngName = "car_1_2.png";break;
+        case 13: pngName = "car_1_3.png";break;
+        case 14: pngName = "car_1_4.png";break;
+        case 15: pngName = "car_1_5.png";break;
+        case 16: pngName = "car_1_6.png";break;
+        case 25: pngName = "car_2_5.png";break;
+        case 26: pngName = "car_2_6.png";break;
+        case 33: pngName = "car_3_3.png";break;
+        case 34: pngName = "car_3_4.png";break;
+        case 91: pngName = "light_1.png";break;
+        case 92: pngName = "light_2.png";break;
+        case 93: pngName = "light_3.png";break;
+        case 94: pngName = "light_4.png";break;
+        case 95: pngName = "light_5.png";break;
+        case 96: pngName = "light_6.png";break;
+        default:break;
+    }
+*/
+ 
+    
+            auto enemyBody = PhysicsBody::createBox(enemy->getContentSize(),enemyMaterial);
+    
+            
+            
+            //重力による影響の可否
+            enemyBody->setGravityEnable(false);
+            //まじない
+            enemyBody->setDynamic(false);
+            enemyBody->setEnable(true);
+            
+            //カテゴリビットマスク
+            enemyBody->setCategoryBitmask(0x02);
+            enemyBody->setCollisionBitmask(0);
+            enemyBody->setContactTestBitmask(0x01);
+            
+            //物理体の追加
+            enemy->setPhysicsBody(enemyBody);
+            
+            
+            return enemy;
+    
+}
 

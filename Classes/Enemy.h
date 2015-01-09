@@ -55,7 +55,12 @@ public:
     void addEnemy3(Sprite* backGround);
     void addEnemy4(Sprite* backGround);
     void addEnemy5(Sprite* backGround);
+    
+    //4面のみ別メソッド
+    Sprite* addEnemyParts4(int widthAndHeight);
 
+    //4面のみ高さ管理の変数
+    int preHeightPosition;
     
     
 
