@@ -526,8 +526,8 @@ void Enemy::addEnemy3(Sprite* backGround){
 
         //雲の配置
         int limit;
-        if(BackGround::getInstance()->getReplaceCount() <= 20){
-            limit = 3;
+        if(arc4random_uniform(2) == 0){
+            limit = 2;
         }else{
             limit = 3;
         }
