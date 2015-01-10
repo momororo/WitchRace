@@ -172,6 +172,14 @@ BackGround::BackGround(){
         case 4:                         break;
         default:break;
     }
+    
+    //カウントのラベル
+    auto countLabel = Label::Label::createWithSystemFont("30","MagicSchoolOne", 50);
+    countLabel->setTextColor(Color4B::BLACK);
+    countLabel->setPosition(Vec2(staticBackGround->getContentSize().width - countLabel->getContentSize().width,staticBackGround->getContentSize().height - countLabel->getContentSize().height));
+    countLabel->setGlobalZOrder(zOrderOfStaticBackGround);
+    countLabel->setName("count");
+    staticBackGround->addChild(countLabel);
 
     
 }
@@ -212,9 +220,14 @@ void BackGround::replaceBackGround(){
     
 #pragma mark -
 #pragma mark ここにスプライトを乗っけ直す処理を入れる
-    Enemy::getInstance()->addEnemyManager(backGround);
-#pragma mark -
     
+    //backGroundのお掃除
+    backGround->removeChildByName("enemy");
+
+    //-2からスタートしているので数字を調整
+    if(count < (30 - 2)){
+        Enemy::getInstance()->addEnemyManager(backGround);
+    }
     
     //ポジションの設定
     backGround->setPosition(Vec2(backGrounds->at(backGrounds->size()-1)->getPosition().x + backGround->getContentSize().width,backGrounds->at(backGrounds->size()-1)->getPositionY()));
@@ -228,17 +241,22 @@ void BackGround::replaceBackGround(){
     //カウント足し込み
     count++;
 
-/*
-    //デバッグ用
-    if(backGrounds->at(0)->getPosition().x + backGrounds->at(0)->getContentSize().width/2  < backGrounds->at(1)->getPosition().x - backGrounds->at(1)->getContentSize().width/2){
-        
-        auto test = (backGrounds->at(0)->getPosition().x + backGrounds->at(0)->getContentSize().width/2)  - (backGrounds->at(1)->getPosition().x - backGrounds->at(1)->getContentSize().width/2);
-
-        
-        CCLOG("%fずれてる！",test);
-    }
-*/
     
+    //カウントダウン表示
+    //0までは何もしない
+    if(count <= 0){
+        
+        return;
+    }
+    if(count <= 30){
+        //カウントダウン演出
+        Label *countLabel = (Label*)staticBackGround->getChildByName("count");
+        countLabel->setString(StringUtils::format("%d",30 - count));
+        
+        return;
+    }
+
+
 }
 
 void BackGround::makeGameOver(){

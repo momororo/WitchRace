@@ -237,6 +237,14 @@ void GameScene::update( float frame )
     BackGround::getInstance()->backGroundUpdate();
 //背景処理終
     
+//クリアか判定
+    //30で全障害物設置完了
+    //全障害物を通り抜けたらゲームクリア
+    if(BackGround::getInstance()->getReplaceCount() > 30){
+        //ゲームクリア
+        this->makeGameClear();
+    }
+    
 if(Kiki::getInstance()->getGamePlayFlag() == true){
 #pragma  mark デバッグ用
     //時間の計測
@@ -267,7 +275,8 @@ if(Kiki::getInstance()->getGamePlayFlag() == true){
 #pragma mark-
 #pragma mark ゲームオーバーの処理
 void GameScene::makeGameOver(){
-    
+    //スケジュールの停止
+    this->unscheduleUpdate();
     
     //キキちゃんのgameOver処理
     Kiki::getInstance()->makeGameOver();
@@ -374,4 +383,142 @@ void GameScene::makeGameOver(){
     
     gameOverOfLabel -> setGlobalZOrder(300);
         
+}
+
+void GameScene::makeGameClear(){
+    //スケジュールの停止
+    this->unscheduleUpdate();
+    
+    //キキちゃんのgameOver処理
+    Kiki::getInstance()->makeGameOver();
+    
+    
+    //背景の処理
+    BackGround::getInstance()->stopBackGround();
+    BackGround::getInstance()->makeGameOver();
+    
+//ゲームクリア特有の処理
+    //選択したステージとクリアステージを比べ、イコールの場合は次のステージを解放
+    //ただし変数が4の場合は全ステージクリア済のため、何もしない
+    auto userDef = UserDefault::getInstance();
+    auto clearStory = userDef->getIntegerForKey("clearStory");
+    auto selectStory = userDef->getIntegerForKey("selectStory");
+    if (clearStory == selectStory && clearStory != 4) {
+        clearStory++;
+        //クリアステージの記憶変数に挿入
+        userDef->setIntegerForKey("clearStory", clearStory);
+    }
+    
+    
+    
+    //gameOver画面の生成
+    auto gameOverBg = Sprite::create("pause_gameBg.png");
+    gameOverBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
+    gameOverBg -> setGlobalZOrder(0);
+    gameOverBg -> setOpacity(255);
+    this -> addChild(gameOverBg,2);
+    
+    
+    //gameOverのlabel用スプライト
+    auto gameOverOfLabel = Sprite::create();
+    gameOverOfLabel -> setTextureRect(Rect( 0,0,selfFrame.width,selfFrame.height));
+    gameOverOfLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
+    gameOverOfLabel -> setOpacity(0);
+    gameOverOfLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    this -> addChild(gameOverOfLabel,3);
+    /*
+     auto testSprite = Sprite::create();
+     testSprite ->setColor(Color3B::WHITE);
+     testSprite -> setOpacity(125);
+     testSprite -> setTextureRect(Rect(0,0,selfFrame.width,selfFrame.height));
+     testSprite -> setGlobalZOrder(0);
+     testSprite -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/4*3));
+     this -> addChild(testSprite);
+     */
+    
+    
+    
+    
+    
+    
+    //gameOver画面のparticle
+    auto gameOverParticle = ParticleSystemQuad::create("particle_gameOver.plist");
+    gameOverParticle -> setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
+    gameOverParticle -> setGlobalZOrder(zOrderOfPause);
+    gameOverOfLabel -> addChild(gameOverParticle);
+    
+    
+//全ステージクリアの場合、今のところボタン生成の処理をスキップします
+    if(selectStory != 4){
+        //リトライボタン作成
+        auto retryBt = Label::createWithSystemFont("Next", "MagicSchoolOne", 100);
+        retryBt -> setColor(Color3B::BLACK);
+        retryBt ->setGlobalZOrder(zOrderOfPauseLabel);
+        
+        auto retryBtTaped = Label::createWithSystemFont("Next", "MagicSchoolOne", 100);
+        retryBtTaped-> setColor(Color3B::BLACK);
+        retryBtTaped -> setOpacity(150);
+        retryBtTaped ->setGlobalZOrder(zOrderOfPauseLabel);
+        
+        
+        auto retryBtnItem = MenuItemSprite::create(retryBt, retryBtTaped,[](Ref *ref){
+            
+            //セレクトステージに1足し込み(次のステージへ)
+            auto userDef = UserDefault::getInstance();
+            auto selectStory = userDef->getIntegerForKey("selectStory");
+            selectStory++;
+            userDef->setIntegerForKey("selectStory", selectStory);
+            
+            Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("GameScene"));
+            
+            Director::getInstance()->replaceScene(nextScene);
+            
+        });
+        retryBtnItem ->setGlobalZOrder(zOrderOfPauseLabel);
+        
+        auto retryMenu = Menu::create(retryBtnItem, NULL);
+        
+        retryMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height/3));
+        retryMenu ->setGlobalZOrder(zOrderOfPauseLabel);
+        
+        
+        gameOverOfLabel->addChild(retryMenu);
+        
+    }
+    
+    
+    //ホームボタン作成
+    auto homeBt = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
+    homeBt -> setColor(Color3B::BLACK);
+    
+    auto homeBtTaped = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
+    homeBtTaped-> setColor(Color3B::BLACK);
+    homeBtTaped -> setOpacity(150);
+    
+    auto homeBtnItem = MenuItemSprite::create(homeBt, homeBtTaped,[](Ref *ref){
+        
+        Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("TitleScene"));
+        
+        Director::getInstance()->replaceScene(nextScene);
+        
+    });
+    
+    auto homeMenu = Menu::create(homeBtnItem, NULL);
+    
+    homeMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height/3));
+    gameOverOfLabel->addChild(homeMenu);
+    
+    
+    //「Game Over」ラベル作成
+    auto gameOverLabel = Label::createWithSystemFont("Game Clear", "MagicSchoolOne", 150);
+    gameOverLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/3));
+    gameOverLabel -> setColor(Color3B::BLACK);
+    gameOverOfLabel -> addChild(gameOverLabel);
+    
+    gameOverOfLabel -> setGlobalZOrder(300);
+    
+    
+    
+    
+    
 }

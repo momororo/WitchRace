@@ -56,11 +56,6 @@ Enemy::Enemy(){
 void Enemy::addEnemyManager(Sprite* backGround){
     
 
-    //backGroundのお掃除
-    
-    backGround->removeChildByName("enemy");
-
-
     //ステージごとに敵を追加するメソッドを分岐
     auto userDef = UserDefault::getInstance();
     auto point = userDef->getIntegerForKey("selectStory");
@@ -1151,13 +1146,13 @@ else
     Vector<Sprite*> *enemies;
     
     //初回は高さ3で行ってみる
-    if(BackGround::getInstance()->getReplaceCount() == 0){
+    if(BackGround::getInstance()->getReplaceCount() == -2){
         enemies = addRoute4();
         preHeightPosition = 4;
     }
     
     //初回以外
-    if(BackGround::getInstance()->getReplaceCount() != 0){
+    if(BackGround::getInstance()->getReplaceCount() != -2){
 
         
         //乱数を生成
