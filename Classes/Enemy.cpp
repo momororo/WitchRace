@@ -426,13 +426,13 @@ void Enemy::addEnemy3(Sprite* backGround){
         //物理体の設定
         auto enemyMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
         
-        Point spritePoints[6]={
+        Point spritePoints[5]={
             
-            Vec2(30,-30),Vec2(0,-25), Vec2(-51,5),Vec2(-5,30),Vec2(50,-5),Vec2(40,-30)
+            Vec2(-35,-146),Vec2(-30,120), Vec2(15,146), Vec2(35,135),Vec2(35,-146)
             
         };
         
-        auto enemyBody = PhysicsBody::createPolygon(spritePoints, 6,enemyMaterial);
+        auto enemyBody = PhysicsBody::createPolygon(spritePoints, 5,enemyMaterial);
         
         //重力による影響の可否
         enemyBody->setGravityEnable(false);
@@ -492,7 +492,6 @@ void Enemy::addEnemy3(Sprite* backGround){
     //x軸の移動に利用(X軸を4分割)
     for(int idxX = 0 ; idxX < 5 ; idxX++){
 
-        
         //後でこいつの座標を使うため、addchildしない場合でも宣言は行う必要がある。
         //煙突を追加
         auto chimney = addchimney();
@@ -502,7 +501,6 @@ void Enemy::addEnemy3(Sprite* backGround){
         //1/3の確率で煙突を追加
         if(arc4random_uniform(3) == 0){
             
-
             //backGroundにスプライトを追加
             backGround->addChild(chimney);
 
