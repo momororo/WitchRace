@@ -162,7 +162,7 @@ Kiki::Kiki(){
     
     };
     
-    auto broomBody = PhysicsBody::createEdgePolygon(broomPoint,3,broomMaterial);
+    auto broomBody = PhysicsBody::createPolygon(broomPoint,3,broomMaterial);
     broomBody -> setGravityEnable(false);
     broomBody -> setDynamic(true);
     broomBody -> setEnable(false);
