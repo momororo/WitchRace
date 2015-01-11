@@ -263,7 +263,7 @@ void Kiki::kikiUpdate(){
             
             //タップされていない場合は下降！
         
-            kikiParticle->cocos2d::ParticleSystem::setSpeed(300);
+            //kikiParticle->cocos2d::ParticleSystem::setSpeed(300);
 
 
             
