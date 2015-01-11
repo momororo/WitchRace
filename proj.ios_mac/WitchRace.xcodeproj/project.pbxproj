@@ -69,6 +69,8 @@
 		A42E0E6E1A5FB7280005E670 /* town_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6A1A5FB7280005E670 /* town_2.png */; };
 		A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6B1A5FB7280005E670 /* town_3.png */; };
 		A42E0E701A5FB7280005E670 /* town_gameBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6C1A5FB7280005E670 /* town_gameBg.png */; };
+		A4762DA51A6240F6008DEA2C /* particle_gameClear.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4762DA31A6240F6008DEA2C /* particle_gameClear.plist */; };
+		A4762DA61A6240F6008DEA2C /* particle_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A4762DA41A6240F6008DEA2C /* particle_gameClear.png */; };
 		A47F2DA01A5D39EA0050F464 /* factory.plist in Resources */ = {isa = PBXBuildFile; fileRef = A47F2D9E1A5D39EA0050F464 /* factory.plist */; };
 		A47F2DA11A5D39EA0050F464 /* factory.png in Resources */ = {isa = PBXBuildFile; fileRef = A47F2D9F1A5D39EA0050F464 /* factory.png */; };
 		A47F2DA51A5D39F50050F464 /* factory_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A47F2DA21A5D39F50050F464 /* factory_1.png */; };
@@ -89,8 +91,6 @@
 		A47F2DC11A5D3A8A0050F464 /* village.png in Resources */ = {isa = PBXBuildFile; fileRef = A47F2DBF1A5D3A8A0050F464 /* village.png */; };
 		A47F2DC41A5D3DD70050F464 /* particle_gameOver.plist in Resources */ = {isa = PBXBuildFile; fileRef = A47F2DC21A5D3DD70050F464 /* particle_gameOver.plist */; };
 		A47F2DC51A5D3DD70050F464 /* particle_gameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = A47F2DC31A5D3DD70050F464 /* particle_gameOver.png */; };
-		A48D4B151A623C74000B6FC9 /* particle_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A48D4B131A623C74000B6FC9 /* particle_gameClear.png */; };
-		A48D4B161A623C74000B6FC9 /* particle_gameClear.plist in Resources */ = {isa = PBXBuildFile; fileRef = A48D4B141A623C74000B6FC9 /* particle_gameClear.plist */; };
 		A48D629C1A5E5D95003448B8 /* field.png in Resources */ = {isa = PBXBuildFile; fileRef = A48D629A1A5E5D95003448B8 /* field.png */; };
 		A48D629D1A5E5D95003448B8 /* field.plist in Resources */ = {isa = PBXBuildFile; fileRef = A48D629B1A5E5D95003448B8 /* field.plist */; };
 		A48D62A11A5E5D9E003448B8 /* field_gameBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A48D62A01A5E5D9E003448B8 /* field_gameBg.png */; };
@@ -323,6 +323,8 @@
 		A42E0E6A1A5FB7280005E670 /* town_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_2.png; sourceTree = "<group>"; };
 		A42E0E6B1A5FB7280005E670 /* town_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_3.png; sourceTree = "<group>"; };
 		A42E0E6C1A5FB7280005E670 /* town_gameBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_gameBg.png; sourceTree = "<group>"; };
+		A4762DA31A6240F6008DEA2C /* particle_gameClear.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_gameClear.plist; sourceTree = "<group>"; };
+		A4762DA41A6240F6008DEA2C /* particle_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_gameClear.png; sourceTree = "<group>"; };
 		A47F2D9E1A5D39EA0050F464 /* factory.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = factory.plist; sourceTree = "<group>"; };
 		A47F2D9F1A5D39EA0050F464 /* factory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = factory.png; sourceTree = "<group>"; };
 		A47F2DA21A5D39F50050F464 /* factory_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = factory_1.png; sourceTree = "<group>"; };
@@ -343,8 +345,6 @@
 		A47F2DBF1A5D3A8A0050F464 /* village.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = village.png; sourceTree = "<group>"; };
 		A47F2DC21A5D3DD70050F464 /* particle_gameOver.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_gameOver.plist; sourceTree = "<group>"; };
 		A47F2DC31A5D3DD70050F464 /* particle_gameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_gameOver.png; sourceTree = "<group>"; };
-		A48D4B131A623C74000B6FC9 /* particle_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_gameClear.png; sourceTree = "<group>"; };
-		A48D4B141A623C74000B6FC9 /* particle_gameClear.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_gameClear.plist; sourceTree = "<group>"; };
 		A48D629A1A5E5D95003448B8 /* field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field.png; sourceTree = "<group>"; };
 		A48D629B1A5E5D95003448B8 /* field.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = field.plist; sourceTree = "<group>"; };
 		A48D62A01A5E5D9E003448B8 /* field_gameBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field_gameBg.png; sourceTree = "<group>"; };
@@ -587,8 +587,8 @@
 				A48D629A1A5E5D95003448B8 /* field.png */,
 				A48D629B1A5E5D95003448B8 /* field.plist */,
 				A419A9781A5D547B00478212 /* pause_gameBg.png */,
-				A48D4B131A623C74000B6FC9 /* particle_gameClear.png */,
-				A48D4B141A623C74000B6FC9 /* particle_gameClear.plist */,
+				A4762DA31A6240F6008DEA2C /* particle_gameClear.plist */,
+				A4762DA41A6240F6008DEA2C /* particle_gameClear.png */,
 				A47F2DC21A5D3DD70050F464 /* particle_gameOver.plist */,
 				A47F2DC31A5D3DD70050F464 /* particle_gameOver.png */,
 				A47F2DBE1A5D3A8A0050F464 /* village.plist */,
@@ -803,7 +803,6 @@
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				04FEE77D1A6015EA00098655 /* town.png in Resources */,
-				A48D4B151A623C74000B6FC9 /* particle_gameClear.png in Resources */,
 				A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
@@ -816,6 +815,7 @@
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				A47F2DB91A5D3A740050F464 /* village_1.png in Resources */,
 				A4A8E8371A5BF9F000E3E346 /* kikiparticle.plist in Resources */,
+				A4762DA51A6240F6008DEA2C /* particle_gameClear.plist in Resources */,
 				A48D629C1A5E5D95003448B8 /* field.png in Resources */,
 				A42E0E701A5FB7280005E670 /* town_gameBg.png in Resources */,
 				04FEE77C1A6015EA00098655 /* town.plist in Resources */,
@@ -829,7 +829,6 @@
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				A47F2DA71A5D39F50050F464 /* factory_3.png in Resources */,
 				A41A6F2D1A52A68D0049829A /* particleFlower.plist in Resources */,
-				A48D4B161A623C74000B6FC9 /* particle_gameClear.plist in Resources */,
 				A41A6F2E1A52A68D0049829A /* particleFlower.png in Resources */,
 				A4A8E8381A5BF9F000E3E346 /* kikitexture.png in Resources */,
 				A47F2DAB1A5D3A180050F464 /* forest.plist in Resources */,
@@ -853,6 +852,7 @@
 				A47F2DC41A5D3DD70050F464 /* particle_gameOver.plist in Resources */,
 				A48D62A71A5E5DA3003448B8 /* field_3.png in Resources */,
 				A47F2DBD1A5D3A7D0050F464 /* village_gameBg.png in Resources */,
+				A4762DA61A6240F6008DEA2C /* particle_gameClear.png in Resources */,
 				A4BB07211A3976B600991DCE /* kiki_up.png in Resources */,
 				A4BB071E1A3976AD00991DCE /* kiki_down.png in Resources */,
 			);

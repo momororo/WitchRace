@@ -86,8 +86,15 @@ auto addBad = [](){
     
         //物理体の設定
         auto badMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-        auto badBody = PhysicsBody::createBox(bad->getContentSize()*0.9,badMaterial);
-        
+    
+        Point spritePoints[5]{
+            
+            Vec2(-47,-122),Vec2(-47,110),Vec2(47,122),Vec2(47,-10),Vec2(20,-100)
+    
+        };
+    
+        auto badBody = PhysicsBody::createPolygon(spritePoints, 5,badMaterial);
+    
         //重力による影響の可否
         badBody->setGravityEnable(false);
         //まじない
@@ -139,7 +146,14 @@ auto addtree = [](){
     
     //物理体の設定
     auto treeMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-    auto treeBody = PhysicsBody::createBox(tree->getContentSize()*0.9,treeMaterial);
+    
+    Point spritePoints[7]{
+        
+        Vec2(-110,-357),Vec2(-110,230),Vec2(-60,310),Vec2(-20,357),Vec2(20,357),Vec2(110,230),Vec2(110,-357)
+    
+    };
+    
+    auto treeBody = PhysicsBody::createPolygon(spritePoints, 7,treeMaterial);
     
     //重力による影響の可否
     treeBody->setGravityEnable(false);
