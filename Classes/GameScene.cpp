@@ -240,7 +240,7 @@ void GameScene::update( float frame )
 //クリアか判定
     //30で全障害物設置完了
     //全障害物を通り抜けたらゲームクリア
-    if(BackGround::getInstance()->getReplaceCount() > 30){
+    if(BackGround::getInstance()->getReplaceCount() > 5){
         //ゲームクリア
         this->makeGameClear();
     }
@@ -385,6 +385,9 @@ void GameScene::makeGameOver(){
         
 }
 
+#pragma mark-
+#pragma mark ゲームクリアの処理
+
 void GameScene::makeGameClear(){
     //スケジュールの停止
     this->unscheduleUpdate();
@@ -411,7 +414,7 @@ void GameScene::makeGameClear(){
     
     
     
-    //gameOver画面の生成
+    //gameClear画面の生成
     auto gameOverBg = Sprite::create("pause_gameBg.png");
     gameOverBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     gameOverBg -> setGlobalZOrder(0);
@@ -419,7 +422,7 @@ void GameScene::makeGameClear(){
     this -> addChild(gameOverBg,2);
     
     
-    //gameOverのlabel用スプライト
+    //gameClearのlabel用スプライト
     auto gameOverOfLabel = Sprite::create();
     gameOverOfLabel -> setTextureRect(Rect( 0,0,selfFrame.width,selfFrame.height));
     gameOverOfLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
@@ -441,8 +444,8 @@ void GameScene::makeGameClear(){
     
     
     
-    //gameOver画面のparticle
-    auto gameOverParticle = ParticleSystemQuad::create("particle_gameOver.plist");
+    //gameClear画面のparticle
+    auto gameOverParticle = ParticleSystemQuad::create("particle_gameClear.plist");
     gameOverParticle -> setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
     gameOverParticle -> setGlobalZOrder(zOrderOfPause);
     gameOverOfLabel -> addChild(gameOverParticle);
@@ -452,11 +455,11 @@ void GameScene::makeGameClear(){
     if(selectStory != 4){
         //リトライボタン作成
         auto retryBt = Label::createWithSystemFont("Next", "MagicSchoolOne", 100);
-        retryBt -> setColor(Color3B::BLACK);
+        retryBt -> setColor(Color3B(255, 255, 177));
         retryBt ->setGlobalZOrder(zOrderOfPauseLabel);
         
         auto retryBtTaped = Label::createWithSystemFont("Next", "MagicSchoolOne", 100);
-        retryBtTaped-> setColor(Color3B::BLACK);
+        retryBt -> setColor(Color3B(255, 255, 177));
         retryBtTaped -> setOpacity(150);
         retryBtTaped ->setGlobalZOrder(zOrderOfPauseLabel);
         
@@ -489,10 +492,10 @@ void GameScene::makeGameClear(){
     
     //ホームボタン作成
     auto homeBt = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
-    homeBt -> setColor(Color3B::BLACK);
+    homeBt -> setColor(Color3B(255, 255, 177));
     
     auto homeBtTaped = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
-    homeBtTaped-> setColor(Color3B::BLACK);
+    homeBtTaped-> setColor(Color3B(255, 255, 177));
     homeBtTaped -> setOpacity(150);
     
     auto homeBtnItem = MenuItemSprite::create(homeBt, homeBtTaped,[](Ref *ref){
@@ -509,16 +512,12 @@ void GameScene::makeGameClear(){
     gameOverOfLabel->addChild(homeMenu);
     
     
-    //「Game Over」ラベル作成
+    //「Game Clear」ラベル作成
     auto gameOverLabel = Label::createWithSystemFont("Game Clear", "MagicSchoolOne", 150);
     gameOverLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/3));
-    gameOverLabel -> setColor(Color3B::BLACK);
+    gameOverLabel -> setColor(Color3B(255, 255, 177));
     gameOverOfLabel -> addChild(gameOverLabel);
     
     gameOverOfLabel -> setGlobalZOrder(300);
-    
-    
-    
-    
     
 }
