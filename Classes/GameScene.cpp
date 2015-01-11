@@ -320,8 +320,8 @@ void GameScene::makeGameOver(){
     //gameOver画面のparticle
     auto gameOverParticle = ParticleSystemQuad::create("particle_gameOver.plist");
     gameOverParticle -> setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
-    gameOverParticle -> setGlobalZOrder(zOrderOfPause);
-    gameOverOfLabel -> addChild(gameOverParticle);
+    gameOverParticle -> setGlobalZOrder(0/*zOrderOfPause*/);
+    gameOverBg -> addChild(gameOverParticle);
     
     
     //リトライボタン作成
@@ -447,8 +447,8 @@ void GameScene::makeGameClear(){
     //gameClear画面のparticle
     auto gameOverParticle = ParticleSystemQuad::create("particle_gameClear.plist");
     gameOverParticle -> setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
-    gameOverParticle -> setGlobalZOrder(zOrderOfPause);
-    gameOverOfLabel -> addChild(gameOverParticle);
+    gameOverParticle -> setGlobalZOrder(0/*zOrderOfPause*/);
+    gameOverOfLabel -> addChild(gameOverParticle,1);
     
     
 //全ステージクリアの場合、今のところボタン生成の処理をスキップします
@@ -485,7 +485,7 @@ void GameScene::makeGameClear(){
         retryMenu ->setGlobalZOrder(zOrderOfPauseLabel);
         
         
-        gameOverOfLabel->addChild(retryMenu);
+        gameOverOfLabel->addChild(retryMenu,2);
         
     }
     
@@ -509,15 +509,15 @@ void GameScene::makeGameClear(){
     auto homeMenu = Menu::create(homeBtnItem, NULL);
     
     homeMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height/3));
-    gameOverOfLabel->addChild(homeMenu);
+    gameOverOfLabel->addChild(homeMenu,2);
     
     
     //「Game Clear」ラベル作成
     auto gameOverLabel = Label::createWithSystemFont("Game Clear", "MagicSchoolOne", 150);
     gameOverLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/3));
     gameOverLabel -> setColor(Color3B(255, 255, 177));
-    gameOverOfLabel -> addChild(gameOverLabel);
+    gameOverLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    gameOverOfLabel -> addChild(gameOverLabel,3);
     
-    gameOverOfLabel -> setGlobalZOrder(300);
     
 }
