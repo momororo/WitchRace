@@ -11,8 +11,6 @@
 		040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040B16231A2F2A5700FDC891 /* Kiki.cpp */; };
 		041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		041EF6901A5CC01A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
-		044D781B1A6259A300C183DD /* particle_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 044D78191A6259A300C183DD /* particle_texture.png */; };
-		044D781C1A6259A300C183DD /* particle_texture.plist in Resources */ = {isa = PBXBuildFile; fileRef = 044D781A1A6259A300C183DD /* particle_texture.plist */; };
 		048578701A5AA1C80020DDF5 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0485786E1A5AA1C80020DDF5 /* Enemy.cpp */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
 		04FEE77C1A6015EA00098655 /* town.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77A1A6015EA00098655 /* town.plist */; };
@@ -71,8 +69,9 @@
 		A42E0E6E1A5FB7280005E670 /* town_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6A1A5FB7280005E670 /* town_2.png */; };
 		A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6B1A5FB7280005E670 /* town_3.png */; };
 		A42E0E701A5FB7280005E670 /* town_gameBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6C1A5FB7280005E670 /* town_gameBg.png */; };
-		A4762DA51A6240F6008DEA2C /* particle_gameClear.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4762DA31A6240F6008DEA2C /* particle_gameClear.plist */; };
-		A4762DA61A6240F6008DEA2C /* particle_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A4762DA41A6240F6008DEA2C /* particle_gameClear.png */; };
+		A473C84A1A627B64009000A5 /* pause_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A473C8491A627B64009000A5 /* pause_gameClear.png */; };
+		A473C84F1A627D65009000A5 /* particle_gameClear.plist in Resources */ = {isa = PBXBuildFile; fileRef = A473C84D1A627D65009000A5 /* particle_gameClear.plist */; };
+		A473C8501A627D65009000A5 /* particle_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A473C84E1A627D65009000A5 /* particle_gameClear.png */; };
 		A47F2DA01A5D39EA0050F464 /* factory.plist in Resources */ = {isa = PBXBuildFile; fileRef = A47F2D9E1A5D39EA0050F464 /* factory.plist */; };
 		A47F2DA11A5D39EA0050F464 /* factory.png in Resources */ = {isa = PBXBuildFile; fileRef = A47F2D9F1A5D39EA0050F464 /* factory.png */; };
 		A47F2DA51A5D39F50050F464 /* factory_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A47F2DA21A5D39F50050F464 /* factory_1.png */; };
@@ -271,8 +270,6 @@
 		040B16241A2F2A5700FDC891 /* Kiki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kiki.h; path = ../Classes/Kiki.h; sourceTree = "<group>"; };
 		041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadScene.cpp; sourceTree = "<group>"; };
 		041EF68C1A5CBF2A0039FE88 /* LoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadScene.h; sourceTree = "<group>"; };
-		044D78191A6259A300C183DD /* particle_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_texture.png; sourceTree = "<group>"; };
-		044D781A1A6259A300C183DD /* particle_texture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_texture.plist; sourceTree = "<group>"; };
 		0485786E1A5AA1C80020DDF5 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = ../Classes/Enemy.cpp; sourceTree = "<group>"; };
 		0485786F1A5AA1C80020DDF5 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = ../Classes/Enemy.h; sourceTree = "<group>"; };
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
@@ -327,8 +324,9 @@
 		A42E0E6A1A5FB7280005E670 /* town_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_2.png; sourceTree = "<group>"; };
 		A42E0E6B1A5FB7280005E670 /* town_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_3.png; sourceTree = "<group>"; };
 		A42E0E6C1A5FB7280005E670 /* town_gameBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_gameBg.png; sourceTree = "<group>"; };
-		A4762DA31A6240F6008DEA2C /* particle_gameClear.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_gameClear.plist; sourceTree = "<group>"; };
-		A4762DA41A6240F6008DEA2C /* particle_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_gameClear.png; sourceTree = "<group>"; };
+		A473C8491A627B64009000A5 /* pause_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_gameClear.png; sourceTree = "<group>"; };
+		A473C84D1A627D65009000A5 /* particle_gameClear.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_gameClear.plist; sourceTree = "<group>"; };
+		A473C84E1A627D65009000A5 /* particle_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_gameClear.png; sourceTree = "<group>"; };
 		A47F2D9E1A5D39EA0050F464 /* factory.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = factory.plist; sourceTree = "<group>"; };
 		A47F2D9F1A5D39EA0050F464 /* factory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = factory.png; sourceTree = "<group>"; };
 		A47F2DA21A5D39F50050F464 /* factory_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = factory_1.png; sourceTree = "<group>"; };
@@ -583,8 +581,6 @@
 				A42E0E691A5FB7280005E670 /* town_1.png */,
 				A42E0E6A1A5FB7280005E670 /* town_2.png */,
 				A42E0E6B1A5FB7280005E670 /* town_3.png */,
-				044D78191A6259A300C183DD /* particle_texture.png */,
-				044D781A1A6259A300C183DD /* particle_texture.plist */,
 				A42E0E6C1A5FB7280005E670 /* town_gameBg.png */,
 				A48D62A81A5E65CE003448B8 /* field_1.png */,
 				A48D62A91A5E65CE003448B8 /* field_2.png */,
@@ -593,8 +589,9 @@
 				A48D629A1A5E5D95003448B8 /* field.png */,
 				A48D629B1A5E5D95003448B8 /* field.plist */,
 				A419A9781A5D547B00478212 /* pause_gameBg.png */,
-				A4762DA31A6240F6008DEA2C /* particle_gameClear.plist */,
-				A4762DA41A6240F6008DEA2C /* particle_gameClear.png */,
+				A473C8491A627B64009000A5 /* pause_gameClear.png */,
+				A473C84D1A627D65009000A5 /* particle_gameClear.plist */,
+				A473C84E1A627D65009000A5 /* particle_gameClear.png */,
 				A47F2DC21A5D3DD70050F464 /* particle_gameOver.plist */,
 				A47F2DC31A5D3DD70050F464 /* particle_gameOver.png */,
 				A47F2DBE1A5D3A8A0050F464 /* village.plist */,
@@ -810,8 +807,8 @@
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				04FEE77D1A6015EA00098655 /* town.png in Resources */,
 				A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */,
-				044D781C1A6259A300C183DD /* particle_texture.plist in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
+				A473C84A1A627B64009000A5 /* pause_gameClear.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
@@ -822,7 +819,6 @@
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				A47F2DB91A5D3A740050F464 /* village_1.png in Resources */,
 				A4A8E8371A5BF9F000E3E346 /* kikiparticle.plist in Resources */,
-				A4762DA51A6240F6008DEA2C /* particle_gameClear.plist in Resources */,
 				A48D629C1A5E5D95003448B8 /* field.png in Resources */,
 				A42E0E701A5FB7280005E670 /* town_gameBg.png in Resources */,
 				04FEE77C1A6015EA00098655 /* town.plist in Resources */,
@@ -831,12 +827,13 @@
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				A47F2DBA1A5D3A740050F464 /* village_2.png in Resources */,
 				A4BB071A1A3976A800991DCE /* kiki_down_shadow.png in Resources */,
+				A473C8501A627D65009000A5 /* particle_gameClear.png in Resources */,
 				A47F2DB31A5D3A2B0050F464 /* forest_gameBg.png in Resources */,
 				A4D5496B1A31BF8B0066858C /* kiki.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				A47F2DA71A5D39F50050F464 /* factory_3.png in Resources */,
-				044D781B1A6259A300C183DD /* particle_texture.png in Resources */,
 				A41A6F2D1A52A68D0049829A /* particleFlower.plist in Resources */,
+				A473C84F1A627D65009000A5 /* particle_gameClear.plist in Resources */,
 				A41A6F2E1A52A68D0049829A /* particleFlower.png in Resources */,
 				A4A8E8381A5BF9F000E3E346 /* kikitexture.png in Resources */,
 				A47F2DAB1A5D3A180050F464 /* forest.plist in Resources */,
@@ -860,7 +857,6 @@
 				A47F2DC41A5D3DD70050F464 /* particle_gameOver.plist in Resources */,
 				A48D62A71A5E5DA3003448B8 /* field_3.png in Resources */,
 				A47F2DBD1A5D3A7D0050F464 /* village_gameBg.png in Resources */,
-				A4762DA61A6240F6008DEA2C /* particle_gameClear.png in Resources */,
 				A4BB07211A3976B600991DCE /* kiki_up.png in Resources */,
 				A4BB071E1A3976AD00991DCE /* kiki_down.png in Resources */,
 			);
