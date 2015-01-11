@@ -41,6 +41,9 @@ public:
     
     //GameOverの処理を実装
     void makeGameOver();
+    
+    //GameClearの処理を実装
+    void makeGameClear();
         
 };
 

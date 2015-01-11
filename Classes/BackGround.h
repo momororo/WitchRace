@@ -23,8 +23,8 @@ private:
     //クラス
     static BackGround *backGroundInstance;
     
-    //カウント(背景のreplace回数)
-    int count = 0;
+    //カウント(背景のreplace回数)初期値で調整
+    int count = -2;
     
     
 
