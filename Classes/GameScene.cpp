@@ -325,11 +325,11 @@ void GameScene::makeGameOver(){
     
     
     //リトライボタン作成
-    auto retryBt = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
+    auto retryBt = Label::createWithSystemFont("Retry", "MagicSchoolOne", 100);
     retryBt -> setColor(Color3B::BLACK);
     retryBt ->setGlobalZOrder(zOrderOfPauseLabel);
     
-    auto retryBtTaped = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
+    auto retryBtTaped = Label::createWithSystemFont("Retry", "MagicSchoolOne", 100);
     retryBtTaped-> setColor(Color3B::BLACK);
     retryBtTaped -> setOpacity(150);
     retryBtTaped ->setGlobalZOrder(zOrderOfPauseLabel);

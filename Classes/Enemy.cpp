@@ -1429,11 +1429,50 @@ Sprite* Enemy::addEnemyParts4(int widthAndHeight){
         default:break;
     }
 */
+    
+    auto enemyBody = PhysicsBody::create();
  
-    
-            auto enemyBody = PhysicsBody::createBox(enemy->getContentSize(),enemyMaterial);
-    
+    if (widthAndHeight == 11) {
+        
+        Point spritePoints[6]{
+        
+            Vec2(-106.5,-51.5),Vec2(-106.5,0), Vec2(-20,51.5),Vec2(40,51.5), Vec2(106.5,0),Vec2(106.5,-51.5)
             
+        };
+        
+        enemyBody = PhysicsBody::createPolygon(spritePoints, 6,enemyMaterial);
+        
+    }else if (widthAndHeight == 33){
+    
+        Point spritePoints[5]{
+            
+            Vec2(-319.5,-154.5),Vec2(-319.5,50),Vec2(-180,154.5),Vec2(319.5,154.5),Vec2(319.5,-154.5)
+            
+        };
+        
+        enemyBody = PhysicsBody::createPolygon(spritePoints, 5,enemyMaterial);
+    
+    }else if (widthAndHeight == 34){
+    
+        Point spritePoints[6]{
+            
+            Vec2(-320,-197),Vec2(-320,20),Vec2(-280,197),Vec2(290,197), Vec2(320,20), Vec2(320,-197)
+            
+        };
+        
+        enemyBody = PhysicsBody::createPolygon(spritePoints, 6,enemyMaterial);
+        
+    }else{
+    
+        enemyBody = PhysicsBody::createBox(Size(enemy->getContentSize()),enemyMaterial);
+    
+    }
+    
+    
+    
+    
+
+    
             
             //重力による影響の可否
             enemyBody->setGravityEnable(false);
