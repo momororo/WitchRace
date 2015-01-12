@@ -253,11 +253,11 @@ void Kiki::kikiUpdate(){
                 //下降時はより強く
                 if(pGravity < 0){
 
-                    pGravity+= 40;
+                    pGravity+= 20;
                     
                 }else{
 
-                    pGravity+= 20;
+                    pGravity+= 15;
 
                 }
                 
@@ -304,11 +304,11 @@ void Kiki::kikiUpdate(){
                 //上昇時はより強く
                 if(pGravity > 0){
 
-                    pGravity -= 40;
+                    pGravity -= 20;
                     
                 }else{
 
-                    pGravity -= 20;
+                    pGravity -= 15;
 
                 }
                 
