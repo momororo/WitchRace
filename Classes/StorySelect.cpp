@@ -200,8 +200,7 @@ void StorySelect::selectStoryCallBack(cocos2d::Ref *pSender){
         
         /**
          *  pSenderをMenuItemにキャスト
-         *  なお、中身は
-         *
+         *  なお、中身はpBtnItem
          */
         MenuItem* button = (MenuItem*)pSender;
         

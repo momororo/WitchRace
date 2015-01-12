@@ -250,7 +250,17 @@ void Kiki::kikiUpdate(){
                 
             }else{
                 
-                pGravity+= 15;
+                //下降時はより強く
+                if(pGravity < 0){
+
+                    pGravity+= 40;
+                    
+                }else{
+
+                    pGravity+= 20;
+
+                }
+                
                 
             }
             
@@ -291,7 +301,17 @@ void Kiki::kikiUpdate(){
                 
             }else{
                 
-                pGravity -= 10;
+                //上昇時はより強く
+                if(pGravity > 0){
+
+                    pGravity -= 40;
+                    
+                }else{
+
+                    pGravity -= 20;
+
+                }
+                
                 
             }
             

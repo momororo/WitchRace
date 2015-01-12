@@ -247,6 +247,7 @@ void GameScene::update( float frame )
     
 if(Kiki::getInstance()->getGamePlayFlag() == true){
 #pragma  mark デバッグ用
+    
     //時間の計測
     struct timeval time2;
     gettimeofday(&time2, NULL);
@@ -302,6 +303,7 @@ void GameScene::makeGameOver(){
     gameOverOfLabel -> setOpacity(0);
     gameOverOfLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     this -> addChild(gameOverOfLabel,3);
+
 /*
     auto testSprite = Sprite::create();
     testSprite ->setColor(Color3B::WHITE);
