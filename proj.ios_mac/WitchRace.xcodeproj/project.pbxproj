@@ -11,6 +11,7 @@
 		040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040B16231A2F2A5700FDC891 /* Kiki.cpp */; };
 		041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		041EF6901A5CC01A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
+		0463356E1A63DBDE003EF2B8 /* Memo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0463356D1A63DBDE003EF2B8 /* Memo.strings */; };
 		048578701A5AA1C80020DDF5 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0485786E1A5AA1C80020DDF5 /* Enemy.cpp */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
 		04FEE77C1A6015EA00098655 /* town.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77A1A6015EA00098655 /* town.plist */; };
@@ -270,6 +271,7 @@
 		040B16241A2F2A5700FDC891 /* Kiki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kiki.h; path = ../Classes/Kiki.h; sourceTree = "<group>"; };
 		041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadScene.cpp; sourceTree = "<group>"; };
 		041EF68C1A5CBF2A0039FE88 /* LoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadScene.h; sourceTree = "<group>"; };
+		0463356D1A63DBDE003EF2B8 /* Memo.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Memo.strings; path = ../Classes/Memo.strings; sourceTree = "<group>"; };
 		0485786E1A5AA1C80020DDF5 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = ../Classes/Enemy.cpp; sourceTree = "<group>"; };
 		0485786F1A5AA1C80020DDF5 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = ../Classes/Enemy.h; sourceTree = "<group>"; };
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 				04C9CBD91A30608300E51608 /* BackGround.h */,
 				0485786E1A5AA1C80020DDF5 /* Enemy.cpp */,
 				0485786F1A5AA1C80020DDF5 /* Enemy.h */,
+				0463356D1A63DBDE003EF2B8 /* Memo.strings */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -812,6 +815,7 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				0463356E1A63DBDE003EF2B8 /* Memo.strings in Resources */,
 				A47F2DC01A5D3A8A0050F464 /* village.plist in Resources */,
 				A4CB43DE1A4035CD00890E53 /* titleBk.png in Resources */,
 				A42E0E6D1A5FB7280005E670 /* town_1.png in Resources */,

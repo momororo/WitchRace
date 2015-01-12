@@ -19,7 +19,7 @@ Scene* GameScene::createScene()
     auto scene = Scene::createWithPhysics();
     auto layer = GameScene::create();
     scene -> addChild(layer);
-//    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
     // return the scene
     return scene;
@@ -240,7 +240,7 @@ void GameScene::update( float frame )
 //クリアか判定
     //30で全障害物設置完了
     //全障害物を通り抜けたらゲームクリア
-    if(BackGround::getInstance()->getReplaceCount() > 30){
+    if(BackGround::getInstance()->getReplaceCount() > 3){
         //ゲームクリア
         this->makeGameClear();
     }
@@ -414,6 +414,14 @@ void GameScene::makeGameClear(){
         userDef->setIntegerForKey("clearStory", clearStory);
     }
     
+    //クリア回数に登録
+    auto str = StringUtils::format("clearCountFor%d",selectStory);
+    auto clearCount = userDef->getIntegerForKey(str.c_str());
+    clearCount++;
+    userDef->setIntegerForKey(str.c_str(), clearCount);
+    
+    
+//終
     
     
     //gameClear画面の生成
