@@ -128,7 +128,8 @@ Kiki::Kiki(){
     
     Point spritePoints[5]={
     
-        Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
+        //Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
+        Vec2(-8,-20),Vec2(-16,0),Vec2(-8,18),Vec2(13,13),Vec2(8,-18)
     
     };
     
@@ -158,7 +159,8 @@ Kiki::Kiki(){
     
     Point broomPoint[3]={
         
-        Vec2(0,0), Vec2(0,40), Vec2(180,35),
+        //Vec2(0,0), Vec2(0,40), Vec2(180,35)
+        Vec2(10,5), Vec2(10,35), Vec2(160,35),
     
     };
     
@@ -251,13 +253,15 @@ void Kiki::kikiUpdate(){
             }else{
                 
                 //下降時はより強く
-                if(pGravity < 0){
+                if(pGravity < -200){
 
-                    pGravity+= 20;
+                    pGravity+= 15;
                     
                 }else{
 
-                    pGravity+= 15;
+                    pGravity+= 10;
+                
+                CCLOG("重力:%d",pGravity);
 
                 }
                 
@@ -302,13 +306,13 @@ void Kiki::kikiUpdate(){
             }else{
                 
                 //上昇時はより強く
-                if(pGravity > 0){
+                if(pGravity > 200){
 
-                    pGravity -= 20;
+                    pGravity -= 15;
                     
                 }else{
 
-                    pGravity -= 15;
+                    pGravity -= 10;
 
                 }
                 
