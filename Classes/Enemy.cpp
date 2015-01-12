@@ -73,6 +73,9 @@ void Enemy::addEnemyManager(Sprite* backGround){
     
 }
 
+#pragma mark-
+#pragma mark stage1
+
 //1面の的追加
 void Enemy::addEnemy1(Sprite* backGround){
     
@@ -334,6 +337,9 @@ auto addtree = [](){
 
 }
 
+#pragma mark-
+#pragma mark stage2
+
 void Enemy::addEnemy2(Sprite* backGround){
 //enemy_witchを生成するラムダ
     auto addWitch = [](){
@@ -411,6 +417,8 @@ void Enemy::addEnemy2(Sprite* backGround){
 
 }
 
+#pragma mark-
+#pragma mark stage3
 
 void Enemy::addEnemy3(Sprite* backGround){
     
@@ -616,6 +624,10 @@ void Enemy::addEnemy3(Sprite* backGround){
     
 
 }
+
+#pragma mark-
+#pragma mark stage4
+
 void Enemy::addEnemy4(Sprite* backGround){
     
 //各オブジェクトの生成
@@ -1212,6 +1224,10 @@ else
 
 
 }
+
+#pragma mark-
+#pragma mark stage5
+
 void Enemy::addEnemy5(Sprite* backGround){
     
 //FieldTreeを生成するラムダ
@@ -1229,7 +1245,7 @@ auto addFireldTree = [](){
     
         Point spritePoints[6]={
         
-            Vec2(-180,-150),Vec2(-120,100),Vec2(10,330),Vec2(120,100), Vec2(180,-150),Vec2(10,-350)
+            Vec2(-180,-150),Vec2(-120,100),Vec2(10,310),Vec2(120,100), Vec2(180,-150),Vec2(10,-350)
             
         };
     
