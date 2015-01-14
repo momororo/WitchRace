@@ -240,7 +240,7 @@ void GameScene::update( float frame )
 //クリアか判定
     //30で全障害物設置完了
     //全障害物を通り抜けたらゲームクリア
-    if(BackGround::getInstance()->getReplaceCount() > 3){
+    if(BackGround::getInstance()->getReplaceCount() > 30){
         //ゲームクリア
         this->makeGameClear();
     }
@@ -265,8 +265,8 @@ if(Kiki::getInstance()->getGamePlayFlag() == true){
     //分の量だけ秒から削る
     sec = sec - (min * 60);
     
-    CCLOG("時間 %02lu:%02lu:%02lu",min,sec,mSec);
-    CCLOG("%d",BackGround::getInstance()->getReplaceCount());
+    //CCLOG("時間 %02lu:%02lu:%02lu",min,sec,mSec);
+    //CCLOG("%d",BackGround::getInstance()->getReplaceCount());
 }
     
     
