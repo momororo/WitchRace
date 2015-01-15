@@ -181,6 +181,19 @@ BackGround::BackGround(){
     countLabel->setName("count");
     staticBackGround->addChild(countLabel);
 
+//進捗バー
+    auto countBar = Sprite::create();
+    countBar->setTextureRect(Rect(0,0,selfFrame.width/3*2,selfFrame.height/100));
+    countBar->setColor(Color3B::BLACK);
+    countBar->setPosition(Vec2(selfFrame.width/2,selfFrame.height/10*9));
+    countBar->setName("countBar");
+    staticBackGround->addChild(countBar);
+    
+    auto countKiki = Sprite::create("kiki.png");
+    countKiki->setScale(0.5f);
+    countKiki->setPosition(0,countBar->getContentSize().height/2);
+    countKiki->setName("countKiki");
+    countBar->addChild(countKiki);
     
 }
 
@@ -252,6 +265,8 @@ void BackGround::replaceBackGround(){
         //カウントダウン演出
         Label *countLabel = (Label*)staticBackGround->getChildByName("count");
         countLabel->setString(StringUtils::format("%d",30 - count));
+        
+        staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPosition(Vec2(staticBackGround->getChildByName("countBar")->getContentSize().width/30*count,staticBackGround->getChildByName("countBar")->getContentSize().height/2));
         
         return;
     }
