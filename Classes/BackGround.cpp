@@ -174,23 +174,21 @@ BackGround::BackGround(){
     }
     
     //カウントのラベル
-    auto countLabel = Label::Label::createWithSystemFont("30","MagicSchoolOne", 50);
+    /*auto countLabel = Label::Label::createWithSystemFont("30","MagicSchoolOne", 50);
     countLabel->setTextColor(Color4B::BLACK);
     countLabel->setPosition(Vec2(staticBackGround->getContentSize().width - countLabel->getContentSize().width,staticBackGround->getContentSize().height - countLabel->getContentSize().height));
     countLabel->setGlobalZOrder(zOrderOfStaticBackGround);
     countLabel->setName("count");
     staticBackGround->addChild(countLabel);
-
+*/
 //進捗バー
-    auto countBar = Sprite::create();
-    countBar->setTextureRect(Rect(0,0,selfFrame.width/3*2,selfFrame.height/100));
-    countBar->setColor(Color3B::BLACK);
+    auto countBar = Sprite::create("gaugeBar.png");
     countBar->setPosition(Vec2(selfFrame.width/2,selfFrame.height/10*9));
     countBar->setName("countBar");
     staticBackGround->addChild(countBar);
     
-    auto countKiki = Sprite::create("kiki.png");
-    countKiki->setScale(0.5f);
+    auto countKiki = Sprite::create("gaugeOfKiki.png");
+    //countKiki->setScale(0.5f);
     countKiki->setPosition(0,countBar->getContentSize().height/2);
     countKiki->setName("countKiki");
     countBar->addChild(countKiki);

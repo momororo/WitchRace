@@ -170,8 +170,7 @@ void TitleScene::setStartBt(){
 
     
     //スタートボタン作成
-    auto startBt = Label::createWithSystemFont("story", "MagicSchoolOne", 150);
-    startBt -> setColor(Color3B::BLACK);
+    auto startBt = Sprite::create("startBt.png");
     
     auto startBtTaped = Label::createWithSystemFont("story", "MagicSchoolOne", 150);
     startBtTaped -> setColor(Color3B::BLACK);
