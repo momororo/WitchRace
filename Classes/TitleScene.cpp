@@ -200,7 +200,7 @@ void TitleScene::setStartBt(){
     auto startMenu = Menu::create(pBtnItem, NULL);
     
     //pMenuを画面中央に配置
-    startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height*0.48));
+    startMenu->setPosition(Vec2(selfFrame.width/2+selfFrame.width/40, selfFrame.height*0.48));
     startMenu->setName("start");
     this->addChild(startMenu);
     
@@ -227,7 +227,8 @@ void TitleScene::setTutorialBt(){
     auto tutorialMenu = Menu::create(pBtnItem, NULL);
     
     //pMenuを画面中央に配置
-    tutorialMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height*0.36));
+    tutorialMenu->setPosition(Vec2(selfFrame.width*3/4+selfFrame.width/40, selfFrame.height*0.36));
+    
     tutorialMenu->setName("tutorial");
     this->addChild(tutorialMenu);
     
@@ -255,7 +256,7 @@ void TitleScene::setRankingBt(){
     auto rankingMenu = Menu::create(pBtnItem, NULL);
     
     //Menuを画面中央に配置
-    rankingMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height*0.36));
+    rankingMenu->setPosition(Vec2(selfFrame.width/4+selfFrame.width/40, selfFrame.height*0.36));
     rankingMenu->setName("ranking");
     this->addChild(rankingMenu);
     
@@ -282,7 +283,7 @@ void TitleScene::setOtherBt(){
     auto otherMenu = Menu::create(pBtnItem, NULL);
     
     //Menuを画面中央に配置
-    otherMenu->setPosition(Vec2(selfFrame.width/3, selfFrame.height*0.196));
+    otherMenu->setPosition(Vec2(selfFrame.width/3+selfFrame.width/40, selfFrame.height*0.196));
     otherMenu->setName("other");
     this->addChild(otherMenu);
     
@@ -310,7 +311,7 @@ void TitleScene::setCharactorBt(){
     auto charactorMenu = Menu::create(pBtnItem, NULL);
     
     //Menuを画面中央に配置
-    charactorMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height*0.32));
+    charactorMenu->setPosition(Vec2(selfFrame.width/2+selfFrame.width/40, selfFrame.height*0.32));
     charactorMenu->setName("character");
     this->addChild(charactorMenu);
     
@@ -338,7 +339,7 @@ void TitleScene::setTwitterBt(){
     auto twitterMenu = Menu::create(pBtnItem, NULL);
     
     //Menuを画面中央に配置
-    twitterMenu->setPosition(Vec2(selfFrame.width*2/3, selfFrame.height*0.196));
+    twitterMenu->setPosition(Vec2(selfFrame.width*2/3+selfFrame.width/40, selfFrame.height*0.196));
     twitterMenu->setName("twitter");
     this->addChild(twitterMenu);
     
@@ -361,10 +362,8 @@ void TitleScene::setReviewBox(){
 //アラートの型枠を適当に生成
     
 //OKの処理
-    //要変更
-    auto reviewBox = Sprite::create();
-    //要変更
-    reviewBox->setTextureRect(Rect(0,0,selfFrame.width/3*2,selfFrame.height/5*2));
+    
+    auto reviewBox = Sprite::create("alert.png");
     
     reviewBox->setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     reviewBox->setName("reviewBox");
