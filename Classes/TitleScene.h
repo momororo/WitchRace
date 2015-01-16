@@ -18,6 +18,8 @@ protected:
     void setOtherBt();
     void setTwitterBt();
     
+    void setReviewBox();
+    
     //コールバック処理
     void startCallback(cocos2d::Ref *pSender);
         
@@ -28,7 +30,9 @@ public:
     static cocos2d::Scene* createScene();
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
-    virtual bool init();  
+    virtual bool init();
+    
+    virtual void onEnterTransitionDidFinish();
     
     // a selector callback
     //void menuCloseCallback(cocos2d::Ref* pSender);

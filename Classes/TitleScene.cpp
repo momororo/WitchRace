@@ -109,6 +109,8 @@ bool TitleScene::init(){
     */
 
     
+    
+    
 
     
     
@@ -199,6 +201,7 @@ void TitleScene::setStartBt(){
     
     //pMenuを画面中央に配置
     startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height*0.48));
+    startMenu->setName("start");
     this->addChild(startMenu);
     
 }
@@ -217,7 +220,6 @@ void TitleScene::setTutorialBt(){
         
         //遊び方を呼び出すメソッド
         CCLOG("激ムズの糸と同じ操作方法だよ〜！");
-        NativeLauncher::openReview();
         
     });
     
@@ -226,6 +228,7 @@ void TitleScene::setTutorialBt(){
     
     //pMenuを画面中央に配置
     tutorialMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height*0.36));
+    tutorialMenu->setName("tutorial");
     this->addChild(tutorialMenu);
     
 }
@@ -253,6 +256,7 @@ void TitleScene::setRankingBt(){
     
     //Menuを画面中央に配置
     rankingMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height*0.36));
+    rankingMenu->setName("ranking");
     this->addChild(rankingMenu);
     
 }
@@ -279,6 +283,7 @@ void TitleScene::setOtherBt(){
     
     //Menuを画面中央に配置
     otherMenu->setPosition(Vec2(selfFrame.width/3, selfFrame.height*0.196));
+    otherMenu->setName("other");
     this->addChild(otherMenu);
     
 }
@@ -306,6 +311,7 @@ void TitleScene::setCharactorBt(){
     
     //Menuを画面中央に配置
     charactorMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height*0.32));
+    charactorMenu->setName("character");
     this->addChild(charactorMenu);
     
 }
@@ -333,7 +339,142 @@ void TitleScene::setTwitterBt(){
     
     //Menuを画面中央に配置
     twitterMenu->setPosition(Vec2(selfFrame.width*2/3, selfFrame.height*0.196));
+    twitterMenu->setName("twitter");
     this->addChild(twitterMenu);
+    
+}
+
+
+
+//トランジション終了時に呼ばれる
+//initでアラートを呼ぶとなんか気持ちわるかったため
+void TitleScene::onEnterTransitionDidFinish(){
+    
+    //デバッグ
+    this->setReviewBox();
+}
+
+
+//MARK::レビューボックス
+void TitleScene::setReviewBox(){
+
+//アラートの型枠を適当に生成
+    
+//OKの処理
+    //要変更
+    auto reviewBox = Sprite::create();
+    //要変更
+    reviewBox->setTextureRect(Rect(0,0,selfFrame.width/3*2,selfFrame.height/5*2));
+    
+    reviewBox->setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
+    reviewBox->setName("reviewBox");
+    
+    //ボタンの作成
+    //ツイッターボタン作成
+    auto okBt = Sprite::create("twitterBt.png");
+    
+    auto okBtTaped = Sprite::create("twitterBt.png");
+    okBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto okBtnItem = MenuItemSprite::create(okBt, okBtTaped, [&](Ref *ref){
+        
+
+        //ここでフラグを管理して特典の負荷を行う
+        
+        //レビューダイアログを消去
+        this->removeChildByName("reviewBox");
+        
+        
+        //他のボタンを操作可能にする(冗長的)
+        Menu* menu = (Menu*)this->getChildByName("start");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("tutorial");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("ranking");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("character");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("twitter");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("other");
+        menu->setEnabled(true);
+
+        
+        
+        //レビュー画面へ
+        NativeLauncher::openReview();
+
+        
+        
+    });
+    
+    //メニューの作成
+    auto okMenu = Menu::create(okBtnItem, NULL);
+    
+    okMenu->setPosition(Vec2(reviewBox->getContentSize().width/5*1,reviewBox->getContentSize().height/3));
+    
+    reviewBox->addChild(okMenu);
+    
+
+//NGの処理
+    //ボタンの作成
+    //ツイッターボタン作成
+    auto ngBt = Sprite::create("twitterBt.png");
+    
+    auto ngBtTaped = Sprite::create("twitterBt.png");
+    ngBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto ngBtnItem = MenuItemSprite::create(ngBt, ngBtTaped, [&](Ref *ref){
+        
+        
+        
+        //レビューダイアログを消去
+        this->removeChildByName("reviewBox");
+        
+        //他のボタンを操作可能にする(冗長的)
+        Menu* menu = (Menu*)this->getChildByName("start");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("tutorial");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("ranking");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("character");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("twitter");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("other");
+        menu->setEnabled(true);
+
+        
+        
+        
+    });
+    
+    //メニューの作成
+    auto ngMenu = Menu::create(ngBtnItem, NULL);
+    
+    ngMenu->setPosition(Vec2(reviewBox->getContentSize().width/5*4,reviewBox->getContentSize().height/3));
+    
+    reviewBox->addChild(ngMenu);
+    
+    this->addChild(reviewBox);
+    
+    //他のボタンを操作不可能にする(冗長的)
+    Menu* menu = (Menu*)this->getChildByName("start");
+    menu->setEnabled(false);
+    menu = (Menu*)this->getChildByName("tutorial");
+    menu->setEnabled(false);
+    menu = (Menu*)this->getChildByName("ranking");
+    menu->setEnabled(false);
+    menu = (Menu*)this->getChildByName("character");
+    menu->setEnabled(false);
+    menu = (Menu*)this->getChildByName("twitter");
+    menu->setEnabled(false);
+    menu = (Menu*)this->getChildByName("other");
+    menu->setEnabled(false);
+
     
 }
 
