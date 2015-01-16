@@ -20,7 +20,7 @@ protected:
     
     //コールバック処理
     void startCallback(cocos2d::Ref *pSender);
-    
+        
     
 public:
     

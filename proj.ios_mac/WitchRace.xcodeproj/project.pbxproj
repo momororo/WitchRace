@@ -12,6 +12,7 @@
 		041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		041EF6901A5CC01A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		0463356E1A63DBDE003EF2B8 /* Memo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0463356D1A63DBDE003EF2B8 /* Memo.strings */; };
+		046335761A690EA8003EF2B8 /* NativeLauncher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 046335751A690EA8003EF2B8 /* NativeLauncher.mm */; };
 		048578701A5AA1C80020DDF5 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0485786E1A5AA1C80020DDF5 /* Enemy.cpp */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
 		04FEE77C1A6015EA00098655 /* town.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77A1A6015EA00098655 /* town.plist */; };
@@ -292,6 +293,8 @@
 		041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadScene.cpp; sourceTree = "<group>"; };
 		041EF68C1A5CBF2A0039FE88 /* LoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadScene.h; sourceTree = "<group>"; };
 		0463356D1A63DBDE003EF2B8 /* Memo.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Memo.strings; path = ../Classes/Memo.strings; sourceTree = "<group>"; };
+		046335711A690E42003EF2B8 /* NativeLauncher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NativeLauncher.h; path = ../Classes/NativeLauncher.h; sourceTree = "<group>"; };
+		046335751A690EA8003EF2B8 /* NativeLauncher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NativeLauncher.mm; path = ../Classes/NativeLauncher.mm; sourceTree = "<group>"; };
 		0485786E1A5AA1C80020DDF5 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = ../Classes/Enemy.cpp; sourceTree = "<group>"; };
 		0485786F1A5AA1C80020DDF5 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = ../Classes/Enemy.h; sourceTree = "<group>"; };
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
@@ -504,6 +507,8 @@
 				0485786E1A5AA1C80020DDF5 /* Enemy.cpp */,
 				0485786F1A5AA1C80020DDF5 /* Enemy.h */,
 				0463356D1A63DBDE003EF2B8 /* Memo.strings */,
+				046335711A690E42003EF2B8 /* NativeLauncher.h */,
+				046335751A690EA8003EF2B8 /* NativeLauncher.mm */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -965,6 +970,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				048578701A5AA1C80020DDF5 /* Enemy.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				046335761A690EA8003EF2B8 /* NativeLauncher.mm in Sources */,
 				040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */,
 				041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */,
 				A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */,
