@@ -306,6 +306,21 @@ void BackGround::backGroundUpdate(){
         this->replaceBackGround();
     }
     
+    
+    
+//進捗バーを滑らかに動かす処理
+    if(count <= -1){
+        
+    return;
+        
+    }else if(count <= 30){
+
+    staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPosition(Vec2(staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->getPositionX() + staticBackGround->getChildByName("countBar")->getContentSize().width/30/160,staticBackGround->getChildByName("countBar")->getContentSize().height/2));
+
+    }
+    
+    
+    
 }
 
 void BackGround::addBackGroundParts4(){
