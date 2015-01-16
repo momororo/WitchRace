@@ -174,23 +174,28 @@ BackGround::BackGround(){
     }
     
     //カウントのラベル
-    /*auto countLabel = Label::Label::createWithSystemFont("30","MagicSchoolOne", 50);
+    auto countLabel = Label::Label::createWithSystemFont("30","MagicSchoolOne", 50);
     countLabel->setTextColor(Color4B::BLACK);
     countLabel->setPosition(Vec2(staticBackGround->getContentSize().width - countLabel->getContentSize().width,staticBackGround->getContentSize().height - countLabel->getContentSize().height));
     countLabel->setGlobalZOrder(zOrderOfStaticBackGround);
     countLabel->setName("count");
     staticBackGround->addChild(countLabel);
-*/
-//進捗バー
+
+//MARK::進捗バー
     auto countBar = Sprite::create("gaugeBar.png");
     countBar->setPosition(Vec2(selfFrame.width/2,selfFrame.height/10*9));
     countBar->setName("countBar");
+    countBar->setGlobalZOrder(zOrderOfBackGroundParts);
+    countBar->setOpacity(100);
+    countBar->setAnchorPoint(Vec2(0.5f,0));
     staticBackGround->addChild(countBar);
     
     auto countKiki = Sprite::create("gaugeOfKiki.png");
     //countKiki->setScale(0.5f);
     countKiki->setPosition(0,countBar->getContentSize().height/2);
     countKiki->setName("countKiki");
+    countKiki->setGlobalZOrder(zOrderOfBackGroundParts);
+    countKiki->setOpacity(150);
     countBar->addChild(countKiki);
     
 }

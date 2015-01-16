@@ -12,6 +12,11 @@ protected:
     
     //スタートボタンの設定
     void setStartBt();
+    void setTutorialBt();
+    void setRankingBt();
+    void setCharactorBt();
+    void setOtherBt();
+    void setTwitterBt();
     
     //コールバック処理
     void startCallback(cocos2d::Ref *pSender);
@@ -26,7 +31,7 @@ public:
     virtual bool init();  
     
     // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
+    //void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
     CREATE_FUNC(TitleScene);

@@ -41,14 +41,14 @@ bool StorySelect::init(){
     titleBk -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBk);
     
-    auto ssLabel = Label::createWithSystemFont("story select", "MagicSchoolOne", 150);
+    auto ssLabel = Label::createWithSystemFont("select story", "MagicSchoolOne", 150);
     ssLabel ->setPosition(Vec2(selfFrame.width/2,selfFrame.height-ssLabel->getContentSize().height*2/5));
     ssLabel -> setColor(Color3B::BLACK);
     ssLabel -> setOpacity(200);
     this -> addChild(ssLabel);
     
     auto upperOrnament = Sprite::create("ssUpperOrnament.png");
-    upperOrnament -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*0.82));
+    upperOrnament -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*0.84));
     upperOrnament -> setOpacity(200);
     this -> addChild(upperOrnament);
     

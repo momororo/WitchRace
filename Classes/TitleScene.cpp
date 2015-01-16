@@ -38,8 +38,16 @@ bool TitleScene::init(){
     titleBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBg);
     
+    auto titleSignboard = Sprite::create("titleObject.png");
+    titleSignboard -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*3/4));
+    this -> addChild(titleSignboard);
     
     setStartBt();
+    setTutorialBt();
+    setRankingBt();
+    setCharactorBt();
+    setTwitterBt();
+    setOtherBt();
     
     
     
@@ -165,38 +173,164 @@ void TitleScene::onTouchEnded(Touch *touch, Event *unused_event){
     
 }
 
-
+//MARK::ストーリーボタン
 void TitleScene::setStartBt(){
 
     
-    //スタートボタン作成
-    auto startBt = Sprite::create("startBt.png");
+    //ストーリーボタン作成
+    auto startBt = Sprite::create("storyBt.png");
     
-    auto startBtTaped = Label::createWithSystemFont("story", "MagicSchoolOne", 150);
-    startBtTaped -> setColor(Color3B::BLACK);
+    auto startBtTaped = Sprite::create("storyBt.png");
     startBtTaped -> setOpacity(150);
     
     //メニューアイテムの作成
-    auto pBtnItem = MenuItemSprite::create(startBt, startBtTaped, CC_CALLBACK_1(TitleScene::startCallback, this));
+    auto pBtnItem = MenuItemSprite::create(startBt, startBtTaped, [](Ref *ref){
+        
+        Director::getInstance()->replaceScene(TransitionPageTurn::create(1, StorySelect::createScene(), 0));
+        
+    });
     
     //メニューの作成　pMenuの中にpBtnItemを入れる
     auto startMenu = Menu::create(pBtnItem, NULL);
     
     //pMenuを画面中央に配置
-    startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
+    startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height*0.48));
     this->addChild(startMenu);
-
-
-
-}
-
-void TitleScene::startCallback(cocos2d::Ref *pSender){
     
-    //Director::getInstance()->replaceScene(GameScene::createScene());
-    Director::getInstance()->replaceScene(TransitionPageTurn::create(1, StorySelect::createScene(), 0));
-
 }
 
+//MARK::チュートリアルボタン
+void TitleScene::setTutorialBt(){
+    
+    //チュートリアル作成
+    auto tutorialBt = Sprite::create("tutorialBt.png");
+    
+    auto tutorialBtTaped = Sprite::create("tutorialBt.png");
+    tutorialBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto pBtnItem = MenuItemSprite::create(tutorialBt, tutorialBtTaped, [](Ref *ref){
+        
+        //遊び方を呼び出すメソッド
+        CCLOG("激ムズの糸と同じ操作方法だよ〜！");
+        
+    });
+    
+    //メニューの作成　pMenuの中にpBtnItemを入れる
+    auto tutorialMenu = Menu::create(pBtnItem, NULL);
+    
+    //pMenuを画面中央に配置
+    tutorialMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height*0.36));
+    this->addChild(tutorialMenu);
+    
+}
+
+//MARK::ランキングボタン
+void TitleScene::setRankingBt(){
+    
+    
+    // ランキングボタン作成
+    auto rankingBt = Sprite::create("rankingBt.png");
+    
+    auto rankingBtTaped = Sprite::create("rankingBt.png");
+    rankingBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto pBtnItem = MenuItemSprite::create(rankingBt, rankingBtTaped, [](Ref *ref){
+        
+        //ランキング呼び出すメソッド
+        CCLOG("アチーブメントになるのかな？");
+        
+    });
+    
+    //メニューの作成
+    auto rankingMenu = Menu::create(pBtnItem, NULL);
+    
+    //Menuを画面中央に配置
+    rankingMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height*0.36));
+    this->addChild(rankingMenu);
+    
+}
+
+//MARK::その他のゲームボタン
+void TitleScene::setOtherBt(){
+    
+    //その他のゲームボタン作成
+    auto otherBt = Sprite::create("otherBt.png");
+    
+    auto otherBtTaped = Sprite::create("otherBt.png");
+    otherBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto pBtnItem = MenuItemSprite::create(otherBt, otherBtTaped, [](Ref *ref){
+        
+        //appCCloudのメソッド
+        CCLOG("誰かインストールしてちょ");
+        
+    });
+    
+    //メニューの作成
+    auto otherMenu = Menu::create(pBtnItem, NULL);
+    
+    //Menuを画面中央に配置
+    otherMenu->setPosition(Vec2(selfFrame.width/3, selfFrame.height*0.196));
+    this->addChild(otherMenu);
+    
+}
+
+//MARK::キャラクター購入ボタン
+void TitleScene::setCharactorBt(){
+    
+    
+    //キャラクター購入ボタン作成
+    auto charactorBt = Sprite::create("charactorBt.png");
+    
+    auto charactorBtTaped = Sprite::create("charactorBt.png");
+    charactorBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto pBtnItem = MenuItemSprite::create(charactorBt, charactorBtTaped, [](Ref *ref){
+        
+        //キャラクター購入画面を呼び出すメソッド
+        CCLOG("キャラクター購入でhappy!!");
+        
+    });
+    
+    //メニューの作成
+    auto charactorMenu = Menu::create(pBtnItem, NULL);
+    
+    //Menuを画面中央に配置
+    charactorMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height*0.32));
+    this->addChild(charactorMenu);
+    
+}
+
+//MARK::ツイッターボタン
+void TitleScene::setTwitterBt(){
+    
+    
+    //ツイッターボタン作成
+    auto twitterBt = Sprite::create("twitterBt.png");
+    
+    auto twitterBtTaped = Sprite::create("twitterBt.png");
+    twitterBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto pBtnItem = MenuItemSprite::create(twitterBt, twitterBtTaped, [](Ref *ref){
+        
+        //ツイッター呼び出し
+        CCLOG("ツイートしちゃうぞ♪");
+        
+    });
+    
+    //メニューの作成
+    auto twitterMenu = Menu::create(pBtnItem, NULL);
+    
+    //Menuを画面中央に配置
+    twitterMenu->setPosition(Vec2(selfFrame.width*2/3, selfFrame.height*0.196));
+    this->addChild(twitterMenu);
+    
+}
 
 
 
