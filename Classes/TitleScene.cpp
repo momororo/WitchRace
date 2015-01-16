@@ -2,9 +2,12 @@
 #include "StorySelect.h"
 #include "GameScene.h"
 #include <string.h>
+#include "NativeLauncher.h"
 //#include "NendModule.h"
 //#include "NendInterstitialModule.h"
 //#include "AppCCloudPlugin.h"
+
+
 
 //画面サイズの取得および設定
 #define selfFrame Director::getInstance() -> getWinSize()
@@ -104,7 +107,9 @@ bool TitleScene::init(){
     char interstitialSpotID[] = "266067";
     NendInterstitialModule::createNADInterstitial(interstitialApiKey, interstitialSpotID);
     */
+
     
+
     
     
     return true;
@@ -132,7 +137,6 @@ void TitleScene::removeAppCCloud(){
 
 }
 */
-
 
 #pragma mark-
 #pragma mark touchBegan
@@ -213,6 +217,7 @@ void TitleScene::setTutorialBt(){
         
         //遊び方を呼び出すメソッド
         CCLOG("激ムズの糸と同じ操作方法だよ〜！");
+        NativeLauncher::openReview();
         
     });
     
@@ -331,6 +336,7 @@ void TitleScene::setTwitterBt(){
     this->addChild(twitterMenu);
     
 }
+
 
 
 
