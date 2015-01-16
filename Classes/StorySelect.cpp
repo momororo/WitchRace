@@ -37,10 +37,25 @@ bool StorySelect::init(){
         return false;
     }
     
-    auto titleBk = Sprite::create("titleBk.png");
+    auto titleBk = Sprite::create("titleBg.png");
     titleBk -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBk);
     
+    auto ssLabel = Label::createWithSystemFont("story select", "MagicSchoolOne", 150);
+    ssLabel ->setPosition(Vec2(selfFrame.width/2,selfFrame.height-ssLabel->getContentSize().height*2/5));
+    ssLabel -> setColor(Color3B::BLACK);
+    ssLabel -> setOpacity(200);
+    this -> addChild(ssLabel);
+    
+    auto upperOrnament = Sprite::create("ssUpperOrnament.png");
+    upperOrnament -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*0.82));
+    upperOrnament -> setOpacity(200);
+    this -> addChild(upperOrnament);
+    
+    auto downerOrnament = Sprite::create("ssDownerOrnament.png");
+    downerOrnament -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/9));
+    downerOrnament -> setOpacity(200);
+    this -> addChild(downerOrnament);
     
     
     setBackBt();
@@ -157,10 +172,10 @@ void StorySelect::setSelectButton(){
     for (int idx = 0 ; idx <= clearStory ; idx++){
         
         //セレクトボタン作成
-        auto button = Label::createWithSystemFont("stage" + StringUtils::format("%d",idx + 1), "MagicSchoolOne", 100);
+        auto button = Label::createWithSystemFont("story" + StringUtils::format("%d",idx + 1), "MagicSchoolOne", 100);
         button -> setColor(Color3B::BLACK);
         
-        auto tappedButton = Label::createWithSystemFont("stage" + StringUtils::format("%d",idx + 1), "MagicSchoolOne", 100);
+        auto tappedButton = Label::createWithSystemFont("story" + StringUtils::format("%d",idx + 1), "MagicSchoolOne", 100);
         tappedButton -> setColor(Color3B::BLACK);
         tappedButton -> setOpacity(150);
         
@@ -178,7 +193,7 @@ void StorySelect::setSelectButton(){
         auto startMenu = Menu::create(pBtnItem, NULL);
         
         //pMenuを配置(適当)
-        startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height/5*4 - selfFrame.height/5*4 / 7 * (idx + 1)));
+        startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height*7/8 - selfFrame.height/5*4 / 7 * (idx + 1)));
         startMenu->setName("startMenu");
         
         this->addChild(startMenu);
@@ -226,11 +241,8 @@ void StorySelect::selectStoryCallBack(cocos2d::Ref *pSender){
 void StorySelect::setBackBt(){
     
     //戻るボタンの作成
-    auto backBt = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
-    backBt -> setColor(Color3B::BLACK);
-    
-    auto backBtTaped = Label::createWithSystemFont("Back", "MagicSchoolOne", 100);
-    backBtTaped-> setColor(Color3B::BLACK);
+    auto backBt = Sprite::create("backBt.png");
+    auto backBtTaped = Sprite::create("backBt.png");
     backBtTaped -> setOpacity(150);
     
     //メニューアイテムの作成
@@ -240,7 +252,7 @@ void StorySelect::setBackBt(){
     auto startMenu = Menu::create(pBtnItem, NULL);
     
     //pMenuを配置
-    startMenu->setPosition(Vec2(backBt->getContentSize().width/2, selfFrame.height-backBt->getContentSize().height/2));
+    startMenu->setPosition(Vec2(selfFrame.width/2,100 + backBt->getContentSize().height/2));
     this->addChild(startMenu);
     
 }

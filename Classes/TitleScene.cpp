@@ -34,7 +34,7 @@ bool TitleScene::init(){
         return false;
     }
     
-    auto titleBg = Sprite::create("titleBk.png");
+    auto titleBg = Sprite::create("titleBg.png");
     titleBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBg);
     

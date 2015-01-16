@@ -213,6 +213,9 @@ void Kiki::makeGameOver(){
 //キキちゃんの1フレーム毎の処理
 void Kiki::kikiUpdate(){
     
+    CCLOG("重力:%d",pGravity);
+
+    
     //ゲームプレイ中ではない場合は何もせず終了
     if(gamePlayFlag != true){
         
@@ -246,9 +249,9 @@ void Kiki::kikiUpdate(){
             
             }
             
-            if (pGravity>1000) {
+            if (pGravity>700) {
                 
-                pGravity = 1000;
+                pGravity = 700;
                 
             }else{
                 
@@ -259,9 +262,8 @@ void Kiki::kikiUpdate(){
                     
                 }else{
 
-                    pGravity+= 10;
+                    pGravity+= 11;
                 
-                CCLOG("重力:%d",pGravity);
 
                 }
                 
@@ -299,9 +301,9 @@ void Kiki::kikiUpdate(){
             }
 
             
-            if (pGravity<-1000) {
+            if (pGravity<-700) {
                 
-                pGravity = -1000;
+                pGravity = -700;
                 
             }else{
                 

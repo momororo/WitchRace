@@ -265,8 +265,8 @@ if(Kiki::getInstance()->getGamePlayFlag() == true){
     //分の量だけ秒から削る
     sec = sec - (min * 60);
     
-    CCLOG("時間 %02lu:%02lu:%02lu",min,sec,mSec);
-    CCLOG("%d",BackGround::getInstance()->getReplaceCount());
+    //CCLOG("時間 %02lu:%02lu:%02lu",min,sec,mSec);
+    //CCLOG("%d",BackGround::getInstance()->getReplaceCount());
 }
     
     
@@ -327,15 +327,12 @@ void GameScene::makeGameOver(){
     
     
     //リトライボタン作成
-    auto retryBt = Label::createWithSystemFont("Retry", "MagicSchoolOne", 100);
-    retryBt -> setColor(Color3B::BLACK);
-    retryBt ->setGlobalZOrder(zOrderOfPauseLabel);
+    auto retryBt = Sprite::create("retryBt.png");
+    retryBt -> setGlobalZOrder(zOrderOfPauseLabel);
     
-    auto retryBtTaped = Label::createWithSystemFont("Retry", "MagicSchoolOne", 100);
-    retryBtTaped-> setColor(Color3B::BLACK);
+    auto retryBtTaped = Sprite::create("retryBt.png");
     retryBtTaped -> setOpacity(150);
-    retryBtTaped ->setGlobalZOrder(zOrderOfPauseLabel);
-
+    retryBtTaped -> setGlobalZOrder(zOrderOfPauseLabel);
     
     auto retryBtnItem = MenuItemSprite::create(retryBt, retryBtTaped,[](Ref *ref){
     
@@ -344,24 +341,24 @@ void GameScene::makeGameOver(){
         Director::getInstance()->replaceScene(nextScene);
         
     });
-    retryBtnItem ->setGlobalZOrder(zOrderOfPauseLabel);
+    
+    retryBtnItem -> setGlobalZOrder(zOrderOfPauseLabel);
     
     auto retryMenu = Menu::create(retryBtnItem, NULL);
     
-    retryMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height/3));
+    retryMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height/3));
     retryMenu ->setGlobalZOrder(zOrderOfPauseLabel);
 
-
-    gameOverOfLabel->addChild(retryMenu);
+    this ->addChild(retryMenu);
     
     
     //ホームボタン作成
-    auto homeBt = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
-    homeBt -> setColor(Color3B::BLACK);
+    auto homeBt = Sprite::create("homeBt.png");
+    homeBt -> setGlobalZOrder(zOrderOfPauseLabel);
     
-    auto homeBtTaped = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
-    homeBtTaped-> setColor(Color3B::BLACK);
+    auto homeBtTaped = Sprite::create("homeBt.png");
     homeBtTaped -> setOpacity(150);
+    homeBtTaped -> setGlobalZOrder(zOrderOfPauseLabel);
     
     auto homeBtnItem = MenuItemSprite::create(homeBt, homeBtTaped,[](Ref *ref){
         
@@ -371,10 +368,13 @@ void GameScene::makeGameOver(){
         
     });
     
+    homeBtnItem -> setGlobalZOrder(zOrderOfPauseLabel);
+    
     auto homeMenu = Menu::create(homeBtnItem, NULL);
     
-    homeMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height/3));
-    gameOverOfLabel->addChild(homeMenu);
+    homeMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height/3));
+    homeMenu->setGlobalZOrder(zOrderOfPauseLabel);
+    this -> addChild(homeMenu);
     
     
     //「Game Over」ラベル作成
