@@ -40,11 +40,11 @@ bool TitleScene::init(){
     auto titleBg = Sprite::create("titleBg.png");
     titleBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBg);
-    
+    /*
     auto titleSignboard = Sprite::create("titleObject.png");
     titleSignboard -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*3/4));
     this -> addChild(titleSignboard);
-    
+    */
     setStartBt();
     setTutorialBt();
     setRankingBt();

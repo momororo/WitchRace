@@ -37,7 +37,7 @@ bool StorySelect::init(){
         return false;
     }
     
-    auto titleBk = Sprite::create("titleBg.png");
+    auto titleBk = Sprite::create("storyBg.png");
     titleBk -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBk);
     
@@ -47,12 +47,12 @@ bool StorySelect::init(){
     ssLabel -> setOpacity(200);
     this -> addChild(ssLabel);
     
-    auto upperOrnament = Sprite::create("ssUpperOrnament.png");
+    auto upperOrnament = Sprite::create("ssOrnament.png");
     upperOrnament -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*0.84));
     upperOrnament -> setOpacity(200);
     this -> addChild(upperOrnament);
     
-    auto downerOrnament = Sprite::create("ssDownerOrnament.png");
+    auto downerOrnament = Sprite::create("ssOrnament.png");
     downerOrnament -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/9));
     downerOrnament -> setOpacity(200);
     this -> addChild(downerOrnament);
