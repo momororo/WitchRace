@@ -322,7 +322,7 @@ Kiki::Kiki(){
     kikiParticle->setGlobalZOrder(zOrderOfKikiShadow);
     kiki->addChild(kikiParticle);
     
-}*/
+}
 
 void Kiki::makeGameOver(){
     
@@ -342,124 +342,14 @@ void Kiki::makeGameOver(){
 
 }
 
-//MARK::実験用　うまくいったら消す
-void Kiki::kikiUpdate(){
-    
-    CCLOG("重力:%d",pGravity);
-    
-    
-    //ゲームプレイ中ではない場合は何もせず終了
-    if(gamePlayFlag != true){
-        
-        return;
-        
-    }
-    
-    //タップされている場合は上昇！
-    if (tappedFlag == true) {
-        
-        
-        
-        kikiParticle->cocos2d::ParticleSystem::setSpeed(500);
-        
-        
-        
-        //透明度を変更
-        if(kikiShadow->getOpacity() != 255){
-            
-            kikiShadow->setOpacity(255);
-            
-        }
-        
-        //画像の交換(下降画像の場合のみ)
-        if(kiki->getTag() == 0){
-           
-            //タグを上昇状態へ変更
-            kiki->setTag(1);
-            
-        }
-        
-        if (pGravity>700) {
-            
-            pGravity = 700;
-            
-        }else{
-            
-            //下降時はより強く
-            if(pGravity < -200){
-                
-                pGravity+= 15;
-                
-            }else{
-                
-                pGravity+= 11;
-                
-                
-            }
-            
-            
-        }
-        
-        
-        kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
-        broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
-        
-    }else{
-        
-        
-        //透明度を変更
-        if(kikiShadow->getOpacity() != 180){
-            kikiShadow->setOpacity(180);
-        }
-        
-        
-        
-        //画像の交換(上昇画像の場合のみ)
-        if(kiki->getTag() == 1){
-            
-            //タグを下降状態へ変更
-            kiki->setTag(0);
-        }
-        
-        
-        if (pGravity<-700) {
-            
-            pGravity = -700;
-            
-        }else{
-            
-            //上昇時はより強く
-            if(pGravity > 200){
-                
-                pGravity -= 15;
-                
-            }else{
-                
-                pGravity -= 10;
-                
-            }
-            
-            
-        }
-        
-        kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
-        broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
-        
-        
-        
-    }
-    
-}
 
 
-//MARK::元のkikiUpdate 処理ができたら元に戻す
-/*
 //キキちゃんの1フレーム毎の処理
 void Kiki::kikiUpdate(){
- 
+    
     CCLOG("重力:%d",pGravity);
 
- 
+    
     //ゲームプレイ中ではない場合は何もせず終了
     if(gamePlayFlag != true){
         
@@ -572,4 +462,4 @@ void Kiki::kikiUpdate(){
             
         }
         
-}*/
+}
