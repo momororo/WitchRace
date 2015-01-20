@@ -86,7 +86,7 @@ bool Kiki::getGameOverFlag(){
 Kiki::Kiki(){
     
     //キャラクタースプライトの生成(UP時)
-    kiki = Sprite::create("broomOfKiki.png");
+    kiki = Sprite::create("porcoRosso.png");
     //影
     kikiShadow = Sprite::create("kiki_up_shadow.png");
     
@@ -124,25 +124,28 @@ Kiki::Kiki(){
     
     
     
-    Point spritePoints[6]={
+    Point spritePoints[7]={
         
         //Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
         
-        //ハリーのフィジックボディ spritePoints[5]
-        //Vec2(-8,-20),Vec2(-50,-15),Vec2(-20,20),Vec2(13,13),Vec2(40,-5)
+        //【ハリーポッター】spritePoints[6]
+        //Vec2(-8,-20),Vec2(-40,-5),Vec2(-20,20), Vec2(-5,22),Vec2(13,13),Vec2(15,-5)
         
-        //空飛ぶ車のフィジックボディ spritePoints[6]
-        //Vec2(-60,-15),Vec2(-60,0),Vec2(-40,20),Vec2(20,20),Vec2(60,0) ,Vec2(60,-15)
+        //【空飛ぶ車】spritePoints[4]
+        //Vec2(-45,-20),Vec2(-40,17),Vec2(15,22),Vec2(50,-20)
         
-        //自分の箒に乗ったキキのフィジックボディ spritePoints[5]
+        //【自分の箒に乗ったキキ】spritePoints[5]
+        //Vec2(-8,-20),Vec2(-16,0),Vec2(-8,18),Vec2(13,13),Vec2(8,-18)
         
-        //紅の豚より『ポルコ・ロッソ』 spritePoints[?]
+        //【ポルコ・ロッソ】 spritePoints[7]
+        //Vec2(-40,-15),Vec2(-40,-10),Vec2(18,22),Vec2(50,25),Vec2(80,-15),Vec2(60,-25),Vec2(-5,-23)
+
 
         
         
     };
     
-    auto kikiBody = PhysicsBody::createPolygon(spritePoints, 6,kikiMaterial);
+    auto kikiBody = PhysicsBody::createPolygon(spritePoints, 7,kikiMaterial);
     
     //重力による影響の可否
     kikiBody->setGravityEnable(false);
@@ -166,17 +169,29 @@ Kiki::Kiki(){
     
     auto broomMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     
-    Point broomPoint[3]={
+    Point broomPoint[6]={
         
+        //【キキ】の箒 broomPoint[3]
         //Vec2(0,0), Vec2(0,40), Vec2(180,35)
-        //Vec2(10,5), Vec2(10,35), Vec2(160,35),
+        
+        //【ハリーポッター】の箒 broomPoint[4]
+        //Vec2(40,15), Vec2(10,25), Vec2(40,35), Vec2(160,42)
+        
+        //【空飛ぶ車】の横ボディ broomPoint[5]
+        //Vec2(40,30), Vec2(25,35), Vec2(25,70), Vec2(280,70), Vec2(280,30)
+        
+        //【自分の箒に乗ったキキ】の箒www broomPoint[4]
+        //Vec2(40,15), Vec2(10,25), Vec2(40,35), Vec2(120,35)
+        
+        //【ポルコロッソ】の横ボディ broomPoint[6]
+        Vec2(60,40), Vec2(25,60), Vec2(65,95), Vec2(80,95), Vec2(100,60),Vec2(100,32)
         
     };
     
-    auto broomBody = PhysicsBody::createPolygon(broomPoint,3,broomMaterial);
+    auto broomBody = PhysicsBody::createPolygon(broomPoint,6,broomMaterial);
     broomBody -> setGravityEnable(false);
     broomBody -> setDynamic(true);
-    broomBody -> setEnable(false);
+    broomBody -> setEnable(true);
     
     broomBody ->setCategoryBitmask(0x01);
     broomBody ->setCollisionBitmask(0);
