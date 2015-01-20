@@ -20,15 +20,9 @@ class CharacterSwitch : public cocos2d::Sprite
 private:
     //変数
     //クラス
-    static CharacterSwitch *kikiInstance;
+    static CharacterSwitch *characterInstance;
     
     
-    //キキちゃん
-    Sprite *kiki;
-    //キキ影
-    Sprite *kikiShadow;
-    
-    Sprite *broom;
     
     //タップされているか判定するフラグ
     bool tappedFlag = false;
@@ -40,43 +34,37 @@ private:
     bool gamePlayFlag = false;
     
     bool gameOverFlag = false;
-    
-    ParticleSystemQuad* endParticle;
-    ParticleSystemQuad* kikiParticle;
-    
-    
-    
     //メソッド
     //コンストラクタ(初期化)
-    Kiki();
+    CharacterSwitch();
     
     
     
 public:
     //メソッド
     //プレイヤーは一体だけなのでシングルトン
-    static Kiki* getInstance();
+    static CharacterSwitch* getInstance();
     //削除シングルトン削除
     static void destroyInstance();
     
-    CREATE_FUNC(Kiki);
+    CREATE_FUNC(CharacterSwitch);
     
     //getter
-    Sprite* getKiki();
+    Sprite* getCharacter();
     
     
     
     //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
-    void kikiUpdate();
+    void characterUpdate();
     
     //キキちゃんのタップ状態の変更
-    void setTappedFlagOfKiki(bool flag);
+    void setTappedFlagOfCharacter(bool flag);
     
     //キキちゃんの動作開始
-    void startKiki();
+    void startCharacter();
     
     //キキちゃんの動作停止
-    void stopKiki();
+    void stopCharacter();
     
     bool getGamePlayFlag();
     
