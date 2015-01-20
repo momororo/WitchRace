@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		040B16201A2F273900FDC891 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040B161E1A2F273900FDC891 /* GameScene.cpp */; };
 		040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040B16231A2F2A5700FDC891 /* Kiki.cpp */; };
+		040FBF201A6E387900119570 /* SelectCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040FBF1E1A6E387900119570 /* SelectCharacterScene.cpp */; };
 		041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		041EF6901A5CC01A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		0463356E1A63DBDE003EF2B8 /* Memo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0463356D1A63DBDE003EF2B8 /* Memo.strings */; };
@@ -303,6 +304,8 @@
 		040B161F1A2F273900FDC891 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
 		040B16231A2F2A5700FDC891 /* Kiki.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Kiki.cpp; path = ../Classes/Kiki.cpp; sourceTree = "<group>"; };
 		040B16241A2F2A5700FDC891 /* Kiki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kiki.h; path = ../Classes/Kiki.h; sourceTree = "<group>"; };
+		040FBF1E1A6E387900119570 /* SelectCharacterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SelectCharacterScene.cpp; path = ../Classes/SelectCharacterScene.cpp; sourceTree = "<group>"; };
+		040FBF1F1A6E387900119570 /* SelectCharacterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectCharacterScene.h; path = ../Classes/SelectCharacterScene.h; sourceTree = "<group>"; };
 		041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadScene.cpp; sourceTree = "<group>"; };
 		041EF68C1A5CBF2A0039FE88 /* LoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadScene.h; sourceTree = "<group>"; };
 		0463356D1A63DBDE003EF2B8 /* Memo.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Memo.strings; path = ../Classes/Memo.strings; sourceTree = "<group>"; };
@@ -535,6 +538,8 @@
 				0463356D1A63DBDE003EF2B8 /* Memo.strings */,
 				046335711A690E42003EF2B8 /* NativeLauncher.h */,
 				046335751A690EA8003EF2B8 /* NativeLauncher.mm */,
+				040FBF1E1A6E387900119570 /* SelectCharacterScene.cpp */,
+				040FBF1F1A6E387900119570 /* SelectCharacterScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1025,6 +1030,7 @@
 				046335761A690EA8003EF2B8 /* NativeLauncher.mm in Sources */,
 				040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */,
 				041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */,
+				040FBF201A6E387900119570 /* SelectCharacterScene.cpp in Sources */,
 				A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				040B16201A2F273900FDC891 /* GameScene.cpp in Sources */,

@@ -24,6 +24,8 @@
 //背景部品
 #define zOrderOfBackGroundParts -2
 
+//ゲージ
+#define zOrderOfGauge 4
 
 //キキ
 #define zOrderOfKiki 10
