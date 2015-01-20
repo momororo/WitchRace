@@ -21,6 +21,9 @@ public:
     virtual bool init();
     static cocos2d::Scene *createScene();
     CREATE_FUNC(SelectCharacterScene);
+    
+    //配列(透明度の一括管理のため)
+    Vector<Sprite*> *characters = new Vector<Sprite*>;
 
 };
 

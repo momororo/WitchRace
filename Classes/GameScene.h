@@ -27,6 +27,8 @@ public:
 #pragma mark デバッグ用
     unsigned long long startTime;
 
+    //キャラクターフラグ
+    int selectCharacter;
     
 
     //タップイベントの宣言

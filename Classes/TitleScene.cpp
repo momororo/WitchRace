@@ -54,7 +54,6 @@ bool TitleScene::init(){
     setOtherBt();
     
     
-    
     /* 効果音の設定
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("cursor1.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("decision7.mp3");

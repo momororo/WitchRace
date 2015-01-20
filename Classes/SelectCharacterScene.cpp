@@ -28,6 +28,8 @@ bool SelectCharacterScene::init()
 
 {
     
+    
+    
     //////////////////////////////
     // 1. super init first
     if ( !Layer::init() )
@@ -38,10 +40,130 @@ bool SelectCharacterScene::init()
 //型枠の作成
     auto bg = Sprite::create("character_Bg.png");
     
-    bg->setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     bg->setName("bg");
+    bg->setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
+    this->addChild(bg);
     
 //ボタンの作成(for文で回す？？)
+    
+    for(int idx = 0; idx < 5;idx++){
+        
+
+        //ユーザーデフォルトを呼び出してキャラクターフラグを確認
+        auto userDef = UserDefault::getInstance();
+        auto characterFlag = userDef->getBoolForKey(StringUtils::format("characterFlag%d",idx).c_str());
+
+        //スプライトの呼び出し
+        Sprite *character;
+
+//スプライトの呼び出し
+        if(characterFlag == true){
+            //キャラクターの画像に
+            switch (idx) {
+                case 0:character = Sprite::create("character_broomOfKiki.png"); break;
+                case 1:character = Sprite::create("character_sPhysicsOfKiki.png"); break;
+                case 2:character = Sprite::create("character_harryPotter.png"); break;
+                case 3:character = Sprite::create("character_fordAnglia.png"); break;
+                case 4:character = Sprite::create("character_porcoRosso.png"); break;
+                default:break;
+            }
+        }else{
+            //はてなの画像を呼び出し
+            character = Sprite::create("character_lock.png");
+        }
+        
+        //タップ後のボタンの透明度を変更する
+        character->setOpacity(128);
+        
+        //後で一括して透明度変更する際に配列つかうことにしました
+        characters->pushBack(character);
+        
+//タップ後のスプライトの呼び出し
+        
+        Sprite *tappedCharacter;
+        
+        //スプライトの呼び出し
+        if(characterFlag == true){
+            //キャラクターの画像に
+            switch (idx) {
+                case 0:tappedCharacter = Sprite::create("character_broomOfKiki.png"); break;
+                case 1:tappedCharacter = Sprite::create("character_sPhysicsOfKiki.png"); break;
+                case 2:tappedCharacter = Sprite::create("character_harryPotter.png"); break;
+                case 3:tappedCharacter = Sprite::create("character_fordAnglia.png"); break;
+                case 4:tappedCharacter = Sprite::create("character_porcoRosso.png"); break;
+                default:break;
+            }
+
+            //タップ後のボタンの透明度を変更する
+            tappedCharacter->setOpacity(255);
+
+        }else{
+            //はてなの画像を呼び出し
+            tappedCharacter = Sprite::create("character_lock.png");
+            //タップ後のボタンの透明度を変更する
+            tappedCharacter->setOpacity(128);
+        }
+
+        
+//メニューボタンを作成していく
+        MenuItemSprite *pBtnItem;
+        
+        if(characterFlag == true){
+        //メニューアイテムの作成
+            pBtnItem = MenuItemSprite::create(character, tappedCharacter, [&](Ref *ref){
+            
+            
+            
+                /**
+                 *  pSenderをMenuItemにキャスト
+                 *  なお、中身はpBtnItem
+                 */
+                MenuItem* button = (MenuItem*)ref;
+
+                
+                //フラグの設定
+                userDef->setIntegerForKey("selectCharacter",button->getTag());
+                
+                //透明度を一括変更
+                for(auto character : *characters){
+                    character->setOpacity(128);
+                }
+                //対象のボタンの透明度を変更
+                characters->at(button->getTag())->setOpacity(255);
+                
+
+            
+            });
+        
+        }else{
+            
+            pBtnItem = MenuItemSprite::create(character, tappedCharacter,NULL);
+            
+        }
+        
+        pBtnItem->setTag(idx);
+        
+        //メニューの作成　pMenuの中にpBtnItemを入れる
+        auto Menu = Menu::create(pBtnItem, NULL);
+        
+
+        //ポジションを設定
+        switch (idx) {
+            case 0:Menu->setPosition(Vec2(selfFrame.width/6*1,selfFrame.height/10*5));break;
+            case 1:Menu->setPosition(Vec2(selfFrame.width/6*2,selfFrame.height/10*7));break;
+            case 2:Menu->setPosition(Vec2(selfFrame.width/6*3,selfFrame.height/10*5));break;
+            case 3:Menu->setPosition(Vec2(selfFrame.width/6*4,selfFrame.height/10*7));break;
+            case 4:Menu->setPosition(Vec2(selfFrame.width/6*5,selfFrame.height/10*5));break;
+            default:break;
+
+        
+        }
+        
+        bg->addChild(Menu);
+        
+        
+        
+    }
     
     
     

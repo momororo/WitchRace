@@ -44,12 +44,24 @@ bool GameScene::init()
     this -> addChild(BackGround::getInstance()->getBackGround2(),1);
     this -> addChild(BackGround::getInstance()->getBackGround3(),1);
 //背景処理終
-
     
-//キキ処理
-    //キキちゃんの追加
-    this->addChild(Kiki::getInstance()->getKiki());
-//キキ処理終
+//キャラクター処理
+    
+    auto userDef = UserDefault::getInstance();
+
+    selectCharacter = userDef->getIntegerForKey("selectCharacter");
+
+    //分岐
+    switch (selectCharacter) {
+        case 0:this->addChild(Kiki::getInstance()->getKiki());break;
+//        case 1:<#statements#>;break;
+//        case 2:<#statements#>;break;
+//        case 3:<#statements#>;break;
+//        case 4:<#statements#>;break;
+            
+        default:break;
+    }
+//キャラクター処理終
 
 //イベント系処理
     /**************　タッチイベント設定  ******************/
