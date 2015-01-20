@@ -1,5 +1,6 @@
 #include "TitleScene.h"
 #include "StorySelect.h"
+#include "TutorialScene.h"
 #include "GameScene.h"
 #include <string.h>
 #include "NativeLauncher.h"
@@ -219,7 +220,8 @@ void TitleScene::setTutorialBt(){
     auto pBtnItem = MenuItemSprite::create(tutorialBt, tutorialBtTaped, [](Ref *ref){
         
         //遊び方を呼び出すメソッド
-        CCLOG("激ムズの糸と同じ操作方法だよ〜！");
+        Director::getInstance()->replaceScene(TransitionPageTurn::create(1, TutorialScene::createScene(), 0));
+        
         
     });
     

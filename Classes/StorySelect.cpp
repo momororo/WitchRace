@@ -41,6 +41,7 @@ bool StorySelect::init(){
     titleBk -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBk);
     
+    /*
     auto ssLabel = Label::createWithSystemFont("select story", "MagicSchoolOne", 150);
     ssLabel ->setPosition(Vec2(selfFrame.width/2,selfFrame.height-ssLabel->getContentSize().height*2/5));
     ssLabel -> setColor(Color3B::BLACK);
@@ -56,7 +57,7 @@ bool StorySelect::init(){
     downerOrnament -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/9));
     downerOrnament -> setOpacity(200);
     this -> addChild(downerOrnament);
-    
+    */
     
     setBackBt();
     
@@ -193,7 +194,7 @@ void StorySelect::setSelectButton(){
         auto startMenu = Menu::create(pBtnItem, NULL);
         
         //pMenuを配置(適当)
-        startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height*7/8 - selfFrame.height/5*4 / 7 * (idx + 1)));
+        startMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height*6/7 - selfFrame.height/5*4 / 7 * (idx + 1)));
         startMenu->setName("startMenu");
         
         this->addChild(startMenu);
