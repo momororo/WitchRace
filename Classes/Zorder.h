@@ -35,6 +35,8 @@
 //こうもり
 #define zOrderOfEnemy 0
 
+#define zOrderOfGauge 0
+
 #define zOrderOfPause 200
 
 #define zOrderOfPauseLabel 300
