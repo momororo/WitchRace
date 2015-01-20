@@ -82,8 +82,127 @@ bool Kiki::getGameOverFlag(){
     return gameOverFlag;
 }
 
+//MARK::実験用　うまくいったら消す
+Kiki::Kiki(){
+    
+    //キャラクタースプライトの生成(UP時)
+    kiki = Sprite::create("broomOfKiki.png");
+    //影
+    kikiShadow = Sprite::create("kiki_up_shadow.png");
+    
+    //キャラクタースプライトの大きさ
+    kiki -> setScale(0.5);
+    
+    //影を実体に入れちゃう
+    kiki->addChild(kikiShadow);
+    //影のポジション調整
+    kikiShadow->setPosition(kiki->getContentSize().width/2,kiki->getContentSize().height/2);
+    //影の透明度を設定
+    kikiShadow->setOpacity(180);
+    kikiShadow->setGlobalZOrder(zOrderOfKikiShadow);
+    
+    //影の大きさ(実体のスケールをgetしてます)※特にスケールせずにぴったり入りました(謎)
+    //kikiShadow -> setScale(kiki->getScale());
+    
+    
+    //ポジションの設定
+    kiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
+    
+    //zポジションの設定
+    kiki->setGlobalZOrder(zOrderOfEnemy);
+    
+    
+    //タグつけ
+    kiki->setName("kiki");
+    
+    //タグで上昇か下降か判断してみる(1は上昇、0は下降)
+    kiki->setTag(1);
+    
+    //物理体の生成
+    auto kikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+    //auto kikiBody = PhysicsBody::createCircle((kiki->getContentSize().width/2),kikiMaterial);
+    
+    
+    
+    Point spritePoints[6]={
+        
+        //Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
+        
+        //ハリーのフィジックボディ spritePoints[5]
+        //Vec2(-8,-20),Vec2(-50,-15),Vec2(-20,20),Vec2(13,13),Vec2(40,-5)
+        
+        //空飛ぶ車のフィジックボディ spritePoints[6]
+        //Vec2(-60,-15),Vec2(-60,0),Vec2(-40,20),Vec2(20,20),Vec2(60,0) ,Vec2(60,-15)
+        
+        //自分の箒に乗ったキキのフィジックボディ spritePoints[5]
+        
+        //紅の豚より『ポルコ・ロッソ』 spritePoints[?]
+
+        
+        
+    };
+    
+    auto kikiBody = PhysicsBody::createPolygon(spritePoints, 6,kikiMaterial);
+    
+    //重力による影響の可否
+    kikiBody->setGravityEnable(false);
+    //まじない
+    kikiBody->setDynamic(true);
+    kikiBody->setEnable(true);
+    
+    //ビットマスクはてきとう
+    kikiBody->setCategoryBitmask(0x01);
+    kikiBody->setCollisionBitmask(0);
+    kikiBody->setContactTestBitmask(0x02);
+    
+    kiki->setPhysicsBody(kikiBody);
+    
+    
+    //箒の設定
+    broom = Sprite::create();
+    broom -> setTextureRect(Rect(0, 0, 10, 10));
+    broom -> setPosition(Vec2(0,0));
+    broom -> setVisible(false);
+    
+    auto broomMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+    
+    Point broomPoint[3]={
+        
+        //Vec2(0,0), Vec2(0,40), Vec2(180,35)
+        //Vec2(10,5), Vec2(10,35), Vec2(160,35),
+        
+    };
+    
+    auto broomBody = PhysicsBody::createPolygon(broomPoint,3,broomMaterial);
+    broomBody -> setGravityEnable(false);
+    broomBody -> setDynamic(true);
+    broomBody -> setEnable(false);
+    
+    broomBody ->setCategoryBitmask(0x01);
+    broomBody ->setCollisionBitmask(0);
+    broomBody ->setContactTestBitmask(0x02);
+    
+    broom -> setPhysicsBody(broomBody);
+    
+    kiki -> addChild(broom);
+    
+    endParticle = ParticleSystemQuad::create("particleFlower.plist");
+    //retainしないと勝手に解放されて後々エラーへ
+    endParticle->retain();
+    
+    kikiParticle = ParticleSystemQuad::create("kikiparticle.plist");
+    kikiParticle->setAnchorPoint(Vec2(0.5f,0.5f));
+    kikiParticle->setPosition(Vec2(3,kiki->getContentSize().height/3-6));
+    kikiParticle->setName("kikiParticle");
+    kikiParticle->setGlobalZOrder(zOrderOfKikiShadow);
+    kiki->addChild(kikiParticle);
+    
+}
 
 
+
+//MARK::元のKiki うまくいったら元に戻す
+/*
 //キキちゃんの初期設定
 Kiki::Kiki(){
  
@@ -188,7 +307,7 @@ Kiki::Kiki(){
     kikiParticle->setGlobalZOrder(zOrderOfKikiShadow);
     kiki->addChild(kikiParticle);
     
-}
+}*/
 
 void Kiki::makeGameOver(){
     
@@ -208,14 +327,124 @@ void Kiki::makeGameOver(){
 
 }
 
-
-
-//キキちゃんの1フレーム毎の処理
+//MARK::実験用　うまくいったら消す
 void Kiki::kikiUpdate(){
     
     CCLOG("重力:%d",pGravity);
-
     
+    
+    //ゲームプレイ中ではない場合は何もせず終了
+    if(gamePlayFlag != true){
+        
+        return;
+        
+    }
+    
+    //タップされている場合は上昇！
+    if (tappedFlag == true) {
+        
+        
+        
+        kikiParticle->cocos2d::ParticleSystem::setSpeed(500);
+        
+        
+        
+        //透明度を変更
+        if(kikiShadow->getOpacity() != 255){
+            
+            kikiShadow->setOpacity(255);
+            
+        }
+        
+        //画像の交換(下降画像の場合のみ)
+        if(kiki->getTag() == 0){
+           
+            //タグを上昇状態へ変更
+            kiki->setTag(1);
+            
+        }
+        
+        if (pGravity>700) {
+            
+            pGravity = 700;
+            
+        }else{
+            
+            //下降時はより強く
+            if(pGravity < -200){
+                
+                pGravity+= 15;
+                
+            }else{
+                
+                pGravity+= 11;
+                
+                
+            }
+            
+            
+        }
+        
+        
+        kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+        broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+        
+    }else{
+        
+        
+        //透明度を変更
+        if(kikiShadow->getOpacity() != 180){
+            kikiShadow->setOpacity(180);
+        }
+        
+        
+        
+        //画像の交換(上昇画像の場合のみ)
+        if(kiki->getTag() == 1){
+            
+            //タグを下降状態へ変更
+            kiki->setTag(0);
+        }
+        
+        
+        if (pGravity<-700) {
+            
+            pGravity = -700;
+            
+        }else{
+            
+            //上昇時はより強く
+            if(pGravity > 200){
+                
+                pGravity -= 15;
+                
+            }else{
+                
+                pGravity -= 10;
+                
+            }
+            
+            
+        }
+        
+        kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+        broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+        
+        
+        
+    }
+    
+}
+
+
+//MARK::元のkikiUpdate 処理ができたら元に戻す
+/*
+//キキちゃんの1フレーム毎の処理
+void Kiki::kikiUpdate(){
+ 
+    CCLOG("重力:%d",pGravity);
+
+ 
     //ゲームプレイ中ではない場合は何もせず終了
     if(gamePlayFlag != true){
         
@@ -328,4 +557,4 @@ void Kiki::kikiUpdate(){
             
         }
         
-}
+}*/
