@@ -183,9 +183,9 @@ BackGround::BackGround(){
 
 //MARK::進捗バー
     auto countBar = Sprite::create("gaugeBar.png");
-    countBar->setPosition(Vec2(selfFrame.width/2,selfFrame.height/10*9));
+    countBar->setPosition(Vec2(selfFrame.width/2,selfFrame.height/11*10));
     countBar->setName("countBar");
-    countBar->setGlobalZOrder(zOrderOfBackGroundParts);
+    countBar->setGlobalZOrder(zOrderOfGauge);
     countBar->setOpacity(100);
     countBar->setAnchorPoint(Vec2(0.5f,0));
     staticBackGround->addChild(countBar);
@@ -194,7 +194,7 @@ BackGround::BackGround(){
     //countKiki->setScale(0.5f);
     countKiki->setPosition(0,countBar->getContentSize().height/2);
     countKiki->setName("countKiki");
-    countKiki->setGlobalZOrder(zOrderOfBackGroundParts);
+    countKiki->setGlobalZOrder(zOrderOfGauge);
     countKiki->setOpacity(150);
     countBar->addChild(countKiki);
     

@@ -240,7 +240,7 @@ void GameScene::update( float frame )
 //クリアか判定
     //30で全障害物設置完了
     //全障害物を通り抜けたらゲームクリア
-    if(BackGround::getInstance()->getReplaceCount() > 30){
+    if(BackGround::getInstance()->getReplaceCount() > 3){
         //ゲームクリア
         this->makeGameClear();
     }
@@ -347,7 +347,8 @@ void GameScene::makeGameOver(){
     auto retryMenu = Menu::create(retryBtnItem, NULL);
     
     retryMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height/3));
-    retryMenu ->setGlobalZOrder(zOrderOfPauseLabel);
+    retryMenu->setGlobalZOrder(zOrderOfPauseLabel);
+    retryMenu->setColor(Color3B::BLACK);
 
     this ->addChild(retryMenu);
     
@@ -374,6 +375,7 @@ void GameScene::makeGameOver(){
     
     homeMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height/3));
     homeMenu->setGlobalZOrder(zOrderOfPauseLabel);
+    homeMenu->setColor(Color3B::BLACK);
     this -> addChild(homeMenu);
     
     
@@ -449,32 +451,23 @@ void GameScene::makeGameClear(){
      this -> addChild(testSprite);
      */
     
-    
-    
-    
-    
-    
     //gameClear画面のparticle
     auto gameOverParticle = ParticleSystemQuad::create("particle_gameClear.plist");
     gameOverParticle -> setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
     gameOverParticle -> setGlobalZOrder(0/*zOrderOfPause*/);
     gameOverOfLabel -> addChild(gameOverParticle,1);
     
-    
 //全ステージクリアの場合、今のところボタン生成の処理をスキップします
     if(selectStory != 4){
-        //リトライボタン作成
-        auto retryBt = Label::createWithSystemFont("Next", "MagicSchoolOne", 100);
-        retryBt -> setColor(Color3B(255, 255, 177));
-        retryBt ->setGlobalZOrder(zOrderOfPauseLabel);
+        //ネクストボタン作成
+        auto nextBt = Sprite::create("nextBt.png");
+        nextBt ->setGlobalZOrder(zOrderOfPauseLabel);
         
-        auto retryBtTaped = Label::createWithSystemFont("Next", "MagicSchoolOne", 100);
-        retryBt -> setColor(Color3B(255, 255, 177));
-        retryBtTaped -> setOpacity(150);
-        retryBtTaped ->setGlobalZOrder(zOrderOfPauseLabel);
+        auto nextBtTaped = Sprite::create("nextBt.png");
+        nextBtTaped -> setOpacity(150);
+        nextBtTaped ->setGlobalZOrder(zOrderOfPauseLabel);
         
-        
-        auto retryBtnItem = MenuItemSprite::create(retryBt, retryBtTaped,[](Ref *ref){
+        auto nextBtnItem = MenuItemSprite::create(nextBt, nextBtTaped,[](Ref *ref){
             
             //セレクトステージに1足し込み(次のステージへ)
             auto userDef = UserDefault::getInstance();
@@ -487,25 +480,23 @@ void GameScene::makeGameClear(){
             Director::getInstance()->replaceScene(nextScene);
             
         });
-        retryBtnItem ->setGlobalZOrder(zOrderOfPauseLabel);
+        nextBtnItem ->setGlobalZOrder(zOrderOfPauseLabel);
         
-        auto retryMenu = Menu::create(retryBtnItem, NULL);
+        auto nextMenu = Menu::create(nextBtnItem, NULL);
         
-        retryMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height/3));
-        retryMenu ->setGlobalZOrder(zOrderOfPauseLabel);
+        nextMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height/3));
+        nextMenu ->setGlobalZOrder(zOrderOfPauseLabel);
+        nextMenu->setColor(Color3B(255, 255, 177));
         
-        
-        gameOverOfLabel->addChild(retryMenu,2);
+        gameOverOfLabel->addChild(nextMenu,2);
         
     }
     
     
     //ホームボタン作成
-    auto homeBt = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
-    homeBt -> setColor(Color3B(255, 255, 177));
+    auto homeBt = Sprite::create("homeBt.png");
     
-    auto homeBtTaped = Label::createWithSystemFont("Home", "MagicSchoolOne", 100);
-    homeBtTaped-> setColor(Color3B(255, 255, 177));
+    auto homeBtTaped = Sprite::create("homeBt.png");
     homeBtTaped -> setOpacity(150);
     
     auto homeBtnItem = MenuItemSprite::create(homeBt, homeBtTaped,[](Ref *ref){
@@ -518,7 +509,8 @@ void GameScene::makeGameClear(){
     
     auto homeMenu = Menu::create(homeBtnItem, NULL);
     
-    homeMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height/3));
+    homeMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height/3));
+    homeMenu->setColor(Color3B(255, 255, 177));
     gameOverOfLabel->addChild(homeMenu,2);
     
     

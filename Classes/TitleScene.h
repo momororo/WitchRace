@@ -14,7 +14,7 @@ protected:
     void setStartBt();
     void setTutorialBt();
     void setRankingBt();
-    void setCharactorBt();
+    void setCharacterBt();
     void setOtherBt();
     void setTwitterBt();
     

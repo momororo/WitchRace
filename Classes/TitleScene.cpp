@@ -48,7 +48,7 @@ bool TitleScene::init(){
     setStartBt();
     setTutorialBt();
     setRankingBt();
-    setCharactorBt();
+    setCharacterBt();
     setTwitterBt();
     setOtherBt();
     
@@ -290,17 +290,17 @@ void TitleScene::setOtherBt(){
 }
 
 //MARK::キャラクター購入ボタン
-void TitleScene::setCharactorBt(){
+void TitleScene::setCharacterBt(){
     
     
     //キャラクター購入ボタン作成
-    auto charactorBt = Sprite::create("charactorBt.png");
+    auto characterBt = Sprite::create("characterBt.png");
     
-    auto charactorBtTaped = Sprite::create("charactorBt.png");
-    charactorBtTaped -> setOpacity(150);
+    auto characterBtTaped = Sprite::create("characterBt.png");
+    characterBtTaped -> setOpacity(150);
     
     //メニューアイテムの作成
-    auto pBtnItem = MenuItemSprite::create(charactorBt, charactorBtTaped, [](Ref *ref){
+    auto pBtnItem = MenuItemSprite::create(characterBt, characterBtTaped, [](Ref *ref){
         
         //キャラクター購入画面を呼び出すメソッド
         CCLOG("キャラクター購入でhappy!!");
@@ -308,12 +308,12 @@ void TitleScene::setCharactorBt(){
     });
     
     //メニューの作成
-    auto charactorMenu = Menu::create(pBtnItem, NULL);
+    auto characterMenu = Menu::create(pBtnItem, NULL);
     
     //Menuを画面中央に配置
-    charactorMenu->setPosition(Vec2(selfFrame.width/2+selfFrame.width/40, selfFrame.height*0.32));
-    charactorMenu->setName("character");
-    this->addChild(charactorMenu);
+    characterMenu->setPosition(Vec2(selfFrame.width/2+selfFrame.width/40, selfFrame.height*0.32));
+    characterMenu->setName("character");
+    this->addChild(characterMenu);
     
 }
 
@@ -370,9 +370,11 @@ void TitleScene::setReviewBox(){
     
     //ボタンの作成
     //ツイッターボタン作成
-    auto okBt = Sprite::create("twitterBt.png");
+    auto okBt = Label::createWithSystemFont("OK!", "MagicSchoolOne",80);
+    okBt -> setColor(Color3B::BLACK);
     
-    auto okBtTaped = Sprite::create("twitterBt.png");
+    auto okBtTaped = Label::createWithSystemFont("OK!", "MagicSchoolOne",80);
+    okBtTaped -> setColor(Color3B::BLACK);
     okBtTaped -> setOpacity(150);
     
     //メニューアイテムの作成
@@ -411,7 +413,7 @@ void TitleScene::setReviewBox(){
     //メニューの作成
     auto okMenu = Menu::create(okBtnItem, NULL);
     
-    okMenu->setPosition(Vec2(reviewBox->getContentSize().width/5*1,reviewBox->getContentSize().height/3));
+    okMenu->setPosition(Vec2(reviewBox->getContentSize().width/5*1,reviewBox->getContentSize().height/6));
     
     reviewBox->addChild(okMenu);
     
@@ -419,9 +421,11 @@ void TitleScene::setReviewBox(){
 //NGの処理
     //ボタンの作成
     //ツイッターボタン作成
-    auto ngBt = Sprite::create("twitterBt.png");
+    auto ngBt = Label::createWithSystemFont("NO...", "MagicSchoolOne",80);
+    ngBt -> setColor(Color3B::BLACK);
     
-    auto ngBtTaped = Sprite::create("twitterBt.png");
+    auto ngBtTaped = Label::createWithSystemFont("NO...", "MagicSchoolOne",80);
+    ngBtTaped -> setColor(Color3B::BLACK);
     ngBtTaped -> setOpacity(150);
     
     //メニューアイテムの作成
@@ -454,7 +458,7 @@ void TitleScene::setReviewBox(){
     //メニューの作成
     auto ngMenu = Menu::create(ngBtnItem, NULL);
     
-    ngMenu->setPosition(Vec2(reviewBox->getContentSize().width/5*4,reviewBox->getContentSize().height/3));
+    ngMenu->setPosition(Vec2(reviewBox->getContentSize().width/5*4,reviewBox->getContentSize().height/6));
     
     reviewBox->addChild(ngMenu);
     
@@ -473,6 +477,8 @@ void TitleScene::setReviewBox(){
     menu->setEnabled(false);
     menu = (Menu*)this->getChildByName("other");
     menu->setEnabled(false);
+
+//アラート本文
 
     
 }
