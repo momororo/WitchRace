@@ -81,6 +81,8 @@
 		A457D8141A6E4555007C2E41 /* storyBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8131A6E4555007C2E41 /* storyBg.png */; };
 		A457D8161A6E572B007C2E41 /* tutorialBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8151A6E572B007C2E41 /* tutorialBg.png */; };
 		A457D8191A6E5AF7007C2E41 /* TutorialScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A457D8171A6E5AF7007C2E41 /* TutorialScene.cpp */; };
+		A4722A751A6E9B8A00CC1A42 /* tutorial_tapHold.png in Resources */ = {isa = PBXBuildFile; fileRef = A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */; };
+		A4722A761A6E9B8A00CC1A42 /* tutorial_hand.png in Resources */ = {isa = PBXBuildFile; fileRef = A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */; };
 		A473C84A1A627B64009000A5 /* pause_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A473C8491A627B64009000A5 /* pause_gameClear.png */; };
 		A473C84F1A627D65009000A5 /* particle_gameClear.plist in Resources */ = {isa = PBXBuildFile; fileRef = A473C84D1A627D65009000A5 /* particle_gameClear.plist */; };
 		A473C8501A627D65009000A5 /* particle_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A473C84E1A627D65009000A5 /* particle_gameClear.png */; };
@@ -375,6 +377,8 @@
 		A457D8151A6E572B007C2E41 /* tutorialBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialBg.png; sourceTree = "<group>"; };
 		A457D8171A6E5AF7007C2E41 /* TutorialScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TutorialScene.cpp; path = ../Classes/TutorialScene.cpp; sourceTree = "<group>"; };
 		A457D8181A6E5AF7007C2E41 /* TutorialScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialScene.h; path = ../Classes/TutorialScene.h; sourceTree = "<group>"; };
+		A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_tapHold.png; sourceTree = "<group>"; };
+		A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_hand.png; sourceTree = "<group>"; };
 		A473C8491A627B64009000A5 /* pause_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_gameClear.png; sourceTree = "<group>"; };
 		A473C84D1A627D65009000A5 /* particle_gameClear.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_gameClear.plist; sourceTree = "<group>"; };
 		A473C84E1A627D65009000A5 /* particle_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_gameClear.png; sourceTree = "<group>"; };
@@ -657,6 +661,8 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */,
+				A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */,
 				A457D8151A6E572B007C2E41 /* tutorialBg.png */,
 				A491FCB11A6E4025008A6C56 /* character_broomOfKiki.png */,
 				A491FCB21A6E4025008A6C56 /* character_fordAnglia.png */,
@@ -916,6 +922,7 @@
 				A4BB07311A39A23000991DCE /* bad.png in Resources */,
 				A47F2DA01A5D39EA0050F464 /* factory.plist in Resources */,
 				A457D8141A6E4555007C2E41 /* storyBg.png in Resources */,
+				A4722A751A6E9B8A00CC1A42 /* tutorial_tapHold.png in Resources */,
 				A47F2DBB1A5D3A740050F464 /* village_3.png in Resources */,
 				A47F2DAA1A5D3A180050F464 /* forest.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
@@ -946,6 +953,7 @@
 				A4CB43DE1A4035CD00890E53 /* titleBk.png in Resources */,
 				A42C8FF71A6A684E008C5DE4 /* characterBt.png in Resources */,
 				A42E0E6D1A5FB7280005E670 /* town_1.png in Resources */,
+				A4722A761A6E9B8A00CC1A42 /* tutorial_hand.png in Resources */,
 				A47F2DB01A5D3A2B0050F464 /* forest_1.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				A47F2DB91A5D3A740050F464 /* village_1.png in Resources */,
