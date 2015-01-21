@@ -24,7 +24,6 @@
 //背景部品
 #define zOrderOfBackGroundParts -2
 
-
 //キキ
 #define zOrderOfKiki 10
 //キキ(影)

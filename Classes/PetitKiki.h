@@ -1,13 +1,13 @@
 //
-//  Kiki.h
+//  PetitKiki.h
 //  WitchRace
 //
 //  Created by yasutomo on 2014/12/03.
 //
 //
 
-#ifndef __WitchRace__Kiki__
-#define __WitchRace__Kiki__
+#ifndef __WitchRace__PetitKiki__
+#define __WitchRace__PetitKiki__
 
 #include "cocos2d.h"
 #include "Zorder.h"
@@ -17,18 +17,18 @@ using namespace cocos2d;
 
 
 
-class Kiki : public cocos2d::Sprite
+class PetitKiki : public cocos2d::Sprite
 {
 private:
 //変数
     //クラス
-    static Kiki *kikiInstance;
+    static PetitKiki *petitKikiInstance;
     
     
     //キキちゃん
-    Sprite *kiki;
+    Sprite *petitKiki;
     //キキ影
-    Sprite *kikiShadow;
+    Sprite *petitKikiShadow;
     
     Sprite *broom;
         
@@ -37,39 +37,39 @@ private:
     
     
     ParticleSystemQuad* endParticle;
-    ParticleSystemQuad* kikiParticle;
+    ParticleSystemQuad* petitKikiParticle;
 
     
     
 //メソッド
     //コンストラクタ(初期化)
-    Kiki();
+    PetitKiki();
     
     
     
 public:
 //メソッド
     //プレイヤーは一体だけなのでシングルトン
-    static Kiki* getInstance();
+    static PetitKiki* getInstance();
     //削除シングルトン削除
     static void destroyInstance();
     
-    CREATE_FUNC(Kiki);
+    CREATE_FUNC(PetitKiki);
     
     //getter
-    Sprite* getKiki();
+    Sprite* getPetitKiki();
     
 
     
     //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
-    void kikiUpdate(bool tappedFlag);
+    void petitKikiUpdate(bool tappedFlag);
     
     
     //キキちゃんの動作開始
-    void startKiki();
+    void startPetitKiki();
     
     //キキちゃんの動作停止
-    void stopKiki();
+    void stopPetitKiki();
     
     //gameOverの処理
     void makeGameOver();
@@ -78,4 +78,4 @@ public:
 
 };
 
-#endif /* defined(__WitchRace__Kiki__) */
+#endif /* defined(__WitchRace__PetitKiki__) */

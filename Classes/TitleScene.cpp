@@ -4,6 +4,7 @@
 #include "GameScene.h"
 #include <string.h>
 #include "NativeLauncher.h"
+#include "SelectCharacterScene.h"
 //#include "NendModule.h"
 //#include "NendInterstitialModule.h"
 //#include "AppCCloudPlugin.h"
@@ -52,7 +53,6 @@ bool TitleScene::init(){
     setCharacterBt();
     setTwitterBt();
     setOtherBt();
-    
     
     
     /* 効果音の設定
@@ -302,12 +302,11 @@ void TitleScene::setCharacterBt(){
     characterBtTaped -> setOpacity(150);
     
     //メニューアイテムの作成
-    auto pBtnItem = MenuItemSprite::create(characterBt, characterBtTaped, [](Ref *ref){
+    auto pBtnItem = MenuItemSprite::create(characterBt, characterBtTaped, [&](Ref *ref){
         
-        //キャラクター購入画面を呼び出すメソッド
-        CCLOG("キャラクター購入でhappy!!");
-        
+        Director::getInstance()->replaceScene(TransitionPageTurn::create(1, SelectCharacterScene::createScene(), 0));
     });
+    
     
     //メニューの作成
     auto characterMenu = Menu::create(pBtnItem, NULL);
@@ -371,7 +370,7 @@ void TitleScene::setReviewBox(){
     reviewBox->setName("reviewBox");
     
     //ボタンの作成
-    //ツイッターボタン作成
+    //OKボタン作成
     auto okBt = Label::createWithSystemFont("OK!", "MagicSchoolOne",80);
     okBt -> setColor(Color3B::BLACK);
     
@@ -422,7 +421,7 @@ void TitleScene::setReviewBox(){
 
 //NGの処理
     //ボタンの作成
-    //ツイッターボタン作成
+    //No作成
     auto ngBt = Label::createWithSystemFont("NO...", "MagicSchoolOne",80);
     ngBt -> setColor(Color3B::BLACK);
     
@@ -484,8 +483,6 @@ void TitleScene::setReviewBox(){
 
     
 }
-
-
 
 
 

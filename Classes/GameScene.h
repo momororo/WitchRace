@@ -10,7 +10,7 @@
 #define __WitchRace__GameScene__
 
 #include "cocos2d.h"
-#include "Kiki.h"
+#include "CharacterSwitch.h"
 #include "BackGround.h"
 #include "Zorder.h"
 
@@ -27,6 +27,8 @@ public:
 #pragma mark デバッグ用
     unsigned long long startTime;
 
+    //キャラクターフラグ
+    int selectCharacter;
     
 
     //タップイベントの宣言

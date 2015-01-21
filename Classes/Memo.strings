@@ -64,6 +64,12 @@
 
     ※clearStory、selectStoryの中身の値、clearCountFor(x)←の値については
     0 = stage1、 1 = stage2 と数が1つずれることに注意が必要
+(bool)characterFlag0〜4
+    キャラクターの使用可能フラグ
+ 
+(int)selectCharacter
+    使用キャラクターを管理
+
 
 
 実績解放をnewとかそんなのでお知らせしたかったら

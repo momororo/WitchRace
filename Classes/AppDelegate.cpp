@@ -21,6 +21,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
     
+    //キキのキャラクターフラグ使用をオンに
+    auto userDef = UserDefault::getInstance();
+    userDef->setBoolForKey("characterFlag0", true);
+    //キキをデフォルトの使用キャラクターに
+    userDef->setIntegerForKey("selectCharacter", 0);
+
+    
     
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
