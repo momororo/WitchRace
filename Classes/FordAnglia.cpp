@@ -132,8 +132,7 @@ FordAnglia::FordAnglia(){
     
     Point broomPoint[5]={
         
-        Vec2(40,30), Vec2(25,35), Vec2(25,70), Vec2(280,70), Vec2(280,30)
-
+        Vec2(20,20), Vec2(5,25), Vec2(5,60), Vec2(260,55), Vec2(260,20)
         
     };
     
