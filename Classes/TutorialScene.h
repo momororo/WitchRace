@@ -36,6 +36,11 @@ public:
     //戻るボタン
     void setBackBt();
     
+    //各フェーズ
+    void setPhase();
+    void setPhase1(float time);
+    void setPhase2(float time);
+    
     
     //タップイベントの宣言
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
