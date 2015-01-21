@@ -54,6 +54,10 @@ bool SelectCharacterScene::init()
         auto userDef = UserDefault::getInstance();
         //デバグ
         userDef->setBoolForKey("characterFlag1", true);
+        userDef->setBoolForKey("characterFlag2", true);
+        userDef->setBoolForKey("characterFlag3", true);
+        userDef->setBoolForKey("characterFlag4", true);
+        userDef->setBoolForKey("characterFlag5", true);
         
         auto characterFlag = userDef->getBoolForKey(StringUtils::format("characterFlag%d",idx).c_str());
 
