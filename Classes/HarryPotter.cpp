@@ -38,13 +38,13 @@ void HarryPotter::destroyInstance() {
 }
 
 
-//キキちゃんのスプライトをGET
+//ハリーポッターのスプライトをGET
 Sprite* HarryPotter::getCharacter(){
     return harryPotter;
 }
 
 
-//キキちゃんの動作開始
+//ハリーポッターの動作開始
 void HarryPotter::startCharacter(){
     
     harryPotter->getPhysicsBody()->setEnable(true);
@@ -52,7 +52,7 @@ void HarryPotter::startCharacter(){
     
 }
 
-//キキちゃんの動作停止
+//ハリーポッターの動作停止
 void HarryPotter::stopCharacter(){
     
     harryPotter->getPhysicsBody()->setEnable(false);
@@ -61,13 +61,13 @@ void HarryPotter::stopCharacter(){
 }
 
 
-//キキちゃんの初期設定
+//ハリーポッターの初期設定
 HarryPotter::HarryPotter(){
  
     //キャラクタースプライトの生成(UP時)
     harryPotter = Sprite::create("harryPotter.png");
     //影
-    harryPotterShadow = Sprite::create("kiki_up_shadow.png");
+    harryPotterShadow = Sprite::create("harryPotter_shadow.png");
     
     //キャラクタースプライトの大きさ
     harryPotter -> setScale(0.5);
@@ -103,14 +103,13 @@ HarryPotter::HarryPotter(){
 
     
     
-    Point spritePoints[5]={
+    Point spritePoints[8]={
     
-        //Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
-        Vec2(-8,-20),Vec2(-16,0),Vec2(-8,18),Vec2(13,13),Vec2(8,-18)
+        Vec2(-8,-20),Vec2(-40,-5),Vec2(-20,20), Vec2(-5,22),Vec2(13,13),Vec2(15,-5)
     
     };
     
-    auto harryPotterBody = PhysicsBody::createPolygon(spritePoints, 5,harryPotterMaterial);
+    auto harryPotterBody = PhysicsBody::createPolygon(spritePoints, 8,harryPotterMaterial);
     
     //重力による影響の可否
     harryPotterBody->setGravityEnable(false);
@@ -134,14 +133,13 @@ HarryPotter::HarryPotter(){
     
     auto broomMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     
-    Point broomPoint[3]={
+    Point broomPoint[4]={
         
-        //Vec2(0,0), Vec2(0,40), Vec2(180,35)
-        Vec2(10,5), Vec2(10,35), Vec2(160,35),
+        Vec2(40,15), Vec2(10,25), Vec2(40,35), Vec2(160,42)
     
     };
     
-    auto broomBody = PhysicsBody::createPolygon(broomPoint,3,broomMaterial);
+    auto broomBody = PhysicsBody::createPolygon(broomPoint,4,broomMaterial);
     broomBody -> setGravityEnable(false);
     broomBody -> setDynamic(true);
     broomBody -> setEnable(false);
@@ -172,16 +170,16 @@ void HarryPotter::makeGameOver(){
     //パーティクルの設定
     endParticle->setAutoRemoveOnFinish(true);
     endParticle->setPosition(harryPotter->getPosition());
-    //キキから親ノード(scene)取ってaddchild
+    //ハリーポッターから親ノード(scene)取ってaddchild
     harryPotter->getParent()->addChild(endParticle);
-    //キキをremove
+    //ハリーポッターをremove
     harryPotter->removeFromParent();
 
 }
 
 
 
-//キキちゃんの1フレーム毎の処理
+//ハリーポッターの1フレーム毎の処理
 void HarryPotter::characterUpdate(bool tappedFlag){
     
     CCLOG("重力:%d",pGravity);
@@ -208,7 +206,7 @@ void HarryPotter::characterUpdate(bool tappedFlag){
             if(harryPotter->getTag() == 0){
 
                 harryPotter->setTexture("harryPotter.png");
-                harryPotterShadow->setTexture("kiki_up_shadow.png");
+                harryPotterShadow->setTexture("harryPotter_shadow.png");
                 //タグを上昇状態へ変更
                 harryPotter->setTag(1);
             
@@ -260,7 +258,7 @@ void HarryPotter::characterUpdate(bool tappedFlag){
             if(harryPotter->getTag() == 1){
                 
                 harryPotter->setTexture("harryPotter.png");
-                harryPotterShadow->setTexture("kiki_down_shadow.png");
+                harryPotterShadow->setTexture("harryPotter_shadow.png");
                 //タグを下降状態へ変更
                 harryPotter->setTag(0);
             }

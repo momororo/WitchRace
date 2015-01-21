@@ -1,12 +1,12 @@
 //
-//  FordAnglia.cpp
+//  BroomOfKiki.cpp
 //  WitchRace
 //
 //  Created by 新井脩司 on 2015/01/21.
 //
 //
 
-#include "FordAnglia.h"
+#include "BroomOfKiki.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -15,111 +15,112 @@ USING_NS_CC;
 
 
 //初期値NULL
-FordAnglia* FordAnglia::fordAngliaInstance = NULL;
+BroomOfKiki* BroomOfKiki::broomOfKikiInstance = NULL;
 
 //シングルトン
-FordAnglia* FordAnglia::getInstance(){
+BroomOfKiki* BroomOfKiki::getInstance(){
     
-    if(!fordAngliaInstance){
-        fordAngliaInstance = new FordAnglia();
+    if(!broomOfKikiInstance){
+        broomOfKikiInstance = new BroomOfKiki();
     }
     
     
-    return fordAngliaInstance;
+    return broomOfKikiInstance;
     
 }
 //デストラクタ
-void FordAnglia::destroyInstance() {
-    if (fordAngliaInstance != NULL){
-        delete fordAngliaInstance;
+void BroomOfKiki::destroyInstance() {
+    if (broomOfKikiInstance != NULL){
+        delete broomOfKikiInstance;
         
-        fordAngliaInstance = NULL;
+        broomOfKikiInstance = NULL;
     }
 }
 
 
-//空飛ぶ車のスプライトをGET
-Sprite* FordAnglia::getCharacter(){
-    return fordAnglia;
+//自分の箒に乗ったキキのスプライトをGET
+Sprite* BroomOfKiki::getCharacter(){
+    return broomOfKiki;
 }
 
 
-//空飛ぶ車の動作開始
-void FordAnglia::startCharacter(){
+//自分の箒に乗ったキキの動作開始
+void BroomOfKiki::startCharacter(){
     
-    fordAnglia->getPhysicsBody()->setEnable(true);
+    broomOfKiki->getPhysicsBody()->setEnable(true);
     broom -> getPhysicsBody()-> setEnable(true);
     
 }
 
-//空飛ぶ車の動作停止
-void FordAnglia::stopCharacter(){
+//自分の箒に乗ったキキの動作停止
+void BroomOfKiki::stopCharacter(){
     
-    fordAnglia->getPhysicsBody()->setEnable(false);
+    broomOfKiki->getPhysicsBody()->setEnable(false);
     broom -> getPhysicsBody()-> setEnable(false);
     
 }
 
 
-//空飛ぶ車の初期設定
-FordAnglia::FordAnglia(){
+//自分の箒に乗ったキキの初期設定
+BroomOfKiki::BroomOfKiki(){
     
     //キャラクタースプライトの生成(UP時)
-    fordAnglia = Sprite::create("fordAnglia.png");
+    broomOfKiki = Sprite::create("kiki_up.png");
     //影
-    fordAngliaShadow = Sprite::create("fordAnglia_shadow.png");
+    broomOfKikiShadow = Sprite::create("kiki_up_shadow.png");
     
     //キャラクタースプライトの大きさ
-    fordAnglia -> setScale(0.5);
+    broomOfKiki -> setScale(0.5);
     
     //影を実体に入れちゃう
-    fordAnglia->addChild(fordAngliaShadow);
+    broomOfKiki->addChild(broomOfKikiShadow);
     //影のポジション調整
-    fordAngliaShadow->setPosition(fordAnglia->getContentSize().width/2,fordAnglia->getContentSize().height/2);
+    broomOfKikiShadow->setPosition(broomOfKiki->getContentSize().width/2,broomOfKiki->getContentSize().height/2);
     //影の透明度を設定
-    fordAngliaShadow->setOpacity(180);
-    fordAngliaShadow->setGlobalZOrder(zOrderOfKikiShadow);
+    broomOfKikiShadow->setOpacity(180);
+    broomOfKikiShadow->setGlobalZOrder(zOrderOfKikiShadow);
     
     //影の大きさ(実体のスケールをgetしてます)※特にスケールせずにぴったり入りました(謎)
     //kikiShadow -> setScale(kiki->getScale());
     
     
     //ポジションの設定
-    fordAnglia->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
+    broomOfKiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
     
     //zポジションの設定
-    fordAnglia->setGlobalZOrder(zOrderOfKiki);
+    broomOfKiki->setGlobalZOrder(zOrderOfKiki);
     
     
     //タグつけ
-    fordAnglia->setName("kiki");
+    broomOfKiki->setName("kiki");
     
     //タグで上昇か下降か判断してみる(1は上昇、0は下降)
-    fordAnglia->setTag(1);
+    broomOfKiki->setTag(1);
     
     //物理体の生成
-    auto fordAngliaMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+    auto broomOfKikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     
-    Point spritePoints[4]{
+    Point spritePoints[5]{
         
-        Vec2(-45,-20),Vec2(-40,17),Vec2(15,22),Vec2(50,-20)
+        Vec2(-8,-20),Vec2(-16,0),Vec2(-8,18),Vec2(13,13),Vec2(8,-18)
     
     };
     
-    auto fordAngliaBody = PhysicsBody::createPolygon(spritePoints, 4,fordAngliaMaterial);
+    auto broomOfKikiBody = PhysicsBody::createPolygon(spritePoints, 5,broomOfKikiMaterial);
+    
     
     //重力による影響の可否
-    fordAngliaBody->setGravityEnable(false);
+    broomOfKikiBody->setGravityEnable(false);
     //まじない
-    fordAngliaBody->setDynamic(true);
-    fordAngliaBody->setEnable(false);
+    broomOfKikiBody->setDynamic(true);
+    broomOfKikiBody->setEnable(false);
     
     //ビットマスクはてきとう
-    fordAngliaBody->setCategoryBitmask(0x01);
-    fordAngliaBody->setCollisionBitmask(0);
-    fordAngliaBody->setContactTestBitmask(0x02);
+    broomOfKikiBody->setCategoryBitmask(0x01);
+    broomOfKikiBody->setCollisionBitmask(0);
+    broomOfKikiBody->setContactTestBitmask(0x02);
     
-    fordAnglia->setPhysicsBody(fordAngliaBody);
+    broomOfKiki->setPhysicsBody(broomOfKikiBody);
     
     
     //箒の設定
@@ -130,14 +131,13 @@ FordAnglia::FordAnglia(){
     
     auto broomMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     
-    Point broomPoint[5]={
+    Point broomPoint[4]={
         
-        Vec2(40,30), Vec2(25,35), Vec2(25,70), Vec2(280,70), Vec2(280,30)
-
+        Vec2(40,15), Vec2(10,25), Vec2(40,35), Vec2(120,35)
         
     };
     
-    auto broomBody = PhysicsBody::createPolygon(broomPoint,5,broomMaterial);
+    auto broomBody = PhysicsBody::createPolygon(broomPoint,4,broomMaterial);
     broomBody -> setGravityEnable(false);
     broomBody -> setDynamic(true);
     broomBody -> setEnable(false);
@@ -148,37 +148,37 @@ FordAnglia::FordAnglia(){
     
     broom -> setPhysicsBody(broomBody);
     
-    fordAnglia -> addChild(broom);
+    broomOfKiki -> addChild(broom);
     
     endParticle = ParticleSystemQuad::create("particleFlower.plist");
     //retainしないと勝手に解放されて後々エラーへ
     endParticle->retain();
     
-    fordAngliaParticle = ParticleSystemQuad::create("kikiparticle.plist");
-    fordAngliaParticle->setAnchorPoint(Vec2(0.5f,0.5f));
-    fordAngliaParticle->setPosition(Vec2(3,fordAnglia->getContentSize().height/3-6));
-    fordAngliaParticle->setName("kikiParticle");
-    fordAngliaParticle->setGlobalZOrder(zOrderOfKikiShadow);
-    fordAnglia->addChild(fordAngliaParticle);
+    broomOfKikiParticle = ParticleSystemQuad::create("kikiparticle.plist");
+    broomOfKikiParticle->setAnchorPoint(Vec2(0.5f,0.5f));
+    broomOfKikiParticle->setPosition(Vec2(3,broomOfKiki->getContentSize().height/3-6));
+    broomOfKikiParticle->setName("kikiParticle");
+    broomOfKikiParticle->setGlobalZOrder(zOrderOfKikiShadow);
+    broomOfKiki->addChild(broomOfKikiParticle);
     
 }
 
-void FordAnglia::makeGameOver(){
+void BroomOfKiki::makeGameOver(){
     
     //パーティクルの設定
     endParticle->setAutoRemoveOnFinish(true);
-    endParticle->setPosition(fordAnglia->getPosition());
-    //空飛ぶ車から親ノード(scene)取ってaddchild
-    fordAnglia->getParent()->addChild(endParticle);
-    //空飛ぶ車をremove
-    fordAnglia->removeFromParent();
+    endParticle->setPosition(broomOfKiki->getPosition());
+    //自分の箒に乗ったキキから親ノード(scene)取ってaddchild
+    broomOfKiki->getParent()->addChild(endParticle);
+    //自分の箒に乗ったキキをremove
+    broomOfKiki->removeFromParent();
     
 }
 
 
 
-//空飛ぶ車の1フレーム毎の処理
-void FordAnglia::characterUpdate(bool tappedFlag){
+//自分の箒に乗ったキキの1フレーム毎の処理
+void BroomOfKiki::characterUpdate(bool tappedFlag){
     
     CCLOG("重力:%d",pGravity);
     
@@ -189,24 +189,24 @@ void FordAnglia::characterUpdate(bool tappedFlag){
         
         
         
-        fordAngliaParticle->cocos2d::ParticleSystem::setSpeed(500);
+        broomOfKikiParticle->cocos2d::ParticleSystem::setSpeed(500);
         
         
         
         //透明度を変更
-        if(fordAngliaShadow->getOpacity() != 255){
+        if(broomOfKikiShadow->getOpacity() != 255){
             
-            fordAngliaShadow->setOpacity(255);
+            broomOfKikiShadow->setOpacity(255);
             
         }
         
         //画像の交換(下降画像の場合のみ)
-        if(fordAnglia->getTag() == 0){
+        if(broomOfKiki->getTag() == 0){
             
-            fordAnglia->setTexture("fordAnglia.png");
-            fordAngliaShadow->setTexture("fordAnglia_shadow.png");
+            broomOfKiki->setTexture("kiki_up.png");
+            broomOfKikiShadow->setTexture("kiki_up_shadow.png");
             //タグを上昇状態へ変更
-            fordAnglia->setTag(1);
+            broomOfKiki->setTag(1);
             
         }
         
@@ -232,7 +232,7 @@ void FordAnglia::characterUpdate(bool tappedFlag){
         }
         
         
-        fordAnglia->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+        broomOfKiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         
     }else{
@@ -246,19 +246,19 @@ void FordAnglia::characterUpdate(bool tappedFlag){
         
         
         //透明度を変更
-        if(fordAngliaShadow->getOpacity() != 180){
-            fordAngliaShadow->setOpacity(180);
+        if(broomOfKikiShadow->getOpacity() != 180){
+            broomOfKikiShadow->setOpacity(180);
         }
         
         
         
         //画像の交換(上昇画像の場合のみ)
-        if(fordAnglia->getTag() == 1){
+        if(broomOfKiki->getTag() == 1){
             
-            fordAnglia->setTexture("fordAnglia.png");
-            fordAngliaShadow->setTexture("fordAnglia_shadow.png");
+            broomOfKiki->setTexture("kiki_down.png");
+            broomOfKikiShadow->setTexture("kiki_down_shadow.png");
             //タグを下降状態へ変更
-            fordAnglia->setTag(0);
+            broomOfKiki->setTag(0);
         }
         
         
@@ -282,7 +282,7 @@ void FordAnglia::characterUpdate(bool tappedFlag){
             
         }
         
-        fordAnglia->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+        broomOfKiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         
         
