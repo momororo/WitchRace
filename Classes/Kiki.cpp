@@ -39,13 +39,13 @@ void Kiki::destroyInstance() {
 
 
 //キキちゃんのスプライトをGET
-Sprite* Kiki::getKiki(){
+Sprite* Kiki::getCharacter(){
     return kiki;
 }
 
 
 //キキちゃんの動作開始
-void Kiki::startKiki(){
+void Kiki::startCharacter(){
     
     kiki->getPhysicsBody()->setEnable(true);
     broom -> getPhysicsBody()-> setEnable(true);
@@ -53,7 +53,7 @@ void Kiki::startKiki(){
 }
 
 //キキちゃんの動作停止
-void Kiki::stopKiki(){
+void Kiki::stopCharacter(){
     
     kiki->getPhysicsBody()->setEnable(false);
     broom -> getPhysicsBody()-> setEnable(false);
@@ -182,7 +182,7 @@ void Kiki::makeGameOver(){
 
 
 //キキちゃんの1フレーム毎の処理
-void Kiki::kikiUpdate(bool tappedFlag){
+void Kiki::characterUpdate(bool tappedFlag){
     
     CCLOG("重力:%d",pGravity);
 

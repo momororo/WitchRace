@@ -70,8 +70,8 @@ Sprite* CharacterSwitch::getCharacter(){
     //分岐
     switch (characterFlag) {
         case 0:return Kiki::getInstance()->getKiki();break;
-        case 1:return Kiki::getInstance()->getKiki();break;
-        case 2:return Kiki::getInstance()->getKiki();break;
+        case 1:return PetitKiki::getInstance()->getPetitKiki();break;
+        case 2:return HarryPotter::getInstance()->getHarryPotter();break;
         case 3:return Kiki::getInstance()->getKiki();break;
         case 4:return Kiki::getInstance()->getKiki();break;
         default: break;
@@ -98,8 +98,8 @@ void CharacterSwitch::startCharacter(){
     //分岐
     switch (characterFlag) {
         case 0:Kiki::getInstance()->startKiki();break;
-        case 1:Kiki::getInstance()->startKiki();break;
-        case 2:Kiki::getInstance()->startKiki();break;
+        case 1:PetitKiki::getInstance()->startPetitKiki();break;
+        case 2:HarryPotter::getInstance()->startHarryPotter();break;
         case 3:Kiki::getInstance()->startKiki();break;
         case 4:Kiki::getInstance()->startKiki();break;
         default: break;
@@ -117,8 +117,8 @@ void CharacterSwitch::stopCharacter(){
     //分岐
     switch (characterFlag) {
         case 0:Kiki::getInstance()->stopKiki();break;
-        case 1:Kiki::getInstance()->stopKiki();break;
-        case 2:Kiki::getInstance()->stopKiki();break;
+        case 1:PetitKiki::getInstance()->stopPetitKiki();break;
+        case 2:HarryPotter::getInstance()->stopHarryPotter();break;
         case 3:Kiki::getInstance()->stopKiki();break;
         case 4:Kiki::getInstance()->stopKiki();break;
         default: break;
@@ -155,8 +155,8 @@ CharacterSwitch::CharacterSwitch(){
     //分岐
     switch (characterFlag) {
         case 0:Kiki::getInstance();break;
-        case 1:Kiki::getInstance();break;
-        case 2:Kiki::getInstance();break;
+        case 1:PetitKiki::getInstance();break;
+        case 2:HarryPotter::getInstance();break;
         case 3:Kiki::getInstance();break;
         case 4:Kiki::getInstance();break;
         default:break;
@@ -170,8 +170,8 @@ void CharacterSwitch::makeGameOver(){
     //分岐
     switch (characterFlag) {
         case 0:Kiki::getInstance()->makeGameOver();break;
-        case 1:Kiki::getInstance()->makeGameOver();break;
-        case 2:Kiki::getInstance()->makeGameOver();break;
+        case 1:PetitKiki::getInstance()->makeGameOver();break;
+        case 2:HarryPotter::getInstance()->makeGameOver();break;
         case 3:Kiki::getInstance()->makeGameOver();break;
         case 4:Kiki::getInstance()->makeGameOver();break;
         default: break;
