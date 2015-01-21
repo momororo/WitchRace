@@ -34,6 +34,12 @@ private:
     bool gamePlayFlag = false;
     
     bool gameOverFlag = false;
+    
+    //キャラクターフラグ
+    int characterFlag;
+
+
+    
     //メソッド
     //コンストラクタ(初期化)
     CharacterSwitch();
@@ -41,6 +47,8 @@ private:
     
     
 public:
+    
+    
     //メソッド
     //プレイヤーは一体だけなのでシングルトン
     static CharacterSwitch* getInstance();

@@ -52,15 +52,7 @@ bool GameScene::init()
     selectCharacter = userDef->getIntegerForKey("selectCharacter");
 
     //分岐
-    switch (selectCharacter) {
-        case 0:this->addChild(Kiki::getInstance()->getKiki());break;
-//        case 1:<#statements#>;break;
-//        case 2:<#statements#>;break;
-//        case 3:<#statements#>;break;
-//        case 4:<#statements#>;break;
-            
-        default:break;
-    }
+    this->addChild(CharacterSwitch::getInstance()->getCharacter());
 //キャラクター処理終
 
 //イベント系処理
@@ -150,9 +142,9 @@ bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
 
     
     
-    if (Kiki::getInstance()->getGamePlayFlag() == false && Kiki::getInstance()->getGameOverFlag() == false) {
+    if (CharacterSwitch::getInstance()->getGamePlayFlag() == false && CharacterSwitch::getInstance()->getGameOverFlag() == false) {
         
-        Kiki::getInstance()->startKiki();
+        CharacterSwitch::getInstance()->startCharacter();
         
         BackGround::getInstance()->startBackGround();
         
@@ -171,7 +163,7 @@ bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
     
 //キキ処理
     //キキのタップフラグをtrue
-    Kiki::getInstance()->setTappedFlagOfKiki(true);
+    CharacterSwitch::getInstance()->setTappedFlagOfCharacter(true);
 //キキ処理終
     
     
@@ -197,7 +189,7 @@ void GameScene::onTouchEnded(Touch *touch, Event *unused_event){
 
 //キキ処理
     //キキのタップフラグをfalse
-    Kiki::getInstance()->setTappedFlagOfKiki(false);
+    CharacterSwitch::getInstance()->setTappedFlagOfCharacter(false);
 //キキ処理終
 
     
@@ -219,7 +211,7 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
      
      
      
-     if (Kiki::getInstance()->getGamePlayFlag() == true && Kiki::getInstance()->getGameOverFlag() == false) {
+     if (CharacterSwitch::getInstance()->getGamePlayFlag() == true && CharacterSwitch::getInstance()->getGameOverFlag() == false) {
 
      
      //ゲームオーバーの処理へ
@@ -241,7 +233,7 @@ void GameScene::update( float frame )
     
 //キキ処理
     //キキちゃんの1フレーム毎の処理
-    Kiki::getInstance()->kikiUpdate();
+    CharacterSwitch::getInstance()->characterUpdate();
 //キキ処理終
 
 //背景処理
@@ -257,7 +249,7 @@ void GameScene::update( float frame )
         this->makeGameClear();
     }
     
-if(Kiki::getInstance()->getGamePlayFlag() == true){
+if(CharacterSwitch::getInstance()->getGamePlayFlag() == true){
 #pragma  mark デバッグ用
     
     //時間の計測
@@ -292,7 +284,7 @@ void GameScene::makeGameOver(){
     this->unscheduleUpdate();
     
     //キキちゃんのgameOver処理
-    Kiki::getInstance()->makeGameOver();
+    CharacterSwitch::getInstance()->makeGameOver();
     
     
     //背景の処理
@@ -409,7 +401,7 @@ void GameScene::makeGameClear(){
     this->unscheduleUpdate();
     
     //キキちゃんのgameOver処理
-    Kiki::getInstance()->makeGameOver();
+    CharacterSwitch::getInstance()->makeGameOver();
     
     
     //背景の処理

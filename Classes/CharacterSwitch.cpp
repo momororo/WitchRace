@@ -7,6 +7,7 @@
 //
 
 #include "CharacterSwitch.h"
+#include "Kiki.h"
 
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
@@ -22,6 +23,8 @@ CharacterSwitch* CharacterSwitch::characterInstance = NULL;
 CharacterSwitch* CharacterSwitch::getInstance(){
     
     if(!characterInstance){
+        
+        
         characterInstance = new CharacterSwitch();
     }
     
@@ -31,20 +34,52 @@ CharacterSwitch* CharacterSwitch::getInstance(){
 }
 //デストラクタ
 void CharacterSwitch::destroyInstance() {
+    
+    
+    //キャラクターのフラグを設定
+    auto userDef = UserDefault::getInstance();
+    auto destroyFlag = userDef->getIntegerForKey("selectCharacter");
+
+    
+    //分岐
+    switch (destroyFlag) {
+        case 0:Kiki::getInstance()->destroyInstance();break;
+        case 1:Kiki::getInstance()->destroyInstance();break;
+        case 2:Kiki::getInstance()->destroyInstance();break;
+        case 3:Kiki::getInstance()->destroyInstance();break;
+        case 4:Kiki::getInstance()->destroyInstance();break;
+        default: break;
+    }
+    
+    
     if (characterInstance != NULL){
         delete characterInstance;
         
         characterInstance = NULL;
     }
     
-    //分岐(各キャラクターを削除するように)
     
 }
 
 
 //キキちゃんのスプライトをGET
 Sprite* CharacterSwitch::getCharacter(){
+
+    
     //分岐
+    switch (characterFlag) {
+        case 0:return Kiki::getInstance()->getKiki();break;
+        case 1:return Kiki::getInstance()->getKiki();break;
+        case 2:return Kiki::getInstance()->getKiki();break;
+        case 3:return Kiki::getInstance()->getKiki();break;
+        case 4:return Kiki::getInstance()->getKiki();break;
+        default: break;
+    }
+    
+    
+    return NULL;
+    
+
 }
 
 
@@ -60,6 +95,18 @@ void CharacterSwitch::setTappedFlagOfCharacter(bool flag){
 void CharacterSwitch::startCharacter(){
     
     //分岐
+    switch (characterFlag) {
+        case 0:Kiki::getInstance()->startKiki();break;
+        case 1:Kiki::getInstance()->startKiki();break;
+        case 2:Kiki::getInstance()->startKiki();break;
+        case 3:Kiki::getInstance()->startKiki();break;
+        case 4:Kiki::getInstance()->startKiki();break;
+        default: break;
+    }
+    
+    gamePlayFlag = true;
+
+
     
 }
 
@@ -67,6 +114,16 @@ void CharacterSwitch::startCharacter(){
 void CharacterSwitch::stopCharacter(){
     
     //分岐
+    switch (characterFlag) {
+        case 0:Kiki::getInstance()->stopKiki();break;
+        case 1:Kiki::getInstance()->stopKiki();break;
+        case 2:Kiki::getInstance()->stopKiki();break;
+        case 3:Kiki::getInstance()->stopKiki();break;
+        case 4:Kiki::getInstance()->stopKiki();break;
+        default: break;
+    }
+    
+    gamePlayFlag = false;
     
     
 }
@@ -88,13 +145,42 @@ bool CharacterSwitch::getGameOverFlag(){
 CharacterSwitch::CharacterSwitch(){
     
 
+    //キャラクターのフラグを設定
+    auto userDef = UserDefault::getInstance();
+    characterFlag = userDef->getIntegerForKey("selectCharacter");
+    
+    
+    
     //分岐
+    switch (characterFlag) {
+        case 0:Kiki::getInstance();break;
+        case 1:Kiki::getInstance();break;
+        case 2:Kiki::getInstance();break;
+        case 3:Kiki::getInstance();break;
+        case 4:Kiki::getInstance();break;
+        default:break;
+    }
+
 }
 
 void CharacterSwitch::makeGameOver(){
     
 
     //分岐
+    switch (characterFlag) {
+        case 0:Kiki::getInstance()->makeGameOver();break;
+        case 1:Kiki::getInstance()->makeGameOver();break;
+        case 2:Kiki::getInstance()->makeGameOver();break;
+        case 3:Kiki::getInstance()->makeGameOver();break;
+        case 4:Kiki::getInstance()->makeGameOver();break;
+        default: break;
+    }
+    
+    gamePlayFlag = false;
+    gameOverFlag = true;
+    
+
+
     
 }
 
@@ -113,4 +199,13 @@ void CharacterSwitch::characterUpdate(){
     }
 
     //分岐
+    switch (characterFlag) {
+        case 0:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
+        case 1:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
+        case 2:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
+        case 3:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
+        case 4:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
+        default: break;
+    }
+
 }

@@ -11,6 +11,7 @@
 		040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040B16231A2F2A5700FDC891 /* Kiki.cpp */; };
 		040FBF201A6E387900119570 /* SelectCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040FBF1E1A6E387900119570 /* SelectCharacterScene.cpp */; };
 		041026FD1A6E5DB700837C82 /* CharacterSwitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041026FB1A6E5DB700837C82 /* CharacterSwitch.cpp */; };
+		041027001A6F514700837C82 /* PetitKiki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041026FE1A6F514700837C82 /* PetitKiki.cpp */; };
 		041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		041EF6901A5CC01A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		0463356E1A63DBDE003EF2B8 /* Memo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0463356D1A63DBDE003EF2B8 /* Memo.strings */; };
@@ -309,6 +310,8 @@
 		040FBF1F1A6E387900119570 /* SelectCharacterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectCharacterScene.h; path = ../Classes/SelectCharacterScene.h; sourceTree = "<group>"; };
 		041026FB1A6E5DB700837C82 /* CharacterSwitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterSwitch.cpp; path = ../Classes/CharacterSwitch.cpp; sourceTree = "<group>"; };
 		041026FC1A6E5DB700837C82 /* CharacterSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterSwitch.h; path = ../Classes/CharacterSwitch.h; sourceTree = "<group>"; };
+		041026FE1A6F514700837C82 /* PetitKiki.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PetitKiki.cpp; path = ../Classes/PetitKiki.cpp; sourceTree = "<group>"; };
+		041026FF1A6F514700837C82 /* PetitKiki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PetitKiki.h; path = ../Classes/PetitKiki.h; sourceTree = "<group>"; };
 		041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadScene.cpp; sourceTree = "<group>"; };
 		041EF68C1A5CBF2A0039FE88 /* LoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadScene.h; sourceTree = "<group>"; };
 		0463356D1A63DBDE003EF2B8 /* Memo.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Memo.strings; path = ../Classes/Memo.strings; sourceTree = "<group>"; };
@@ -521,6 +524,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				041026FE1A6F514700837C82 /* PetitKiki.cpp */,
+				041026FF1A6F514700837C82 /* PetitKiki.h */,
 				041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */,
 				041EF68C1A5CBF2A0039FE88 /* LoadScene.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
@@ -1033,6 +1038,7 @@
 				048578701A5AA1C80020DDF5 /* Enemy.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				046335761A690EA8003EF2B8 /* NativeLauncher.mm in Sources */,
+				041027001A6F514700837C82 /* PetitKiki.cpp in Sources */,
 				040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */,
 				041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */,
 				041026FD1A6E5DB700837C82 /* CharacterSwitch.cpp in Sources */,

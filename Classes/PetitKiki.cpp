@@ -1,12 +1,12 @@
 //
-//  Kiki.cpp
+//  PetitKiki.cpp
 //  WitchRace
 //
 //  Created by yasutomo on 2014/12/03.
 //
 //
 
-#include "Kiki.h"
+#include "PetitKiki.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -15,90 +15,90 @@ USING_NS_CC;
 
 
 //初期値NULL
-Kiki* Kiki::kikiInstance = NULL;
+PetitKiki* PetitKiki::petitKikiInstance = NULL;
 
 //シングルトン
-Kiki* Kiki::getInstance(){
+PetitKiki* PetitKiki::getInstance(){
     
-    if(!kikiInstance){
-        kikiInstance = new Kiki();
+    if(!petitKikiInstance){
+        petitKikiInstance = new PetitKiki();
     }
     
     
-    return kikiInstance;
+    return petitKikiInstance;
     
 }
 //デストラクタ
-void Kiki::destroyInstance() {
-    if (kikiInstance != NULL){
-        delete kikiInstance;
+void PetitKiki::destroyInstance() {
+    if (petitKikiInstance != NULL){
+        delete petitKikiInstance;
         
-        kikiInstance = NULL;
+        petitKikiInstance = NULL;
     }
 }
 
 
 //キキちゃんのスプライトをGET
-Sprite* Kiki::getKiki(){
-    return kiki;
+Sprite* PetitKiki::getPetitKiki(){
+    return petitKiki;
 }
 
 
 //キキちゃんの動作開始
-void Kiki::startKiki(){
+void PetitKiki::startPetitKiki(){
     
-    kiki->getPhysicsBody()->setEnable(true);
+    petitKiki->getPhysicsBody()->setEnable(true);
     broom -> getPhysicsBody()-> setEnable(true);
     
 }
 
 //キキちゃんの動作停止
-void Kiki::stopKiki(){
+void PetitKiki::stopPetitKiki(){
     
-    kiki->getPhysicsBody()->setEnable(false);
+    petitKiki->getPhysicsBody()->setEnable(false);
     broom -> getPhysicsBody()-> setEnable(false);
     
 }
 
 
 //キキちゃんの初期設定
-Kiki::Kiki(){
+PetitKiki::PetitKiki(){
  
     //キャラクタースプライトの生成(UP時)
-    kiki = Sprite::create("kiki_up.png");
+    petitKiki = Sprite::create("kiki_up.png");
     //影
-    kikiShadow = Sprite::create("kiki_up_shadow.png");
+    petitKikiShadow = Sprite::create("kiki_up_shadow.png");
     
     //キャラクタースプライトの大きさ
-    kiki -> setScale(0.5);
+    petitKiki -> setScale(0.5);
     
     //影を実体に入れちゃう
-    kiki->addChild(kikiShadow);
+    petitKiki->addChild(petitKikiShadow);
     //影のポジション調整
-    kikiShadow->setPosition(kiki->getContentSize().width/2,kiki->getContentSize().height/2);
+    petitKikiShadow->setPosition(petitKiki->getContentSize().width/2,petitKiki->getContentSize().height/2);
     //影の透明度を設定
-    kikiShadow->setOpacity(180);
-    kikiShadow->setGlobalZOrder(zOrderOfKikiShadow);
+    petitKikiShadow->setOpacity(180);
+    petitKikiShadow->setGlobalZOrder(zOrderOfKikiShadow);
     
     //影の大きさ(実体のスケールをgetしてます)※特にスケールせずにぴったり入りました(謎)
     //kikiShadow -> setScale(kiki->getScale());
 
     
     //ポジションの設定
-    kiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
+    petitKiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
     
     //zポジションの設定
-    kiki->setGlobalZOrder(zOrderOfKiki);
+    petitKiki->setGlobalZOrder(zOrderOfKiki);
     
     
     //タグつけ
-    kiki->setName("kiki");
+    petitKiki->setName("kiki");
     
     //タグで上昇か下降か判断してみる(1は上昇、0は下降)
-    kiki->setTag(1);
+    petitKiki->setTag(1);
     
     //物理体の生成
-    auto kikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+    auto petitKikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     //auto kikiBody = PhysicsBody::createCircle((kiki->getContentSize().width/2),kikiMaterial);
 
     
@@ -110,20 +110,20 @@ Kiki::Kiki(){
     
     };
     
-    auto kikiBody = PhysicsBody::createPolygon(spritePoints, 5,kikiMaterial);
+    auto petitKikiBody = PhysicsBody::createPolygon(spritePoints, 5,petitKikiMaterial);
     
     //重力による影響の可否
-    kikiBody->setGravityEnable(false);
+    petitKikiBody->setGravityEnable(false);
     //まじない
-    kikiBody->setDynamic(true);
-    kikiBody->setEnable(false);
+    petitKikiBody->setDynamic(true);
+    petitKikiBody->setEnable(false);
 
     //ビットマスクはてきとう
-    kikiBody->setCategoryBitmask(0x01);
-    kikiBody->setCollisionBitmask(0);
-    kikiBody->setContactTestBitmask(0x02);
+    petitKikiBody->setCategoryBitmask(0x01);
+    petitKikiBody->setCollisionBitmask(0);
+    petitKikiBody->setContactTestBitmask(0x02);
     
-    kiki->setPhysicsBody(kikiBody);
+    petitKiki->setPhysicsBody(petitKikiBody);
     
     
     //箒の設定
@@ -152,37 +152,37 @@ Kiki::Kiki(){
     
     broom -> setPhysicsBody(broomBody);
     
-    kiki -> addChild(broom);
+    petitKiki -> addChild(broom);
     
     endParticle = ParticleSystemQuad::create("particleFlower.plist");
     //retainしないと勝手に解放されて後々エラーへ
     endParticle->retain();
     
-    kikiParticle = ParticleSystemQuad::create("kikiparticle.plist");
-    kikiParticle->setAnchorPoint(Vec2(0.5f,0.5f));
-    kikiParticle->setPosition(Vec2(3,kiki->getContentSize().height/3-6));
-    kikiParticle->setName("kikiParticle");
-    kikiParticle->setGlobalZOrder(zOrderOfKikiShadow);
-    kiki->addChild(kikiParticle);
+    petitKikiParticle = ParticleSystemQuad::create("kikiparticle.plist");
+    petitKikiParticle->setAnchorPoint(Vec2(0.5f,0.5f));
+    petitKikiParticle->setPosition(Vec2(3,petitKiki->getContentSize().height/3-6));
+    petitKikiParticle->setName("kikiParticle");
+    petitKikiParticle->setGlobalZOrder(zOrderOfKikiShadow);
+    petitKiki->addChild(petitKikiParticle);
     
 }
 
-void Kiki::makeGameOver(){
+void PetitKiki::makeGameOver(){
     
     //パーティクルの設定
     endParticle->setAutoRemoveOnFinish(true);
-    endParticle->setPosition(kiki->getPosition());
+    endParticle->setPosition(petitKiki->getPosition());
     //キキから親ノード(scene)取ってaddchild
-    kiki->getParent()->addChild(endParticle);
+    petitKiki->getParent()->addChild(endParticle);
     //キキをremove
-    kiki->removeFromParent();
+    petitKiki->removeFromParent();
 
 }
 
 
 
 //キキちゃんの1フレーム毎の処理
-void Kiki::kikiUpdate(bool tappedFlag){
+void PetitKiki::petitKikiUpdate(bool tappedFlag){
     
     CCLOG("重力:%d",pGravity);
 
@@ -193,24 +193,24 @@ void Kiki::kikiUpdate(bool tappedFlag){
             
             
             
-            kikiParticle->cocos2d::ParticleSystem::setSpeed(500);
+            petitKikiParticle->cocos2d::ParticleSystem::setSpeed(500);
             
             
             
             //透明度を変更
-            if(kikiShadow->getOpacity() != 255){
+            if(petitKikiShadow->getOpacity() != 255){
             
-                kikiShadow->setOpacity(255);
+                petitKikiShadow->setOpacity(255);
             
             }
 
             //画像の交換(下降画像の場合のみ)
-            if(kiki->getTag() == 0){
+            if(petitKiki->getTag() == 0){
 
-                kiki->setTexture("kiki_up.png");
-                kikiShadow->setTexture("kiki_up_shadow.png");
+                petitKiki->setTexture("kiki_up.png");
+                petitKikiShadow->setTexture("kiki_up_shadow.png");
                 //タグを上昇状態へ変更
-                kiki->setTag(1);
+                petitKiki->setTag(1);
             
             }
             
@@ -236,7 +236,7 @@ void Kiki::kikiUpdate(bool tappedFlag){
             }
             
             
-            kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            petitKiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             
         }else{
@@ -250,19 +250,19 @@ void Kiki::kikiUpdate(bool tappedFlag){
             
             
             //透明度を変更
-            if(kikiShadow->getOpacity() != 180){
-                kikiShadow->setOpacity(180);
+            if(petitKikiShadow->getOpacity() != 180){
+                petitKikiShadow->setOpacity(180);
             }
 
 
             
             //画像の交換(上昇画像の場合のみ)
-            if(kiki->getTag() == 1){
+            if(petitKiki->getTag() == 1){
                 
-                kiki->setTexture("kiki_down.png");
-                kikiShadow->setTexture("kiki_down_shadow.png");
+                petitKiki->setTexture("kiki_down.png");
+                petitKikiShadow->setTexture("kiki_down_shadow.png");
                 //タグを下降状態へ変更
-                kiki->setTag(0);
+                petitKiki->setTag(0);
             }
 
             
@@ -286,7 +286,7 @@ void Kiki::kikiUpdate(bool tappedFlag){
                 
             }
             
-            kiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            petitKiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
 
             

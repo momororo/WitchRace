@@ -10,7 +10,7 @@
 #define __WitchRace__GameScene__
 
 #include "cocos2d.h"
-#include "Kiki.h"
+#include "CharacterSwitch.h"
 #include "BackGround.h"
 #include "Zorder.h"
 

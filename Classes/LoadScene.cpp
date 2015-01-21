@@ -58,7 +58,7 @@ void LoadScene::onEnterTransitionDidFinish(){
 void LoadScene::replaceGameScene(float delta){
     
     //デストラクタ
-    Kiki::destroyInstance();
+    CharacterSwitch::destroyInstance();
     BackGround::destroyInstance();
     Enemy::destroyInstance();
     SpriteFrameCache::destroyInstance();
