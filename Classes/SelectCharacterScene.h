@@ -20,6 +20,8 @@ public:
     
     virtual bool init();
     static cocos2d::Scene *createScene();
+    void setBackBt();
+    void backBtCallBack(cocos2d::Ref *pSender);
     CREATE_FUNC(SelectCharacterScene);
     
     //配列(透明度の一括管理のため)

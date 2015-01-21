@@ -1050,6 +1050,7 @@
 				041027001A6F514700837C82 /* PetitKiki.cpp in Sources */,
 				040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */,
 				041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */,
+				A457D8191A6E5AF7007C2E41 /* TutorialScene.cpp in Sources */,
 				041026FD1A6E5DB700837C82 /* CharacterSwitch.cpp in Sources */,
 				040FBF201A6E387900119570 /* SelectCharacterScene.cpp in Sources */,
 				A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */,

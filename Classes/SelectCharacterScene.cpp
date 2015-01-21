@@ -7,6 +7,7 @@
 //
 
 #include "SelectCharacterScene.h"
+#include "TitleScene.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -51,6 +52,9 @@ bool SelectCharacterScene::init()
 
         //ユーザーデフォルトを呼び出してキャラクターフラグを確認
         auto userDef = UserDefault::getInstance();
+        //デバグ
+        userDef->setBoolForKey("characterFlag1", true);
+        
         auto characterFlag = userDef->getBoolForKey(StringUtils::format("characterFlag%d",idx).c_str());
 
         //スプライトの呼び出し
@@ -161,6 +165,10 @@ bool SelectCharacterScene::init()
         
         bg->addChild(Menu);
         
+        //キキの色を黒に(初期位置設定)
+        if(idx == 0){
+            character->setOpacity(255);
+        }
         
         
     }
@@ -168,10 +176,40 @@ bool SelectCharacterScene::init()
     
     
     
+    this->setBackBt();
+    
+    
 
     
     
     
     return true;
+    
+}
+
+
+void SelectCharacterScene::setBackBt(){
+    
+    //戻るボタンの作成
+    auto backBt = Sprite::create("backBt.png");
+    auto backBtTaped = Sprite::create("backBt.png");
+    backBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto pBtnItem = MenuItemSprite::create(backBt, backBtTaped, CC_CALLBACK_1(SelectCharacterScene::backBtCallBack, this));
+    
+    //メニューの作成　pMenuの中にpBtnItemを入れる
+    auto startMenu = Menu::create(pBtnItem, NULL);
+    
+    //pMenuを配置
+    startMenu->setPosition(Vec2(selfFrame.width/20*15,selfFrame.height/20*3));
+    
+    this->getChildByName("bg")->addChild(startMenu);
+    
+}
+
+void SelectCharacterScene::backBtCallBack(cocos2d::Ref *pSender){
+    
+    Director::getInstance()->replaceScene(TransitionPageTurn::create(1.0, TitleScene::createScene(), 1));
     
 }
