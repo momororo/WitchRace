@@ -155,6 +155,7 @@
 		A4C1144D1A6F778E00140E2F /* porcoRosso_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C1144B1A6F778E00140E2F /* porcoRosso_shadow.png */; };
 		A4C114511A6F781A00140E2F /* fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C1144F1A6F781A00140E2F /* fordAnglia.png */; };
 		A4C114521A6F781A00140E2F /* fordAnglia_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */; };
+		A4C114571A6F79D400140E2F /* character_kiki.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C114561A6F79D400140E2F /* character_kiki.png */; };
 		A4CB43DE1A4035CD00890E53 /* titleBk.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB43DD1A4035CD00890E53 /* titleBk.png */; };
 		A4CB43DF1A40361F00890E53 /* MagicSchoolOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */; };
 		A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4CB43E31A403CFF00890E53 /* StorySelect.cpp */; };
@@ -466,6 +467,7 @@
 		A4C1144B1A6F778E00140E2F /* porcoRosso_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = porcoRosso_shadow.png; sourceTree = "<group>"; };
 		A4C1144F1A6F781A00140E2F /* fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fordAnglia.png; sourceTree = "<group>"; };
 		A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fordAnglia_shadow.png; sourceTree = "<group>"; };
+		A4C114561A6F79D400140E2F /* character_kiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_kiki.png; sourceTree = "<group>"; };
 		A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MagicSchoolOne.ttf; sourceTree = "<group>"; };
 		A4CB43DD1A4035CD00890E53 /* titleBk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleBk.png; sourceTree = "<group>"; };
 		A4CB43E31A403CFF00890E53 /* StorySelect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StorySelect.cpp; path = ../Classes/StorySelect.cpp; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */,
 				A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */,
 				A457D8151A6E572B007C2E41 /* tutorialBg.png */,
+				A4C114561A6F79D400140E2F /* character_kiki.png */,
 				A491FCB11A6E4025008A6C56 /* character_broomOfKiki.png */,
 				A491FCB21A6E4025008A6C56 /* character_fordAnglia.png */,
 				A491FCB31A6E4025008A6C56 /* character_porcoRosso.png */,
@@ -964,6 +967,7 @@
 				A457D8141A6E4555007C2E41 /* storyBg.png in Resources */,
 				A4722A751A6E9B8A00CC1A42 /* tutorial_tapHold.png in Resources */,
 				A4C114441A6F776E00140E2F /* broomOfKiki_down.png in Resources */,
+				A4C114571A6F79D400140E2F /* character_kiki.png in Resources */,
 				A47F2DBB1A5D3A740050F464 /* village_3.png in Resources */,
 				A47F2DAA1A5D3A180050F464 /* forest.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
