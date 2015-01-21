@@ -127,7 +127,6 @@ PetitKiki::PetitKiki(){
     
     Point broomPoint[3]={
         
-        //Vec2(0,0), Vec2(0,40), Vec2(180,35)
         Vec2(10,5), Vec2(10,35), Vec2(160,35),
     
     };
