@@ -1,12 +1,12 @@
 //
-//  PetitKiki.cpp
+//  HarryPotter.cpp
 //  WitchRace
 //
 //  Created by yasutomo on 2014/12/03.
 //
 //
 
-#include "PetitKiki.h"
+#include "HarryPotter.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -15,106 +15,115 @@ USING_NS_CC;
 
 
 //初期値NULL
-PetitKiki* PetitKiki::petitKikiInstance = NULL;
+HarryPotter* HarryPotter::harryPotterInstance = NULL;
 
 //シングルトン
-PetitKiki* PetitKiki::getInstance(){
+HarryPotter* HarryPotter::getInstance(){
     
-    if(!petitKikiInstance){
-        petitKikiInstance = new PetitKiki();
+    if(!harryPotterInstance){
+        harryPotterInstance = new HarryPotter();
     }
     
     
-    return petitKikiInstance;
+    return harryPotterInstance;
     
 }
 //デストラクタ
-void PetitKiki::destroyInstance() {
-    if (petitKikiInstance != NULL){
-        delete petitKikiInstance;
+void HarryPotter::destroyInstance() {
+    if (harryPotterInstance != NULL){
+        delete harryPotterInstance;
         
-        petitKikiInstance = NULL;
+        harryPotterInstance = NULL;
     }
 }
 
 
 //キキちゃんのスプライトをGET
-Sprite* PetitKiki::getCharacter(){
-    return petitKiki;
+Sprite* HarryPotter::getCharacter(){
+    return harryPotter;
 }
 
 
 //キキちゃんの動作開始
-void PetitKiki::startCharacter(){
+void HarryPotter::startCharacter(){
     
-    petitKiki->getPhysicsBody()->setEnable(true);
+    harryPotter->getPhysicsBody()->setEnable(true);
     broom -> getPhysicsBody()-> setEnable(true);
     
 }
 
 //キキちゃんの動作停止
-void PetitKiki::stopCharacter(){
+void HarryPotter::stopCharacter(){
     
-    petitKiki->getPhysicsBody()->setEnable(false);
+    harryPotter->getPhysicsBody()->setEnable(false);
     broom -> getPhysicsBody()-> setEnable(false);
     
 }
 
 
 //キキちゃんの初期設定
-PetitKiki::PetitKiki(){
+HarryPotter::HarryPotter(){
  
     //キャラクタースプライトの生成(UP時)
-    petitKiki = Sprite::create("kiki_up.png");
+    harryPotter = Sprite::create("harryPotter.png");
     //影
-    petitKikiShadow = Sprite::create("kiki_up_shadow.png");
+    harryPotterShadow = Sprite::create("kiki_up_shadow.png");
     
     //キャラクタースプライトの大きさ
-    petitKiki -> setScale(0.5);
+    harryPotter -> setScale(0.5);
     
     //影を実体に入れちゃう
-    petitKiki->addChild(petitKikiShadow);
+    harryPotter->addChild(harryPotterShadow);
     //影のポジション調整
-    petitKikiShadow->setPosition(petitKiki->getContentSize().width/2,petitKiki->getContentSize().height/2);
+    harryPotterShadow->setPosition(harryPotter->getContentSize().width/2,harryPotter->getContentSize().height/2);
     //影の透明度を設定
-    petitKikiShadow->setOpacity(180);
-    petitKikiShadow->setGlobalZOrder(zOrderOfKikiShadow);
+    harryPotterShadow->setOpacity(180);
+    harryPotterShadow->setGlobalZOrder(zOrderOfKikiShadow);
     
     //影の大きさ(実体のスケールをgetしてます)※特にスケールせずにぴったり入りました(謎)
-    //kikiShadow -> setScale(kiki->getScale());
+    //harryPotterShadow -> setScale(harryPotter->getScale());
 
     
     //ポジションの設定
-    petitKiki->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
+    harryPotter->setPosition(Vec2(selfFrame.width/4, selfFrame.height/2));
     
     //zポジションの設定
-    petitKiki->setGlobalZOrder(zOrderOfKiki);
+    harryPotter->setGlobalZOrder(zOrderOfKiki);
     
     
     //タグつけ
-    petitKiki->setName("kiki");
+    harryPotter->setName("kiki");
     
     //タグで上昇か下降か判断してみる(1は上昇、0は下降)
-    petitKiki->setTag(1);
+    harryPotter->setTag(1);
     
     //物理体の生成
-    auto petitKikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+    auto harryPotterMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
+    //auto harryPotterBody = PhysicsBody::createCircle((harryPotter->getContentSize().width/2),harryPotterMaterial);
+
     
-    auto petitKikiBody = PhysicsBody::createCircle((petitKiki->getContentSize().width/4),petitKikiMaterial);
     
+    Point spritePoints[5]={
+    
+        //Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
+        Vec2(-8,-20),Vec2(-16,0),Vec2(-8,18),Vec2(13,13),Vec2(8,-18)
+    
+    };
+    
+    auto harryPotterBody = PhysicsBody::createPolygon(spritePoints, 5,harryPotterMaterial);
     
     //重力による影響の可否
-    petitKikiBody->setGravityEnable(false);
+    harryPotterBody->setGravityEnable(false);
     //まじない
-    petitKikiBody->setDynamic(true);
-    petitKikiBody->setEnable(false);
+    harryPotterBody->setDynamic(true);
+    harryPotterBody->setEnable(false);
 
     //ビットマスクはてきとう
-    petitKikiBody->setCategoryBitmask(0x01);
-    petitKikiBody->setCollisionBitmask(0);
-    petitKikiBody->setContactTestBitmask(0x02);
+    harryPotterBody->setCategoryBitmask(0x01);
+    harryPotterBody->setCollisionBitmask(0);
+    harryPotterBody->setContactTestBitmask(0x02);
     
-    petitKiki->setPhysicsBody(petitKikiBody);
+    harryPotter->setPhysicsBody(harryPotterBody);
     
     
     //箒の設定
@@ -143,37 +152,37 @@ PetitKiki::PetitKiki(){
     
     broom -> setPhysicsBody(broomBody);
     
-    petitKiki -> addChild(broom);
+    harryPotter -> addChild(broom);
     
     endParticle = ParticleSystemQuad::create("particleFlower.plist");
     //retainしないと勝手に解放されて後々エラーへ
     endParticle->retain();
     
-    petitKikiParticle = ParticleSystemQuad::create("kikiparticle.plist");
-    petitKikiParticle->setAnchorPoint(Vec2(0.5f,0.5f));
-    petitKikiParticle->setPosition(Vec2(3,petitKiki->getContentSize().height/3-6));
-    petitKikiParticle->setName("kikiParticle");
-    petitKikiParticle->setGlobalZOrder(zOrderOfKikiShadow);
-    petitKiki->addChild(petitKikiParticle);
+    harryPotterParticle = ParticleSystemQuad::create("kikiparticle.plist");
+    harryPotterParticle->setAnchorPoint(Vec2(0.5f,0.5f));
+    harryPotterParticle->setPosition(Vec2(3,harryPotter->getContentSize().height/3-6));
+    harryPotterParticle->setName("kikiParticle");
+    harryPotterParticle->setGlobalZOrder(zOrderOfKikiShadow);
+    harryPotter->addChild(harryPotterParticle);
     
 }
 
-void PetitKiki::makeGameOver(){
+void HarryPotter::makeGameOver(){
     
     //パーティクルの設定
     endParticle->setAutoRemoveOnFinish(true);
-    endParticle->setPosition(petitKiki->getPosition());
+    endParticle->setPosition(harryPotter->getPosition());
     //キキから親ノード(scene)取ってaddchild
-    petitKiki->getParent()->addChild(endParticle);
+    harryPotter->getParent()->addChild(endParticle);
     //キキをremove
-    petitKiki->removeFromParent();
+    harryPotter->removeFromParent();
 
 }
 
 
 
 //キキちゃんの1フレーム毎の処理
-void PetitKiki::characterUpdate(bool tappedFlag){
+void HarryPotter::characterUpdate(bool tappedFlag){
     
     CCLOG("重力:%d",pGravity);
 
@@ -184,24 +193,24 @@ void PetitKiki::characterUpdate(bool tappedFlag){
             
             
             
-            petitKikiParticle->cocos2d::ParticleSystem::setSpeed(500);
+            harryPotterParticle->cocos2d::ParticleSystem::setSpeed(500);
             
             
             
             //透明度を変更
-            if(petitKikiShadow->getOpacity() != 255){
+            if(harryPotterShadow->getOpacity() != 255){
             
-                petitKikiShadow->setOpacity(255);
+                harryPotterShadow->setOpacity(255);
             
             }
 
             //画像の交換(下降画像の場合のみ)
-            if(petitKiki->getTag() == 0){
+            if(harryPotter->getTag() == 0){
 
-                petitKiki->setTexture("kiki_up.png");
-                petitKikiShadow->setTexture("kiki_up_shadow.png");
+                harryPotter->setTexture("harryPotter.png");
+                harryPotterShadow->setTexture("kiki_up_shadow.png");
                 //タグを上昇状態へ変更
-                petitKiki->setTag(1);
+                harryPotter->setTag(1);
             
             }
             
@@ -227,7 +236,7 @@ void PetitKiki::characterUpdate(bool tappedFlag){
             }
             
             
-            petitKiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            harryPotter->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             
         }else{
@@ -235,25 +244,25 @@ void PetitKiki::characterUpdate(bool tappedFlag){
             
             //タップされていない場合は下降！
         
-            //kikiParticle->cocos2d::ParticleSystem::setSpeed(300);
+            //harryPotterParticle->cocos2d::ParticleSystem::setSpeed(300);
 
 
             
             
             //透明度を変更
-            if(petitKikiShadow->getOpacity() != 180){
-                petitKikiShadow->setOpacity(180);
+            if(harryPotterShadow->getOpacity() != 180){
+                harryPotterShadow->setOpacity(180);
             }
 
 
             
             //画像の交換(上昇画像の場合のみ)
-            if(petitKiki->getTag() == 1){
+            if(harryPotter->getTag() == 1){
                 
-                petitKiki->setTexture("kiki_down.png");
-                petitKikiShadow->setTexture("kiki_down_shadow.png");
+                harryPotter->setTexture("harryPotter.png");
+                harryPotterShadow->setTexture("kiki_down_shadow.png");
                 //タグを下降状態へ変更
-                petitKiki->setTag(0);
+                harryPotter->setTag(0);
             }
 
             
@@ -277,7 +286,7 @@ void PetitKiki::characterUpdate(bool tappedFlag){
                 
             }
             
-            petitKiki->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            harryPotter->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
 
             

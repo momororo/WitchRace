@@ -8,7 +8,9 @@
 
 #include "CharacterSwitch.h"
 #include "Kiki.h"
-
+#include "PetitKiki.h"
+#include "HarryPotter.h"
+#include "FordAnglia.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -44,9 +46,9 @@ void CharacterSwitch::destroyInstance() {
     //分岐
     switch (destroyFlag) {
         case 0:Kiki::getInstance()->destroyInstance();break;
-        case 1:Kiki::getInstance()->destroyInstance();break;
-        case 2:Kiki::getInstance()->destroyInstance();break;
-        case 3:Kiki::getInstance()->destroyInstance();break;
+        case 1:PetitKiki::getInstance()->destroyInstance();break;
+        case 2:HarryPotter::getInstance()->destroyInstance();break;
+        case 3:FordAnglia::getInstance()->destroyInstance();break;
         case 4:Kiki::getInstance()->destroyInstance();break;
         default: break;
     }
@@ -68,11 +70,11 @@ Sprite* CharacterSwitch::getCharacter(){
     
     //分岐
     switch (characterFlag) {
-        case 0:return Kiki::getInstance()->getKiki();break;
-        case 1:return Kiki::getInstance()->getKiki();break;
-        case 2:return Kiki::getInstance()->getKiki();break;
-        case 3:return Kiki::getInstance()->getKiki();break;
-        case 4:return Kiki::getInstance()->getKiki();break;
+        case 0:return Kiki::getInstance()->getCharacter();break;
+        case 1:return PetitKiki::getInstance()->getCharacter();break;
+        case 2:return HarryPotter::getInstance()->getCharacter();break;
+        case 3:return FordAnglia::getInstance()->getCharacter();break;
+        case 4:return Kiki::getInstance()->getCharacter();break;
         default: break;
     }
     
@@ -96,11 +98,11 @@ void CharacterSwitch::startCharacter(){
     
     //分岐
     switch (characterFlag) {
-        case 0:Kiki::getInstance()->startKiki();break;
-        case 1:Kiki::getInstance()->startKiki();break;
-        case 2:Kiki::getInstance()->startKiki();break;
-        case 3:Kiki::getInstance()->startKiki();break;
-        case 4:Kiki::getInstance()->startKiki();break;
+        case 0:Kiki::getInstance()->startCharacter();break;
+        case 1:PetitKiki::getInstance()->startCharacter();break;
+        case 2:HarryPotter::getInstance()->startCharacter();break;
+        case 3:FordAnglia::getInstance()->startCharacter();break;
+        case 4:Kiki::getInstance()->startCharacter();break;
         default: break;
     }
     
@@ -115,11 +117,11 @@ void CharacterSwitch::stopCharacter(){
     
     //分岐
     switch (characterFlag) {
-        case 0:Kiki::getInstance()->stopKiki();break;
-        case 1:Kiki::getInstance()->stopKiki();break;
-        case 2:Kiki::getInstance()->stopKiki();break;
-        case 3:Kiki::getInstance()->stopKiki();break;
-        case 4:Kiki::getInstance()->stopKiki();break;
+        case 0:Kiki::getInstance()->stopCharacter();break;
+        case 1:PetitKiki::getInstance()->stopCharacter();break;
+        case 2:HarryPotter::getInstance()->stopCharacter();break;
+        case 3:FordAnglia::getInstance()->stopCharacter();break;
+        case 4:Kiki::getInstance()->stopCharacter();break;
         default: break;
     }
     
@@ -154,9 +156,9 @@ CharacterSwitch::CharacterSwitch(){
     //分岐
     switch (characterFlag) {
         case 0:Kiki::getInstance();break;
-        case 1:Kiki::getInstance();break;
-        case 2:Kiki::getInstance();break;
-        case 3:Kiki::getInstance();break;
+        case 1:PetitKiki::getInstance();break;
+        case 2:HarryPotter::getInstance();break;
+        case 3:FordAnglia::getInstance();break;
         case 4:Kiki::getInstance();break;
         default:break;
     }
@@ -169,9 +171,9 @@ void CharacterSwitch::makeGameOver(){
     //分岐
     switch (characterFlag) {
         case 0:Kiki::getInstance()->makeGameOver();break;
-        case 1:Kiki::getInstance()->makeGameOver();break;
-        case 2:Kiki::getInstance()->makeGameOver();break;
-        case 3:Kiki::getInstance()->makeGameOver();break;
+        case 1:PetitKiki::getInstance()->makeGameOver();break;
+        case 2:HarryPotter::getInstance()->makeGameOver();break;
+        case 3:FordAnglia::getInstance()->makeGameOver();break;
         case 4:Kiki::getInstance()->makeGameOver();break;
         default: break;
     }
@@ -200,11 +202,11 @@ void CharacterSwitch::characterUpdate(){
 
     //分岐
     switch (characterFlag) {
-        case 0:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
-        case 1:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
-        case 2:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
-        case 3:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
-        case 4:Kiki::getInstance()->kikiUpdate(tappedFlag);break;
+        case 0:Kiki::getInstance()->characterUpdate(tappedFlag);break;
+        case 1:PetitKiki::getInstance()->characterUpdate(tappedFlag);break;
+        case 2:HarryPotter::getInstance()->characterUpdate(tappedFlag);break;
+        case 3:FordAnglia::getInstance()->characterUpdate(tappedFlag);break;
+        case 4:Kiki::getInstance()->characterUpdate(tappedFlag);break;
         default: break;
     }
 

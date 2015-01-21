@@ -57,19 +57,19 @@ public:
     CREATE_FUNC(FordAnglia);
     
     //getter
-    Sprite* getFordAnglia();
+    Sprite* getCharacter();
     
     
     
     //空飛ぶ車の1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
-    void fordAngliaUpdate(bool tappedFlag);
+    void characterUpdate(bool tappedFlag);
     
     
     //空飛ぶ車の動作開始
-    void startFordAnglia();
+    void startCharacter();
     
     //空飛ぶ車の動作停止
-    void stopFordAnglia();
+    void stopCharacter();
     
     //gameOverの処理
     void makeGameOver();
