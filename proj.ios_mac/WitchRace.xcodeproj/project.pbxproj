@@ -157,6 +157,7 @@
 		A4C114511A6F781A00140E2F /* fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C1144F1A6F781A00140E2F /* fordAnglia.png */; };
 		A4C114521A6F781A00140E2F /* fordAnglia_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */; };
 		A4C114571A6F79D400140E2F /* character_kiki.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C114561A6F79D400140E2F /* character_kiki.png */; };
+		A4C1145F1A6F7DCF00140E2F /* BroomOfKiki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4C1145D1A6F7DCF00140E2F /* BroomOfKiki.cpp */; };
 		A4CB43DE1A4035CD00890E53 /* titleBk.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB43DD1A4035CD00890E53 /* titleBk.png */; };
 		A4CB43DF1A40361F00890E53 /* MagicSchoolOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */; };
 		A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4CB43E31A403CFF00890E53 /* StorySelect.cpp */; };
@@ -471,6 +472,8 @@
 		A4C1144F1A6F781A00140E2F /* fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fordAnglia.png; sourceTree = "<group>"; };
 		A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fordAnglia_shadow.png; sourceTree = "<group>"; };
 		A4C114561A6F79D400140E2F /* character_kiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_kiki.png; sourceTree = "<group>"; };
+		A4C1145D1A6F7DCF00140E2F /* BroomOfKiki.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BroomOfKiki.cpp; path = ../Classes/BroomOfKiki.cpp; sourceTree = "<group>"; };
+		A4C1145E1A6F7DCF00140E2F /* BroomOfKiki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BroomOfKiki.h; path = ../Classes/BroomOfKiki.h; sourceTree = "<group>"; };
 		A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MagicSchoolOne.ttf; sourceTree = "<group>"; };
 		A4CB43DD1A4035CD00890E53 /* titleBk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleBk.png; sourceTree = "<group>"; };
 		A4CB43E31A403CFF00890E53 /* StorySelect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StorySelect.cpp; path = ../Classes/StorySelect.cpp; sourceTree = "<group>"; };
@@ -556,11 +559,13 @@
 			children = (
 				041026FE1A6F514700837C82 /* PetitKiki.cpp */,
 				041026FF1A6F514700837C82 /* PetitKiki.h */,
+				A4C1145D1A6F7DCF00140E2F /* BroomOfKiki.cpp */,
+				A4C1145E1A6F7DCF00140E2F /* BroomOfKiki.h */,
 				A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */,
 				A42FC9021A6F70CB00F452C4 /* FordAnglia.h */,
-				041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */,
 				046647CE1A6F705A0082A5D5 /* HarryPotter.cpp */,
 				046647CF1A6F705A0082A5D5 /* HarryPotter.h */,
+				041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */,
 				041EF68C1A5CBF2A0039FE88 /* LoadScene.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
@@ -1093,6 +1098,7 @@
 				046647D01A6F705A0082A5D5 /* HarryPotter.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				048578701A5AA1C80020DDF5 /* Enemy.cpp in Sources */,
+				A4C1145F1A6F7DCF00140E2F /* BroomOfKiki.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				046335761A690EA8003EF2B8 /* NativeLauncher.mm in Sources */,
 				041027001A6F514700837C82 /* PetitKiki.cpp in Sources */,
