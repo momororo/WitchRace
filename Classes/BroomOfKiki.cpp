@@ -65,9 +65,9 @@ void BroomOfKiki::stopCharacter(){
 BroomOfKiki::BroomOfKiki(){
     
     //キャラクタースプライトの生成(UP時)
-    broomOfKiki = Sprite::create("kiki_up.png");
+    broomOfKiki = Sprite::create("broomOfKiki_up.png");
     //影
-    broomOfKikiShadow = Sprite::create("kiki_up_shadow.png");
+    broomOfKikiShadow = Sprite::create("broomOfKiki_up_shadow.png");
     
     //キャラクタースプライトの大きさ
     broomOfKiki -> setScale(0.5);
@@ -133,7 +133,7 @@ BroomOfKiki::BroomOfKiki(){
     
     Point broomPoint[4]={
         
-        Vec2(40,15), Vec2(10,25), Vec2(40,35), Vec2(120,35)
+        Vec2(23,8), Vec2(0,18), Vec2(30,28), Vec2(115,32)
         
     };
     
@@ -203,8 +203,8 @@ void BroomOfKiki::characterUpdate(bool tappedFlag){
         //画像の交換(下降画像の場合のみ)
         if(broomOfKiki->getTag() == 0){
             
-            broomOfKiki->setTexture("kiki_up.png");
-            broomOfKikiShadow->setTexture("kiki_up_shadow.png");
+            broomOfKiki->setTexture("broomOfKiki_up.png");
+            broomOfKikiShadow->setTexture("broomOfKiki_up_shadow.png");
             //タグを上昇状態へ変更
             broomOfKiki->setTag(1);
             
@@ -255,8 +255,8 @@ void BroomOfKiki::characterUpdate(bool tappedFlag){
         //画像の交換(上昇画像の場合のみ)
         if(broomOfKiki->getTag() == 1){
             
-            broomOfKiki->setTexture("kiki_down.png");
-            broomOfKikiShadow->setTexture("kiki_down_shadow.png");
+            broomOfKiki->setTexture("broomOfKiki_down.png");
+            broomOfKikiShadow->setTexture("broomOfKiki_down_shadow.png");
             //タグを下降状態へ変更
             broomOfKiki->setTag(0);
         }

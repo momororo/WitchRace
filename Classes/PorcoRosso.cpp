@@ -67,7 +67,7 @@ PorcoRosso::PorcoRosso(){
     //キャラクタースプライトの生成(UP時)
     porcoRosso = Sprite::create("porcoRosso.png");
     //影
-    porcoRossoShadow = Sprite::create("kiki_up_shadow.png");
+    porcoRossoShadow = Sprite::create("porcoRosso_shadow.png");
     
     //キャラクタースプライトの大きさ
     porcoRosso -> setScale(0.5);
@@ -135,7 +135,7 @@ PorcoRosso::PorcoRosso(){
     
     Point broomPoint[6]={
         
-        Vec2(60,40), Vec2(25,60), Vec2(65,95), Vec2(80,95), Vec2(100,60),Vec2(100,32)
+        Vec2(40,25), Vec2(5,45), Vec2(45,80), Vec2(60,80), Vec2(80,45),Vec2(80,17)
 
     };
     
@@ -206,7 +206,7 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             if(porcoRosso->getTag() == 0){
 
                 porcoRosso->setTexture("porcoRosso.png");
-                porcoRossoShadow->setTexture("kiki_up_shadow.png");
+                porcoRossoShadow->setTexture("porcoRosso_shadow.png");
                 //タグを上昇状態へ変更
                 porcoRosso->setTag(1);
             
@@ -258,7 +258,7 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             if(porcoRosso->getTag() == 1){
                 
                 porcoRosso->setTexture("porcoRosso.png");
-                porcoRossoShadow->setTexture("kiki_down_shadow.png");
+                porcoRossoShadow->setTexture("porcoRosso_shadow.png");
                 //タグを下降状態へ変更
                 porcoRosso->setTag(0);
             }

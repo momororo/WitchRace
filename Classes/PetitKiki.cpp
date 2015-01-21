@@ -100,7 +100,7 @@ PetitKiki::PetitKiki(){
     //物理体の生成
     auto petitKikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     
-    auto petitKikiBody = PhysicsBody::createCircle((petitKiki->getContentSize().width/4),petitKikiMaterial);
+    auto petitKikiBody = PhysicsBody::createCircle(5,petitKikiMaterial);
     
     
     //重力による影響の可否
@@ -127,7 +127,7 @@ PetitKiki::PetitKiki(){
     
     Point broomPoint[3]={
         
-        Vec2(10,5), Vec2(10,35), Vec2(160,35),
+        //Vec2(10,5), Vec2(10,35), Vec2(160,35),
     
     };
     

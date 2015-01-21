@@ -135,7 +135,7 @@ HarryPotter::HarryPotter(){
     
     Point broomPoint[4]={
         
-        Vec2(40,15), Vec2(10,25), Vec2(40,35), Vec2(160,42)
+        Vec2(23,5), Vec2(0,15), Vec2(30,25), Vec2(150,32)
     
     };
     
