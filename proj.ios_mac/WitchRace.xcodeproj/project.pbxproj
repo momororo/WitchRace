@@ -17,6 +17,7 @@
 		0463356E1A63DBDE003EF2B8 /* Memo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0463356D1A63DBDE003EF2B8 /* Memo.strings */; };
 		046335761A690EA8003EF2B8 /* NativeLauncher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 046335751A690EA8003EF2B8 /* NativeLauncher.mm */; };
 		046647D01A6F705A0082A5D5 /* HarryPotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046647CE1A6F705A0082A5D5 /* HarryPotter.cpp */; };
+		046647D61A6F79020082A5D5 /* PorcoRosso.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046647D41A6F79020082A5D5 /* PorcoRosso.cpp */; };
 		048578701A5AA1C80020DDF5 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0485786E1A5AA1C80020DDF5 /* Enemy.cpp */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
 		04FEE77C1A6015EA00098655 /* town.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77A1A6015EA00098655 /* town.plist */; };
@@ -325,6 +326,8 @@
 		046335751A690EA8003EF2B8 /* NativeLauncher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NativeLauncher.mm; path = ../Classes/NativeLauncher.mm; sourceTree = "<group>"; };
 		046647CE1A6F705A0082A5D5 /* HarryPotter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HarryPotter.cpp; path = ../Classes/HarryPotter.cpp; sourceTree = "<group>"; };
 		046647CF1A6F705A0082A5D5 /* HarryPotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HarryPotter.h; path = ../Classes/HarryPotter.h; sourceTree = "<group>"; };
+		046647D41A6F79020082A5D5 /* PorcoRosso.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PorcoRosso.cpp; path = ../Classes/PorcoRosso.cpp; sourceTree = "<group>"; };
+		046647D51A6F79020082A5D5 /* PorcoRosso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PorcoRosso.h; path = ../Classes/PorcoRosso.h; sourceTree = "<group>"; };
 		0485786E1A5AA1C80020DDF5 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = ../Classes/Enemy.cpp; sourceTree = "<group>"; };
 		0485786F1A5AA1C80020DDF5 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = ../Classes/Enemy.h; sourceTree = "<group>"; };
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
@@ -563,6 +566,8 @@
 				04C9CBD81A30608300E51608 /* BackGround.cpp */,
 				04C9CBD91A30608300E51608 /* BackGround.h */,
 				0485786E1A5AA1C80020DDF5 /* Enemy.cpp */,
+				046647D41A6F79020082A5D5 /* PorcoRosso.cpp */,
+				046647D51A6F79020082A5D5 /* PorcoRosso.h */,
 				0485786F1A5AA1C80020DDF5 /* Enemy.h */,
 				0463356D1A63DBDE003EF2B8 /* Memo.strings */,
 				046335711A690E42003EF2B8 /* NativeLauncher.h */,
@@ -1069,6 +1074,7 @@
 				041027001A6F514700837C82 /* PetitKiki.cpp in Sources */,
 				040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */,
 				041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */,
+				046647D61A6F79020082A5D5 /* PorcoRosso.cpp in Sources */,
 				A457D8191A6E5AF7007C2E41 /* TutorialScene.cpp in Sources */,
 				041026FD1A6E5DB700837C82 /* CharacterSwitch.cpp in Sources */,
 				040FBF201A6E387900119570 /* SelectCharacterScene.cpp in Sources */,
