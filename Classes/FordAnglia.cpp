@@ -39,13 +39,13 @@ void FordAnglia::destroyInstance() {
 
 
 //空飛ぶ車のスプライトをGET
-Sprite* FordAnglia::getFordAnglia(){
+Sprite* FordAnglia::getCharacter(){
     return fordAnglia;
 }
 
 
 //空飛ぶ車の動作開始
-void FordAnglia::startFordAnglia(){
+void FordAnglia::startCharacter(){
     
     fordAnglia->getPhysicsBody()->setEnable(true);
     broom -> getPhysicsBody()-> setEnable(true);
@@ -53,7 +53,7 @@ void FordAnglia::startFordAnglia(){
 }
 
 //空飛ぶ車の動作停止
-void FordAnglia::stopFordAnglia(){
+void FordAnglia::stopCharacter(){
     
     fordAnglia->getPhysicsBody()->setEnable(false);
     broom -> getPhysicsBody()-> setEnable(false);
@@ -178,7 +178,7 @@ void FordAnglia::makeGameOver(){
 
 
 //空飛ぶ車の1フレーム毎の処理
-void FordAnglia::fordAngliaUpdate(bool tappedFlag){
+void FordAnglia::characterUpdate(bool tappedFlag){
     
     CCLOG("重力:%d",pGravity);
     

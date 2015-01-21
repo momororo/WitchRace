@@ -39,13 +39,13 @@ void PetitKiki::destroyInstance() {
 
 
 //キキちゃんのスプライトをGET
-Sprite* PetitKiki::getPetitKiki(){
+Sprite* PetitKiki::getCharacter(){
     return petitKiki;
 }
 
 
 //キキちゃんの動作開始
-void PetitKiki::startPetitKiki(){
+void PetitKiki::startCharacter(){
     
     petitKiki->getPhysicsBody()->setEnable(true);
     broom -> getPhysicsBody()-> setEnable(true);
@@ -53,7 +53,7 @@ void PetitKiki::startPetitKiki(){
 }
 
 //キキちゃんの動作停止
-void PetitKiki::stopPetitKiki(){
+void PetitKiki::stopCharacter(){
     
     petitKiki->getPhysicsBody()->setEnable(false);
     broom -> getPhysicsBody()-> setEnable(false);
@@ -173,7 +173,7 @@ void PetitKiki::makeGameOver(){
 
 
 //キキちゃんの1フレーム毎の処理
-void PetitKiki::petitKikiUpdate(bool tappedFlag){
+void PetitKiki::characterUpdate(bool tappedFlag){
     
     CCLOG("重力:%d",pGravity);
 

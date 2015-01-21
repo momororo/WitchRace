@@ -57,19 +57,19 @@ public:
     CREATE_FUNC(HarryPotter);
     
     //getter
-    Sprite* getHarryPotter();
+    Sprite* getCharacter();
     
 
     
     //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
-    void harryPotterUpdate(bool tappedFlag);
+    void characterUpdate(bool tappedFlag);
     
     
     //キキちゃんの動作開始
-    void startHarryPotter();
+    void startCharacter();
     
     //キキちゃんの動作停止
-    void stopHarryPotter();
+    void stopCharacter();
     
     //gameOverの処理
     void makeGameOver();

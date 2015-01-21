@@ -57,19 +57,19 @@ public:
     CREATE_FUNC(PetitKiki);
     
     //getter
-    Sprite* getPetitKiki();
+    Sprite* getCharacter();
     
 
     
     //キキちゃんの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
-    void petitKikiUpdate(bool tappedFlag);
+    void characterUpdate(bool tappedFlag);
     
     
     //キキちゃんの動作開始
-    void startPetitKiki();
+    void startCharacter();
     
     //キキちゃんの動作停止
-    void stopPetitKiki();
+    void stopCharacter();
     
     //gameOverの処理
     void makeGameOver();

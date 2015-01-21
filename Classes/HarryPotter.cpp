@@ -39,13 +39,13 @@ void HarryPotter::destroyInstance() {
 
 
 //キキちゃんのスプライトをGET
-Sprite* HarryPotter::getHarryPotter(){
+Sprite* HarryPotter::getCharacter(){
     return harryPotter;
 }
 
 
 //キキちゃんの動作開始
-void HarryPotter::startHarryPotter(){
+void HarryPotter::startCharacter(){
     
     harryPotter->getPhysicsBody()->setEnable(true);
     broom -> getPhysicsBody()-> setEnable(true);
@@ -53,7 +53,7 @@ void HarryPotter::startHarryPotter(){
 }
 
 //キキちゃんの動作停止
-void HarryPotter::stopHarryPotter(){
+void HarryPotter::stopCharacter(){
     
     harryPotter->getPhysicsBody()->setEnable(false);
     broom -> getPhysicsBody()-> setEnable(false);
@@ -182,7 +182,7 @@ void HarryPotter::makeGameOver(){
 
 
 //キキちゃんの1フレーム毎の処理
-void HarryPotter::harryPotterUpdate(bool tappedFlag){
+void HarryPotter::characterUpdate(bool tappedFlag){
     
     CCLOG("重力:%d",pGravity);
 
