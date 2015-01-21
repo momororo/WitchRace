@@ -46,18 +46,20 @@ bool SelectCharacterScene::init()
     this->addChild(bg);
     
 //ボタンの作成(for文で回す？？)
-    
+
+    //ユーザーデフォルトを呼び出してキャラクターフラグを確認
+    auto userDef = UserDefault::getInstance();
+    //デバグ
+    userDef->setBoolForKey("characterFlag1", true);
+    userDef->setBoolForKey("characterFlag2", true);
+    userDef->setBoolForKey("characterFlag3", true);
+    userDef->setBoolForKey("characterFlag4", true);
+    userDef->setBoolForKey("characterFlag5", true);
+
+
     for(int idx = 0; idx < 6;idx++){
         
 
-        //ユーザーデフォルトを呼び出してキャラクターフラグを確認
-        auto userDef = UserDefault::getInstance();
-        //デバグ
-        userDef->setBoolForKey("characterFlag1", true);
-        userDef->setBoolForKey("characterFlag2", true);
-        userDef->setBoolForKey("characterFlag3", true);
-        userDef->setBoolForKey("characterFlag4", true);
-        userDef->setBoolForKey("characterFlag5", true);
         
         auto characterFlag = userDef->getBoolForKey(StringUtils::format("characterFlag%d",idx).c_str());
 
@@ -175,15 +177,14 @@ bool SelectCharacterScene::init()
         
         bg->addChild(Menu);
         
-        //キキの色を黒に(初期位置設定)
-        if(idx == 0){
-            character->setOpacity(255);
-        }
         
         
     }
     
-    
+
+    //選択しているキャラのアイコンを黒に(初期位置設定)
+    characters->at(userDef->getIntegerForKey("selectCharacter"))->setOpacity(255);
+
     
     
     this->setBackBt();
