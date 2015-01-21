@@ -127,6 +127,7 @@ bool SelectCharacterScene::init()
                 
                 //フラグの設定
                 userDef->setIntegerForKey("selectCharacter",button->getTag());
+                CCLog("%d",button->getTag());
                 
                 //透明度を一括変更
                 for(auto character : *characters){

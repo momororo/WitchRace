@@ -8,7 +8,8 @@
 
 #include "CharacterSwitch.h"
 #include "Kiki.h"
-
+#include "PetitKiki.h"
+#include "HarryPotter.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -44,8 +45,8 @@ void CharacterSwitch::destroyInstance() {
     //分岐
     switch (destroyFlag) {
         case 0:Kiki::getInstance()->destroyInstance();break;
-        case 1:Kiki::getInstance()->destroyInstance();break;
-        case 2:Kiki::getInstance()->destroyInstance();break;
+        case 1:PetitKiki::getInstance()->destroyInstance();break;
+        case 2:HarryPotter::getInstance()->destroyInstance();break;
         case 3:Kiki::getInstance()->destroyInstance();break;
         case 4:Kiki::getInstance()->destroyInstance();break;
         default: break;
