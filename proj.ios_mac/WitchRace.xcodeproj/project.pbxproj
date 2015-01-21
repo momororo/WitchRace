@@ -80,6 +80,7 @@
 		A42E0E6E1A5FB7280005E670 /* town_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6A1A5FB7280005E670 /* town_2.png */; };
 		A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6B1A5FB7280005E670 /* town_3.png */; };
 		A42E0E701A5FB7280005E670 /* town_gameBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6C1A5FB7280005E670 /* town_gameBg.png */; };
+		A42FC9031A6F70CB00F452C4 /* FordAnglia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */; };
 		A457D8121A6E4549007C2E41 /* character_Bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8111A6E4549007C2E41 /* character_Bg.png */; };
 		A457D8141A6E4555007C2E41 /* storyBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8131A6E4555007C2E41 /* storyBg.png */; };
 		A457D8161A6E572B007C2E41 /* tutorialBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8151A6E572B007C2E41 /* tutorialBg.png */; };
@@ -381,6 +382,8 @@
 		A42E0E6A1A5FB7280005E670 /* town_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_2.png; sourceTree = "<group>"; };
 		A42E0E6B1A5FB7280005E670 /* town_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_3.png; sourceTree = "<group>"; };
 		A42E0E6C1A5FB7280005E670 /* town_gameBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_gameBg.png; sourceTree = "<group>"; };
+		A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FordAnglia.cpp; path = ../Classes/FordAnglia.cpp; sourceTree = "<group>"; };
+		A42FC9021A6F70CB00F452C4 /* FordAnglia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FordAnglia.h; path = ../Classes/FordAnglia.h; sourceTree = "<group>"; };
 		A457D8111A6E4549007C2E41 /* character_Bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_Bg.png; sourceTree = "<group>"; };
 		A457D8131A6E4555007C2E41 /* storyBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storyBg.png; sourceTree = "<group>"; };
 		A457D8151A6E572B007C2E41 /* tutorialBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialBg.png; sourceTree = "<group>"; };
@@ -535,6 +538,8 @@
 			children = (
 				041026FE1A6F514700837C82 /* PetitKiki.cpp */,
 				041026FF1A6F514700837C82 /* PetitKiki.h */,
+				A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */,
+				A42FC9021A6F70CB00F452C4 /* FordAnglia.h */,
 				041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */,
 				041EF68C1A5CBF2A0039FE88 /* LoadScene.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
@@ -1061,6 +1066,7 @@
 				A457D8191A6E5AF7007C2E41 /* TutorialScene.cpp in Sources */,
 				041026FD1A6E5DB700837C82 /* CharacterSwitch.cpp in Sources */,
 				040FBF201A6E387900119570 /* SelectCharacterScene.cpp in Sources */,
+				A42FC9031A6F70CB00F452C4 /* FordAnglia.cpp in Sources */,
 				A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				040B16201A2F273900FDC891 /* GameScene.cpp in Sources */,

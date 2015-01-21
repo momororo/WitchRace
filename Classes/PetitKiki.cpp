@@ -99,18 +99,9 @@ PetitKiki::PetitKiki(){
     
     //物理体の生成
     auto petitKikiMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-    //auto kikiBody = PhysicsBody::createCircle((kiki->getContentSize().width/2),kikiMaterial);
-
     
+    auto petitKikiBody = PhysicsBody::createCircle((petitKiki->getContentSize().width/4),petitKikiMaterial);
     
-    Point spritePoints[5]={
-    
-        //Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
-        Vec2(-8,-20),Vec2(-16,0),Vec2(-8,18),Vec2(13,13),Vec2(8,-18)
-    
-    };
-    
-    auto petitKikiBody = PhysicsBody::createPolygon(spritePoints, 5,petitKikiMaterial);
     
     //重力による影響の可否
     petitKikiBody->setGravityEnable(false);
