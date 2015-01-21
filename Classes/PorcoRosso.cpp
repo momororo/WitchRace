@@ -103,14 +103,13 @@ PorcoRosso::PorcoRosso(){
 
     
     
-    Point spritePoints[5]={
+    Point spritePoints[7]={
     
-        //Vec2(-10,-22),Vec2(-18,0),Vec2(-10,20),Vec2(15,15),Vec2(10,-20)
-        Vec2(-8,-20),Vec2(-16,0),Vec2(-8,18),Vec2(13,13),Vec2(8,-18)
-    
+        Vec2(-40,-15),Vec2(-40,-10),Vec2(18,22),Vec2(50,25),Vec2(80,-15),Vec2(60,-25),Vec2(-5,-23)
+
     };
     
-    auto porcoRossoBody = PhysicsBody::createPolygon(spritePoints, 5,porcoRossoMaterial);
+    auto porcoRossoBody = PhysicsBody::createPolygon(spritePoints, 7,porcoRossoMaterial);
     
     //重力による影響の可否
     porcoRossoBody->setGravityEnable(false);
@@ -134,14 +133,13 @@ PorcoRosso::PorcoRosso(){
     
     auto broomMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     
-    Point broomPoint[3]={
+    Point broomPoint[6]={
         
-        //Vec2(0,0), Vec2(0,40), Vec2(180,35)
-        Vec2(10,5), Vec2(10,35), Vec2(160,35),
-    
+        Vec2(60,40), Vec2(25,60), Vec2(65,95), Vec2(80,95), Vec2(100,60),Vec2(100,32)
+
     };
     
-    auto broomBody = PhysicsBody::createPolygon(broomPoint,3,broomMaterial);
+    auto broomBody = PhysicsBody::createPolygon(broomPoint,6,broomMaterial);
     broomBody -> setGravityEnable(false);
     broomBody -> setDynamic(true);
     broomBody -> setEnable(false);
