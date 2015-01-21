@@ -189,7 +189,7 @@ void TutorialScene::setBackBt(){
     //pMenuを配置
     startMenu->setPosition(Vec2(selfFrame.width/2,100 + backBt->getContentSize().height/2));
     this->addChild(startMenu);
-    
+
 }
 
 //フェーズ進行の準備
@@ -268,5 +268,5 @@ void TutorialScene::setPhase2(float time){
     this -> scheduleOnce(schedule_selector(TutorialScene::setPhase1), 5);
     
     /***** ここからはフェーズ１→フェーズ２→フェーズ１･･･、の繰り返しになります。******/
-
+    
 }
