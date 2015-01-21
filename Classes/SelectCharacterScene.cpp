@@ -47,7 +47,7 @@ bool SelectCharacterScene::init()
     
 //ボタンの作成(for文で回す？？)
     
-    for(int idx = 0; idx < 5;idx++){
+    for(int idx = 0; idx < 6;idx++){
         
 
         //ユーザーデフォルトを呼び出してキャラクターフラグを確認
@@ -64,11 +64,12 @@ bool SelectCharacterScene::init()
         if(characterFlag == true){
             //キャラクターの画像に
             switch (idx) {
-                case 0:character = Sprite::create("character_broomOfKiki.png"); break;
+                case 0:character = Sprite::create("character_kiki.png");break;
                 case 1:character = Sprite::create("character_sPhysicsOfKiki.png"); break;
                 case 2:character = Sprite::create("character_harryPotter.png"); break;
                 case 3:character = Sprite::create("character_fordAnglia.png"); break;
-                case 4:character = Sprite::create("character_porcoRosso.png"); break;
+                case 4:character = Sprite::create("character_broomOfKiki.png"); break;
+                case 5:character = Sprite::create("character_porcoRosso.png"); break;
                 default:break;
             }
         }else{
@@ -90,11 +91,12 @@ bool SelectCharacterScene::init()
         if(characterFlag == true){
             //キャラクターの画像に
             switch (idx) {
-                case 0:tappedCharacter = Sprite::create("character_broomOfKiki.png"); break;
+                case 0:tappedCharacter = Sprite::create("character_kiki.png");break;
                 case 1:tappedCharacter = Sprite::create("character_sPhysicsOfKiki.png"); break;
                 case 2:tappedCharacter = Sprite::create("character_harryPotter.png"); break;
                 case 3:tappedCharacter = Sprite::create("character_fordAnglia.png"); break;
-                case 4:tappedCharacter = Sprite::create("character_porcoRosso.png"); break;
+                case 4:tappedCharacter = Sprite::create("character_broomOfKiki.png"); break;
+                case 5:tappedCharacter = Sprite::create("character_porcoRosso.png"); break;
                 default:break;
             }
 
@@ -154,12 +156,15 @@ bool SelectCharacterScene::init()
 
         //ポジションを設定
         switch (idx) {
-            case 0:Menu->setPosition(Vec2(selfFrame.width/6*1,selfFrame.height/10*5));break;
-            case 1:Menu->setPosition(Vec2(selfFrame.width/6*2,selfFrame.height/10*7));break;
-            case 2:Menu->setPosition(Vec2(selfFrame.width/6*3,selfFrame.height/10*5));break;
-            case 3:Menu->setPosition(Vec2(selfFrame.width/6*4,selfFrame.height/10*7));break;
-            case 4:Menu->setPosition(Vec2(selfFrame.width/6*5,selfFrame.height/10*5));break;
+            case 0:Menu->setPosition(Vec2(selfFrame.width/10*2,selfFrame.height/10*7));break;
+            case 1:Menu->setPosition(Vec2(selfFrame.width/10*5,selfFrame.height/10*7));break;
+            case 2:Menu->setPosition(Vec2(selfFrame.width/10*8,selfFrame.height/10*7));break;
+            case 3:Menu->setPosition(Vec2(selfFrame.width/10*2,selfFrame.height/10*5));break;
+            case 4:Menu->setPosition(Vec2(selfFrame.width/10*5,selfFrame.height/10*5));break;
+            case 5:Menu->setPosition(Vec2(selfFrame.width/10*8,selfFrame.height/10*5));break;
+
             default:break;
+
 
         
         }
