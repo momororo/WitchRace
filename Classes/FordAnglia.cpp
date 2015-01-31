@@ -158,6 +158,7 @@ FordAnglia::FordAnglia(){
     fordAngliaParticle->setPosition(Vec2(3,fordAnglia->getContentSize().height/3-6));
     fordAngliaParticle->setName("kikiParticle");
     fordAngliaParticle->setGlobalZOrder(zOrderOfKikiShadow);
+    fordAngliaParticle->cocos2d::ParticleSystem::setSpeed(500);
     fordAnglia->addChild(fordAngliaParticle);
     
 }
@@ -179,8 +180,9 @@ void FordAnglia::makeGameOver(){
 //空飛ぶ車の1フレーム毎の処理
 void FordAnglia::characterUpdate(bool tappedFlag){
     
-    CCLOG("重力:%d",pGravity);
-    
+
+    CCLOG("回転:%f",pRotate);
+
     
     
     //タップされている場合は上昇！
@@ -188,7 +190,7 @@ void FordAnglia::characterUpdate(bool tappedFlag){
         
         
         
-        fordAngliaParticle->cocos2d::ParticleSystem::setSpeed(500);
+        //fordAngliaParticle->cocos2d::ParticleSystem::setSpeed(500);
         
         
         
@@ -230,9 +232,24 @@ void FordAnglia::characterUpdate(bool tappedFlag){
             
         }
         
+        if (pRotate < -30) {
+            
+            pRotate = -30;
+            
+        }else if(pRotate > 10){
+            
+            pRotate -= 1;
         
+        }else{
+        
+            pRotate -= 0.4;
+            
+        }
+
+    
         fordAnglia->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+        fordAnglia -> setRotation(pRotate);
         
     }else{
         
@@ -281,9 +298,24 @@ void FordAnglia::characterUpdate(bool tappedFlag){
             
         }
         
+        
+        if (pRotate > 30) {
+            
+            pRotate = 30;
+            
+        }if (pRotate < -10) {
+            
+            pRotate += 1;
+        
+        }else{
+            
+            pRotate += 0.35;
+            
+        }
+        
         fordAnglia->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
-        
+        fordAnglia -> setRotation(pRotate);
         
         
     }

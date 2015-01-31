@@ -1,13 +1,13 @@
 //
-//  FordAnglia.h
+//  Ponyo.h
 //  WitchRace
 //
-//  Created by 新井脩司 on 2015/01/21.
+//  Created by 新井脩司 on 2015/01/31.
 //
 //
 
-#ifndef __WitchRace__FordAnglia__
-#define __WitchRace__FordAnglia__
+#ifndef __WitchRace__Ponyo__
+#define __WitchRace__Ponyo__
 
 #include "cocos2d.h"
 #include "Zorder.h"
@@ -17,20 +17,18 @@ using namespace cocos2d;
 
 
 
-class FordAnglia : public cocos2d::Sprite
+class Ponyo : public cocos2d::Sprite
 {
 private:
     //変数
     //クラス
-    static FordAnglia *fordAngliaInstance;
+    static Ponyo *ponyoInstance;
     
     
-    //空飛ぶ車
-    Sprite *fordAnglia;
-    //空飛ぶ車影
-    Sprite *fordAngliaShadow;
-    
-    Sprite *broom;
+    //ポニョ
+    Sprite *ponyo;
+    //ポニョ影
+    Sprite *ponyoShadow;
     
     //重力値
     int pGravity = 0;
@@ -38,38 +36,38 @@ private:
     
     
     ParticleSystemQuad* endParticle;
-    ParticleSystemQuad* fordAngliaParticle;
+    ParticleSystemQuad* ponyoParticle;
     
     
     
     //メソッド
     //コンストラクタ(初期化)
-    FordAnglia();
+    Ponyo();
     
     
     
 public:
     //メソッド
     //プレイヤーは一体だけなのでシングルトン
-    static FordAnglia* getInstance();
+    static Ponyo* getInstance();
     //削除シングルトン削除
     static void destroyInstance();
     
-    CREATE_FUNC(FordAnglia);
+    CREATE_FUNC(Ponyo);
     
     //getter
     Sprite* getCharacter();
     
     
     
-    //空飛ぶ車の1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
+    //ポニョの1フレーム毎の処理(GameSceneのUpdateで呼んでね！)
     void characterUpdate(bool tappedFlag);
     
     
-    //空飛ぶ車の動作開始
+    //ポニョの動作開始
     void startCharacter();
     
-    //空飛ぶ車の動作停止
+    //ポニョの動作停止
     void stopCharacter();
     
     //gameOverの処理
@@ -79,4 +77,5 @@ public:
     
 };
 
-#endif /* defined(__WitchRace__FordAnglia__) */
+
+#endif /* defined(__WitchRace__Ponyo__) */

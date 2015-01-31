@@ -19,7 +19,7 @@ Scene* GameScene::createScene()
     auto scene = Scene::createWithPhysics();
     auto layer = GameScene::create();
     scene -> addChild(layer);
-    //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
     // return the scene
     return scene;
@@ -54,6 +54,16 @@ bool GameScene::init()
     //分岐
     this->addChild(CharacterSwitch::getInstance()->getCharacter());
 //キャラクター処理終
+    
+    auto startText = Label::createWithSystemFont("tap to start", "Arial", 50);
+    startText -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/3));
+    startText -> setVisible(true);
+    startText -> setName("startText");
+    
+    startText -> runAction(RepeatForever::create(Blink::create(1, 1)));
+    
+    this -> addChild(startText);
+    
 
 //イベント系処理
     /**************　タッチイベント設定  ******************/
@@ -139,8 +149,6 @@ bool GameScene::init()
 #pragma mark-
 #pragma mark タッチ判定
 bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
-
-    
     
     if (CharacterSwitch::getInstance()->getGamePlayFlag() == false && CharacterSwitch::getInstance()->getGameOverFlag() == false) {
         
@@ -148,12 +156,13 @@ bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
         
         BackGround::getInstance()->startBackGround();
         
+        this -> getChildByName("startText")->setVisible(false);
+        this -> getChildByName("startText")->removeFromParent();
+        
 #pragma mark デバッグ用
         struct timeval time;
         gettimeofday(&time, NULL);
         startTime = time.tv_sec * 1000ull + time.tv_usec / 1000ull;
-
-
         
     }
     

@@ -232,9 +232,24 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
                 
                 
             }
+            //MARK::上昇時の回転
+            if (pRotate < -30) {
+                
+                pRotate = -30;
+                
+            }else if(pRotate > 10){
+                
+                pRotate -= 1;
+                
+            }else{
+                
+                pRotate -= 0.4;
+                
+            }
             
             
             porcoRosso->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            porcoRosso->setRotation(pRotate);
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             
         }else{
@@ -284,7 +299,23 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
                 
             }
             
+            //MARK::下降時の回転
+            if (pRotate > 30) {
+                
+                pRotate = 30;
+                
+            }if (pRotate < -10) {
+                
+                pRotate += 1;
+                
+            }else{
+                
+                pRotate += 0.35;
+                
+            }
+            
             porcoRosso->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            porcoRosso->setRotation(pRotate);
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
 
             

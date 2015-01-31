@@ -34,6 +34,7 @@ private:
         
     //重力値
     int pGravity = 0;
+    float pRotate = 0;
     
     
     ParticleSystemQuad* endParticle;

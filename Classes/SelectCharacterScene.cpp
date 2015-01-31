@@ -71,10 +71,10 @@ bool SelectCharacterScene::init()
             //キャラクターの画像に
             switch (idx) {
                 case 0:character = Sprite::create("character_kiki.png");break;
-                case 1:character = Sprite::create("character_sPhysicsOfKiki.png"); break;
+                case 1:character = Sprite::create("character_petitKiki.png"); break;
                 case 2:character = Sprite::create("character_harryPotter.png"); break;
-                case 3:character = Sprite::create("character_fordAnglia.png"); break;
-                case 4:character = Sprite::create("character_broomOfKiki.png"); break;
+                case 3:character = Sprite::create("character_ponyo.png"); break;
+                case 4:character = Sprite::create("character_fordAnglia.png"); break;
                 case 5:character = Sprite::create("character_porcoRosso.png"); break;
                 default:break;
             }
@@ -98,10 +98,10 @@ bool SelectCharacterScene::init()
             //キャラクターの画像に
             switch (idx) {
                 case 0:tappedCharacter = Sprite::create("character_kiki.png");break;
-                case 1:tappedCharacter = Sprite::create("character_sPhysicsOfKiki.png"); break;
+                case 1:tappedCharacter = Sprite::create("character_petitKiki.png"); break;
                 case 2:tappedCharacter = Sprite::create("character_harryPotter.png"); break;
-                case 3:tappedCharacter = Sprite::create("character_fordAnglia.png"); break;
-                case 4:tappedCharacter = Sprite::create("character_broomOfKiki.png"); break;
+                case 3:tappedCharacter = Sprite::create("character_ponyo.png"); break;
+                case 4:tappedCharacter = Sprite::create("character_fordAnglia.png"); break;
                 case 5:tappedCharacter = Sprite::create("character_porcoRosso.png"); break;
                 default:break;
             }
@@ -135,7 +135,7 @@ bool SelectCharacterScene::init()
                 
                 //フラグの設定
                 userDef->setIntegerForKey("selectCharacter",button->getTag());
-                CCLog("%d",button->getTag());
+                CCLOG("%d",button->getTag());
                 
                 //透明度を一括変更
                 for(auto character : *characters){

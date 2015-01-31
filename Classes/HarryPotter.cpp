@@ -183,8 +183,7 @@ void HarryPotter::makeGameOver(){
 void HarryPotter::characterUpdate(bool tappedFlag){
     
     CCLOG("重力:%d",pGravity);
-
-    
+    CCLOG("回転:%f",pRotate);
     
     //タップされている場合は上昇！
         if (tappedFlag == true) {
@@ -219,23 +218,37 @@ void HarryPotter::characterUpdate(bool tappedFlag){
             }else{
                 
                 //下降時はより強く
-                if(pGravity < -200){
+                if(pGravity < 0){
 
                     pGravity+= 15;
                     
                 }else{
 
                     pGravity+= 11;
-                
-
+                    
                 }
                 
+            }
+            
+            if (pRotate < -30) {
+                
+                pRotate = -30;
+                
+            }else if(pRotate > 10){
+                
+                pRotate -= 1;
+                
+            }else{
+                
+                pRotate -= 0.4;
                 
             }
             
             
             harryPotter->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            harryPotter -> setRotation(pRotate);
+
             
         }else{
             
@@ -271,21 +284,39 @@ void HarryPotter::characterUpdate(bool tappedFlag){
             }else{
                 
                 //上昇時はより強く
-                if(pGravity > 200){
+                if(pGravity > 0){
 
                     pGravity -= 15;
                     
                 }else{
 
                     pGravity -= 10;
-
+                    
                 }
                 
                 
             }
             
+            if (pRotate > 30) {
+                
+                pRotate = 30;
+                
+            }if (pRotate < -10) {
+                
+                pRotate += 1;
+                
+            }else{
+                
+                pRotate += 0.35;
+                
+            }
+            
+            
+            
+            
             harryPotter->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+            harryPotter -> setRotation(pRotate);
 
             
             
