@@ -69,6 +69,15 @@
  
 (int)selectCharacter
     使用キャラクターを管理
+ 
+ 
+/Parseのデータベース設計
+ user:ユーザー識別子
+ playCount:プレイ回数
+ clearStory:ステージクリア
+ playPoint:ポイント
+ twitterPoint:ツイッターのつぶやき数
+ 
 
 
 
