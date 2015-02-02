@@ -130,6 +130,13 @@ bool GameScene::init()
     
 //イベント系処理終
     
+//プレイ回数を加算(解析用)
+    auto str = StringUtils::format("playCountFor%d", userDef->getIntegerForKey("selectStory"));
+    auto playCount = userDef->getIntegerForKey(str.c_str());
+    playCount++;
+    userDef->setIntegerForKey(str.c_str(), playCount);
+
+    
     return true;
     
 }

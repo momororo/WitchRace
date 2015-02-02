@@ -168,6 +168,30 @@ static AppDelegate s_sharedApplication;
 
         //保存する情報を入れて送信
         
+        //各ステージのプレイ回数
+        NSUserDefaults *usrDef = [NSUserDefaults standardUserDefaults];
+        accessData[@"playCountFor0"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor0"]];
+        accessData[@"playCountFor1"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor1"]];
+        accessData[@"playCountFor2"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor2"]];
+        accessData[@"playCountFor3"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor3"]];
+        accessData[@"playCountFor4"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor4"]];
+        
+        //各ステージのクリア回数
+        accessData[@"clearCountFor0"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor0"]];
+        accessData[@"clearCountFor1"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor1"]];
+        accessData[@"clearCountFor2"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor2"]];
+        accessData[@"clearCountFor3"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor3"]];
+        accessData[@"clearCountFor4"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor4"]];
+
+        
+        //どこまでクリアしたか
+        accessData[@"clearStory"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearStory"]];
+        
+        //プレイポイント
+        accessData[@"playPoint"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playPoint"]];
+        
+        //twitterのつぶやき数
+        accessData[@"twitterCount"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"twitterCount"]];
         
         //アクセス情報を送信
         [accessData saveInBackground];

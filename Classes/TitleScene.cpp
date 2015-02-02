@@ -334,6 +334,10 @@ void TitleScene::setTwitterBt(){
         //ツイッター呼び出し
         CCLOG("ツイートしちゃうぞ♪");
         
+        //呟き回数をカウント
+        auto userDef = UserDefault::getInstance();
+        userDef->setIntegerForKey("twitterCount",(userDef->getIntegerForKey("twitterCount") + 1));
+        
     });
     
     //メニューの作成

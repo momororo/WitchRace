@@ -14,6 +14,7 @@
 		041027001A6F514700837C82 /* PetitKiki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041026FE1A6F514700837C82 /* PetitKiki.cpp */; };
 		041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		041EF6901A5CC01A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
+		044BAC541A7F6FB500CBD57B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044BAC531A7F6FB500CBD57B /* Images.xcassets */; };
 		045EAE781A7E2951000059FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EAE761A7E2951000059FF /* Bolts.framework */; };
 		045EAE791A7E2952000059FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EAE771A7E2951000059FF /* Parse.framework */; };
 		045EAE7B1A7E299E000059FF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EAE7A1A7E299E000059FF /* AudioToolbox.framework */; };
@@ -338,6 +339,7 @@
 		041026FF1A6F514700837C82 /* PetitKiki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PetitKiki.h; path = ../Classes/PetitKiki.h; sourceTree = "<group>"; };
 		041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadScene.cpp; sourceTree = "<group>"; };
 		041EF68C1A5CBF2A0039FE88 /* LoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadScene.h; sourceTree = "<group>"; };
+		044BAC531A7F6FB500CBD57B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "WitchRace iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		045EAE761A7E2951000059FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		045EAE771A7E2951000059FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		045EAE7A1A7E299E000059FF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
@@ -754,6 +756,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				044BAC531A7F6FB500CBD57B /* Images.xcassets */,
 				A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */,
 				A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */,
 				A457D8151A6E572B007C2E41 /* tutorialBg.png */,
@@ -1045,6 +1048,7 @@
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				A473C84A1A627B64009000A5 /* pause_gameClear.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				044BAC541A7F6FB500CBD57B /* Images.xcassets in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				A491FC8F1A6D0C4D008A6C56 /* retryBt.png in Resources */,
@@ -1233,6 +1237,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
@@ -1271,6 +1277,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
