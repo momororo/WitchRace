@@ -60,15 +60,29 @@
     BackGround、Enemyクラスでの配置の分岐や、クリア後の処理に使用
 (int)clearCountFor0~4
     各ステージのクリア回数
-    やりこみ要素を実装する際に使用する予定
 
     ※clearStory、selectStoryの中身の値、clearCountFor(x)←の値については
     0 = stage1、 1 = stage2 と数が1つずれることに注意が必要
+ 
+ (int)playCountFor0~4
+ 各ステージのプレイ回数
+
+ 
 (bool)characterFlag0〜4
     キャラクターの使用可能フラグ
  
 (int)selectCharacter
     使用キャラクターを管理
+ 
+ 
+/Parseのデータベース設計
+ user:ユーザー識別子
+ playCountFor0〜4:各ステージのプレイ回数
+ clearCountFor0〜4:各ステージのクリア回数
+ clearStory:そこまでクリアしたか
+ playPoint:プレイポイント
+ twitterPoint:ツイッターのつぶやき数
+ 
 
 
 

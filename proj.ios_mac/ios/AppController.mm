@@ -40,6 +40,60 @@ static AppDelegate s_sharedApplication;
 
     // Override point for customization after application launch.
 
+    
+//アクセス解析用
+    // [Optional] Power your app with Local Datastore. For more info, go to
+    // https://parse.com/docs/ios_guide#localdatastore/iOS
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.(データベース毎にidとkeyが違うため注意)
+    [Parse setApplicationId:@"maRQM6DFh44sSk541Mb6w3NfnGeT16Xld5P1XSBr"
+                  clientKey:@"ReUHby4b1vSQAmaF6kkldFI7uYJqAlDtUJIOG6pL"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+    //固有IDの呼び出し用に生成
+    NSUUID *vendorUUID = [UIDevice currentDevice].identifierForVendor;
+    
+    //初期化
+    accessData = nil;
+    
+    //ユーザー情報を検索
+    PFQuery *query = [PFQuery queryWithClassName:@"AccessData"];
+    [query whereKey:@"user" equalTo:vendorUUID.UUIDString];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error){
+      
+        //検索が見つからなかった場合でもエラーは吐かないようだ
+        if(!error){
+        
+            
+            //検索が0件以外 = 登録済
+            if([objects count] != 0){
+                
+                //データを保存
+                accessData = objects[0];
+                
+                
+            }else{
+
+                //データを新規に追加
+                accessData = [PFObject objectWithClassName:@"AccessData"];
+                accessData[@"user"] = vendorUUID.UUIDString;
+                
+            }
+            
+            //cocos2d-xプロジェクトはARCが無効となっているため、メモリ管理に気をつける必要がある
+            //cocos2dのクラスはフレームワークによりメモリ管理されているが、iosのクラスを使用する際は、注意しなければならない
+            //BADACCESSしたらきっとたいがいメモリ管理が原因や
+            [accessData retain];
+            
+        }
+        
+    }];
+    
+//アクセス解析用コード終
+
     // Add the view controller's view to the window and display.
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
 
@@ -105,6 +159,45 @@ static AppDelegate s_sharedApplication;
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
+    
+
+    
+    //データ取得前にこの処理に入った場合、エラーになるのを防ぐ為にif文つけてます
+    if(accessData != nil){
+        
+
+        //保存する情報を入れて送信
+        
+        //各ステージのプレイ回数
+        NSUserDefaults *usrDef = [NSUserDefaults standardUserDefaults];
+        accessData[@"playCountFor0"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor0"]];
+        accessData[@"playCountFor1"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor1"]];
+        accessData[@"playCountFor2"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor2"]];
+        accessData[@"playCountFor3"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor3"]];
+        accessData[@"playCountFor4"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playCountFor4"]];
+        
+        //各ステージのクリア回数
+        accessData[@"clearCountFor0"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor0"]];
+        accessData[@"clearCountFor1"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor1"]];
+        accessData[@"clearCountFor2"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor2"]];
+        accessData[@"clearCountFor3"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor3"]];
+        accessData[@"clearCountFor4"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearCountFor4"]];
+
+        
+        //どこまでクリアしたか
+        accessData[@"clearStory"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"clearStory"]];
+        
+        //プレイポイント
+        accessData[@"playPoint"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"playPoint"]];
+        
+        //twitterのつぶやき数
+        accessData[@"twitterCount"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"twitterCount"]];
+        
+        //アクセス情報を送信
+        [accessData saveInBackground];
+    
+    }
+    
     cocos2d::Application::getInstance()->applicationDidEnterBackground();
 }
 
@@ -112,14 +205,22 @@ static AppDelegate s_sharedApplication;
     /*
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
+    
+    
     cocos2d::Application::getInstance()->applicationWillEnterForeground();
+    
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+
     /*
      Called when the application is about to terminate.
      See also applicationDidEnterBackground:.
      */
+    
+
+
 }
 
 
