@@ -193,6 +193,10 @@ static AppDelegate s_sharedApplication;
         //twitterのつぶやき数
         accessData[@"twitterCount"] = [NSString stringWithFormat:@"%ld",(long)[usrDef integerForKey:@"twitterCount"]];
         
+        //言語設定の取得
+        NSArray *languages = [NSLocale preferredLanguages];
+        accessData[@"language"] = [languages objectAtIndex:0];
+        
         //アクセス情報を送信
         [accessData saveInBackground];
     
