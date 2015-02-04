@@ -33,6 +33,13 @@
 		046647D01A6F705A0082A5D5 /* HarryPotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046647CE1A6F705A0082A5D5 /* HarryPotter.cpp */; };
 		046647D61A6F79020082A5D5 /* PorcoRosso.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046647D41A6F79020082A5D5 /* PorcoRosso.cpp */; };
 		048578701A5AA1C80020DDF5 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0485786E1A5AA1C80020DDF5 /* Enemy.cpp */; };
+		048E2CBD1A81E47B00530D86 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048E2CB61A81E47B00530D86 /* libNendAd.a */; };
+		048E2CBE1A81E47B00530D86 /* NADView_readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 048E2CBC1A81E47B00530D86 /* NADView_readme.txt */; };
+		048E2CC21A81E49E00530D86 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048E2CC11A81E49E00530D86 /* AdSupport.framework */; };
+		048E2CC41A81E4AB00530D86 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048E2CC31A81E4AB00530D86 /* ImageIO.framework */; };
+		048E2CCC1A81E4F400530D86 /* NendInterstitialModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CC71A81E4F400530D86 /* NendInterstitialModule.mm */; };
+		048E2CCE1A81E4F400530D86 /* NendModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CCA1A81E4F400530D86 /* NendModule.mm */; };
+		048E2CD21A81F58A00530D86 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CD11A81F58A00530D86 /* GameCenter.m */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
 		04FEE77C1A6015EA00098655 /* town.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77A1A6015EA00098655 /* town.plist */; };
 		04FEE77D1A6015EA00098655 /* town.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77B1A6015EA00098655 /* town.png */; };
@@ -362,6 +369,21 @@
 		046647D51A6F79020082A5D5 /* PorcoRosso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PorcoRosso.h; path = ../Classes/PorcoRosso.h; sourceTree = "<group>"; };
 		0485786E1A5AA1C80020DDF5 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = ../Classes/Enemy.cpp; sourceTree = "<group>"; };
 		0485786F1A5AA1C80020DDF5 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = ../Classes/Enemy.h; sourceTree = "<group>"; };
+		048E2CB61A81E47B00530D86 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
+		048E2CB71A81E47B00530D86 /* NADIconArrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADIconArrayView.h; sourceTree = "<group>"; };
+		048E2CB81A81E47B00530D86 /* NADIconLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADIconLoader.h; sourceTree = "<group>"; };
+		048E2CB91A81E47B00530D86 /* NADIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADIconView.h; sourceTree = "<group>"; };
+		048E2CBA1A81E47B00530D86 /* NADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADInterstitial.h; sourceTree = "<group>"; };
+		048E2CBB1A81E47B00530D86 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
+		048E2CBC1A81E47B00530D86 /* NADView_readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NADView_readme.txt; sourceTree = "<group>"; };
+		048E2CC11A81E49E00530D86 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		048E2CC31A81E4AB00530D86 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		048E2CC61A81E4F400530D86 /* NendInterstitialModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NendInterstitialModule.h; sourceTree = "<group>"; };
+		048E2CC71A81E4F400530D86 /* NendInterstitialModule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NendInterstitialModule.mm; sourceTree = "<group>"; };
+		048E2CC91A81E4F400530D86 /* NendModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NendModule.h; sourceTree = "<group>"; };
+		048E2CCA1A81E4F400530D86 /* NendModule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NendModule.mm; sourceTree = "<group>"; };
+		048E2CD01A81F58A00530D86 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
+		048E2CD11A81F58A00530D86 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
 		04C9CBD91A30608300E51608 /* BackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackGround.h; path = ../Classes/BackGround.h; sourceTree = "<group>"; };
 		04DE3B0B1A5254960041D387 /* Zorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zorder.h; sourceTree = "<group>"; };
@@ -520,6 +542,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048E2CC41A81E4AB00530D86 /* ImageIO.framework in Frameworks */,
+				048E2CC21A81E49E00530D86 /* AdSupport.framework in Frameworks */,
 				045EAE8F1A7E29F3000059FF /* libsqlite3.dylib in Frameworks */,
 				045EAE8D1A7E29EC000059FF /* libz.dylib in Frameworks */,
 				045EAE8B1A7E29E4000059FF /* SystemConfiguration.framework in Frameworks */,
@@ -535,6 +559,7 @@
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */,
 				1AC6FB31180E99EB004C840B /* libcocos2dx-extensions iOS.a in Frameworks */,
+				048E2CBD1A81E47B00530D86 /* libNendAd.a in Frameworks */,
 				1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				045EAE791A7E2952000059FF /* Parse.framework in Frameworks */,
@@ -574,6 +599,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		048E2CB51A81E47B00530D86 /* NendAd */ = {
+			isa = PBXGroup;
+			children = (
+				048E2CB61A81E47B00530D86 /* libNendAd.a */,
+				048E2CB71A81E47B00530D86 /* NADIconArrayView.h */,
+				048E2CB81A81E47B00530D86 /* NADIconLoader.h */,
+				048E2CB91A81E47B00530D86 /* NADIconView.h */,
+				048E2CBA1A81E47B00530D86 /* NADInterstitial.h */,
+				048E2CBB1A81E47B00530D86 /* NADView.h */,
+				048E2CBC1A81E47B00530D86 /* NADView_readme.txt */,
+			);
+			path = NendAd;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,9 +631,15 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				048E2CC61A81E4F400530D86 /* NendInterstitialModule.h */,
+				048E2CC71A81E4F400530D86 /* NendInterstitialModule.mm */,
+				048E2CC91A81E4F400530D86 /* NendModule.h */,
+				048E2CCA1A81E4F400530D86 /* NendModule.mm */,
 				041026FE1A6F514700837C82 /* PetitKiki.cpp */,
 				041026FF1A6F514700837C82 /* PetitKiki.h */,
 				A4C1145D1A6F7DCF00140E2F /* BroomOfKiki.cpp */,
+				048E2CD01A81F58A00530D86 /* GameCenter.h */,
+				048E2CD11A81F58A00530D86 /* GameCenter.m */,
 				A4C1145E1A6F7DCF00140E2F /* BroomOfKiki.h */,
 				A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */,
 				A42FC9021A6F70CB00F452C4 /* FordAnglia.h */,
@@ -662,6 +707,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				048E2CB51A81E47B00530D86 /* NendAd */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -676,6 +722,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				048E2CC31A81E4AB00530D86 /* ImageIO.framework */,
+				048E2CC11A81E49E00530D86 /* AdSupport.framework */,
 				045EAE8E1A7E29F3000059FF /* libsqlite3.dylib */,
 				045EAE8C1A7E29EC000059FF /* libz.dylib */,
 				045EAE8A1A7E29E4000059FF /* SystemConfiguration.framework */,
@@ -1092,6 +1140,7 @@
 				A47F2DA11A5D39EA0050F464 /* factory.png in Resources */,
 				A41620D31A69210F007DD83F /* alert.png in Resources */,
 				A48C10631A68EBB4009D8C46 /* rankingBt.png in Resources */,
+				048E2CBE1A81E47B00530D86 /* NADView_readme.txt in Resources */,
 				A411FC731A667EF700BC0515 /* backBt.png in Resources */,
 				A476CC8F1A68DE280016BE06 /* gaugeBar.png in Resources */,
 				A48D62AA1A5E65CE003448B8 /* field_1.png in Resources */,
@@ -1152,10 +1201,13 @@
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				046335761A690EA8003EF2B8 /* NativeLauncher.mm in Sources */,
 				041027001A6F514700837C82 /* PetitKiki.cpp in Sources */,
+				048E2CCE1A81E4F400530D86 /* NendModule.mm in Sources */,
 				040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */,
 				041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */,
 				046647D61A6F79020082A5D5 /* PorcoRosso.cpp in Sources */,
 				A457D8191A6E5AF7007C2E41 /* TutorialScene.cpp in Sources */,
+				048E2CCC1A81E4F400530D86 /* NendInterstitialModule.mm in Sources */,
+				048E2CD21A81F58A00530D86 /* GameCenter.m in Sources */,
 				041026FD1A6E5DB700837C82 /* CharacterSwitch.cpp in Sources */,
 				040FBF201A6E387900119570 /* SelectCharacterScene.cpp in Sources */,
 				A42FC9031A6F70CB00F452C4 /* FordAnglia.cpp in Sources */,
@@ -1265,7 +1317,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/NendAd";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1303,7 +1355,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/NendAd";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
