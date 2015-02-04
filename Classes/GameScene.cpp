@@ -9,6 +9,7 @@
 #include "GameScene.h"
 #include "LoadScene.h"
 #include "NendInterstitialModule.h"
+#include "NativeLauncher.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -441,6 +442,10 @@ void GameScene::makeGameClear(){
     auto clearCount = userDef->getIntegerForKey(str.c_str());
     clearCount++;
     userDef->setIntegerForKey(str.c_str(), clearCount);
+    
+    
+    //ゲームセンターにスコアを贈ろう
+    NativeLauncher::postHighScore("WitchRacePointRanking", 100);
     
     
 //終

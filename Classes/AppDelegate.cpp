@@ -2,7 +2,7 @@
 #include "TitleScene.h"
 #include "GameScene.h"
 #include "NendInterstitialModule.h"
-
+#include "NativeLauncher.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -28,6 +28,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //キキをデフォルトの使用キャラクターに
     userDef->setIntegerForKey("selectCharacter", 0);
     
+    
 //nendインタースティシャル
     //本番
 //    char interstitialApiKey[] = "4d356c2beae29f2750413b21abda06698da45e8c";
@@ -38,6 +39,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     
     NendInterstitialModule::createNADInterstitial(interstitialApiKey, interstitialSpotID);
+    
+//GameCenterへのログイン
+    NativeLauncher::loginGameCenter();
 
     
     

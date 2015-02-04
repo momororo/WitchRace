@@ -110,5 +110,18 @@
     [super dealloc];
 }
 
+// GKLeaderboardViewControllerのDelegate
+-(void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+// GKAchievementViewControllerのDelegate
+-(void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
 
 @end

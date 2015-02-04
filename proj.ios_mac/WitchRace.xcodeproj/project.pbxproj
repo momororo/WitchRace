@@ -41,6 +41,7 @@
 		048E2CCE1A81E4F400530D86 /* NendModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CCA1A81E4F400530D86 /* NendModule.mm */; };
 		048E2CD21A81F58A00530D86 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CD11A81F58A00530D86 /* GameCenter.m */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
+		04F9D3E41A820882005F4B3B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F9D3E31A820882005F4B3B /* GameKit.framework */; };
 		04FEE77C1A6015EA00098655 /* town.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77A1A6015EA00098655 /* town.plist */; };
 		04FEE77D1A6015EA00098655 /* town.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FEE77B1A6015EA00098655 /* town.png */; };
 		1AC6FB1F180E996B004C840B /* libbox2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAFF180E9839004C840B /* libbox2d Mac.a */; };
@@ -387,6 +388,7 @@
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
 		04C9CBD91A30608300E51608 /* BackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackGround.h; path = ../Classes/BackGround.h; sourceTree = "<group>"; };
 		04DE3B0B1A5254960041D387 /* Zorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zorder.h; sourceTree = "<group>"; };
+		04F9D3E31A820882005F4B3B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		04FEE77A1A6015EA00098655 /* town.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = town.plist; sourceTree = "<group>"; };
 		04FEE77B1A6015EA00098655 /* town.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town.png; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				045EAE8D1A7E29EC000059FF /* libz.dylib in Frameworks */,
 				045EAE8B1A7E29E4000059FF /* SystemConfiguration.framework in Frameworks */,
 				045EAE891A7E29DD000059FF /* StoreKit.framework in Frameworks */,
+				04F9D3E41A820882005F4B3B /* GameKit.framework in Frameworks */,
 				045EAE871A7E29D6000059FF /* Security.framework in Frameworks */,
 				045EAE851A7E29C9000059FF /* QuartzCore.framework in Frameworks */,
 				045EAE831A7E29C2000059FF /* MobileCoreServices.framework in Frameworks */,
@@ -722,6 +725,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04F9D3E31A820882005F4B3B /* GameKit.framework */,
 				048E2CC31A81E4AB00530D86 /* ImageIO.framework */,
 				048E2CC11A81E49E00530D86 /* AdSupport.framework */,
 				045EAE8E1A7E29F3000059FF /* libsqlite3.dylib */,
@@ -958,6 +962,11 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = DQ67LBWH5G;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1318,7 +1327,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/NendAd";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "be2515f2-6fda-4f78-ac63-6f25dfbb049d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1356,7 +1365,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/NendAd";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "be2515f2-6fda-4f78-ac63-6f25dfbb049d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";

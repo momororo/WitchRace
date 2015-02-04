@@ -249,8 +249,9 @@ void TitleScene::setRankingBt(){
     //メニューアイテムの作成
     auto pBtnItem = MenuItemSprite::create(rankingBt, rankingBtTaped, [](Ref *ref){
         
-        //ランキング呼び出すメソッド
-        CCLOG("アチーブメントになるのかな？");
+        //ランキング表示
+        NativeLauncher::openRanking();
+        
         
     });
     
