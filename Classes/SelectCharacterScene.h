@@ -28,7 +28,7 @@ public:
     Vector<Sprite*> *characters = new Vector<Sprite*>;
     Label *charaNameText;
     Label *charaExText;
-    label *charaLockText;
+    Label *charaLockText;
     
 
 };

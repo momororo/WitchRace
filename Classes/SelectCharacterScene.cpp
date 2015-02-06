@@ -73,8 +73,8 @@ bool SelectCharacterScene::init()
     userDef->setBoolForKey("characterFlag1", true);
     userDef->setBoolForKey("characterFlag2", true);
     userDef->setBoolForKey("characterFlag3", true);
-    userDef->setBoolForKey("characterFlag4", true);
-    userDef->setBoolForKey("characterFlag5", true);
+    userDef->setBoolForKey("characterFlag4", false);
+    userDef->setBoolForKey("characterFlag5", false);
 
 
     for(int idx = 0; idx < 6;idx++){
@@ -92,38 +92,38 @@ bool SelectCharacterScene::init()
             switch (idx) {
                 case 0:
                     character = Sprite::create("character_kiki.png");
-                    charaNameText -> setString("見習い魔女");
-                    charaExText -> setString("飛ぶのが得意なおてんば少女\n夢に向かって修行中");
+                    //charaNameText -> setString("見習い魔女");
+                    //charaExText -> setString("飛ぶのが得意なおてんば少女\n夢に向かって修行中");
                     break;
                 
                 case 1:
                     character = Sprite::create("character_petitKiki.png");
-                    charaNameText -> setString("ひよっこ魔女");
-                    charaExText -> setString("飛ぶのが苦手なあなたに、まずは練習用\n〜キャラクターボーナス〜\n障害物にあたりにくい");
+                    //charaNameText -> setString("ひよっこ魔女");
+                    //charaExText -> setString("飛ぶのが苦手なあなたに、まずは練習用\n〜キャラクターボーナス〜\n障害物にあたりにくくなる");
                     break;
                 
                 case 2:
                     character = Sprite::create("character_harryPotter.png");
-                    charaNameText -> setString("イナズマボーイ");
-                    charaExText -> setString("僕は生き残る！\n〜キャラクターボーナス〜\nストーリクリアポイントに10ポイント加算");
+                    //charaNameText -> setString("イナズマボーイ");
+                    //charaExText -> setString("僕は生き残る！\n〜キャラクターボーナス〜\nストーリクリアポイントに10ポイント加算");
                     break;
                 
                 case 3:
                     character = Sprite::create("character_ponyo.png");
-                    charaNameText -> setString("空を駆ける女の子");
-                    charaExText -> setString("元気いっぱい　空もかけちゃお！\n〜キャラクターボーナス〜\nストーリクリアポイント✕3のポイント加算");
+                    //charaNameText -> setString("空を駆ける女の子");
+                    //charaExText -> setString("元気いっぱい！空もかけちゃお♪\n〜キャラクターボーナス〜\nストーリクリアポイント✕3のポイント加算");
                     break;
                 
                 case 4:
                     character = Sprite::create("character_fordAnglia.png");
-                    charaNameText -> setString("空飛ぶ車");
-                    charaExText -> setString("オジサンからかりた車\n〜キャラクターボーナス〜\nストーリークリアポイント✕5のポイント加算");
+                    //charaNameText -> setString("空飛ぶ車");
+                    //charaExText -> setString("オジサンからかりた車\n〜キャラクターボーナス〜\nストーリークリアポイント✕5のポイント加算");
                     break;
                 
                 case 5:
                     character = Sprite::create("character_porcoRosso.png");
-                    charaNameText -> setString("元エースパイロット");
-                    charaExText -> setString("自由気ままに生きる、それが男\n〜キャラクターボーナス〜\nストーリークリアポイント✕10ポイント加算");
+                    //charaNameText -> setString("元エースパイロット");
+                    //charaExText -> setString("自由気ままに生きる、それが男！\n〜キャラクターボーナス〜\nストーリークリアポイント✕10ポイント加算");
                     break;
                 default:break;
             }
@@ -132,9 +132,9 @@ bool SelectCharacterScene::init()
             switch (idx) {
                 case 0:
                     character = Sprite::create("character_kiki.png");break;
-                    charaNameText -> setVisible(false);
-                    charaExText -> setVisible(false);
-                    charaLockText -> setVisible(false);
+                    //charaNameText -> setVisible(false);
+                    //charaExText -> setVisible(false);
+                    //charaLockText -> setVisible(false);
                 case 1:character = Sprite::create("character_petitKiki_locked.png");break;
                 case 2:character = Sprite::create("character_ponyo_locked.png");break;
                 case 4:character = Sprite::create("character_fordAnglia_locked.png");break;
@@ -171,7 +171,18 @@ bool SelectCharacterScene::init()
 
         }else{
             //はてなの画像を呼び出し
-            tappedCharacter = Sprite::create("character_lock.png");
+            switch (idx) {
+                case 0:
+                    tappedCharacter = Sprite::create("character_kiki.png");break;
+                    //charaNameText -> setVisible(false);
+                    //charaExText -> setVisible(false);
+                    //charaLockText -> setVisible(false);
+                case 1:tappedCharacter = Sprite::create("character_petitKiki_locked.png");break;
+                case 2:tappedCharacter = Sprite::create("character_ponyo_locked.png");break;
+                case 4:tappedCharacter = Sprite::create("character_fordAnglia_locked.png");break;
+                case 5:tappedCharacter = Sprite::create("character_porcoRosso_locked.png");break;
+                default:break;
+            }
             //タップ後のボタンの透明度を変更する
             tappedCharacter->setOpacity(128);
         }
@@ -210,7 +221,9 @@ bool SelectCharacterScene::init()
         
         }else{
             
-            pBtnItem = MenuItemSprite::create(character, tappedCharacter,NULL);
+            pBtnItem = MenuItemSprite::create(character, tappedCharacter,[&](Ref *ref){
+                //特に処理なし→[&](Ref *ref)の部分をNULLにすると落ちるため、ラムダ式を取り入れています。
+            });
             
         }
         
