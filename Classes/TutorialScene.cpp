@@ -73,7 +73,7 @@ bool TutorialScene::init(){
     
     
     //説明文作成
-    tutorial_text = Label::createWithSystemFont("激ムズの糸と同じ操作性です。", "HiraKakuPro-W3", 25);
+    tutorial_text = Label::createWithSystemFont("〜操作方法の説明〜\n※説明は自動で進行します。", "HiraKakuPro-W3", 25);
     tutorial_text -> setTextColor(Color4B::BLACK);
     tutorial_text -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/4));
     tutorial_text -> setName("tutorial_text");
@@ -211,7 +211,7 @@ void TutorialScene::setPhase1(float time){
     
     
     //キキの上昇
-    this -> getChildByName("tutorial_kiki")->runAction(MoveTo::create(3, Vec2(this->getChildByName("tutorial_kiki")->getPosition().x,selfFrame.height*2/3)));
+    this -> getChildByName("tutorial_kiki")->runAction(MoveTo::create(4, Vec2(this->getChildByName("tutorial_kiki")->getPosition().x,selfFrame.height*2/3)));
     
     
     //エフェクトリングに効果をつける
@@ -252,7 +252,7 @@ void TutorialScene::setPhase2(float time){
 
     
     //キキの下降
-    this -> getChildByName("tutorial_kiki")->runAction(MoveTo::create(3, Vec2(this->getChildByName("tutorial_kiki")->getPosition().x,selfFrame.height*1/3)));
+    this -> getChildByName("tutorial_kiki")->runAction(MoveTo::create(4, Vec2(this->getChildByName("tutorial_kiki")->getPosition().x,selfFrame.height*1/3)));
     
     
     //説明文の変更(多言語化)

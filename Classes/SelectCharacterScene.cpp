@@ -38,6 +38,26 @@ bool SelectCharacterScene::init()
         return false;
     }
     
+//説明文の枠作成
+    //キャラクターの名前
+    charaNameText = Label::createWithSystemFont("", "HiraKakuPro-W3", 50);
+    charaNameText -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/3));
+    charaNameText -> setColor(Color3B::BLACK);
+    this -> addChild(charaNameText);
+    
+    //キャラクターの説明
+    charaExText = Label::createWithSystemFont("", "HiraKakuPro-W3", 25);
+    charaExText -> setPosition(Vec2(selfFrame.width/2,charaNameText->getPosition().y+charaExText->getContentSize().height));
+    charaExText -> setColor(Color3B::BLACK);
+    this -> addChild(charaExText);
+    
+    //キャラクター解放前の解放条件説明
+    charaLockText = Label::createWithSystemFont("", "HiraKakuPro-W3", 25);
+    charaLockText -> setVisible(false);
+    charaLockText -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/3));
+    charaLockText -> setColor(Color3B::BLACK);
+    this -> addChild(charaLockText);
+    
 //型枠の作成
     auto bg = Sprite::create("character_Bg.png");
     
@@ -70,17 +90,57 @@ bool SelectCharacterScene::init()
         if(characterFlag == true){
             //キャラクターの画像に
             switch (idx) {
-                case 0:character = Sprite::create("character_kiki.png");break;
-                case 1:character = Sprite::create("character_petitKiki.png"); break;
-                case 2:character = Sprite::create("character_harryPotter.png"); break;
-                case 3:character = Sprite::create("character_ponyo.png"); break;
-                case 4:character = Sprite::create("character_fordAnglia.png"); break;
-                case 5:character = Sprite::create("character_porcoRosso.png"); break;
+                case 0:
+                    character = Sprite::create("character_kiki.png");
+                    charaNameText -> setString("見習い魔女");
+                    charaExText -> setString("飛ぶのが得意なおてんば少女\n夢に向かって修行中");
+                    break;
+                
+                case 1:
+                    character = Sprite::create("character_petitKiki.png");
+                    charaNameText -> setString("ひよっこ魔女");
+                    charaExText -> setString("飛ぶのが苦手なあなたに、まずは練習用\n〜キャラクターボーナス〜\n障害物にあたりにくい");
+                    break;
+                
+                case 2:
+                    character = Sprite::create("character_harryPotter.png");
+                    charaNameText -> setString("イナズマボーイ");
+                    charaExText -> setString("僕は生き残る！\n〜キャラクターボーナス〜\nストーリクリアポイントに10ポイント加算");
+                    break;
+                
+                case 3:
+                    character = Sprite::create("character_ponyo.png");
+                    charaNameText -> setString("空を駆ける女の子");
+                    charaExText -> setString("元気いっぱい　空もかけちゃお！\n〜キャラクターボーナス〜\nストーリクリアポイント✕3のポイント加算");
+                    break;
+                
+                case 4:
+                    character = Sprite::create("character_fordAnglia.png");
+                    charaNameText -> setString("空飛ぶ車");
+                    charaExText -> setString("オジサンからかりた車\n〜キャラクターボーナス〜\nストーリークリアポイント✕5のポイント加算");
+                    break;
+                
+                case 5:
+                    character = Sprite::create("character_porcoRosso.png");
+                    charaNameText -> setString("元エースパイロット");
+                    charaExText -> setString("自由気ままに生きる、それが男\n〜キャラクターボーナス〜\nストーリークリアポイント✕10ポイント加算");
+                    break;
                 default:break;
             }
         }else{
             //はてなの画像を呼び出し
-            character = Sprite::create("character_lock.png");
+            switch (idx) {
+                case 0:
+                    character = Sprite::create("character_kiki.png");break;
+                    charaNameText -> setVisible(false);
+                    charaExText -> setVisible(false);
+                    charaLockText -> setVisible(false);
+                case 1:character = Sprite::create("character_petitKiki_locked.png");break;
+                case 2:character = Sprite::create("character_ponyo_locked.png");break;
+                case 4:character = Sprite::create("character_fordAnglia_locked.png");break;
+                case 5:character = Sprite::create("character_porcoRosso_locked.png");break;
+                default:break;
+            }
         }
         
         //タップ後のボタンの透明度を変更する

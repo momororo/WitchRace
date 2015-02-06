@@ -225,8 +225,6 @@ void StorySelect::selectStoryCallBack(cocos2d::Ref *pSender){
         //選択したステージの値を保存しておく
         auto userDef = UserDefault::getInstance();
         userDef->setIntegerForKey("selectStory",button->getTag());
-
-        
     
         Director::getInstance()->replaceScene(TransitionFade::create(2, GameScene::createScene(), Color3B::WHITE));
         nextScene = false;

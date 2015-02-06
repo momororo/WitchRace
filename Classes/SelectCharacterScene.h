@@ -26,6 +26,10 @@ public:
     
     //配列(透明度の一括管理のため)
     Vector<Sprite*> *characters = new Vector<Sprite*>;
+    Label *charaNameText;
+    Label *charaExText;
+    label *charaLockText;
+    
 
 };
 
