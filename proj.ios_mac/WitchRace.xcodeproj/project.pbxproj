@@ -14,7 +14,6 @@
 		041027001A6F514700837C82 /* PetitKiki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041026FE1A6F514700837C82 /* PetitKiki.cpp */; };
 		041EF68D1A5CBF2A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
 		041EF6901A5CC01A0039FE88 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041EF68B1A5CBF2A0039FE88 /* LoadScene.cpp */; };
-		044BAC541A7F6FB500CBD57B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044BAC531A7F6FB500CBD57B /* Images.xcassets */; };
 		045EAE781A7E2951000059FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EAE761A7E2951000059FF /* Bolts.framework */; };
 		045EAE791A7E2952000059FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EAE771A7E2951000059FF /* Parse.framework */; };
 		045EAE7B1A7E299E000059FF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EAE7A1A7E299E000059FF /* AudioToolbox.framework */; };
@@ -96,10 +95,20 @@
 		A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6B1A5FB7280005E670 /* town_3.png */; };
 		A42E0E701A5FB7280005E670 /* town_gameBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6C1A5FB7280005E670 /* town_gameBg.png */; };
 		A42FC9031A6F70CB00F452C4 /* FordAnglia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */; };
+		A44C995D1A81E47A00200C91 /* particle_ponyo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A44C995B1A81E47A00200C91 /* particle_ponyo.plist */; };
+		A44C995E1A81E47A00200C91 /* particle_ponyo.png in Resources */ = {isa = PBXBuildFile; fileRef = A44C995C1A81E47A00200C91 /* particle_ponyo.png */; };
+		A44C99631A8207BB00200C91 /* particle_runPonyo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A44C99611A8207BB00200C91 /* particle_runPonyo.plist */; };
+		A44C99641A8207BB00200C91 /* particle_runPonyo.png in Resources */ = {isa = PBXBuildFile; fileRef = A44C99621A8207BB00200C91 /* particle_runPonyo.png */; };
+		A44C99661A820C9400200C91 /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = A44C99651A820C9400200C91 /* fish.png */; };
+		A44C99671A84905D00200C91 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044BAC531A7F6FB500CBD57B /* Images.xcassets */; };
 		A457D8121A6E4549007C2E41 /* character_Bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8111A6E4549007C2E41 /* character_Bg.png */; };
 		A457D8141A6E4555007C2E41 /* storyBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8131A6E4555007C2E41 /* storyBg.png */; };
 		A457D8161A6E572B007C2E41 /* tutorialBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8151A6E572B007C2E41 /* tutorialBg.png */; };
 		A457D8191A6E5AF7007C2E41 /* TutorialScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A457D8171A6E5AF7007C2E41 /* TutorialScene.cpp */; };
+		A4643F031A80F57A00C09591 /* particle_fordAnglia.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4643F011A80F57A00C09591 /* particle_fordAnglia.plist */; };
+		A4643F041A80F57A00C09591 /* particle_fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4643F021A80F57A00C09591 /* particle_fordAnglia.png */; };
+		A4643F171A80FDB600C09591 /* particle_porcoRosso.png in Resources */ = {isa = PBXBuildFile; fileRef = A4643F151A80FDB600C09591 /* particle_porcoRosso.png */; };
+		A4643F181A80FDB600C09591 /* particle_porcoRosso.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4643F161A80FDB600C09591 /* particle_porcoRosso.plist */; };
 		A4722A751A6E9B8A00CC1A42 /* tutorial_tapHold.png in Resources */ = {isa = PBXBuildFile; fileRef = A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */; };
 		A4722A761A6E9B8A00CC1A42 /* tutorial_hand.png in Resources */ = {isa = PBXBuildFile; fileRef = A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */; };
 		A473C84A1A627B64009000A5 /* pause_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A473C8491A627B64009000A5 /* pause_gameClear.png */; };
@@ -428,11 +437,20 @@
 		A42E0E6C1A5FB7280005E670 /* town_gameBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_gameBg.png; sourceTree = "<group>"; };
 		A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FordAnglia.cpp; path = ../Classes/FordAnglia.cpp; sourceTree = "<group>"; };
 		A42FC9021A6F70CB00F452C4 /* FordAnglia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FordAnglia.h; path = ../Classes/FordAnglia.h; sourceTree = "<group>"; };
+		A44C995B1A81E47A00200C91 /* particle_ponyo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_ponyo.plist; sourceTree = "<group>"; };
+		A44C995C1A81E47A00200C91 /* particle_ponyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_ponyo.png; sourceTree = "<group>"; };
+		A44C99611A8207BB00200C91 /* particle_runPonyo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_runPonyo.plist; sourceTree = "<group>"; };
+		A44C99621A8207BB00200C91 /* particle_runPonyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_runPonyo.png; sourceTree = "<group>"; };
+		A44C99651A820C9400200C91 /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
 		A457D8111A6E4549007C2E41 /* character_Bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_Bg.png; sourceTree = "<group>"; };
 		A457D8131A6E4555007C2E41 /* storyBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storyBg.png; sourceTree = "<group>"; };
 		A457D8151A6E572B007C2E41 /* tutorialBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialBg.png; sourceTree = "<group>"; };
 		A457D8171A6E5AF7007C2E41 /* TutorialScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TutorialScene.cpp; path = ../Classes/TutorialScene.cpp; sourceTree = "<group>"; };
 		A457D8181A6E5AF7007C2E41 /* TutorialScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialScene.h; path = ../Classes/TutorialScene.h; sourceTree = "<group>"; };
+		A4643F011A80F57A00C09591 /* particle_fordAnglia.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_fordAnglia.plist; sourceTree = "<group>"; };
+		A4643F021A80F57A00C09591 /* particle_fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_fordAnglia.png; sourceTree = "<group>"; };
+		A4643F151A80FDB600C09591 /* particle_porcoRosso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_porcoRosso.png; sourceTree = "<group>"; };
+		A4643F161A80FDB600C09591 /* particle_porcoRosso.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_porcoRosso.plist; sourceTree = "<group>"; };
 		A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_tapHold.png; sourceTree = "<group>"; };
 		A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_hand.png; sourceTree = "<group>"; };
 		A473C8491A627B64009000A5 /* pause_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_gameClear.png; sourceTree = "<group>"; };
@@ -769,6 +787,7 @@
 			isa = PBXGroup;
 			children = (
 				044BAC531A7F6FB500CBD57B /* Images.xcassets */,
+				A44C99651A820C9400200C91 /* fish.png */,
 				A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */,
 				A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */,
 				A457D8151A6E572B007C2E41 /* tutorialBg.png */,
@@ -843,6 +862,14 @@
 				A47F2D9F1A5D39EA0050F464 /* factory.png */,
 				A4A8E8351A5BF9F000E3E346 /* kikiparticle.plist */,
 				A4A8E8361A5BF9F000E3E346 /* kikitexture.png */,
+				A44C99611A8207BB00200C91 /* particle_runPonyo.plist */,
+				A44C99621A8207BB00200C91 /* particle_runPonyo.png */,
+				A44C995B1A81E47A00200C91 /* particle_ponyo.plist */,
+				A44C995C1A81E47A00200C91 /* particle_ponyo.png */,
+				A4643F151A80FDB600C09591 /* particle_porcoRosso.png */,
+				A4643F161A80FDB600C09591 /* particle_porcoRosso.plist */,
+				A4643F011A80F57A00C09591 /* particle_fordAnglia.plist */,
+				A4643F021A80F57A00C09591 /* particle_fordAnglia.png */,
 				A41A6F2B1A52A68D0049829A /* particleFlower.plist */,
 				A41A6F2C1A52A68D0049829A /* particleFlower.png */,
 				A4CB43DD1A4035CD00890E53 /* titleBk.png */,
@@ -1040,11 +1067,14 @@
 				A4CB43DF1A40361F00890E53 /* MagicSchoolOne.ttf in Resources */,
 				A4BB07321A39A23000991DCE /* bad.plist in Resources */,
 				A4BB07311A39A23000991DCE /* bad.png in Resources */,
+				A44C99671A84905D00200C91 /* Images.xcassets in Resources */,
 				A47F2DA01A5D39EA0050F464 /* factory.plist in Resources */,
+				A44C995D1A81E47A00200C91 /* particle_ponyo.plist in Resources */,
 				A457D8141A6E4555007C2E41 /* storyBg.png in Resources */,
 				A4722A751A6E9B8A00CC1A42 /* tutorial_tapHold.png in Resources */,
 				A4C114441A6F776E00140E2F /* broomOfKiki_down.png in Resources */,
 				A47F2DBB1A5D3A740050F464 /* village_3.png in Resources */,
+				A4643F171A80FDB600C09591 /* particle_porcoRosso.png in Resources */,
 				A47F2DAA1A5D3A180050F464 /* forest.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				A491FC8E1A6D0C4D008A6C56 /* homeBt.png in Resources */,
@@ -1055,6 +1085,7 @@
 				A48C10661A68EBB4009D8C46 /* twitterBt.png in Resources */,
 				A4D046031A7CDF9A00969D54 /* character_fordAnglia_locked.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
+				A4643F181A80FDB600C09591 /* particle_porcoRosso.plist in Resources */,
 				A49DA19B1A68BAED0058BABF /* ssUpperOrnament.png in Resources */,
 				A48C105A1A68DFA1009D8C46 /* gaugeOfKiki.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
@@ -1077,11 +1108,14 @@
 				A42C8FF71A6A684E008C5DE4 /* characterBt.png in Resources */,
 				A42E0E6D1A5FB7280005E670 /* town_1.png in Resources */,
 				A4722A761A6E9B8A00CC1A42 /* tutorial_hand.png in Resources */,
+				A4643F031A80F57A00C09591 /* particle_fordAnglia.plist in Resources */,
+				A44C99631A8207BB00200C91 /* particle_runPonyo.plist in Resources */,
 				A47F2DB01A5D3A2B0050F464 /* forest_1.png in Resources */,
 				A4D045FD1A7CDF9A00969D54 /* character_porcoRosso.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				A47F2DB91A5D3A740050F464 /* village_1.png in Resources */,
 				A4D046041A7CDF9A00969D54 /* character_kiki.png in Resources */,
+				A44C99641A8207BB00200C91 /* particle_runPonyo.png in Resources */,
 				A4D046011A7CDF9A00969D54 /* character_harryPotter_locked.png in Resources */,
 				A4A8E8371A5BF9F000E3E346 /* kikiparticle.plist in Resources */,
 				A4D045EC1A7CA30F00969D54 /* ponyo.png in Resources */,
@@ -1124,11 +1158,13 @@
 				A4BB07221A3976B600991DCE /* kiki_up_shadow.png in Resources */,
 				A42C8FF91A6A6855008C5DE4 /* tutorialBt.png in Resources */,
 				A47F2DC51A5D3DD70050F464 /* particle_gameOver.png in Resources */,
+				A44C995E1A81E47A00200C91 /* particle_ponyo.png in Resources */,
 				A4C114511A6F781A00140E2F /* fordAnglia.png in Resources */,
 				A4C114421A6F776E00140E2F /* broomOfKiki_up.png in Resources */,
 				A47F2DA61A5D39F50050F464 /* factory_2.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
+				A44C99661A820C9400200C91 /* fish.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				A48D62A11A5E5D9E003448B8 /* field_gameBg.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
@@ -1138,6 +1174,7 @@
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				A4C1144D1A6F778E00140E2F /* porcoRosso_shadow.png in Resources */,
 				A491FC941A6D0D25008A6C56 /* nextBt.png in Resources */,
+				A4643F041A80F57A00C09591 /* particle_fordAnglia.png in Resources */,
 				A42E0E6E1A5FB7280005E670 /* town_2.png in Resources */,
 				A47F2DC41A5D3DD70050F464 /* particle_gameOver.plist in Resources */,
 				A4D046051A7CDF9A00969D54 /* character_ponyo.png in Resources */,

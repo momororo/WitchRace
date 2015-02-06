@@ -153,7 +153,7 @@ FordAnglia::FordAnglia(){
     //retainしないと勝手に解放されて後々エラーへ
     endParticle->retain();
     
-    fordAngliaParticle = ParticleSystemQuad::create("kikiparticle.plist");
+    fordAngliaParticle = ParticleSystemQuad::create("particle_fordAnglia.plist");
     fordAngliaParticle->setAnchorPoint(Vec2(0.5f,0.5f));
     fordAngliaParticle->setPosition(Vec2(3,fordAnglia->getContentSize().height/3-6));
     fordAngliaParticle->setName("kikiParticle");
@@ -250,6 +250,7 @@ void FordAnglia::characterUpdate(bool tappedFlag){
         fordAnglia->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         fordAnglia -> setRotation(pRotate);
+        fordAngliaParticle->setRotation(-pRotate);
         
     }else{
         
@@ -316,7 +317,7 @@ void FordAnglia::characterUpdate(bool tappedFlag){
         fordAnglia->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         fordAnglia -> setRotation(pRotate);
-        
+        fordAngliaParticle->setRotation(-pRotate);
         
     }
     

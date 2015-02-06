@@ -197,13 +197,26 @@ Ponyo::Ponyo(){
     //retainしないと勝手に解放されて後々エラーへ
     endParticle->retain();
     
-    ponyoParticle = ParticleSystemQuad::create("kikiparticle.plist");
+    ponyoParticle = ParticleSystemQuad::create("particle_ponyo.plist");
     ponyoParticle->setAnchorPoint(Vec2(0.5f,0.5f));
-    ponyoParticle->setPosition(Vec2(3,ponyo->getContentSize().height/3-6));
+    ponyoParticle->setPosition(Vec2(-300,-800));
     ponyoParticle->setName("kikiParticle");
     ponyoParticle->setGlobalZOrder(zOrderOfKikiShadow);
     ponyoParticle->cocos2d::ParticleSystem::setSpeed(500);
     ponyo->addChild(ponyoParticle);
+    
+    auto runPonyoParticle = ParticleSystemQuad::create("particle_runPonyo.plist");
+    runPonyoParticle->setAnchorPoint(Vec2(0.5f,0.5f));
+    runPonyoParticle->setPosition(Vec2(ponyo->getContentSize().width/2,-5));
+    runPonyoParticle->setName("runPonyoParticle");
+    runPonyoParticle->setGlobalZOrder(zOrderOfKiki);
+    ponyo->addChild(runPonyoParticle);
+    
+    auto fish = Sprite::create("fish.png");
+    fish -> setPosition(Vec2(-selfFrame.width/3,-selfFrame.height/8));
+    fish -> setOpacity(200);
+    fish -> setScale(2);
+    ponyo->addChild(fish);
     
 }
 
@@ -292,7 +305,9 @@ void Ponyo::characterUpdate(bool tappedFlag){
         
         
         ponyo->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
+        ponyoParticle->setRotation(-pRotate);
         ponyo -> setRotation(pRotate);
+        ponyo -> getChildByName("runPonyoParticle")->setRotation(-pRotate);
         
     }else{
         
@@ -358,7 +373,8 @@ void Ponyo::characterUpdate(bool tappedFlag){
         
         ponyo->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         ponyo -> setRotation(pRotate);
-        
+        ponyoParticle->setRotation(-pRotate);
+        ponyo -> getChildByName("runPonyoParticle")->setRotation(-pRotate);
         
     }
     

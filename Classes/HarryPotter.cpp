@@ -248,6 +248,7 @@ void HarryPotter::characterUpdate(bool tappedFlag){
             harryPotter->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             harryPotter -> setRotation(pRotate);
+            harryPotterParticle->setRotation(-pRotate);
 
             
         }else{
@@ -317,6 +318,8 @@ void HarryPotter::characterUpdate(bool tappedFlag){
             harryPotter->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             harryPotter -> setRotation(pRotate);
+            harryPotterParticle->setRotation(-pRotate);
+
 
             
             

@@ -156,9 +156,9 @@ PorcoRosso::PorcoRosso(){
     //retainしないと勝手に解放されて後々エラーへ
     endParticle->retain();
     
-    porcoRossoParticle = ParticleSystemQuad::create("kikiparticle.plist");
+    porcoRossoParticle = ParticleSystemQuad::create("particle_porcoRosso.plist");
     porcoRossoParticle->setAnchorPoint(Vec2(0.5f,0.5f));
-    porcoRossoParticle->setPosition(Vec2(3,porcoRosso->getContentSize().height/3-6));
+    porcoRossoParticle->setPosition(Vec2(porcoRosso->getContentSize().width/2+20,porcoRosso->getContentSize().height*3/4+3));
     porcoRossoParticle->setName("kikiParticle");
     porcoRossoParticle->setGlobalZOrder(zOrderOfKikiShadow);
     porcoRosso->addChild(porcoRossoParticle);
@@ -191,7 +191,7 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             
             
             
-            porcoRossoParticle->cocos2d::ParticleSystem::setSpeed(500);
+            //porcoRossoParticle->cocos2d::ParticleSystem::setSpeed(500);
             
             
             
@@ -233,9 +233,9 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
                 
             }
             //MARK::上昇時の回転
-            if (pRotate < -30) {
+            if (pRotate < -40) {
                 
-                pRotate = -30;
+                pRotate = -40;
                 
             }else if(pRotate > 10){
                 
@@ -250,6 +250,7 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             
             porcoRosso->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             porcoRosso->setRotation(pRotate);
+            porcoRossoParticle->setRotation(-pRotate/2);
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             
         }else{
@@ -260,7 +261,7 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             //porcoRossoParticle->cocos2d::ParticleSystem::setSpeed(300);
 
 
-            
+        
             
             //透明度を変更
             if(porcoRossoShadow->getOpacity() != 180){
@@ -300,9 +301,9 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             }
             
             //MARK::下降時の回転
-            if (pRotate > 30) {
+            if (pRotate > 40) {
                 
-                pRotate = 30;
+                pRotate = 40;
                 
             }if (pRotate < -10) {
                 
@@ -316,6 +317,7 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             
             porcoRosso->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             porcoRosso->setRotation(pRotate);
+            porcoRossoParticle->setRotation(-pRotate/2);
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
 
             
