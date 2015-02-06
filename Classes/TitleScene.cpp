@@ -6,6 +6,7 @@
 #include "NativeLauncher.h"
 #include "SelectCharacterScene.h"
 #include "ADGConnectionForIOS.h"
+#include "AppCCloudPlugin.h"
 //#include "NendModule.h"
 //#include "NendInterstitialModule.h"
 //#include "AppCCloudPlugin.h"
@@ -47,7 +48,10 @@ bool TitleScene::init(){
     
     
     //広告(appBank SSP) y座標をselfframe.height/2にしているが、理由は不明
-    ADGConnectionForIOS::initADG((char*)"10723", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
+    //テスト
+//    ADGConnectionForIOS::initADG((char*)"10723", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
+    //本番
+//    ADGConnectionForIOS::initADG((char*)"20338 ", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
     //終
     
     /*
@@ -286,7 +290,7 @@ void TitleScene::setOtherBt(){
     auto pBtnItem = MenuItemSprite::create(otherBt, otherBtTaped, [](Ref *ref){
         
         //appCCloudのメソッド
-        CCLOG("誰かインストールしてちょ");
+        AppCCloudPlugin::Ad::openAdListView();
         
     });
     
