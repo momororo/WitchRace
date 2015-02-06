@@ -8,6 +8,8 @@
 
 #include "GameScene.h"
 #include "LoadScene.h"
+#include "NendInterstitialModule.h"
+#include "NativeLauncher.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -145,7 +147,6 @@ bool GameScene::init()
     auto playCount = userDef->getIntegerForKey(str.c_str());
     playCount++;
     userDef->setIntegerForKey(str.c_str(), playCount);
-
     
     return true;
     
@@ -296,6 +297,11 @@ if(CharacterSwitch::getInstance()->getGamePlayFlag() == true){
 #pragma mark-
 #pragma mark ゲームオーバーの処理
 void GameScene::makeGameOver(){
+    
+    //nend表示
+    NendInterstitialModule::showNADInterstitialView();
+    
+    
     //スケジュールの停止
     this->unscheduleUpdate();
     
@@ -413,6 +419,10 @@ void GameScene::makeGameOver(){
 #pragma mark ゲームクリアの処理
 
 void GameScene::makeGameClear(){
+    
+    //nend表示
+    NendInterstitialModule::showNADInterstitialView();
+    
     //スケジュールの停止
     this->unscheduleUpdate();
     
@@ -441,6 +451,10 @@ void GameScene::makeGameClear(){
     auto clearCount = userDef->getIntegerForKey(str.c_str());
     clearCount++;
     userDef->setIntegerForKey(str.c_str(), clearCount);
+    
+    
+    //ゲームセンターにスコアを贈ろう
+    NativeLauncher::postHighScore("WitchRacePointRanking", 100);
     
     
 //終

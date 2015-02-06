@@ -5,6 +5,8 @@
 #include <string.h>
 #include "NativeLauncher.h"
 #include "SelectCharacterScene.h"
+#include "ADGConnectionForIOS.h"
+#include "AppCCloudPlugin.h"
 //#include "NendModule.h"
 //#include "NendInterstitialModule.h"
 //#include "AppCCloudPlugin.h"
@@ -39,9 +41,19 @@ bool TitleScene::init(){
         return false;
     }
     
+    
     auto titleBg = Sprite::create("titleBg.png");
     titleBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBg);
+    
+    
+    //広告(appBank SSP) y座標をselfframe.height/2にしているが、理由は不明
+    //テスト
+//    ADGConnectionForIOS::initADG((char*)"10723", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
+    //本番
+//    ADGConnectionForIOS::initADG((char*)"20338 ", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
+    //終
+    
     /*
     auto titleSignboard = Sprite::create("titleObject.png");
     titleSignboard -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*3/4));
@@ -249,8 +261,9 @@ void TitleScene::setRankingBt(){
     //メニューアイテムの作成
     auto pBtnItem = MenuItemSprite::create(rankingBt, rankingBtTaped, [](Ref *ref){
         
-        //ランキング呼び出すメソッド
-        CCLOG("アチーブメントになるのかな？");
+        //ランキング表示
+        NativeLauncher::openRanking();
+        
         
     });
     
@@ -277,7 +290,7 @@ void TitleScene::setOtherBt(){
     auto pBtnItem = MenuItemSprite::create(otherBt, otherBtTaped, [](Ref *ref){
         
         //appCCloudのメソッド
-        CCLOG("誰かインストールしてちょ");
+        AppCCloudPlugin::Ad::openAdListView();
         
     });
     
