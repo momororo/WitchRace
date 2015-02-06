@@ -31,5 +31,4 @@ void NativeLauncher::openRanking()
 void NativeLauncher::postHighScore(std::string key,int score)
 {
     [GameCenter postHighScore:[[[NSString alloc] initWithCString:key.c_str() encoding:NSUTF8StringEncoding] autorelease] score:score];
-    
 }
