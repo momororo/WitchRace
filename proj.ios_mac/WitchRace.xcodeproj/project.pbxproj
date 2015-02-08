@@ -146,7 +146,6 @@
 		A42E0E6E1A5FB7280005E670 /* town_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6A1A5FB7280005E670 /* town_2.png */; };
 		A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E0E6B1A5FB7280005E670 /* town_3.png */; };
 		A42FC9031A6F70CB00F452C4 /* FordAnglia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */; };
-		A43593401A85B93D00B26BAB /* character_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A435933F1A85B93D00B26BAB /* character_bg.png */; };
 		A44C995D1A81E47A00200C91 /* particle_ponyo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A44C995B1A81E47A00200C91 /* particle_ponyo.plist */; };
 		A44C995E1A81E47A00200C91 /* particle_ponyo.png in Resources */ = {isa = PBXBuildFile; fileRef = A44C995C1A81E47A00200C91 /* particle_ponyo.png */; };
 		A44C99631A8207BB00200C91 /* particle_runPonyo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A44C99611A8207BB00200C91 /* particle_runPonyo.plist */; };
@@ -240,6 +239,7 @@
 		A4D046061A7CDF9A00969D54 /* character_ponyo_locked.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D045FB1A7CDF9A00969D54 /* character_ponyo_locked.png */; };
 		A4D046091A7CFB6400969D54 /* character_fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D046081A7CFB6400969D54 /* character_fordAnglia.png */; };
 		A4D10A211A6F99B100A00B13 /* porcoRosso.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D10A201A6F99B100A00B13 /* porcoRosso.png */; };
+		A4DC208B1A87420E0098E564 /* character_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DC208A1A87420E0098E564 /* character_bg.png */; };
 		A4E4855A1A2F4F2200780AF3 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4E485581A2F4F2200780AF3 /* TitleScene.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -574,7 +574,6 @@
 		A42E0E6C1A5FB7280005E670 /* town_gameBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town_gameBg.png; sourceTree = "<group>"; };
 		A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FordAnglia.cpp; path = ../Classes/FordAnglia.cpp; sourceTree = "<group>"; };
 		A42FC9021A6F70CB00F452C4 /* FordAnglia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FordAnglia.h; path = ../Classes/FordAnglia.h; sourceTree = "<group>"; };
-		A435933F1A85B93D00B26BAB /* character_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_bg.png; sourceTree = "<group>"; };
 		A44C995B1A81E47A00200C91 /* particle_ponyo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_ponyo.plist; sourceTree = "<group>"; };
 		A44C995C1A81E47A00200C91 /* particle_ponyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_ponyo.png; sourceTree = "<group>"; };
 		A44C99611A8207BB00200C91 /* particle_runPonyo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_runPonyo.plist; sourceTree = "<group>"; };
@@ -670,6 +669,7 @@
 		A4D046081A7CFB6400969D54 /* character_fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_fordAnglia.png; sourceTree = "<group>"; };
 		A4D10A201A6F99B100A00B13 /* porcoRosso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = porcoRosso.png; sourceTree = "<group>"; };
 		A4D5496A1A31BF8B0066858C /* kiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki.png; sourceTree = "<group>"; };
+		A4DC208A1A87420E0098E564 /* character_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_bg.png; sourceTree = "<group>"; };
 		A4E485581A2F4F2200780AF3 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		A4E485591A2F4F2200780AF3 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1081,7 +1081,7 @@
 				A4D045FA1A7CDF9A00969D54 /* character_ponyo.png */,
 				A4D045FB1A7CDF9A00969D54 /* character_ponyo_locked.png */,
 				A4D046081A7CFB6400969D54 /* character_fordAnglia.png */,
-				A435933F1A85B93D00B26BAB /* character_bg.png */,
+				A4DC208A1A87420E0098E564 /* character_bg.png */,
 				A457D8131A6E4555007C2E41 /* storyBg.png */,
 				A42C8FF81A6A6855008C5DE4 /* tutorialBt.png */,
 				A42C8FF61A6A684E008C5DE4 /* characterBt.png */,
@@ -1414,7 +1414,7 @@
 				A44C99641A8207BB00200C91 /* particle_runPonyo.png in Resources */,
 				A4D046011A7CDF9A00969D54 /* character_harryPotter_locked.png in Resources */,
 				A4A8E8371A5BF9F000E3E346 /* kikiparticle.plist in Resources */,
-				A43593401A85B93D00B26BAB /* character_bg.png in Resources */,
+				A4DC208B1A87420E0098E564 /* character_bg.png in Resources */,
 				A4D045EC1A7CA30F00969D54 /* ponyo.png in Resources */,
 				A48D629C1A5E5D95003448B8 /* field.png in Resources */,
 				A4D046001A7CDF9A00969D54 /* character_porcoRosso_locked.png in Resources */,
