@@ -233,7 +233,16 @@ bool SelectCharacterScene::init()
         }else{
             
             pBtnItem = MenuItemSprite::create(character, tappedCharacter,[&](Ref *ref){
-                //特に処理なし→[&](Ref *ref)の部分をNULLにすると落ちるため、ラムダ式を取り入れています。
+                
+                MenuItem* button = (MenuItem*)ref;
+                
+                
+                //フラグの設定
+                userDef->setIntegerForKey("selectCharacter",button->getTag());
+                CCLOG("%d",button->getTag());
+                
+                
+                
             });
             
         }
