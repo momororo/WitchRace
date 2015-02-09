@@ -578,6 +578,26 @@ void GameScene::makeGameClear(){
     homeMenu->setColor(Color3B(255, 255, 177));
     gameOverOfLabel->addChild(homeMenu,2);
     
+    //リトライボタン作成
+    auto retryBt = Sprite::create("retryBt.png");
+    
+    auto retryBtTaped = Sprite::create("retryBt.png");
+    retryBtTaped -> setOpacity(150);
+    
+    auto retryBtnItem = MenuItemSprite::create(retryBt, retryBtTaped,[](Ref *ref){
+        
+        Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("GameScene"));
+        
+        Director::getInstance()->replaceScene(nextScene);
+        
+    });
+    
+    auto retryMenu = Menu::create(retryBtnItem, NULL);
+    
+    retryMenu->setPosition(Vec2(selfFrame.width/2, selfFrame.height/4));
+    retryMenu->setColor(Color3B(255, 255, 177));
+    gameOverOfLabel->addChild(retryMenu,2);
+    
     
     //「Game Clear」ラベル作成
     auto gameOverLabel = Label::createWithSystemFont("Game Clear", "MagicSchoolOne", 150);

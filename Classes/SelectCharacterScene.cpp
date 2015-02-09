@@ -8,6 +8,7 @@
 
 #include "SelectCharacterScene.h"
 #include "TitleScene.h"
+#include "NativeLauncher.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -53,9 +54,12 @@ bool SelectCharacterScene::init()
     titleLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*10/11));
     this -> addChild(titleLabel,10);
     
+    
     //userDefから獲得ポイント呼び出し準備
     auto userDef = UserDefault::getInstance();
 
+    //userDef->setIntegerForKey("playPoint", 10000);
+    
     std::string totalStr = StringUtils::format("point : %d",userDef -> getIntegerForKey("playPoint"));
     
     //ポイントラベル作成
@@ -74,15 +78,16 @@ bool SelectCharacterScene::init()
     charaExLabel -> setColor(Color3B::BLACK);
     this -> addChild(charaExLabel);
     
-    
 //ボタンの作成(for文で回す？？)
 
     //ユーザーデフォルトを呼び出してキャラクターフラグを確認
-    userDef->setBoolForKey("characterFlag1", false);
-    userDef->setBoolForKey("characterFlag2", false);
-    userDef->setBoolForKey("characterFlag3", false);
-    userDef->setBoolForKey("characterFlag4", false);
-    userDef->setBoolForKey("characterFlag5", false);
+    /*
+     userDef->setBoolForKey("characterFlag1", false);
+     userDef->setBoolForKey("characterFlag2", false);
+     userDef->setBoolForKey("characterFlag3", false);
+     userDef->setBoolForKey("characterFlag4", false);
+     userDef->setBoolForKey("characterFlag5", false);
+    */
 
 
     for(int idx = 0; idx < 6;idx++){
@@ -127,7 +132,7 @@ bool SelectCharacterScene::init()
             
             switch (idx) {
                 case 0:break;
-                case 1:charaPoint = 0;
+                case 1:charaPoint = 0;break;
                 case 2:charaPoint = 200;break;
                 case 3:charaPoint = 500;break;
                 case 4:charaPoint = 3000;break;
@@ -137,6 +142,7 @@ bool SelectCharacterScene::init()
             
             if (userDef -> getIntegerForKey("playPoint") >= charaPoint) {
                 character ->setOpacity(255);
+            
             }else{
                 
                 character->setOpacity(128);
@@ -198,24 +204,22 @@ bool SelectCharacterScene::init()
                 MenuItem* button = (MenuItem*)ref;
 
                 
+                characters->at(userDef->getIntegerForKey("selectCharacter"))->setOpacity(128);
+                
+                
                 //フラグの設定
                 userDef->setIntegerForKey("selectCharacter",button->getTag());
                 CCLOG("%d",button->getTag());
                 
                 //透明度を一括変更
-                for(auto character : *characters){
+                /*for(auto character : *characters){
                     
-                    if (characterFlag == true) {
-                        character->setOpacity(128);
-                    }
+                    character->setOpacity(128);
                     
-                }
+                }*/
                 
                 //対象のボタンの透明度を変更
                 characters->at(button->getTag())->setOpacity(255);
-                
-                //int playPoint = userDef->getIntegerForKey("playPoint");
-                
                 
                 //対象の説明テキストをセット
                 switch (userDef -> getIntegerForKey("selectCharacter")) {
@@ -240,6 +244,106 @@ bool SelectCharacterScene::init()
                 //フラグの設定
                 userDef->setIntegerForKey("selectCharacter",button->getTag());
                 CCLOG("%d",button->getTag());
+                
+                switch (button->getTag()) {
+                    case 0:break;
+                    
+                    case 1:
+                        //レビューに飛ばす
+                        userDef->setBoolForKey("characterFlag1", true);
+                        userDef -> setIntegerForKey("selectCharacter",button->getTag());
+                        this->removeAllChildrenWithCleanup(true);
+                        characters->clear();
+                        init();
+                        
+                        NativeLauncher::openReview();
+
+
+
+
+
+                        
+                        break;
+                        
+                    case 2:
+                        if (userDef->getIntegerForKey("playPoint")>=200) {
+                        
+                            //フラグをオンにする
+                            userDef->setBoolForKey("characterFlag2", true);
+                        
+                        
+                        userDef -> setIntegerForKey("playPoint", userDef->getIntegerForKey("playPoint")-200);
+                        userDef -> setIntegerForKey("selectCharacter",button->getTag());
+
+                        
+                        this->removeAllChildrenWithCleanup(true);
+                            
+                            characters->clear();
+                        
+                        init();
+                            
+                        }
+                        break;
+                    case 3:
+                        if (userDef->getIntegerForKey("playPoint")>=500) {
+                            
+                            //フラグをオンにする
+                            userDef->setBoolForKey("characterFlag3", true);
+                            
+                            
+                            userDef -> setIntegerForKey("playPoint", userDef->getIntegerForKey("playPoint")-500);
+                            userDef -> setIntegerForKey("selectCharacter",button->getTag());
+                            
+                            
+                            this->removeAllChildrenWithCleanup(true);
+                            
+                            characters->clear();
+                            
+                            init();
+                            
+                        }
+                        break;
+                    case 4:
+                        if (userDef->getIntegerForKey("playPoint")>=3000) {
+                            
+                            //フラグをオンにする
+                            userDef->setBoolForKey("characterFlag4", true);
+                            
+                            
+                            userDef -> setIntegerForKey("playPoint", userDef->getIntegerForKey("playPoint")-3000);
+                            userDef -> setIntegerForKey("selectCharacter",button->getTag());
+                            
+                            
+                            this->removeAllChildrenWithCleanup(true);
+                            
+                            characters->clear();
+                            
+                            init();
+                            
+                        }
+                        break;
+                    case 5:
+                        if (userDef->getIntegerForKey("playPoint")>=10000) {
+                            
+                            //フラグをオンにする
+                            userDef->setBoolForKey("characterFlag5", true);
+                            
+                            
+                            userDef -> setIntegerForKey("playPoint", userDef->getIntegerForKey("playPoint")-10000);
+                            userDef -> setIntegerForKey("selectCharacter",button->getTag());
+                            
+                            
+                            this->removeAllChildrenWithCleanup(true);
+                            characters->clear();
+                            
+                            init();
+                            
+                        }
+                        break;
+                        
+                    default:
+                        break;
+                }
                 
                 
                 
