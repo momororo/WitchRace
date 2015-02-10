@@ -609,75 +609,102 @@ void GameScene::makeGameClear(){
     
 
     //ステージポイントラベル
-    std::string stageStr = StringUtils::format("STAGE POINT");
+    std::string stageStr = StringUtils::format("%s","STAGE POINT");
     auto stagePointLabel = Label::createWithSystemFont(stageStr.c_str(), "MagicSchoolOne", 35);
-    stagePointLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/20*11));
+    stagePointLabel -> setPosition(Vec2(selfFrame.width/6,selfFrame.height/20*11));
     stagePointLabel -> setColor(Color3B(255, 255, 177));
+    stagePointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     stagePointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     gameOverOfLabel -> addChild(stagePointLabel,5);
     
     //ステージポイント数値
-    auto stageNumStr = StringUtils::format("%d",stagePoint);
+    auto stageNumStr = StringUtils::format("%5d",stagePoint);
     auto stageNumLabel = Label::createWithSystemFont(stageNumStr.c_str(), "MagicSchoolOne", 35);
-    stageNumLabel -> setPosition(Vec2(selfFrame.width - stageNumLabel->getContentSize().width * 2,stagePointLabel->getPositionY()));
+    stageNumLabel -> setPosition(Vec2(selfFrame.width - selfFrame.width /6,stagePointLabel->getPositionY()));
     stageNumLabel -> setColor(Color3B(255, 255, 177));
+    stageNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
     stageNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     gameOverOfLabel -> addChild(stageNumLabel,5);
     
 
 
     //キャラクターポイントラベル
-    std::string characterStr = StringUtils::format("CHARACTER POINT");
+    std::string characterStr = StringUtils::format("%s","CHARACTER POINT");
     auto characterPointLabel = Label::createWithSystemFont(characterStr.c_str(), "MagicSchoolOne", 35);
-    characterPointLabel -> setPosition(Vec2(selfFrame.width/2,stagePointLabel->getPositionY() - characterPointLabel->getContentSize().height));
+    characterPointLabel -> setPosition(Vec2(stagePointLabel->getPositionX(),stagePointLabel->getPositionY() - characterPointLabel->getContentSize().height));
     characterPointLabel -> setColor(Color3B(255, 255, 177));
+    characterPointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     characterPointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     gameOverOfLabel -> addChild(characterPointLabel,5);
     
     //キャラクターポイント数値
-    auto characterNumStr = StringUtils::format("%d",characterPoint);
+    auto characterNumStr = StringUtils::format("%5d",characterPoint);
     auto characterNumLabel = Label::createWithSystemFont(characterNumStr.c_str(), "MagicSchoolOne", 35);
-    characterNumLabel -> setPosition(Vec2(selfFrame.width - characterNumLabel->getContentSize().width * 2,characterPointLabel->getPositionY()));
+    characterNumLabel -> setPosition(Vec2(stageNumLabel->getPositionX(),characterPointLabel->getPositionY()));
     characterNumLabel -> setColor(Color3B(255, 255, 177));
+    characterNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
+
     characterNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     gameOverOfLabel -> addChild(characterNumLabel,5);
 
 
     //ゲットポイントラベル
-    std::string getStr = StringUtils::format("GET POINT");
+    std::string getStr = StringUtils::format("%s","GET POINT");
     auto getPointLabel = Label::createWithSystemFont(getStr.c_str(), "MagicSchoolOne", 35);
-    getPointLabel -> setPosition(Vec2(selfFrame.width/2,characterPointLabel->getPositionY() - getPointLabel->getContentSize().height));
+    getPointLabel -> setPosition(Vec2(stagePointLabel->getPositionX(),characterPointLabel->getPositionY() - getPointLabel->getContentSize().height));
     getPointLabel -> setColor(Color3B(255, 255, 177));
     getPointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    getPointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     gameOverOfLabel -> addChild(getPointLabel,5);
     
     //ゲットポイント数値
-    auto getNumStr = StringUtils::format("%d",stagePoint + characterPoint);
+    auto getNumStr = StringUtils::format("%5d",stagePoint + characterPoint);
     auto getNumLabel = Label::createWithSystemFont(getNumStr.c_str(), "MagicSchoolOne", 35);
-    getNumLabel -> setPosition(Vec2(selfFrame.width - getNumLabel->getContentSize().width * 2,getPointLabel->getPositionY()));
+    getNumLabel -> setPosition(Vec2(stageNumLabel->getPositionX(),getPointLabel->getPositionY()));
     getNumLabel -> setColor(Color3B(255, 255, 177));
+    getNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
     getNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     gameOverOfLabel -> addChild(getNumLabel,5);
 
 
     //現在の総合ポイントラベル
-    std::string totalStr = StringUtils::format("-%s","TOTAL POINT");
+    std::string totalStr = StringUtils::format("%s","TOTAL POINT");
     auto totalPointLabel = Label::createWithSystemFont(totalStr.c_str(), "MagicSchoolOne", 35);
-    totalPointLabel -> setPosition(Vec2(selfFrame.width/2,getPointLabel->getPositionY() - getPointLabel->getContentSize().height));
+    totalPointLabel -> setPosition(Vec2(stagePointLabel->getPositionX(),getPointLabel->getPositionY() - getPointLabel->getContentSize().height));
     totalPointLabel -> setColor(Color3B(255, 255, 177));
+    totalPointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     totalPointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     gameOverOfLabel -> addChild(totalPointLabel,5);
     
     //総合ポイント数値
-    auto totalNumStr = StringUtils::format("%d",userDef->getIntegerForKey("playPoint"));
+    auto totalNumStr = StringUtils::format("%5d",userDef->getIntegerForKey("playPoint"));
     auto totalNumLabel = Label::createWithSystemFont(totalNumStr.c_str(), "MagicSchoolOne", 35);
-    totalNumLabel -> setPosition(Vec2(selfFrame.width - totalNumLabel->getContentSize().width * 2,totalPointLabel->getPositionY()));
+    totalNumLabel -> setPosition(Vec2(stageNumLabel->getPositionX(),totalPointLabel->getPositionY()));
     totalNumLabel -> setColor(Color3B(255, 255, 177));
+    totalNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
     totalNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     gameOverOfLabel -> addChild(totalNumLabel,5);
-
     
-
+    
+    
+/*
+    Vector<Label *> *numLabels = new Vector<Label *>;
+    numLabels->pushBack(stageNumLabel);
+    numLabels->pushBack(characterNumLabel);
+    numLabels->pushBack(getPointLabel);
+    numLabels->pushBack(totalPointLabel);
+    unsigned int labelWidth = 0;
+    for(auto targetLabel : *numLabels){
+        if(labelWidth < targetLabel->getWidth()){
+            labelWidth = targetLabel->getWidth();
+        }
+    }
+    for(auto targetLabel : *numLabels){
+        targetLabel->setWidth(labelWidth);
+    }
+*/
+    
+    
 
     
 }
