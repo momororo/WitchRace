@@ -44,12 +44,14 @@ bool GameScene::init()
 
     
 //BGMプリロード
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage1.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage2.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage3.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage4.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage5.mp3");
-   
+    switch (UserDefault::getInstance()->getIntegerForKey("selectStory")) {
+        case 0:CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage1.mp3");break;
+        case 1:CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage2.mp3");break;
+        case 2:CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage3.mp3");break;
+        case 3:CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage4.mp3");break;
+        case 4:CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage5.mp3");break;
+        default:break;
+    }
 //背景処理
     //staticBackGroundの追加
     this -> addChild(BackGround::getInstance()->getStaticBackGround(),0);

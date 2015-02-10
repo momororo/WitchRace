@@ -24,6 +24,7 @@ Scene* SelectCharacterScene::createScene()
     
     // return the scene
     return scene;
+    
 }
 
 bool SelectCharacterScene::init()
@@ -38,6 +39,41 @@ bool SelectCharacterScene::init()
     {
         return false;
     }
+    
+//言語設定
+    //言語の取得
+    LanguageType lang = Application::getInstance()->getCurrentLanguage();
+    
+    //日本語の場合は日本語の説明文を、それ以外は英語
+    if(lang == LanguageType::JAPANESE){
+        //キキ
+        kikiExText = "飛ぶのが得意なおてんば少女\n夢に向かって修行中";
+        //おまけキキ
+        petitKikiExText = "飛ぶのが苦手なあなたに、まずは練習用\n\n～キャラクターボーナス～\n障害物にあたりにくくなる";
+        //ハリーポッター
+        haryyPotterExText = "僕は生き残る！\n\n～キャラクターボーナス～\nストーリクリアポイントに10ポイント加算";
+        //ポニョ
+        ponyoExText = "元気いっぱい！空もかけちゃお♪\n\n～キャラクターボーナス～\nストーリクリアポイント✕3ポイント加算";
+        //空飛ぶ車
+        fordAngliaExText = "オジサンからかりた車\n\n～キャラクターボーナス～\nストーリークリアポイント✕5ポイント加算";
+        //ポルコ・ロッソ
+        porcoRossoExText = "自由気ままに生きる、それが男！\n\n～キャラクターボーナス～\nストーリークリアポイント✕10ポイント加算";
+    }else{
+        //キキ
+        kikiExText = "飛ぶのが得意なおてんば少女\n夢に向かって修行中";
+        //おまけキキ
+        petitKikiExText = "飛ぶのが苦手なあなたに、まずは練習用\n\n～キャラクターボーナス～\n障害物にあたりにくくなる";
+        //ハリーポッター
+        haryyPotterExText = "僕は生き残る！\n\n～キャラクターボーナス～\nストーリクリアポイントに10ポイント加算";
+        //ポニョ
+        ponyoExText = "元気いっぱい！空もかけちゃお♪\n\n～キャラクターボーナス～\nストーリクリアポイント✕3ポイント加算";
+        //空飛ぶ車
+        fordAngliaExText = "オジサンからかりた車\n\n～キャラクターボーナス～\nストーリークリアポイント✕5ポイント加算";
+        //ポルコ・ロッソ
+        porcoRossoExText = "自由気ままに生きる、それが男！\n\n～キャラクターボーナス～\nストーリークリアポイント✕10ポイント加算";
+    }
+//言語設定終
+
     
     //ボタン効果音
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("button70.mp3");
