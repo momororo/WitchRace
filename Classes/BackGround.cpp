@@ -172,14 +172,14 @@ BackGround::BackGround(){
         case 4:                         break;
         default:break;
     }
-    
+    /*
     //カウントのラベル
     auto countLabel = Label::Label::createWithSystemFont("30","MagicSchoolOne", 50);
     countLabel->setTextColor(Color4B::BLACK);
     countLabel->setPosition(Vec2(staticBackGround->getContentSize().width - countLabel->getContentSize().width,staticBackGround->getContentSize().height - countLabel->getContentSize().height));
     countLabel->setGlobalZOrder(zOrderOfStaticBackGround);
     countLabel->setName("count");
-    staticBackGround->addChild(countLabel);
+    staticBackGround->addChild(countLabel);*/
 
 //MARK::進捗バー
     auto countBar = Sprite::create("gaugeBar.png");
@@ -254,6 +254,7 @@ void BackGround::replaceBackGround(){
     //配列の末尾に入れなおす
     backGrounds->pushBack(backGround);
     
+
     //カウント足し込み
     count++;
 
@@ -266,8 +267,8 @@ void BackGround::replaceBackGround(){
     }
     if(count <= 30){
         //カウントダウン演出
-        Label *countLabel = (Label*)staticBackGround->getChildByName("count");
-        countLabel->setString(StringUtils::format("%d",30 - count));
+       // Label *countLabel = (Label*)staticBackGround->getChildByName("count");
+        //countLabel->setString(StringUtils::format("%d",30 - count));
         
         staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPosition(Vec2(staticBackGround->getChildByName("countBar")->getContentSize().width/30*count,staticBackGround->getChildByName("countBar")->getContentSize().height/2));
         
@@ -292,8 +293,6 @@ void BackGround::backGroundUpdate(){
     if(gamePlayFlag !=  true){
         return;
     }
-
-
     
     
     //地面の移動を行う

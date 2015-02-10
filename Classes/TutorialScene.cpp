@@ -85,6 +85,12 @@ bool TutorialScene::init(){
     //最初のフェーズの準備
     setPhase();
     
+    //ボタン効果音
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("button70.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(0.5f);
+
+    
+    
     
     
     
@@ -179,6 +185,8 @@ void TutorialScene::setBackBt(){
     //メニューアイテムの作成
     auto pBtnItem = MenuItemSprite::create(backBt, backBtTaped, [](Ref *ref){
         
+        //ボタン効果音再生
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         Director::getInstance()->replaceScene(TransitionPageTurn::create(1.0, TitleScene::createScene(), 1));
     
     });

@@ -36,7 +36,20 @@ bool GameScene::init()
         return false;
     }
     
+//ボタン効果音
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("button70.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("button82.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("button83.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(0.5f);
+
     
+//BGMプリロード
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage1.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage2.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage3.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage4.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage5.mp3");
+   
 //背景処理
     //staticBackGroundの追加
     this -> addChild(BackGround::getInstance()->getStaticBackGround(),0);
@@ -167,6 +180,19 @@ bool GameScene::onTouchBegan(Touch *touch, Event *unused_event){
         this -> getChildByName("startText")->setVisible(false);
         this -> getChildByName("startText")->removeFromParent();
         
+//MARK::BGM
+        switch (UserDefault::getInstance()->getIntegerForKey("selectStory")) {
+            case 0:CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("stage1.mp3",true);break;
+            case 1:CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("stage2.mp3",true);break;
+            case 2:CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("stage3.mp3",true);break;
+            case 3:CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("stage4.mp3",true);break;
+            case 4:CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("stage5.mp3",true);break;
+            default:break;
+        }
+        
+        
+        
+        
 #pragma mark デバッグ用
         struct timeval time;
         gettimeofday(&time, NULL);
@@ -210,8 +236,6 @@ void GameScene::onTouchEnded(Touch *touch, Event *unused_event){
 //キキ処理終
 
     
-    
-    
     return;
     
 }
@@ -230,10 +254,8 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
      
      if (CharacterSwitch::getInstance()->getGamePlayFlag() == true && CharacterSwitch::getInstance()->getGameOverFlag() == false) {
 
-     
      //ゲームオーバーの処理へ
      makeGameOver();
-         
          
      }
      
@@ -261,7 +283,7 @@ void GameScene::update( float frame )
 //クリアか判定
     //30で全障害物設置完了
     //全障害物を通り抜けたらゲームクリア
-    if(BackGround::getInstance()->getReplaceCount() > 1){
+    if(BackGround::getInstance()->getReplaceCount() > 30){
         //ゲームクリア
         this->makeGameClear();
     }
@@ -288,6 +310,7 @@ if(CharacterSwitch::getInstance()->getGamePlayFlag() == true){
     
     //CCLOG("時間 %02lu:%02lu:%02lu",min,sec,mSec);
     //CCLOG("%d",BackGround::getInstance()->getReplaceCount());
+    
 }
     
     
@@ -304,6 +327,11 @@ void GameScene::makeGameOver(){
     
     //スケジュールの停止
     this->unscheduleUpdate();
+    
+    //BGMの停止
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+    //ゲームオーバー効果音
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button83.mp3");
     
     //キキちゃんのgameOver処理
     CharacterSwitch::getInstance()->makeGameOver();
@@ -329,21 +357,6 @@ void GameScene::makeGameOver(){
     gameOverOfLabel -> setOpacity(0);
     gameOverOfLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     this -> addChild(gameOverOfLabel,3);
-
-/*
-    auto testSprite = Sprite::create();
-    testSprite ->setColor(Color3B::WHITE);
-    testSprite -> setOpacity(125);
-    testSprite -> setTextureRect(Rect(0,0,selfFrame.width,selfFrame.height));
-    testSprite -> setGlobalZOrder(0);
-    testSprite -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/4*3));
-    this -> addChild(testSprite);
-*/
-    
-    
-    
-    
-    
     
     //gameOver画面のparticle
     auto gameOverParticle = ParticleSystemQuad::create("particle_gameOver.plist");
@@ -361,6 +374,9 @@ void GameScene::makeGameOver(){
     retryBtTaped -> setGlobalZOrder(zOrderOfPauseLabel);
     
     auto retryBtnItem = MenuItemSprite::create(retryBt, retryBtTaped,[](Ref *ref){
+        
+        //ボタン効果音再生
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
     
         Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("GameScene"));
         
@@ -388,6 +404,9 @@ void GameScene::makeGameOver(){
     homeBtTaped -> setGlobalZOrder(zOrderOfPauseLabel);
     
     auto homeBtnItem = MenuItemSprite::create(homeBt, homeBtTaped,[](Ref *ref){
+        
+        //ボタン効果音再生
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         
         Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("TitleScene"));
         
@@ -425,6 +444,11 @@ void GameScene::makeGameClear(){
     
     //スケジュールの停止
     this->unscheduleUpdate();
+    
+    //BGMの停止
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+    //クリア時効果音
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button82.mp3");
     
     //キキちゃんのgameOver処理
     CharacterSwitch::getInstance()->makeGameOver();
@@ -506,16 +530,7 @@ void GameScene::makeGameClear(){
     gameOverOfLabel -> setOpacity(0);
     gameOverOfLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     this -> addChild(gameOverOfLabel,3);
-    /*
-     auto testSprite = Sprite::create();
-     testSprite ->setColor(Color3B::WHITE);
-     testSprite -> setOpacity(125);
-     testSprite -> setTextureRect(Rect(0,0,selfFrame.width,selfFrame.height));
-     testSprite -> setGlobalZOrder(0);
-     testSprite -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/4*3));
-     this -> addChild(testSprite);
-     */
-    
+   
     //gameClear画面のparticle
     auto gameOverParticle = ParticleSystemQuad::create("particle_gameClear.plist");
     gameOverParticle -> setPosition(Vec2(selfFrame.width/2, selfFrame.height/2));
@@ -539,6 +554,9 @@ void GameScene::makeGameClear(){
             auto selectStory = userDef->getIntegerForKey("selectStory");
             selectStory++;
             userDef->setIntegerForKey("selectStory", selectStory);
+            
+            //ボタン効果音再生
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
             
             Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("GameScene"));
             
@@ -566,6 +584,9 @@ void GameScene::makeGameClear(){
     
     auto homeBtnItem = MenuItemSprite::create(homeBt, homeBtTaped,[](Ref *ref){
         
+        //ボタン効果音再生
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
+        
         Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("TitleScene"));
         
         Director::getInstance()->replaceScene(nextScene);
@@ -585,6 +606,9 @@ void GameScene::makeGameClear(){
     retryBtTaped -> setOpacity(150);
     
     auto retryBtnItem = MenuItemSprite::create(retryBt, retryBtTaped,[](Ref *ref){
+        
+        //ボタン効果音再生
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         
         Scene* nextScene = CCTransitionFade::create(0.5f, LoadScene::createScene("GameScene"));
         
@@ -685,26 +709,5 @@ void GameScene::makeGameClear(){
     totalNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     gameOverOfLabel -> addChild(totalNumLabel,5);
     
-    
-    
-/*
-    Vector<Label *> *numLabels = new Vector<Label *>;
-    numLabels->pushBack(stageNumLabel);
-    numLabels->pushBack(characterNumLabel);
-    numLabels->pushBack(getPointLabel);
-    numLabels->pushBack(totalPointLabel);
-    unsigned int labelWidth = 0;
-    for(auto targetLabel : *numLabels){
-        if(labelWidth < targetLabel->getWidth()){
-            labelWidth = targetLabel->getWidth();
-        }
-    }
-    for(auto targetLabel : *numLabels){
-        targetLabel->setWidth(labelWidth);
-    }
-*/
-    
-    
-
     
 }

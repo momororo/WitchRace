@@ -39,6 +39,11 @@ bool SelectCharacterScene::init()
         return false;
     }
     
+    //ボタン効果音
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("button70.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(0.5f);
+
+    
 //型枠の作成
     auto bg = Sprite::create("character_Bg.png");
     
@@ -58,7 +63,7 @@ bool SelectCharacterScene::init()
     //userDefから獲得ポイント呼び出し準備
     auto userDef = UserDefault::getInstance();
 
-    //userDef->setIntegerForKey("playPoint", 10000);
+    //userDef->setIntegerForKey("playPoint", 30000);
     
     std::string totalStr = StringUtils::format("point : %d",userDef -> getIntegerForKey("playPoint"));
     
@@ -74,7 +79,7 @@ bool SelectCharacterScene::init()
     //対象の説明テキスト用意
     charaExLabel = Label::createWithSystemFont("", "HiraKakuPro-W3", 25);
     charaExLabel -> setAlignment(TextHAlignment::CENTER);
-    charaExLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/3));
+    charaExLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/3.2));
     charaExLabel -> setColor(Color3B::BLACK);
     this -> addChild(charaExLabel);
     
@@ -206,6 +211,8 @@ bool SelectCharacterScene::init()
                 
                 characters->at(userDef->getIntegerForKey("selectCharacter"))->setOpacity(128);
                 
+                //ボタン効果音再生
+                CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
                 
                 //フラグの設定
                 userDef->setIntegerForKey("selectCharacter",button->getTag());
@@ -240,7 +247,6 @@ bool SelectCharacterScene::init()
                 
                 MenuItem* button = (MenuItem*)ref;
                 
-                
                 CCLOG("%d",button->getTag());
                 
                 switch (button->getTag()) {
@@ -255,7 +261,9 @@ bool SelectCharacterScene::init()
                         init();
                         
                         NativeLauncher::openReview();
-
+                        
+                        //ボタン効果音再生
+                        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
 
 
 
@@ -272,6 +280,9 @@ bool SelectCharacterScene::init()
                         
                         userDef -> setIntegerForKey("playPoint", userDef->getIntegerForKey("playPoint")-200);
                         userDef -> setIntegerForKey("selectCharacter",button->getTag());
+                            
+                            //ボタン効果音再生
+                            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
 
                         
                         this->removeAllChildrenWithCleanup(true);
@@ -292,6 +303,9 @@ bool SelectCharacterScene::init()
                             userDef -> setIntegerForKey("playPoint", userDef->getIntegerForKey("playPoint")-500);
                             userDef -> setIntegerForKey("selectCharacter",button->getTag());
                             
+                            //ボタン効果音再生
+                            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
+                            
                             
                             this->removeAllChildrenWithCleanup(true);
                             
@@ -311,6 +325,9 @@ bool SelectCharacterScene::init()
                             userDef -> setIntegerForKey("playPoint", userDef->getIntegerForKey("playPoint")-3000);
                             userDef -> setIntegerForKey("selectCharacter",button->getTag());
                             
+                            //ボタン効果音再生
+                            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
+                            
                             
                             this->removeAllChildrenWithCleanup(true);
                             
@@ -329,6 +346,9 @@ bool SelectCharacterScene::init()
                             
                             userDef -> setIntegerForKey("playPoint", userDef->getIntegerForKey("playPoint")-10000);
                             userDef -> setIntegerForKey("selectCharacter",button->getTag());
+                            
+                            //ボタン効果音再生
+                            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
                             
                             
                             this->removeAllChildrenWithCleanup(true);
@@ -515,6 +535,9 @@ void SelectCharacterScene::setBackBt(){
 }
 
 void SelectCharacterScene::backBtCallBack(cocos2d::Ref *pSender){
+    
+    //ボタン効果音再生
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
     
     Director::getInstance()->replaceScene(TransitionPageTurn::create(1.0, TitleScene::createScene(), 1));
     

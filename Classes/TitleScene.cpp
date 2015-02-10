@@ -66,19 +66,27 @@ bool TitleScene::init(){
     setTwitterBt();
     setOtherBt();
     
+    //ボタン効果音
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("button70.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(0.4f);
+
+   
+
+    //BGMの設定
+    SimpleAudioEngine::getInstance()->preloadBackgroundMusic("title.mp3");
+    //BGM音量設定
+    SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.1f);
     
-    /* 効果音の設定
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("cursor1.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("decision7.mp3");
-    SimpleAudioEngine::getInstance()->setEffectsVolume(0.6f);
-    */
+    //BGMが鳴っているかチェック
+    if(SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()){
 
     
-    /* BGMの設定
-    SimpleAudioEngine::getInstance()->playBackgroundMusic("bgmShelling.mp3",true);
-    音量
-    SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.5f);
-    */
+    }else{
+        //鳴っていないときの処理
+        //BGM再生
+        SimpleAudioEngine::getInstance()->playBackgroundMusic("title.mp3",true);
+    }
+    
     
     
     //didsimulate
@@ -204,7 +212,8 @@ void TitleScene::setStartBt(){
     
     //メニューアイテムの作成
     auto pBtnItem = MenuItemSprite::create(startBt, startBtTaped, [](Ref *ref){
-        
+        //ボタン効果音再生
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         Director::getInstance()->replaceScene(TransitionPageTurn::create(1, StorySelect::createScene(), 0));
         
     });
@@ -231,6 +240,8 @@ void TitleScene::setTutorialBt(){
     //メニューアイテムの作成
     auto pBtnItem = MenuItemSprite::create(tutorialBt, tutorialBtTaped, [](Ref *ref){
         
+        //ボタン効果音
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         //遊び方を呼び出すメソッド
         Director::getInstance()->replaceScene(TransitionPageTurn::create(1, TutorialScene::createScene(), 0));
         
@@ -261,6 +272,8 @@ void TitleScene::setRankingBt(){
     //メニューアイテムの作成
     auto pBtnItem = MenuItemSprite::create(rankingBt, rankingBtTaped, [](Ref *ref){
         
+        //ボタン効果音
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         //ランキング表示
         NativeLauncher::openRanking();
         
@@ -288,7 +301,8 @@ void TitleScene::setOtherBt(){
     
     //メニューアイテムの作成
     auto pBtnItem = MenuItemSprite::create(otherBt, otherBtTaped, [](Ref *ref){
-        
+        //ボタン効果音
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         //appCCloudのメソッド
         AppCCloudPlugin::Ad::openAdListView();
         
@@ -316,7 +330,8 @@ void TitleScene::setCharacterBt(){
     
     //メニューアイテムの作成
     auto pBtnItem = MenuItemSprite::create(characterBt, characterBtTaped, [&](Ref *ref){
-        
+        //ボタン効果音
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         Director::getInstance()->replaceScene(TransitionPageTurn::create(1, SelectCharacterScene::createScene(), 0));
     });
     
@@ -346,7 +361,8 @@ void TitleScene::setTwitterBt(){
         
         //ツイッター呼び出し
         CCLOG("ツイートしちゃうぞ♪");
-        
+        //ボタン効果音
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         //呟き回数をカウント
         auto userDef = UserDefault::getInstance();
         userDef->setIntegerForKey("twitterCount",(userDef->getIntegerForKey("twitterCount") + 1));
@@ -404,6 +420,8 @@ void TitleScene::setReviewBox(){
         //レビューダイアログを消去
         this->removeChildByName("reviewBox");
         
+        //ボタン効果音
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         
         //他のボタンを操作可能にする(冗長的)
         Menu* menu = (Menu*)this->getChildByName("start");
@@ -449,7 +467,8 @@ void TitleScene::setReviewBox(){
     //メニューアイテムの作成
     auto ngBtnItem = MenuItemSprite::create(ngBt, ngBtTaped, [&](Ref *ref){
         
-        
+        //ボタン効果音
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         
         //レビューダイアログを消去
         this->removeChildByName("reviewBox");
@@ -497,6 +516,7 @@ void TitleScene::setReviewBox(){
     menu->setEnabled(false);
 
 //アラート本文
+    auto alertLabel = Label::createWithSystemFont("", "Hirakaku", 30);
 
     
 }

@@ -41,48 +41,12 @@ bool StorySelect::init(){
     titleBk -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBk);
     
-    /*
-    auto ssLabel = Label::createWithSystemFont("select story", "MagicSchoolOne", 150);
-    ssLabel ->setPosition(Vec2(selfFrame.width/2,selfFrame.height-ssLabel->getContentSize().height*2/5));
-    ssLabel -> setColor(Color3B::BLACK);
-    ssLabel -> setOpacity(200);
-    this -> addChild(ssLabel);
-    
-    auto upperOrnament = Sprite::create("ssOrnament.png");
-    upperOrnament -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*0.84));
-    upperOrnament -> setOpacity(200);
-    this -> addChild(upperOrnament);
-    
-    auto downerOrnament = Sprite::create("ssOrnament.png");
-    downerOrnament -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/9));
-    downerOrnament -> setOpacity(200);
-    this -> addChild(downerOrnament);
-    */
-    
     setBackBt();
     
     setSelectButton();
-
-
     
-    
-    
-    
-    
-    /* 効果音の設定
-     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("cursor1.mp3");
-     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("decision7.mp3");
-     SimpleAudioEngine::getInstance()->setEffectsVolume(0.6f);
-     */
-    
-    
-    /* BGMの設定
-     SimpleAudioEngine::getInstance()->playBackgroundMusic("bgmShelling.mp3",true);
-     音量
-     SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.5f);
-     */
-    
-    
+    //ボタン効果音
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("button70.mp3");
     
     /**************　タッチイベント設定  ******************/
     
@@ -114,10 +78,7 @@ bool StorySelect::init(){
      NendInterstitialModule::createNADInterstitial(interstitialApiKey, interstitialSpotID);
      */
     
-    
-    
     return true;
-    
     
 }
 
@@ -131,7 +92,6 @@ bool StorySelect::onTouchBegan(Touch *touch, Event *unused_event){
     CCLOG("touchBegan");
     
     Point touchPoint = Vec2(touch->getLocation().x,touch->getLocation().y);
-    
     
     return true;
     
@@ -164,11 +124,8 @@ void StorySelect::onTouchEnded(Touch *touch, Event *unused_event){
 
 void StorySelect::setSelectButton(){
     
-    
-    
     auto userDef = UserDefault::getInstance();
     auto clearStory = userDef->getIntegerForKey("clearStory");
-    
     
     for (int idx = 0 ; idx <= clearStory ; idx++){
         
@@ -199,13 +156,9 @@ void StorySelect::setSelectButton(){
         
         this->addChild(startMenu);
         
-        
-        
     }
     
     nextScene = true;
-    
-    
     
 }
 
@@ -219,8 +172,12 @@ void StorySelect::selectStoryCallBack(cocos2d::Ref *pSender){
          *  なお、中身はpBtnItem
          */
         MenuItem* button = (MenuItem*)pSender;
-        
 
+        //ボタン効果音再生
+        SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
+        
+        //BGMの停止
+        SimpleAudioEngine::getInstance()->stopBackgroundMusic();
         
         //選択したステージの値を保存しておく
         auto userDef = UserDefault::getInstance();
@@ -258,6 +215,8 @@ void StorySelect::setBackBt(){
 
 void StorySelect::backBtCallBack(cocos2d::Ref *pSender){
 
+    //ボタン効果音再生
+    SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
     Director::getInstance()->replaceScene(TransitionPageTurn::create(1.0, TitleScene::createScene(), 1));
     
 }
