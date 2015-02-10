@@ -90,7 +90,7 @@ bool TitleScene::init(){
     
     
     //didsimulate
-    this->scheduleUpdate();
+//    this->scheduleUpdate();
     
     //MARK::ゲームセンターログイン
     //GameCenterBridge::loginGameCenter();
@@ -386,12 +386,13 @@ void TitleScene::setTwitterBt(){
 void TitleScene::onEnterTransitionDidFinish(){
     
     //デバッグ
-    this->setReviewBox();
+//    this->setReviewBox();
 }
 
 
 //MARK::レビューボックス
 void TitleScene::setReviewBox(){
+    
 
 //アラートの型枠を適当に生成
     
