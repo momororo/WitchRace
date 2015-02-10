@@ -241,8 +241,6 @@ bool SelectCharacterScene::init()
                 MenuItem* button = (MenuItem*)ref;
                 
                 
-                //フラグの設定
-                userDef->setIntegerForKey("selectCharacter",button->getTag());
                 CCLOG("%d",button->getTag());
                 
                 switch (button->getTag()) {
