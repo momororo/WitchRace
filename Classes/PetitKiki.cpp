@@ -123,15 +123,8 @@ PetitKiki::PetitKiki(){
     broom -> setPosition(Vec2(0,0));
     broom -> setVisible(false);
     
-    auto broomMaterial = PHYSICSBODY_MATERIAL_DEFAULT;
     
-    Point broomPoint[3]={
-        
-        //Vec2(10,5), Vec2(10,35), Vec2(160,35),
-    
-    };
-    
-    auto broomBody = PhysicsBody::createPolygon(broomPoint,3,broomMaterial);
+    auto broomBody = PhysicsBody::create();
     broomBody -> setGravityEnable(false);
     broomBody -> setDynamic(true);
     broomBody -> setEnable(false);
