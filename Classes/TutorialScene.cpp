@@ -250,7 +250,7 @@ void TutorialScene::setPhase1(float time){
     if (language == LanguageType::JAPANESE) {
         tutorial_text -> setString("画面をタップし続けると上昇します。");
     }else{
-        tutorial_text -> setString("While touching a screen,she goes up.");
+        tutorial_text -> setString("While you are touching a screen,she goes up.");
     }
     
     //5秒後にフェーズ２に移行
@@ -275,7 +275,7 @@ void TutorialScene::setPhase2(float time){
     if(language == LanguageType::JAPANESE){
         tutorial_text -> setString("指を離すと下降します。");
     }else{
-        tutorial_text -> setString("While not touching a screen,,\nshe goes down.");
+        tutorial_text -> setString("While　you are not touching a screen,,\nshe goes down.");
     }
     
     
