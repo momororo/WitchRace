@@ -517,7 +517,25 @@ void TitleScene::setReviewBox(){
     menu->setEnabled(false);
 
 //アラート本文
-    auto alertLabel = Label::createWithSystemFont("", "Hirakaku", 30);
+
+    //英語と日本語で分岐
+    //見出しテキスト
+    std::string headlineText = "プレゼントのお知らせ";
+    //見出しラベル
+    auto alertHeadLabel = Label::createWithSystemFont(headlineText, "HiraKakuPro-W3", 40);
+    alertHeadLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height*2/3));
+    alertHeadLabel -> setColor(Color3B::BLACK);
+    reviewBox->addChild(alertHeadLabel);
+    
+    //中身テキスト
+    std::string contentText = "レビューを書いて、キャラクターをゲットしよう！(☆５つだととても嬉しいです...)";
+    
+    //中身ラベル
+    auto alertContentLabel = Label::createWithSystemFont(contentText, "HiraKakuPro-W3", 30);
+    alertContentLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height/2));
+    alertContentLabel -> setColor(Color3B::BLACK);
+    reviewBox -> addChild(alertContentLabel);
+
 
     
 }
