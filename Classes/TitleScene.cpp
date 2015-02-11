@@ -5,8 +5,8 @@
 #include <string.h>
 #include "NativeLauncher.h"
 #include "SelectCharacterScene.h"
-#include "ADGConnectionForIOS.h"
 #include "AppCCloudPlugin.h"
+#include "ADGConnectionForIOS.h"
 //#include "NendModule.h"
 //#include "NendInterstitialModule.h"
 //#include "AppCCloudPlugin.h"
@@ -46,14 +46,7 @@ bool TitleScene::init(){
     titleBg -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     this -> addChild(titleBg);
     
-    
-    //広告(appBank SSP) y座標をselfframe.height/2にしているが、理由は不明
-    //テスト
-//    ADGConnectionForIOS::initADG((char*)"10723", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
-    //本番
-    ADGConnectionForIOS::initADG((char*)"20338 ", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
-    //終
-    
+
     /*
     auto titleSignboard = Sprite::create("titleObject.png");
     titleSignboard -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*3/4));
@@ -88,6 +81,15 @@ bool TitleScene::init(){
     }
     
     
+    //広告(appBank SSP) y座標をselfframe.height/2にしているが、理由は不明
+    //テスト
+  //ADGConnectionForIOS::initADG((char*)"10723", (char*)"SP", 0, selfFrame.height/2 + 50, NULL);
+    //本番
+    ADGConnectionForIOS::initADG((char*)"20338 ", (char*)"SP", 0, selfFrame.height/2 + 50, NULL);
+    //終
+    
+//        ADGConnectionForIOS::initADGWithScale((char*)"10723" , (char*)"FREE", 0, selfFrame.height/2 + 50, 320 , 50 , 1.0 ,  NULL);
+
     
     //didsimulate
 //    this->scheduleUpdate();

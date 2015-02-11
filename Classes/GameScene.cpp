@@ -285,7 +285,7 @@ void GameScene::update( float frame )
 //クリアか判定
     //30で全障害物設置完了
     //全障害物を通り抜けたらゲームクリア
-    if(BackGround::getInstance()->getReplaceCount() > 3){
+    if(BackGround::getInstance()->getReplaceCount() > 30){
         //ゲームクリア
         this->makeGameClear();
     }
