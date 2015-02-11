@@ -232,6 +232,19 @@ void Ponyo::makeGameOver(){
     
 }
 
+//gameClearの処理
+void Ponyo::makeGameClear(){
+    //パーティクルの設定
+    endParticle->setAutoRemoveOnFinish(true);
+    endParticle->setPosition(ponyo->getPosition());
+    //ポニョから親ノード(scene)取ってaddchild
+    ponyo->getParent()->addChild(endParticle);
+    //ポニョをremove
+    ponyo->removeFromParent();
+    
+}
+
+
 
 
 //ポニョの1フレーム毎の処理

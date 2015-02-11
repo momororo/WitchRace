@@ -82,6 +82,8 @@ public:
     //gameOverの処理
     void makeGameOver();
     
+    void makeGameClear();
+    
     
     
 };

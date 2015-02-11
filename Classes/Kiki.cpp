@@ -119,7 +119,7 @@ Kiki::Kiki(){
     kikiBody->setEnable(false);
 
     //ビットマスクはてきとう
-    kikiBody->setCategoryBitmask(/*0x01*/0);
+    kikiBody->setCategoryBitmask(0x01);
     kikiBody->setCollisionBitmask(0);
     kikiBody->setContactTestBitmask(0x02);
     
@@ -146,7 +146,7 @@ Kiki::Kiki(){
     broomBody -> setDynamic(true);
     broomBody -> setEnable(false);
     
-    broomBody ->setCategoryBitmask(/*0x01*/0);
+    broomBody ->setCategoryBitmask(0x01);
     broomBody ->setCollisionBitmask(0);
     broomBody ->setContactTestBitmask(0x02);
     
@@ -178,6 +178,17 @@ void Kiki::makeGameOver(){
     kiki->removeFromParent();
 
 }
+
+void Kiki::makeGameClear(){
+    //パーティクルを飛ばす
+    auto action = MoveTo::create(1, Vec2(selfFrame.width * 1.5, kiki->getPositionY()));
+    
+    auto remove = RemoveSelf::create(true);
+    
+    //フェードアウト->削除のアニメーション開始
+    kiki->runAction(Sequence::create(action, remove, NULL));
+}
+
 
 
 

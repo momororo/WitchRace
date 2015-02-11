@@ -200,6 +200,26 @@ void CharacterSwitch::makeGameOver(){
     
 }
 
+void CharacterSwitch::makeGameClear(){
+
+    
+    //分岐
+    switch (characterFlag) {
+        case 0:Kiki::getInstance()->makeGameClear();break;
+        case 1:PetitKiki::getInstance()->makeGameClear();break;
+        case 2:HarryPotter::getInstance()->makeGameClear();break;
+        case 3:Ponyo::getInstance()->makeGameClear();break;
+        case 4:FordAnglia::getInstance()->makeGameClear();break;
+        case 5:PorcoRosso::getInstance()->makeGameClear();break;
+        default: break;
+    }
+    
+    gamePlayFlag = false;
+    gameOverFlag = true;
+
+}
+
+
 
 
 //キキちゃんの1フレーム毎の処理

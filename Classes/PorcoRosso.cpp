@@ -177,6 +177,19 @@ void PorcoRosso::makeGameOver(){
 
 }
 
+void PorcoRosso::makeGameClear(){
+    //パーティクルを飛ばす
+    auto action = MoveTo::create(1, Vec2(selfFrame.width * 1.5, porcoRosso->getPositionY()));
+    
+    auto remove = RemoveSelf::create(true);
+    
+    //フェードアウト->削除のアニメーション開始
+    porcoRosso->runAction(Sequence::create(action, remove, NULL));
+}
+
+
+
+
 
 
 //キキちゃんの1フレーム毎の処理
