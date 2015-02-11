@@ -571,7 +571,7 @@ void TitleScene::setReviewBox(){
     //見出しラベル
     auto alertHeadLabel = Label::createWithSystemFont(headlineText, "Tanuki-Permanent-Marker", 40);
     alertHeadLabel -> enableOutline(Color4B::BLACK,2);
-    alertHeadLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height*6/7));
+    alertHeadLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height*7/8));
     alertHeadLabel -> setColor(Color3B::BLACK);
     reviewBox->addChild(alertHeadLabel);
     
@@ -579,9 +579,9 @@ void TitleScene::setReviewBox(){
     std::string contentText;
     
     if(language == LanguageType::JAPANESE){
-        contentText = "レビューを書いてくれた方に\nキャラクター『ひよっこ魔女』\nをプレゼント！\n(☆５だととても嬉しいです...)";
+        contentText = "遊んでくれてありがとう。\nレビューを書いてくれた方に、\nキャラクター『ひよっこ魔女』\nをプレゼント！\n(☆５だととても嬉しいです...)";
     }else{
-        contentText = "You can get a new character\n      \"Younker witch\"      \nby reviewing this apps.\nWill you go to\n       the review page?";
+        contentText = "Thank you for playing.\nYou can get a new character\n      \"Younker witch\"      \nby reviewing this apps.\nWill you go to\n       the review page?";
     }
     
     //中身ラベル
