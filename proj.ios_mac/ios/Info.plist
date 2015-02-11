@@ -45,6 +45,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>MagicSchoolOne.ttf</string>
+		<string>TanukiMagic.ttf</string>
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>

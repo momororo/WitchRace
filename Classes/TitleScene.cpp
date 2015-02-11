@@ -406,7 +406,21 @@ void TitleScene::setTwitterBt(){
 void TitleScene::onEnterTransitionDidFinish(){
     
     //デバッグ
-//    this->setReviewBox();
+    
+    if (UserDefault::getInstance()->getBoolForKey("characterFlag1")==false) {
+    
+        int rnd = arc4random_uniform(2);
+        
+        if (rnd == 0) {
+            
+            this->setReviewBox();
+            
+        }
+        
+        return;
+    }
+    
+    return;
 }
 
 
@@ -462,8 +476,9 @@ void TitleScene::setReviewBox(){
         
         //レビュー画面へ
         NativeLauncher::openReview();
-
         
+        //小さいキキのフラグをオンにする
+        UserDefault::getInstance()->setBoolForKey("characterFlag1", true);
         
     });
     
@@ -537,8 +552,42 @@ void TitleScene::setReviewBox(){
     menu->setEnabled(false);
 
 //アラート本文
-    auto alertLabel = Label::createWithSystemFont("", "Hirakaku", 30);
 
+    //英語と日本語で分岐
+    //見出しテキスト
+    //説明文の変更(多言語化)
+    LanguageType language = Application::getInstance()->getCurrentLanguage();
+    
+    std::string headlineText;
+    
+    if(language == LanguageType::JAPANESE){
+         headlineText = "プレゼントのお知らせ";
+    }else{
+         headlineText = "News of the present";
+    }
+    
+    //見出しラベル
+    auto alertHeadLabel = Label::createWithSystemFont(headlineText, "Tanuki-Permanent-Marker", 40);
+    alertHeadLabel -> enableOutline(Color4B::BLACK,2);
+    alertHeadLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height*6/7));
+    alertHeadLabel -> setColor(Color3B::BLACK);
+    reviewBox->addChild(alertHeadLabel);
+    
+    //中身テキスト
+    std::string contentText;
+    
+    if(language == LanguageType::JAPANESE){
+        contentText = "レビューを書いてくれた方に\nキャラクター『ひよっこ魔女』\nをプレゼント！\n(☆５だととても嬉しいです...)";
+    }else{
+        contentText = "You can get a new character\n      \"Younker witch\"      \nby reviewing this apps.\nWill you go to\n       the review page?";
+    }
+    
+    //中身ラベル
+    auto alertContentLabel = Label::createWithSystemFont(contentText, "Tanuki-Permanent-Marker", 30);
+    
+    alertContentLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height/2+50));
+    alertContentLabel -> setColor(Color3B::BLACK);
+    reviewBox -> addChild(alertContentLabel);
     
 }
 
