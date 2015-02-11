@@ -635,7 +635,7 @@ void GameScene::makeGameClear(){
     
 
     //ステージポイントラベル
-    std::string stageStr = StringUtils::format("%s","STAGE POINT");
+    std::string stageStr = StringUtils::format("%s","STAGE POINTS");
     auto stagePointLabel = Label::createWithSystemFont(stageStr.c_str(), "MagicSchoolOne", 35);
     stagePointLabel -> setPosition(Vec2(selfFrame.width/6,selfFrame.height/20*11));
     stagePointLabel -> setColor(Color3B(255, 255, 177));
@@ -655,7 +655,7 @@ void GameScene::makeGameClear(){
 
 
     //キャラクターポイントラベル
-    std::string characterStr = StringUtils::format("%s","CHARACTER POINT");
+    std::string characterStr = StringUtils::format("%s","CHARACTER POINTS");
     auto characterPointLabel = Label::createWithSystemFont(characterStr.c_str(), "MagicSchoolOne", 35);
     characterPointLabel -> setPosition(Vec2(stagePointLabel->getPositionX(),stagePointLabel->getPositionY() - characterPointLabel->getContentSize().height));
     characterPointLabel -> setColor(Color3B(255, 255, 177));
@@ -675,7 +675,7 @@ void GameScene::makeGameClear(){
 
 
     //ゲットポイントラベル
-    std::string getStr = StringUtils::format("%s","GET POINT");
+    std::string getStr = StringUtils::format("%s","GET POINTS");
     auto getPointLabel = Label::createWithSystemFont(getStr.c_str(), "MagicSchoolOne", 35);
     getPointLabel -> setPosition(Vec2(stagePointLabel->getPositionX(),characterPointLabel->getPositionY() - getPointLabel->getContentSize().height));
     getPointLabel -> setColor(Color3B(255, 255, 177));
@@ -694,7 +694,7 @@ void GameScene::makeGameClear(){
 
 
     //現在の総合ポイントラベル
-    std::string totalStr = StringUtils::format("%s","TOTAL POINT");
+    std::string totalStr = StringUtils::format("%s","TOTAL POINTS");
     auto totalPointLabel = Label::createWithSystemFont(totalStr.c_str(), "MagicSchoolOne", 35);
     totalPointLabel -> setPosition(Vec2(stagePointLabel->getPositionX(),getPointLabel->getPositionY() - getPointLabel->getContentSize().height));
     totalPointLabel -> setColor(Color3B(255, 255, 177));

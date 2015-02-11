@@ -60,17 +60,17 @@ bool SelectCharacterScene::init()
         porcoRossoExText = "自由気ままに生きる、それが男！\n\n～キャラクターボーナス～\nストーリークリアポイント✕10ポイント加算";
     }else{
         //キキ
-        kikiExText = "飛ぶのが得意なおてんば少女\n夢に向かって修行中";
+        kikiExText = "A tomboy witch,training herself for her dream.";
         //おまけキキ
-        petitKikiExText = "飛ぶのが苦手なあなたに、まずは練習用\n\n～キャラクターボーナス～\n障害物にあたりにくくなる";
+        petitKikiExText = "A witch for practice\n～Character bonus～\nIt becomes easy to avoid obstacles";
         //ハリーポッター
-        haryyPotterExText = "僕は生き残る！\n\n～キャラクターボーナス～\nストーリクリアポイントに10ポイント加算";
+        haryyPotterExText = "I'll come back alive！\n～Character bonus～\nYou get 10pt when you get at stages end";
         //ポニョ
-        ponyoExText = "元気いっぱい！空もかけちゃお♪\n\n～キャラクターボーナス～\nストーリクリアポイント✕3ポイント加算";
+        ponyoExText = "She is quite energetic and flies high up in the sky\n～Character bonus～\nYou get three times as many points as \npoints you get at stage end";
         //空飛ぶ車
-        fordAngliaExText = "オジサンからかりた車\n\n～キャラクターボーナス～\nストーリークリアポイント✕5ポイント加算";
+        fordAngliaExText = "a car my friend's father lent\n～character bonus～\nYou get five times as many points as \npoints when you get at stage end";
         //ポルコ・ロッソ
-        porcoRossoExText = "自由気ままに生きる、それが男！\n\n～キャラクターボーナス～\nストーリークリアポイント✕10ポイント加算";
+        porcoRossoExText = "He is called a man among men！\n～character bonus～\nYou get ten times as many points as \npoints when you get at stage end";
     }
 //言語設定終
 
@@ -432,45 +432,57 @@ bool SelectCharacterScene::init()
         
         //キャラネームと価格
         if (characterFlag == true) {
+
             
-            switch (idx) {
-                case 0:
-                    priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
-                    priceAndCharaLabel -> setString("見習い魔女");
-                    break;
-                case 1:
-                    priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
-                    priceAndCharaLabel -> setString("ひよっこ魔女");
-                    break;
-                case 2:
-                    priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
-                    priceAndCharaLabel -> setString("☇魔法使い☇");
-                    break;
-                case 3:
-                    priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
-                    priceAndCharaLabel -> setString("まっかの女の子");
-                    break;
-                case 4:
-                    priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
-                    priceAndCharaLabel -> setString("空飛ぶ車");
-                    break;
-                case 5:
-                    priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
-                    priceAndCharaLabel -> setString("元ｴｰｽ･ﾊﾟｲﾛｯﾄ");
-                    break;
-                default:break;
+            std::string name;
+            //言語による分岐
+            if(lang == LanguageType::JAPANESE){
+                switch (idx) {
+                    case 0: name = "見習い魔女";break;
+                    case 1: name = "ひよっこ魔女";break;
+                    case 2: name = "☇魔法使い☇";break;
+                    case 3: name = "まっかの女の子";break;
+                    case 4: name = "空飛ぶ車";break;
+                    case 5: name = "元ｴｰｽ･ﾊﾟｲﾛｯﾄ";break;
+                    default:break;
+                }
+            }
+            else{
+                switch (idx) {
+                    case 0: name = "New witch";break;
+                    case 1: name = "Younker witch";break;
+                    case 2: name = "☇Wizard☇";break;
+                    case 3: name = "Red hair girl";break;
+                    case 4: name = "Skycar";break;
+                    case 5: name = "Ex-serviceman";break;
+                    default:break;
+                }
+            }
+
+            priceAndCharaLabel -> setString(name);
+            if(lang == LanguageType::JAPANESE){
+                priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
             }
             
         }else{
             
             switch (idx) {
                 case 0:
-                    priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
-                    priceAndCharaLabel -> setString("見習い魔女");
+                    if(lang == LanguageType::JAPANESE){
+                        priceAndCharaLabel -> setString("見習い魔女");
+                        priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
+                    }else{
+                        priceAndCharaLabel -> setString("New witch");
+                    }
                     break;
                 case 1:
-                    priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
-                    priceAndCharaLabel -> setString("レビューでゲット!");
+                    if(lang == LanguageType::JAPANESE){
+                        priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
+                        priceAndCharaLabel -> setString("レビューでゲット!");
+                    }else{
+                        priceAndCharaLabel -> setString("Get by reviews!");
+                    }
+
                     priceAndCharaLabel -> setColor(Color3B::RED);
                     priceAndCharaLabel -> setSystemFontSize(20);
                     break;
