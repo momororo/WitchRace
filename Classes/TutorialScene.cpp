@@ -73,7 +73,14 @@ bool TutorialScene::init(){
     
     
     //説明文作成
-    tutorial_text = Label::createWithSystemFont("〜操作方法の説明〜\n※説明は自動で進行します。", "HiraKakuPro-W3", 25);
+    //説明文の変更
+    LanguageType language = Application::getInstance()->getCurrentLanguage();
+    if (language == LanguageType::JAPANESE) {
+        tutorial_text = Label::createWithSystemFont("〜操作方法の説明〜\n※説明は自動で進行します。", "HiraKakuPro-W3", 25);
+    }else{
+        tutorial_text = Label::createWithSystemFont("〜We will show you how to play〜", "HiraKakuPro-W3", 25);
+    }
+
     tutorial_text -> setTextColor(Color4B::BLACK);
     tutorial_text -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/4));
     tutorial_text -> setName("tutorial_text");
@@ -243,7 +250,7 @@ void TutorialScene::setPhase1(float time){
     if (language == LanguageType::JAPANESE) {
         tutorial_text -> setString("画面をタップし続けると上昇します。");
     }else{
-        tutorial_text -> setString("When a tap keeps doing a screen,she rises.");
+        tutorial_text -> setString("While touching a screen,she goes up.");
     }
     
     //5秒後にフェーズ２に移行
@@ -268,7 +275,7 @@ void TutorialScene::setPhase2(float time){
     if(language == LanguageType::JAPANESE){
         tutorial_text -> setString("指を離すと下降します。");
     }else{
-        tutorial_text -> setString("When a finger is separated from a screen,\nshe descends.");
+        tutorial_text -> setString("While not touching a screen,,\nshe goes down.");
     }
     
     

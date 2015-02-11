@@ -68,9 +68,9 @@ bool SelectCharacterScene::init()
         //ポニョ
         ponyoExText = "She is quite energetic and flies high up in the sky\n～Character bonus～\nYou get three times as many points as \npoints you get at stage end";
         //空飛ぶ車
-        fordAngliaExText = "a car my friend's father lent\n～character bonus～\nYou get five times as many points as \npoints when you get at stage end";
+        fordAngliaExText = "A car my friend's father lent\n～Character bonus～\nYou get five times as many points as \npoints when you get at stage end";
         //ポルコ・ロッソ
-        porcoRossoExText = "He is called a man among men！\n～character bonus～\nYou get ten times as many points as \npoints when you get at stage end";
+        porcoRossoExText = "He is called a man among men！\n～Character bonus～\nYou get ten times as many points as \npoints when you get at stage end";
     }
 //言語設定終
 
