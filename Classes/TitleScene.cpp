@@ -359,13 +359,33 @@ void TitleScene::setTwitterBt(){
     //メニューアイテムの作成
     auto pBtnItem = MenuItemSprite::create(twitterBt, twitterBtTaped, [](Ref *ref){
         
-        //ツイッター呼び出し
-        CCLOG("ツイートしちゃうぞ♪");
         //ボタン効果音
         SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
         //呟き回数をカウント
         auto userDef = UserDefault::getInstance();
         userDef->setIntegerForKey("twitterCount",(userDef->getIntegerForKey("twitterCount") + 1));
+
+        //ポイントの読込
+        userDef = UserDefault::getInstance();
+        auto totalPoint = userDef -> getIntegerForKey("playPoint");
+        
+        //言語の取得
+        LanguageType lang = Application::getInstance()->getCurrentLanguage();
+        
+        std::string text;
+        
+        //日本語の場合は日本語の説明文を、それ以外は英語
+        if(lang == LanguageType::JAPANESE){
+
+        //テキスト作成
+        text = StringUtils::format("現在のポイント：%d点\n【iPhoneアプリ】魔女ムズ\n#魔女ムズ",totalPoint);
+        }else{
+            text = StringUtils::format("TotalPoints：%dpt\n【iPhone apps】Witch's delivery\n#Witch's delivery",totalPoint);
+            
+        }
+        
+        NativeLauncher::openTweetDialog(text.c_str());
+
         
     });
     

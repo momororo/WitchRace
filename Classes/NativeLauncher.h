@@ -13,10 +13,16 @@
 
 class NativeLauncher{
 public:
+    //レビュー誘導
     static void openReview();
+    
+    //Game Center
     static void loginGameCenter();
     static void openRanking();
     static void postHighScore(std::string key ,int score);
+    
+    //twitter
+    static void openTweetDialog(const char* $tweet);
 
 };
 

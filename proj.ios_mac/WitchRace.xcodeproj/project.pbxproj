@@ -55,6 +55,7 @@
 		04362EC31A846737008B9091 /* appcc_web_splash_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 04362E911A846737008B9091 /* appcc_web_splash_logo.png */; };
 		04362EC41A846737008B9091 /* appcc_web_splash_logo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04362E921A846737008B9091 /* appcc_web_splash_logo2.gif */; };
 		04362EC51A846737008B9091 /* libappCCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04362E9D1A846737008B9091 /* libappCCloud.a */; };
+		043C425E1A8B4B390042DD67 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043C425D1A8B4B390042DD67 /* Twitter.framework */; };
 		044BAC541A7F6FB500CBD57B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044BAC531A7F6FB500CBD57B /* Images.xcassets */; };
 		045EAE781A7E2951000059FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EAE761A7E2951000059FF /* Bolts.framework */; };
 		045EAE791A7E2952000059FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EAE771A7E2951000059FF /* Parse.framework */; };
@@ -79,6 +80,7 @@
 		048E2CCC1A81E4F400530D86 /* NendInterstitialModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CC71A81E4F400530D86 /* NendInterstitialModule.mm */; };
 		048E2CCE1A81E4F400530D86 /* NendModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CCA1A81E4F400530D86 /* NendModule.mm */; };
 		048E2CD21A81F58A00530D86 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CD11A81F58A00530D86 /* GameCenter.m */; };
+		04B6A9211A8A1FEA0025D841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04B6A9231A8A1FEA0025D841 /* InfoPlist.strings */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
 		04EA8C5E1A833BDC00AF5083 /* ADGConnectionForIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04EA8C5D1A833BDC00AF5083 /* ADGConnectionForIOS.mm */; };
 		04EA8C651A833C7800AF5083 /* libADGCocos2d-x1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EA8C641A833C7800AF5083 /* libADGCocos2d-x1.1.0.a */; };
@@ -467,6 +469,7 @@
 		04362E9B1A846737008B9091 /* appCMoveIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appCMoveIconView.h; sourceTree = "<group>"; };
 		04362E9C1A846737008B9091 /* appCSimpleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appCSimpleView.h; sourceTree = "<group>"; };
 		04362E9D1A846737008B9091 /* libappCCloud.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libappCCloud.a; sourceTree = "<group>"; };
+		043C425D1A8B4B390042DD67 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = DEVELOPER_DIR; };
 		044BAC531A7F6FB500CBD57B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "WitchRace iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		045EAE761A7E2951000059FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		045EAE771A7E2951000059FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -505,6 +508,8 @@
 		048E2CCA1A81E4F400530D86 /* NendModule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NendModule.mm; sourceTree = "<group>"; };
 		048E2CD01A81F58A00530D86 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
 		048E2CD11A81F58A00530D86 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
+		04B6A9221A8A1FEA0025D841 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04B6A9241A8A1FEF0025D841 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
 		04C9CBD91A30608300E51608 /* BackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackGround.h; path = ../Classes/BackGround.h; sourceTree = "<group>"; };
 		04DE3B0B1A5254960041D387 /* Zorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zorder.h; sourceTree = "<group>"; };
@@ -702,6 +707,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043C425E1A8B4B390042DD67 /* Twitter.framework in Frameworks */,
 				045EAE891A7E29DD000059FF /* StoreKit.framework in Frameworks */,
 				04EA8C761A83594500AF5083 /* AdSupport.framework in Frameworks */,
 				04EA8C751A833D4A00AF5083 /* MediaPlayer.framework in Frameworks */,
@@ -943,6 +949,7 @@
 				040FBF1F1A6E387900119570 /* SelectCharacterScene.h */,
 				041026FB1A6E5DB700837C82 /* CharacterSwitch.cpp */,
 				041026FC1A6E5DB700837C82 /* CharacterSwitch.h */,
+				04B6A9231A8A1FEA0025D841 /* InfoPlist.strings */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -995,6 +1002,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				043C425D1A8B4B390042DD67 /* Twitter.framework */,
 				04EA8C741A833D4A00AF5083 /* MediaPlayer.framework */,
 				04EA8C721A833D3000AF5083 /* EventKit.framework */,
 				04EA8C701A833D1E00AF5083 /* CoreTelephony.framework */,
@@ -1275,6 +1283,7 @@
 				Japanese,
 				French,
 				German,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -1510,6 +1519,7 @@
 				A48D62A11A5E5D9E003448B8 /* field_gameBg.png in Resources */,
 				A42EC1B91A89CFEA000F5A72 /* button70.mp3 in Resources */,
 				04362EC31A846737008B9091 /* appcc_web_splash_logo.png in Resources */,
+				04B6A9211A8A1FEA0025D841 /* InfoPlist.strings in Resources */,
 				04362EBA1A846737008B9091 /* appc_simple_left_vector@2x.png in Resources */,
 				04362EC01A846737008B9091 /* appcc_simple_appc_icon@2x.png in Resources */,
 				A4A3E5F41A6908F500E8593A /* ssOrnament.png in Resources */,
@@ -1647,6 +1657,19 @@
 			targetProxy = 1AC6FB2C180E99E1004C840B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04B6A9231A8A1FEA0025D841 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04B6A9221A8A1FEA0025D841 /* ja */,
+				04B6A9241A8A1FEF0025D841 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
