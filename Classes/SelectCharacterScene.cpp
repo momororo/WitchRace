@@ -81,7 +81,7 @@ bool SelectCharacterScene::init()
 
     
 //型枠の作成
-    auto bg = Sprite::create("character_Bg.png");
+    auto bg = Sprite::create("character_bg.png");
     
     bg->setName("bg");
     bg->setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));

@@ -68,7 +68,7 @@
  各ステージのプレイ回数
 
  
-(bool)characterFlag0〜4
+(bool)characterFlag0〜5
     キャラクターの使用可能フラグ
  
 (int)selectCharacter
@@ -81,7 +81,7 @@
  user:ユーザー識別子
  playCountFor0〜4:各ステージのプレイ回数
  clearCountFor0〜4:各ステージのクリア回数
- clearStory:そこまでクリアしたか
+ clearStory:どこまでクリアしたか
  playPoint:プレイポイント
  twitterPoint:ツイッターのつぶやき数
  
