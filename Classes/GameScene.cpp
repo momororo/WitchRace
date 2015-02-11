@@ -52,6 +52,9 @@ bool GameScene::init()
         case 4:CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("stage5.mp3");break;
         default:break;
     }
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+    
 //背景処理
     //staticBackGroundの追加
     this -> addChild(BackGround::getInstance()->getStaticBackGround(),0);
