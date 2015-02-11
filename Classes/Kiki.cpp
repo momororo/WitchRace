@@ -119,7 +119,7 @@ Kiki::Kiki(){
     kikiBody->setEnable(false);
 
     //ビットマスクはてきとう
-    kikiBody->setCategoryBitmask(0x01);
+    kikiBody->setCategoryBitmask(/*0x01*/0);
     kikiBody->setCollisionBitmask(0);
     kikiBody->setContactTestBitmask(0x02);
     
@@ -146,7 +146,7 @@ Kiki::Kiki(){
     broomBody -> setDynamic(true);
     broomBody -> setEnable(false);
     
-    broomBody ->setCategoryBitmask(0x01);
+    broomBody ->setCategoryBitmask(/*0x01*/0);
     broomBody ->setCollisionBitmask(0);
     broomBody ->setContactTestBitmask(0x02);
     

@@ -290,33 +290,6 @@ void GameScene::update( float frame )
         this->makeGameClear();
     }
     
-if(CharacterSwitch::getInstance()->getGamePlayFlag() == true){
-#pragma  mark デバッグ用
-    
-    //時間の計測
-    struct timeval time2;
-    gettimeofday(&time2, NULL);
-    unsigned long long currentTime = time2.tv_sec * 1000ull + time2.tv_usec / 1000ull;
-    currentTime = currentTime - startTime;
-    
-    //秒数を取り出す
-    unsigned long sec = currentTime / 1000;
-    //ミリ秒を取り出す
-    unsigned long mSec = (currentTime % 1000) / 10;
-    
-    //分を作る
-    unsigned long min = (int)sec / 60;
-    
-    //分の量だけ秒から削る
-    sec = sec - (min * 60);
-    
-    //CCLOG("時間 %02lu:%02lu:%02lu",min,sec,mSec);
-    //CCLOG("%d",BackGround::getInstance()->getReplaceCount());
-    
-}
-    
-    
-    
 }
 
 #pragma mark-

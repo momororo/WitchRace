@@ -26,7 +26,7 @@ private:
     //カウント(背景のreplace回数)初期値で調整
     int count = -2;
     
-    
+    int testcount;
 
     //配列
     cocos2d::Vector<Sprite*> *backGrounds = new cocos2d::Vector<Sprite*>;

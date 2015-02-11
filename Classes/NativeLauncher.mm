@@ -16,7 +16,7 @@
 void NativeLauncher::openReview(){
     
     //IDを入れてね
-    NSURL *reivewURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/jp/app/reindoroppu-luochiru-nawo/id%d?mt=8&ign-mpt=uo%%3D4",952698855]];
+    NSURL *reivewURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/jp/app/reindoroppu-luochiru-nawo/id%d?mt=8&ign-mpt=uo%%3D4",957700310]];
     [[UIApplication sharedApplication] openURL:reivewURL];
     
 }

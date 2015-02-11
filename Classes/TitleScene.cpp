@@ -51,7 +51,7 @@ bool TitleScene::init(){
     //テスト
 //    ADGConnectionForIOS::initADG((char*)"10723", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
     //本番
-//    ADGConnectionForIOS::initADG((char*)"20338 ", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
+    ADGConnectionForIOS::initADG((char*)"20338 ", (char*)"SP", 0, selfFrame.height/2 - 50, NULL);
     //終
     
     /*
