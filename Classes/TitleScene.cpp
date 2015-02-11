@@ -72,10 +72,7 @@ bool TitleScene::init(){
 
    
 
-    //BGMの設定
-    SimpleAudioEngine::getInstance()->preloadBackgroundMusic("title.mp3");
-    //BGM音量設定
-    SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.1f);
+    
     
     //BGMが鳴っているかチェック
     if(SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()){
@@ -83,8 +80,13 @@ bool TitleScene::init(){
     
     }else{
         //鳴っていないときの処理
+        //BGMの設定
+        SimpleAudioEngine::getInstance()->preloadBackgroundMusic("title.mp3");
+        //BGM音量設定
+        SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.1f);
         //BGM再生
         SimpleAudioEngine::getInstance()->playBackgroundMusic("title.mp3",true);
+    
     }
     
     

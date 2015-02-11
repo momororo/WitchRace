@@ -123,11 +123,11 @@ bool SelectCharacterScene::init()
 
     //ユーザーデフォルトを呼び出してキャラクターフラグを確認
     /*
-     userDef->setBoolForKey("characterFlag1", false);
-     userDef->setBoolForKey("characterFlag2", false);
-     userDef->setBoolForKey("characterFlag3", false);
-     userDef->setBoolForKey("characterFlag4", false);
-     userDef->setBoolForKey("characterFlag5", false);
+     userDef->setBoolForKey("characterFlag1", true);
+     userDef->setBoolForKey("characterFlag2", true);
+     userDef->setBoolForKey("characterFlag3", true);
+     userDef->setBoolForKey("characterFlag4", true);
+     userDef->setBoolForKey("characterFlag5", true);
     */
 
 
@@ -449,12 +449,12 @@ bool SelectCharacterScene::init()
             }
             else{
                 switch (idx) {
-                    case 0: name = "New witch";break;
-                    case 1: name = "Younker witch";break;
-                    case 2: name = "☇Wizard☇";break;
-                    case 3: name = "Red hair girl";break;
-                    case 4: name = "Skycar";break;
-                    case 5: name = "Ex-serviceman";break;
+                    case 0: name = "New witch";priceAndCharaLabel -> setSystemFontSize(40);break;
+                    case 1: name = "Younker witch";priceAndCharaLabel -> setSystemFontSize(40);break;
+                    case 2: name = "☇Wizard☇";priceAndCharaLabel -> setSystemFontSize(40);break;
+                    case 3: name = "Red hair girl";priceAndCharaLabel -> setSystemFontSize(40);break;
+                    case 4: name = "Skycar";priceAndCharaLabel -> setSystemFontSize(40);break;
+                    case 5: name = "Ex-serviceman";priceAndCharaLabel -> setSystemFontSize(40);break;
                     default:break;
                 }
             }
@@ -473,18 +473,23 @@ bool SelectCharacterScene::init()
                         priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
                     }else{
                         priceAndCharaLabel -> setString("New witch");
+                        priceAndCharaLabel -> setSystemFontSize(40);
+
                     }
                     break;
                 case 1:
                     if(lang == LanguageType::JAPANESE){
                         priceAndCharaLabel -> setSystemFontName("HiraKakuPro-W3");
                         priceAndCharaLabel -> setString("レビューでゲット!");
+                        priceAndCharaLabel -> setSystemFontSize(20);
+
                     }else{
                         priceAndCharaLabel -> setString("Get by reviews!");
+                        priceAndCharaLabel -> setSystemFontSize(40);
+
                     }
 
                     priceAndCharaLabel -> setColor(Color3B::RED);
-                    priceAndCharaLabel -> setSystemFontSize(20);
                     break;
                 case 2:
                     priceAndCharaLabel -> setSystemFontName("MagicSchoolOne");
