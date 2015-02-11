@@ -32,11 +32,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
 //nendインタースティシャル
     //本番
-//    char interstitialApiKey[] = "4d356c2beae29f2750413b21abda06698da45e8c";
-//    char interstitialSpotID[] = "311432";
+    char interstitialApiKey[] = "4d356c2beae29f2750413b21abda06698da45e8c";
+    char interstitialSpotID[] = "311432";
     //テスト
-    char interstitialApiKey[] = "308c2499c75c4a192f03c02b2fcebd16dcb45cc9";
-    char interstitialSpotID[] = "213208";
+//    char interstitialApiKey[] = "308c2499c75c4a192f03c02b2fcebd16dcb45cc9";
+//    char interstitialSpotID[] = "213208";
     
     // appC cloud 開始
     // pDirector->setDisplayStats(true)の直後で一度だけ呼び出してください

@@ -259,21 +259,9 @@ void BackGround::replaceBackGround(){
     count++;
 
     
-    //カウントダウン表示
-    //0までは何もしない
-    if(count <= 0){
-        
-        return;
-    }
-    if(count <= 30){
-        //カウントダウン演出
-       // Label *countLabel = (Label*)staticBackGround->getChildByName("count");
-        //countLabel->setString(StringUtils::format("%d",30 - count));
-        
-        staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPosition(Vec2(staticBackGround->getChildByName("countBar")->getContentSize().width/30*count,staticBackGround->getChildByName("countBar")->getContentSize().height/2));
-        
-        return;
-    }
+    
+    staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPositionX((staticBackGround->getChildByName("countBar")->getContentSize().width-30)/32*(count+2));
+    
 
 
 }
@@ -310,16 +298,9 @@ void BackGround::backGroundUpdate(){
     
     
     
-//進捗バーを滑らかに動かす処理
-    if(count <= -1){
-        
-    return;
-        
-    }else if(count <= 30){
+//進捗バーを滑らかに動かす処理    
 
-    staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPosition(Vec2(staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->getPositionX() + staticBackGround->getChildByName("countBar")->getContentSize().width/30/160,staticBackGround->getChildByName("countBar")->getContentSize().height/2));
-
-    }
+    staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPosition(Vec2(staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->getPositionX() + (staticBackGround->getChildByName("countBar")->getContentSize().width-30)/5800,staticBackGround->getChildByName("countBar")->getContentSize().height/2));
     
     
     

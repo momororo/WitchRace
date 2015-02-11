@@ -177,6 +177,17 @@ void HarryPotter::makeGameOver(){
 
 }
 
+void HarryPotter::makeGameClear(){
+    //パーティクルを飛ばす
+    auto action = MoveTo::create(1, Vec2(selfFrame.width * 1.5, harryPotter->getPositionY()));
+    
+    auto remove = RemoveSelf::create(true);
+    
+    //フェードアウト->削除のアニメーション開始
+    harryPotter->runAction(Sequence::create(action, remove, NULL));
+}
+
+
 
 
 //ハリーポッターの1フレーム毎の処理

@@ -179,6 +179,17 @@ void Kiki::makeGameOver(){
 
 }
 
+void Kiki::makeGameClear(){
+    //パーティクルを飛ばす
+    auto action = MoveTo::create(1, Vec2(selfFrame.width * 1.5, kiki->getPositionY()));
+    
+    auto remove = RemoveSelf::create(true);
+    
+    //フェードアウト->削除のアニメーション開始
+    kiki->runAction(Sequence::create(action, remove, NULL));
+}
+
+
 
 
 //キキちゃんの1フレーム毎の処理

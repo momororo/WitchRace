@@ -175,6 +175,17 @@ void FordAnglia::makeGameOver(){
     
 }
 
+void FordAnglia::makeGameClear(){
+    //パーティクルを飛ばす
+    auto action = MoveTo::create(1, Vec2(selfFrame.width * 1.5, fordAnglia->getPositionY()));
+    
+    auto remove = RemoveSelf::create(true);
+    
+    //フェードアウト->削除のアニメーション開始
+    fordAnglia->runAction(Sequence::create(action, remove, NULL));
+}
+
+
 
 
 //空飛ぶ車の1フレーム毎の処理

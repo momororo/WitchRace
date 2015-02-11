@@ -162,6 +162,18 @@ void PetitKiki::makeGameOver(){
 
 }
 
+void PetitKiki::makeGameClear(){
+        //パーティクルを飛ばす
+    auto action = MoveTo::create(1, Vec2(selfFrame.width * 1.5, petitKiki->getPositionY()));
+        
+    auto remove = RemoveSelf::create(true);
+        
+    //フェードアウト->削除のアニメーション開始
+    petitKiki->runAction(Sequence::create(action, remove, NULL));
+    
+}
+
+
 
 
 //キキちゃんの1フレーム毎の処理
