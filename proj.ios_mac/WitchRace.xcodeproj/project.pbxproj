@@ -165,6 +165,7 @@
 		A457D8141A6E4555007C2E41 /* storyBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8131A6E4555007C2E41 /* storyBg.png */; };
 		A457D8161A6E572B007C2E41 /* tutorialBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8151A6E572B007C2E41 /* tutorialBg.png */; };
 		A457D8191A6E5AF7007C2E41 /* TutorialScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A457D8171A6E5AF7007C2E41 /* TutorialScene.cpp */; };
+		A45836A41A8B45580073A999 /* titleBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A45836A31A8B45580073A999 /* titleBg.png */; };
 		A4643F031A80F57A00C09591 /* particle_fordAnglia.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4643F011A80F57A00C09591 /* particle_fordAnglia.plist */; };
 		A4643F041A80F57A00C09591 /* particle_fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4643F021A80F57A00C09591 /* particle_fordAnglia.png */; };
 		A4643F171A80FDB600C09591 /* particle_porcoRosso.png in Resources */ = {isa = PBXBuildFile; fileRef = A4643F151A80FDB600C09591 /* particle_porcoRosso.png */; };
@@ -214,7 +215,6 @@
 		A49DA19C1A68BAED0058BABF /* ssDownerOrnament.png in Resources */ = {isa = PBXBuildFile; fileRef = A49DA1941A68BAED0058BABF /* ssDownerOrnament.png */; };
 		A49DA1A11A68BAF10058BABF /* titleObject.png in Resources */ = {isa = PBXBuildFile; fileRef = A49DA1A01A68BAF10058BABF /* titleObject.png */; };
 		A4A3E5F41A6908F500E8593A /* ssOrnament.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A3E5F31A6908F500E8593A /* ssOrnament.png */; };
-		A4A3E5F81A690A1500E8593A /* titleBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A3E5F71A690A1500E8593A /* titleBg.png */; };
 		A4A8E8371A5BF9F000E3E346 /* kikiparticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A8E8351A5BF9F000E3E346 /* kikiparticle.plist */; };
 		A4A8E8381A5BF9F000E3E346 /* kikitexture.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A8E8361A5BF9F000E3E346 /* kikitexture.png */; };
 		A4BB071A1A3976A800991DCE /* kiki_down_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4BB07191A3976A800991DCE /* kiki_down_shadow.png */; };
@@ -232,7 +232,6 @@
 		A4C1144D1A6F778E00140E2F /* porcoRosso_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C1144B1A6F778E00140E2F /* porcoRosso_shadow.png */; };
 		A4C114511A6F781A00140E2F /* fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C1144F1A6F781A00140E2F /* fordAnglia.png */; };
 		A4C114521A6F781A00140E2F /* fordAnglia_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */; };
-		A4CB43DE1A4035CD00890E53 /* titleBk.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB43DD1A4035CD00890E53 /* titleBk.png */; };
 		A4CB43DF1A40361F00890E53 /* MagicSchoolOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */; };
 		A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4CB43E31A403CFF00890E53 /* StorySelect.cpp */; };
 		A4D045EB1A7CA30F00969D54 /* ponyo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4D045E91A7CA30F00969D54 /* ponyo.plist */; };
@@ -602,6 +601,7 @@
 		A457D8151A6E572B007C2E41 /* tutorialBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialBg.png; sourceTree = "<group>"; };
 		A457D8171A6E5AF7007C2E41 /* TutorialScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TutorialScene.cpp; path = ../Classes/TutorialScene.cpp; sourceTree = "<group>"; };
 		A457D8181A6E5AF7007C2E41 /* TutorialScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialScene.h; path = ../Classes/TutorialScene.h; sourceTree = "<group>"; };
+		A45836A31A8B45580073A999 /* titleBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleBg.png; sourceTree = "<group>"; };
 		A4643F011A80F57A00C09591 /* particle_fordAnglia.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_fordAnglia.plist; sourceTree = "<group>"; };
 		A4643F021A80F57A00C09591 /* particle_fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_fordAnglia.png; sourceTree = "<group>"; };
 		A4643F151A80FDB600C09591 /* particle_porcoRosso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_porcoRosso.png; sourceTree = "<group>"; };
@@ -650,7 +650,6 @@
 		A49DA1941A68BAED0058BABF /* ssDownerOrnament.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ssDownerOrnament.png; sourceTree = "<group>"; };
 		A49DA1A01A68BAF10058BABF /* titleObject.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleObject.png; sourceTree = "<group>"; };
 		A4A3E5F31A6908F500E8593A /* ssOrnament.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ssOrnament.png; sourceTree = "<group>"; };
-		A4A3E5F71A690A1500E8593A /* titleBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleBg.png; sourceTree = "<group>"; };
 		A4A8E8351A5BF9F000E3E346 /* kikiparticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = kikiparticle.plist; sourceTree = "<group>"; };
 		A4A8E8361A5BF9F000E3E346 /* kikitexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kikitexture.png; sourceTree = "<group>"; };
 		A4BB07191A3976A800991DCE /* kiki_down_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki_down_shadow.png; sourceTree = "<group>"; };
@@ -669,7 +668,6 @@
 		A4C1144F1A6F781A00140E2F /* fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fordAnglia.png; sourceTree = "<group>"; };
 		A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fordAnglia_shadow.png; sourceTree = "<group>"; };
 		A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MagicSchoolOne.ttf; sourceTree = "<group>"; };
-		A4CB43DD1A4035CD00890E53 /* titleBk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleBk.png; sourceTree = "<group>"; };
 		A4CB43E31A403CFF00890E53 /* StorySelect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StorySelect.cpp; path = ../Classes/StorySelect.cpp; sourceTree = "<group>"; };
 		A4CB43E41A403CFF00890E53 /* StorySelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StorySelect.h; path = ../Classes/StorySelect.h; sourceTree = "<group>"; };
 		A4D045E91A7CA30F00969D54 /* ponyo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ponyo.plist; sourceTree = "<group>"; };
@@ -1104,8 +1102,8 @@
 				A42C8FF81A6A6855008C5DE4 /* tutorialBt.png */,
 				A42C8FF61A6A684E008C5DE4 /* characterBt.png */,
 				A41620D21A69210F007DD83F /* alert.png */,
-				A4A3E5F71A690A1500E8593A /* titleBg.png */,
 				A4A3E5F31A6908F500E8593A /* ssOrnament.png */,
+				A45836A31A8B45580073A999 /* titleBg.png */,
 				A48C105C1A68EBB4009D8C46 /* otherBt.png */,
 				A48C105D1A68EBB4009D8C46 /* rankingBt.png */,
 				A48C105F1A68EBB4009D8C46 /* storyBt.png */,
@@ -1169,7 +1167,6 @@
 				A4643F021A80F57A00C09591 /* particle_fordAnglia.png */,
 				A41A6F2B1A52A68D0049829A /* particleFlower.plist */,
 				A41A6F2C1A52A68D0049829A /* particleFlower.png */,
-				A4CB43DD1A4035CD00890E53 /* titleBk.png */,
 				A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */,
 				A4C1144F1A6F781A00140E2F /* fordAnglia.png */,
 				A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */,
@@ -1400,6 +1397,7 @@
 				04362EAF1A846737008B9091 /* appc_manga_gr_white_bottom@2x.png in Resources */,
 				04362EB21A846737008B9091 /* appc_manga_vectol@2x.png in Resources */,
 				A457D8161A6E572B007C2E41 /* tutorialBg.png in Resources */,
+				A45836A41A8B45580073A999 /* titleBg.png in Resources */,
 				A48C10661A68EBB4009D8C46 /* twitterBt.png in Resources */,
 				A4D046031A7CDF9A00969D54 /* character_fordAnglia_locked.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
@@ -1409,7 +1407,6 @@
 				A48C105A1A68DFA1009D8C46 /* gaugeOfKiki.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				04362EA31A846737008B9091 /* appc_cutin_btn_inst@2x.png in Resources */,
-				A4A3E5F81A690A1500E8593A /* titleBg.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				04FEE77D1A6015EA00098655 /* town.png in Resources */,
 				A42E0E6F1A5FB7280005E670 /* town_3.png in Resources */,
@@ -1431,7 +1428,6 @@
 				A4C114521A6F781A00140E2F /* fordAnglia_shadow.png in Resources */,
 				A47F2DC01A5D3A8A0050F464 /* village.plist in Resources */,
 				04362EB41A846737008B9091 /* appc_marquee_btn@2x.png in Resources */,
-				A4CB43DE1A4035CD00890E53 /* titleBk.png in Resources */,
 				A42C8FF71A6A684E008C5DE4 /* characterBt.png in Resources */,
 				A42EC1BD1A89E28F000F5A72 /* title.mp3 in Resources */,
 				A42E0E6D1A5FB7280005E670 /* town_1.png in Resources */,
