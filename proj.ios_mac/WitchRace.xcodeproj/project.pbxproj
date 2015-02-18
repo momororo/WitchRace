@@ -150,6 +150,8 @@
 		A42EC1BF1A8A00E2000F5A72 /* button82.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A42EC1BE1A8A00E2000F5A72 /* button82.mp3 */; };
 		A42EC1C11A8A015A000F5A72 /* button83.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A42EC1C01A8A015A000F5A72 /* button83.mp3 */; };
 		A42FC9031A6F70CB00F452C4 /* FordAnglia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */; };
+		A434CCAE1A8C85C500D290EE /* porcoRosso.png in Resources */ = {isa = PBXBuildFile; fileRef = A434CCAC1A8C85C500D290EE /* porcoRosso.png */; };
+		A434CCAF1A8C85C500D290EE /* porcoRosso.plist in Resources */ = {isa = PBXBuildFile; fileRef = A434CCAD1A8C85C500D290EE /* porcoRosso.plist */; };
 		A44C995D1A81E47A00200C91 /* particle_ponyo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A44C995B1A81E47A00200C91 /* particle_ponyo.plist */; };
 		A44C995E1A81E47A00200C91 /* particle_ponyo.png in Resources */ = {isa = PBXBuildFile; fileRef = A44C995C1A81E47A00200C91 /* particle_ponyo.png */; };
 		A44C99631A8207BB00200C91 /* particle_runPonyo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A44C99611A8207BB00200C91 /* particle_runPonyo.plist */; };
@@ -160,10 +162,6 @@
 		A457D8161A6E572B007C2E41 /* tutorialBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A457D8151A6E572B007C2E41 /* tutorialBg.png */; };
 		A457D8191A6E5AF7007C2E41 /* TutorialScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A457D8171A6E5AF7007C2E41 /* TutorialScene.cpp */; };
 		A45836A41A8B45580073A999 /* titleBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A45836A31A8B45580073A999 /* titleBg.png */; };
-		A4643F031A80F57A00C09591 /* particle_fordAnglia.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4643F011A80F57A00C09591 /* particle_fordAnglia.plist */; };
-		A4643F041A80F57A00C09591 /* particle_fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4643F021A80F57A00C09591 /* particle_fordAnglia.png */; };
-		A4643F171A80FDB600C09591 /* particle_porcoRosso.png in Resources */ = {isa = PBXBuildFile; fileRef = A4643F151A80FDB600C09591 /* particle_porcoRosso.png */; };
-		A4643F181A80FDB600C09591 /* particle_porcoRosso.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4643F161A80FDB600C09591 /* particle_porcoRosso.plist */; };
 		A4722A751A6E9B8A00CC1A42 /* tutorial_tapHold.png in Resources */ = {isa = PBXBuildFile; fileRef = A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */; };
 		A4722A761A6E9B8A00CC1A42 /* tutorial_hand.png in Resources */ = {isa = PBXBuildFile; fileRef = A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */; };
 		A473C84A1A627B64009000A5 /* pause_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A473C8491A627B64009000A5 /* pause_gameClear.png */; };
@@ -205,6 +203,8 @@
 		A491FC8E1A6D0C4D008A6C56 /* homeBt.png in Resources */ = {isa = PBXBuildFile; fileRef = A491FC8B1A6D0C4D008A6C56 /* homeBt.png */; };
 		A491FC8F1A6D0C4D008A6C56 /* retryBt.png in Resources */ = {isa = PBXBuildFile; fileRef = A491FC8C1A6D0C4D008A6C56 /* retryBt.png */; };
 		A491FC941A6D0D25008A6C56 /* nextBt.png in Resources */ = {isa = PBXBuildFile; fileRef = A491FC931A6D0D25008A6C56 /* nextBt.png */; };
+		A492FC121A93841300E3CA70 /* particle_fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A492FC101A93841300E3CA70 /* particle_fordAnglia.png */; };
+		A492FC131A93841300E3CA70 /* particle_fordAnglia.plist in Resources */ = {isa = PBXBuildFile; fileRef = A492FC111A93841300E3CA70 /* particle_fordAnglia.plist */; };
 		A49DA19B1A68BAED0058BABF /* ssUpperOrnament.png in Resources */ = {isa = PBXBuildFile; fileRef = A49DA1931A68BAED0058BABF /* ssUpperOrnament.png */; };
 		A49DA19C1A68BAED0058BABF /* ssDownerOrnament.png in Resources */ = {isa = PBXBuildFile; fileRef = A49DA1941A68BAED0058BABF /* ssDownerOrnament.png */; };
 		A49DA1A11A68BAF10058BABF /* titleObject.png in Resources */ = {isa = PBXBuildFile; fileRef = A49DA1A01A68BAF10058BABF /* titleObject.png */; };
@@ -223,11 +223,12 @@
 		A4C114451A6F776E00140E2F /* broomOfKiki_down_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C114411A6F776E00140E2F /* broomOfKiki_down_shadow.png */; };
 		A4C114481A6F777900140E2F /* harryPotter.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C114461A6F777800140E2F /* harryPotter.png */; };
 		A4C114491A6F777900140E2F /* harryPotter_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C114471A6F777900140E2F /* harryPotter_shadow.png */; };
-		A4C1144D1A6F778E00140E2F /* porcoRosso_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C1144B1A6F778E00140E2F /* porcoRosso_shadow.png */; };
 		A4C114511A6F781A00140E2F /* fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C1144F1A6F781A00140E2F /* fordAnglia.png */; };
 		A4C114521A6F781A00140E2F /* fordAnglia_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */; };
 		A4CB43DF1A40361F00890E53 /* MagicSchoolOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */; };
 		A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4CB43E31A403CFF00890E53 /* StorySelect.cpp */; };
+		A4CD061F1A8E369800C5A2D7 /* particle_porcoRosso.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4CD061D1A8E369800C5A2D7 /* particle_porcoRosso.plist */; };
+		A4CD06201A8E369800C5A2D7 /* particle_porcoRosso.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CD061E1A8E369800C5A2D7 /* particle_porcoRosso.png */; };
 		A4D045EB1A7CA30F00969D54 /* ponyo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4D045E91A7CA30F00969D54 /* ponyo.plist */; };
 		A4D045EC1A7CA30F00969D54 /* ponyo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D045EA1A7CA30F00969D54 /* ponyo.png */; };
 		A4D045FD1A7CDF9A00969D54 /* character_porcoRosso.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D045F21A7CDF9A00969D54 /* character_porcoRosso.png */; };
@@ -240,7 +241,6 @@
 		A4D046051A7CDF9A00969D54 /* character_ponyo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D045FA1A7CDF9A00969D54 /* character_ponyo.png */; };
 		A4D046061A7CDF9A00969D54 /* character_ponyo_locked.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D045FB1A7CDF9A00969D54 /* character_ponyo_locked.png */; };
 		A4D046091A7CFB6400969D54 /* character_fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D046081A7CFB6400969D54 /* character_fordAnglia.png */; };
-		A4D10A211A6F99B100A00B13 /* porcoRosso.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D10A201A6F99B100A00B13 /* porcoRosso.png */; };
 		A4E4855A1A2F4F2200780AF3 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4E485581A2F4F2200780AF3 /* TitleScene.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -575,6 +575,8 @@
 		A42EC1C01A8A015A000F5A72 /* button83.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button83.mp3; sourceTree = "<group>"; };
 		A42FC9011A6F70CB00F452C4 /* FordAnglia.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FordAnglia.cpp; path = ../Classes/FordAnglia.cpp; sourceTree = "<group>"; };
 		A42FC9021A6F70CB00F452C4 /* FordAnglia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FordAnglia.h; path = ../Classes/FordAnglia.h; sourceTree = "<group>"; };
+		A434CCAC1A8C85C500D290EE /* porcoRosso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = porcoRosso.png; sourceTree = "<group>"; };
+		A434CCAD1A8C85C500D290EE /* porcoRosso.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = porcoRosso.plist; sourceTree = "<group>"; };
 		A44C995B1A81E47A00200C91 /* particle_ponyo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_ponyo.plist; sourceTree = "<group>"; };
 		A44C995C1A81E47A00200C91 /* particle_ponyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_ponyo.png; sourceTree = "<group>"; };
 		A44C99611A8207BB00200C91 /* particle_runPonyo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_runPonyo.plist; sourceTree = "<group>"; };
@@ -585,10 +587,6 @@
 		A457D8171A6E5AF7007C2E41 /* TutorialScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TutorialScene.cpp; path = ../Classes/TutorialScene.cpp; sourceTree = "<group>"; };
 		A457D8181A6E5AF7007C2E41 /* TutorialScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialScene.h; path = ../Classes/TutorialScene.h; sourceTree = "<group>"; };
 		A45836A31A8B45580073A999 /* titleBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleBg.png; sourceTree = "<group>"; };
-		A4643F011A80F57A00C09591 /* particle_fordAnglia.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_fordAnglia.plist; sourceTree = "<group>"; };
-		A4643F021A80F57A00C09591 /* particle_fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_fordAnglia.png; sourceTree = "<group>"; };
-		A4643F151A80FDB600C09591 /* particle_porcoRosso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_porcoRosso.png; sourceTree = "<group>"; };
-		A4643F161A80FDB600C09591 /* particle_porcoRosso.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_porcoRosso.plist; sourceTree = "<group>"; };
 		A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_tapHold.png; sourceTree = "<group>"; };
 		A4722A741A6E9B8A00CC1A42 /* tutorial_hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_hand.png; sourceTree = "<group>"; };
 		A473C8491A627B64009000A5 /* pause_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_gameClear.png; sourceTree = "<group>"; };
@@ -629,6 +627,8 @@
 		A491FC8B1A6D0C4D008A6C56 /* homeBt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeBt.png; sourceTree = "<group>"; };
 		A491FC8C1A6D0C4D008A6C56 /* retryBt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retryBt.png; sourceTree = "<group>"; };
 		A491FC931A6D0D25008A6C56 /* nextBt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBt.png; sourceTree = "<group>"; };
+		A492FC101A93841300E3CA70 /* particle_fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_fordAnglia.png; sourceTree = "<group>"; };
+		A492FC111A93841300E3CA70 /* particle_fordAnglia.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_fordAnglia.plist; sourceTree = "<group>"; };
 		A49DA1931A68BAED0058BABF /* ssUpperOrnament.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ssUpperOrnament.png; sourceTree = "<group>"; };
 		A49DA1941A68BAED0058BABF /* ssDownerOrnament.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ssDownerOrnament.png; sourceTree = "<group>"; };
 		A49DA1A01A68BAF10058BABF /* titleObject.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleObject.png; sourceTree = "<group>"; };
@@ -647,12 +647,13 @@
 		A4C114411A6F776E00140E2F /* broomOfKiki_down_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broomOfKiki_down_shadow.png; sourceTree = "<group>"; };
 		A4C114461A6F777800140E2F /* harryPotter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = harryPotter.png; sourceTree = "<group>"; };
 		A4C114471A6F777900140E2F /* harryPotter_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = harryPotter_shadow.png; sourceTree = "<group>"; };
-		A4C1144B1A6F778E00140E2F /* porcoRosso_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = porcoRosso_shadow.png; sourceTree = "<group>"; };
 		A4C1144F1A6F781A00140E2F /* fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fordAnglia.png; sourceTree = "<group>"; };
 		A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fordAnglia_shadow.png; sourceTree = "<group>"; };
 		A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MagicSchoolOne.ttf; sourceTree = "<group>"; };
 		A4CB43E31A403CFF00890E53 /* StorySelect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StorySelect.cpp; path = ../Classes/StorySelect.cpp; sourceTree = "<group>"; };
 		A4CB43E41A403CFF00890E53 /* StorySelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StorySelect.h; path = ../Classes/StorySelect.h; sourceTree = "<group>"; };
+		A4CD061D1A8E369800C5A2D7 /* particle_porcoRosso.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_porcoRosso.plist; sourceTree = "<group>"; };
+		A4CD061E1A8E369800C5A2D7 /* particle_porcoRosso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_porcoRosso.png; sourceTree = "<group>"; };
 		A4D045E91A7CA30F00969D54 /* ponyo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ponyo.plist; sourceTree = "<group>"; };
 		A4D045EA1A7CA30F00969D54 /* ponyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ponyo.png; sourceTree = "<group>"; };
 		A4D045F21A7CDF9A00969D54 /* character_porcoRosso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_porcoRosso.png; sourceTree = "<group>"; };
@@ -666,7 +667,6 @@
 		A4D045FA1A7CDF9A00969D54 /* character_ponyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_ponyo.png; sourceTree = "<group>"; };
 		A4D045FB1A7CDF9A00969D54 /* character_ponyo_locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_ponyo_locked.png; sourceTree = "<group>"; };
 		A4D046081A7CFB6400969D54 /* character_fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_fordAnglia.png; sourceTree = "<group>"; };
-		A4D10A201A6F99B100A00B13 /* porcoRosso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = porcoRosso.png; sourceTree = "<group>"; };
 		A4D5496A1A31BF8B0066858C /* kiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki.png; sourceTree = "<group>"; };
 		A4E485581A2F4F2200780AF3 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		A4E485591A2F4F2200780AF3 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
@@ -1128,27 +1128,27 @@
 				A47F2D9F1A5D39EA0050F464 /* factory.png */,
 				A4A8E8351A5BF9F000E3E346 /* kikiparticle.plist */,
 				A4A8E8361A5BF9F000E3E346 /* kikitexture.png */,
+				A492FC101A93841300E3CA70 /* particle_fordAnglia.png */,
+				A492FC111A93841300E3CA70 /* particle_fordAnglia.plist */,
 				A44C99611A8207BB00200C91 /* particle_runPonyo.plist */,
 				A44C99621A8207BB00200C91 /* particle_runPonyo.png */,
+				A4CD061D1A8E369800C5A2D7 /* particle_porcoRosso.plist */,
+				A4CD061E1A8E369800C5A2D7 /* particle_porcoRosso.png */,
 				A44C995B1A81E47A00200C91 /* particle_ponyo.plist */,
 				A44C995C1A81E47A00200C91 /* particle_ponyo.png */,
-				A4643F151A80FDB600C09591 /* particle_porcoRosso.png */,
-				A4643F161A80FDB600C09591 /* particle_porcoRosso.plist */,
-				A4643F011A80F57A00C09591 /* particle_fordAnglia.plist */,
-				A4643F021A80F57A00C09591 /* particle_fordAnglia.png */,
 				A41A6F2B1A52A68D0049829A /* particleFlower.plist */,
 				A41A6F2C1A52A68D0049829A /* particleFlower.png */,
 				A4CB43DA1A4035B500890E53 /* MagicSchoolOne.ttf */,
 				A4C1144F1A6F781A00140E2F /* fordAnglia.png */,
 				A4C114501A6F781A00140E2F /* fordAnglia_shadow.png */,
-				A4D10A201A6F99B100A00B13 /* porcoRosso.png */,
-				A4C1144B1A6F778E00140E2F /* porcoRosso_shadow.png */,
 				A4C114461A6F777800140E2F /* harryPotter.png */,
 				A4C114471A6F777900140E2F /* harryPotter_shadow.png */,
 				A4C1143E1A6F776E00140E2F /* broomOfKiki_up.png */,
 				A4C1143F1A6F776E00140E2F /* broomOfKiki_up_shadow.png */,
 				A4C114401A6F776E00140E2F /* broomOfKiki_down.png */,
 				A4C114411A6F776E00140E2F /* broomOfKiki_down_shadow.png */,
+				A434CCAC1A8C85C500D290EE /* porcoRosso.png */,
+				A434CCAD1A8C85C500D290EE /* porcoRosso.plist */,
 				A4D045E91A7CA30F00969D54 /* ponyo.plist */,
 				A4D045EA1A7CA30F00969D54 /* ponyo.png */,
 				A4D5496A1A31BF8B0066858C /* kiki.png */,
@@ -1350,12 +1350,12 @@
 				A4BB07311A39A23000991DCE /* bad.png in Resources */,
 				A44C99671A84905D00200C91 /* Images.xcassets in Resources */,
 				A47F2DA01A5D39EA0050F464 /* factory.plist in Resources */,
+				A492FC121A93841300E3CA70 /* particle_fordAnglia.png in Resources */,
 				A44C995D1A81E47A00200C91 /* particle_ponyo.plist in Resources */,
 				A457D8141A6E4555007C2E41 /* storyBg.png in Resources */,
 				A4722A751A6E9B8A00CC1A42 /* tutorial_tapHold.png in Resources */,
 				A4C114441A6F776E00140E2F /* broomOfKiki_down.png in Resources */,
 				A47F2DBB1A5D3A740050F464 /* village_3.png in Resources */,
-				A4643F171A80FDB600C09591 /* particle_porcoRosso.png in Resources */,
 				A47F2DAA1A5D3A180050F464 /* forest.png in Resources */,
 				04362E9F1A846737008B9091 /* appc_cutin2_base_up@2x.png in Resources */,
 				04362EAA1A846737008B9091 /* appc_cutin_upper@2x.png in Resources */,
@@ -1368,11 +1368,11 @@
 				A419A9791A5D547B00478212 /* pause_gameBg.png in Resources */,
 				04362EAF1A846737008B9091 /* appc_manga_gr_white_bottom@2x.png in Resources */,
 				04362EB21A846737008B9091 /* appc_manga_vectol@2x.png in Resources */,
+				A492FC131A93841300E3CA70 /* particle_fordAnglia.plist in Resources */,
 				A457D8161A6E572B007C2E41 /* tutorialBg.png in Resources */,
 				A45836A41A8B45580073A999 /* titleBg.png in Resources */,
 				A48C10661A68EBB4009D8C46 /* twitterBt.png in Resources */,
 				A4D046031A7CDF9A00969D54 /* character_fordAnglia_locked.png in Resources */,
-				A4643F181A80FDB600C09591 /* particle_porcoRosso.plist in Resources */,
 				A49DA19B1A68BAED0058BABF /* ssUpperOrnament.png in Resources */,
 				04362EA71A846737008B9091 /* appc_cutin_close@2x.png in Resources */,
 				A48C105A1A68DFA1009D8C46 /* gaugeOfKiki.png in Resources */,
@@ -1387,7 +1387,9 @@
 				04362EBE1A846737008B9091 /* appcc_cutin2_noapp_icon@2x.png in Resources */,
 				04362EA91A846737008B9091 /* appc_cutin_under@2x.png in Resources */,
 				A491FC8F1A6D0C4D008A6C56 /* retryBt.png in Resources */,
+				A4CD061F1A8E369800C5A2D7 /* particle_porcoRosso.plist in Resources */,
 				0463356E1A63DBDE003EF2B8 /* Memo.strings in Resources */,
+				A4CD06201A8E369800C5A2D7 /* particle_porcoRosso.png in Resources */,
 				A4C114491A6F777900140E2F /* harryPotter_shadow.png in Resources */,
 				04362EAE1A846737008B9091 /* appc_manga_footer@2x.png in Resources */,
 				A4C114521A6F781A00140E2F /* fordAnglia_shadow.png in Resources */,
@@ -1398,7 +1400,6 @@
 				A42EC1BD1A89E28F000F5A72 /* title.mp3 in Resources */,
 				A42E0E6D1A5FB7280005E670 /* town_1.png in Resources */,
 				A4722A761A6E9B8A00CC1A42 /* tutorial_hand.png in Resources */,
-				A4643F031A80F57A00C09591 /* particle_fordAnglia.plist in Resources */,
 				A44C99631A8207BB00200C91 /* particle_runPonyo.plist in Resources */,
 				A47F2DB01A5D3A2B0050F464 /* forest_1.png in Resources */,
 				A4D045FD1A7CDF9A00969D54 /* character_porcoRosso.png in Resources */,
@@ -1446,6 +1447,7 @@
 				A48D62AB1A5E65CE003448B8 /* field_2.png in Resources */,
 				A411FC721A667EF700BC0515 /* nextObject.png in Resources */,
 				04362EA01A846737008B9091 /* appc_cutin2_btn_moreapp@2x.png in Resources */,
+				A434CCAF1A8C85C500D290EE /* porcoRosso.plist in Resources */,
 				A42EC1B31A89CD65000F5A72 /* stage1.mp3 in Resources */,
 				04362EAD1A846737008B9091 /* appc_manga_close@2x.png in Resources */,
 				A40DFB4F1A8B626E0018479E /* TanukiMagic.ttf in Resources */,
@@ -1480,19 +1482,17 @@
 				A4A3E5F41A6908F500E8593A /* ssOrnament.png in Resources */,
 				A48C10621A68EBB4009D8C46 /* otherBt.png in Resources */,
 				A42EC1B41A89CD65000F5A72 /* stage2.mp3 in Resources */,
+				A434CCAE1A8C85C500D290EE /* porcoRosso.png in Resources */,
 				A47F2DB21A5D3A2B0050F464 /* forest_3.png in Resources */,
 				04362EBC1A846737008B9091 /* appc_web_close@2x.png in Resources */,
-				A4C1144D1A6F778E00140E2F /* porcoRosso_shadow.png in Resources */,
 				04362EB61A846737008B9091 /* appc_micon_bg_pattern@2x.png in Resources */,
 				A491FC941A6D0D25008A6C56 /* nextBt.png in Resources */,
 				A42EC1C11A8A015A000F5A72 /* button83.mp3 in Resources */,
-				A4643F041A80F57A00C09591 /* particle_fordAnglia.png in Resources */,
 				A42E0E6E1A5FB7280005E670 /* town_2.png in Resources */,
 				A47F2DC41A5D3DD70050F464 /* particle_gameOver.plist in Resources */,
 				A4D046051A7CDF9A00969D54 /* character_ponyo.png in Resources */,
 				A48D62A71A5E5DA3003448B8 /* field_3.png in Resources */,
 				A42EC1BB1A89E259000F5A72 /* stage4.mp3 in Resources */,
-				A4D10A211A6F99B100A00B13 /* porcoRosso.png in Resources */,
 				A47F2DBD1A5D3A7D0050F464 /* village_gameBg.png in Resources */,
 				042CB4061A8B6A5600B17945 /* kiki.png in Resources */,
 				A411FC751A667EF700BC0515 /* backObject.png in Resources */,
@@ -1658,14 +1658,14 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/NendAd",
 					"$(PROJECT_DIR)/wrapper",
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "8fe8a043-0f77-4693-b1ec-2e9f5ff64145";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1701,14 +1701,14 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/NendAd",
 					"$(PROJECT_DIR)/wrapper",
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "8fe8a043-0f77-4693-b1ec-2e9f5ff64145";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";

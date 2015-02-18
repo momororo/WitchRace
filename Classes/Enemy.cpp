@@ -540,7 +540,7 @@ void Enemy::addEnemy3(Sprite* backGround){
             
             
             //ポジションの設定(樹海化怖くて触れません)
-            enemy->setPosition(Vec2(backGround->getContentSize().width / 5 * idxX + backGround->getContentSize().width/5/2 , backGround->getContentSize().height / rndNumberY * rndPositionY + backGround->getContentSize().height/rndNumberY / 2 + rnd + chimney->getPositionY() + chimney->getContentSize().height/2 * chimney->getScale() ));
+            enemy->setPosition(Vec2(backGround->getContentSize().width / 5 * idxX + backGround->getContentSize().width/10 , backGround->getContentSize().height / rndNumberY * rndPositionY + backGround->getContentSize().height/rndNumberY / 2 + rnd + chimney->getPositionY() + chimney->getContentSize().height/2 * chimney->getScale() ));
             
             
             /**
