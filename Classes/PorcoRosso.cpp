@@ -63,11 +63,14 @@ void PorcoRosso::stopCharacter(){
 
 //キキちゃんの初期設定
 PorcoRosso::PorcoRosso(){
+    
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("porcoRosso.plist");
+
  
     //キャラクタースプライトの生成(UP時)
-    porcoRosso = Sprite::create("porcoRosso.png");
+    porcoRosso = Sprite::createWithSpriteFrameName("porcoRosso_1.png");
     //影
-    porcoRossoShadow = Sprite::create("porcoRosso_shadow.png");
+    porcoRossoShadow = Sprite::createWithSpriteFrameName("porcoRosso_shadow_1.png");
     
     //キャラクタースプライトの大きさ
     porcoRosso -> setScale(0.5);
@@ -152,16 +155,84 @@ PorcoRosso::PorcoRosso(){
     
     porcoRosso -> addChild(broom);
     
+    
+    /////////////////// ポニョ本体のアニメーション //////////////////
+    
+    //アニメーション用配列を用意
+    auto  porcoRossoFrames = new Vector<SpriteFrame*>();
+    std::string porcoRossoName;
+    
+    //画像２枚を配列にセットする
+    //画像をすべて(2枚)を取り出せるよう、ループ文を使用
+    for (int i = 1; i < 5;i++ ) {
+        
+        switch (i) {
+            case 1: porcoRossoName = StringUtils::format("porcoRosso_1.png");break;
+            case 2: porcoRossoName = StringUtils::format("porcoRosso_2.png");break;
+            case 3: porcoRossoName = StringUtils::format("porcoRosso_3.png");break;
+            case 4: porcoRossoName = StringUtils::format("porcoRosso_2.png");break;
+            default:break;
+        }
+        
+        SpriteFrame *spPorcoRossoFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(porcoRossoName);
+        
+        porcoRossoFrames -> pushBack(spPorcoRossoFrame);
+        
+    }
+    
+    //アニメーションの設定
+    Animation *porcoRossoAnimation = Animation::createWithSpriteFrames(*porcoRossoFrames,0.01f);
+    Animate *porcoRossoAnimate = Animate::create(porcoRossoAnimation);
+    RepeatForever *repeat = RepeatForever::create(porcoRossoAnimate);
+    porcoRosso -> runAction(repeat);
+    delete porcoRossoFrames;
+    
+    ////////////////////////// ポニョ本体のアニメーション　終 ///////////////////////////
+    
+    ///////////////////////// ポニョ影のアニメーション ////////////////////////////////
+    //アニメーション用配列を用意
+    auto  porcoRossoShadowFrames = new Vector<SpriteFrame*>();
+    std::string porcoRossoShadowName;
+    
+    //画像２枚を配列にセットする
+    //画像をすべて(2枚)を取り出せるよう、ループ文を使用
+    for (int i = 1; i < 5;i++ ) {
+        
+        switch (i) {
+            case 1: porcoRossoShadowName = StringUtils::format("porcoRosso_shadow_1.png");break;
+            case 2: porcoRossoShadowName = StringUtils::format("porcoRosso_shadow_2.png");break;
+            case 3: porcoRossoShadowName = StringUtils::format("porcoRosso_shadow_3.png");break;
+            case 4: porcoRossoShadowName = StringUtils::format("porcoRosso_shadow_2.png");break;
+            default:break;
+        }
+        
+        SpriteFrame *spPorcoRossoShadowFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(porcoRossoShadowName);
+        
+        porcoRossoShadowFrames -> pushBack(spPorcoRossoShadowFrame);
+        
+    }
+    
+    //アニメーションの設定
+    Animation *porcoRossoShadowAnimation = Animation::createWithSpriteFrames(*porcoRossoShadowFrames,0.1f);
+    Animate *porcoRossoShadowAnimate = Animate::create(porcoRossoShadowAnimation);
+    RepeatForever *repeatShadow = RepeatForever::create(porcoRossoShadowAnimate);
+    porcoRossoShadow -> runAction(repeatShadow);
+    delete porcoRossoShadowFrames;
+    
+    ////////////////////////////// ポニョ影のアニメーション　終 ///////////////////////////////////
+    
     endParticle = ParticleSystemQuad::create("particleFlower.plist");
     //retainしないと勝手に解放されて後々エラーへ
     endParticle->retain();
     
     porcoRossoParticle = ParticleSystemQuad::create("particle_porcoRosso.plist");
     porcoRossoParticle->setAnchorPoint(Vec2(0.5f,0.5f));
-    porcoRossoParticle->setPosition(Vec2(porcoRosso->getContentSize().width/2+20,porcoRosso->getContentSize().height*3/4+3));
+    porcoRossoParticle->setPosition(Vec2(porcoRosso->getContentSize().width/2+50,porcoRosso->getContentSize().height*3/4+3));
+    porcoRossoParticle->setColor(Color3B::WHITE);
     porcoRossoParticle->setName("kikiParticle");
     porcoRossoParticle->setGlobalZOrder(zOrderOfKikiShadow);
     porcoRosso->addChild(porcoRossoParticle);
+    
     
 }
 
@@ -218,8 +289,8 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             //画像の交換(下降画像の場合のみ)
             if(porcoRosso->getTag() == 0){
 
-                porcoRosso->setTexture("porcoRosso.png");
-                porcoRossoShadow->setTexture("porcoRosso_shadow.png");
+                //porcoRosso->setTexture("porcoRosso.png");
+                //porcoRossoShadow->setTexture("porcoRosso_shadow.png");
                 //タグを上昇状態へ変更
                 porcoRosso->setTag(1);
             
@@ -246,11 +317,15 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
                 
             }
             //MARK::上昇時の回転
-            if (pRotate < -40) {
+            if (pRotate < -30) {
                 
-                pRotate = -40;
+                pRotate = -30;
                 
-            }else if(pRotate > 10){
+            }else if (pRotate < -4){
+                
+                pRotate -= 1;
+                
+            }else if(pRotate > 5){
                 
                 pRotate -= 1;
                 
@@ -263,7 +338,7 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             
             porcoRosso->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             porcoRosso->setRotation(pRotate);
-            porcoRossoParticle->setRotation(-pRotate/2);
+            porcoRossoParticle->setRotation(-pRotate);
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             
         }else{
@@ -286,8 +361,8 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             //画像の交換(上昇画像の場合のみ)
             if(porcoRosso->getTag() == 1){
                 
-                porcoRosso->setTexture("porcoRosso.png");
-                porcoRossoShadow->setTexture("porcoRosso_shadow.png");
+                //porcoRosso->setTexture("porcoRosso.png");
+                //porcoRossoShadow->setTexture("porcoRosso_shadow.png");
                 //タグを下降状態へ変更
                 porcoRosso->setTag(0);
             }
@@ -314,11 +389,15 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             }
             
             //MARK::下降時の回転
-            if (pRotate > 40) {
+            if (pRotate > 30) {
                 
-                pRotate = 40;
+                pRotate = 30;
                 
-            }if (pRotate < -10) {
+            }else if(pRotate < -4) {
+                
+                pRotate += 1;
+                
+            }else if (pRotate > 5){
                 
                 pRotate += 1;
                 
@@ -330,7 +409,7 @@ void PorcoRosso::characterUpdate(bool tappedFlag){
             
             porcoRosso->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
             porcoRosso->setRotation(pRotate);
-            porcoRossoParticle->setRotation(-pRotate/2);
+            porcoRossoParticle->setRotation(-pRotate);
             broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
 
             

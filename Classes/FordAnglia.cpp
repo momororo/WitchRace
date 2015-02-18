@@ -246,8 +246,12 @@ void FordAnglia::characterUpdate(bool tappedFlag){
         if (pRotate < -30) {
             
             pRotate = -30;
+        
+        }else if (pRotate < -4){
             
-        }else if(pRotate > 10){
+            pRotate -= 1;
+        
+        }else if(pRotate > 5){
             
             pRotate -= 1;
         
@@ -256,7 +260,7 @@ void FordAnglia::characterUpdate(bool tappedFlag){
             pRotate -= 0.4;
             
         }
-
+        
     
         fordAnglia->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
@@ -314,8 +318,12 @@ void FordAnglia::characterUpdate(bool tappedFlag){
         if (pRotate > 30) {
             
             pRotate = 30;
+        
+        }else if(pRotate < -4) {
             
-        }if (pRotate < -10) {
+            pRotate += 1;
+        
+        }else if (pRotate > 5){
             
             pRotate += 1;
         
@@ -324,6 +332,7 @@ void FordAnglia::characterUpdate(bool tappedFlag){
             pRotate += 0.35;
             
         }
+        
         
         fordAnglia->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
         broom->getPhysicsBody()->setVelocity(Vec2(0,pGravity));
