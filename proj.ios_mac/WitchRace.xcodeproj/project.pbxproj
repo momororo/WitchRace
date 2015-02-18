@@ -1665,7 +1665,7 @@
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8fe8a043-0f77-4693-b1ec-2e9f5ff64145";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1708,7 +1708,7 @@
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8fe8a043-0f77-4693-b1ec-2e9f5ff64145";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
