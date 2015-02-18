@@ -7,6 +7,7 @@
 #include "SelectCharacterScene.h"
 #include "AppCCloudPlugin.h"
 #include "ADGConnectionForIOS.h"
+#include "NendInterstitialModule.h"
 //#include "NendModule.h"
 //#include "NendInterstitialModule.h"
 //#include "AppCCloudPlugin.h"
@@ -90,7 +91,6 @@ bool TitleScene::init(){
     ADGConnectionForIOS::initADG((char*)"20338 ", (char*)"SP", 0, selfFrame.height/2 + 50, NULL);
     //終
     
-//        ADGConnectionForIOS::initADGWithScale((char*)"10723" , (char*)"FREE", 0, selfFrame.height/2 + 50, 320 , 50 , 1.0 ,  NULL);
 
     
     //didsimulate
@@ -408,6 +408,9 @@ void TitleScene::setTwitterBt(){
 //トランジション終了時に呼ばれる
 //initでアラートを呼ぶとなんか気持ちわるかったため
 void TitleScene::onEnterTransitionDidFinish(){
+    
+    
+    NendInterstitialModule::showNADInterstitialView();
     
     //デバッグ
     

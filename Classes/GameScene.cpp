@@ -459,7 +459,7 @@ void GameScene::makeGameClear(){
     
     //ステージクリアの計算だ
     int stagePoint ;
-    switch (clearStory) {
+    switch (selectStory) {
         case 0:stagePoint = 10;break;
         case 1:stagePoint = 20;break;
         case 2:stagePoint = 40;break;
@@ -487,7 +487,7 @@ void GameScene::makeGameClear(){
     
     
     //ゲームセンターにスコアを贈ろう
-    NativeLauncher::postHighScore("WitchRacePointRanking", 100);
+    NativeLauncher::postHighScore("WitchRacePointRanking", playPoint);
     
     
 //終
