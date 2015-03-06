@@ -9,6 +9,7 @@
 #include "NativeLauncher.h"
 #include "GameCenter.h"
 #include <Twitter/Twitter.h>
+#include "AppbankSSP.h"
 
 
 
@@ -56,4 +57,11 @@ void NativeLauncher::openTweetDialog(const char *$tweet){
         [[UIApplication sharedApplication]openURL:[NSURL URLWithString:tweet]];
     }
     tweet = nil;
+}
+
+//appbankSSP
+void NativeLauncher::setAppbankSSP(){
+    
+    [AppbankSSP setAppbankSSP];
+    
 }

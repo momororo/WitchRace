@@ -71,6 +71,7 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    
 
     cocos2d::GLView *glview = cocos2d::Director::getInstance()->getOpenGLView();
 

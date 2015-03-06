@@ -85,11 +85,12 @@
 		048E2CCE1A81E4F400530D86 /* NendModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CCA1A81E4F400530D86 /* NendModule.mm */; };
 		048E2CD21A81F58A00530D86 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E2CD11A81F58A00530D86 /* GameCenter.m */; };
 		04B6A9211A8A1FEA0025D841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04B6A9231A8A1FEA0025D841 /* InfoPlist.strings */; };
+		04B9AA5E1AA977EA0024AB90 /* ADGConnectionForIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04B9AA5D1AA977EA0024AB90 /* ADGConnectionForIOS.mm */; };
+		04B9AA631AA9787B0024AB90 /* libADGCocos2d-x1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B9AA621AA9787B0024AB90 /* libADGCocos2d-x1.1.1.a */; };
+		04B9AA651AA9793C0024AB90 /* ADG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B9AA641AA9793C0024AB90 /* ADG.framework */; };
+		04B9AA681AA994A00024AB90 /* AppbankSSP.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9AA671AA994A00024AB90 /* AppbankSSP.m */; };
 		04BF4E961A8B743800BE68E2 /* Ponyo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04BF4E941A8B743800BE68E2 /* Ponyo.cpp */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
-		04CECFFA1A8B9E2500C52135 /* ADGConnectionForIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04CECFF91A8B9E2500C52135 /* ADGConnectionForIOS.mm */; };
-		04CECFFF1A8B9E4000C52135 /* libADGCocos2d-x1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CECFFE1A8B9E4000C52135 /* libADGCocos2d-x1.1.0.a */; };
-		04CED0091A8B9F2400C52135 /* libADG1.5.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CED0081A8B9F2400C52135 /* libADG1.5.2.a */; };
 		04EA8C711A833D1E00AF5083 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EA8C701A833D1E00AF5083 /* CoreTelephony.framework */; };
 		04EA8C731A833D3000AF5083 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EA8C721A833D3000AF5083 /* EventKit.framework */; };
 		04EA8C751A833D4A00AF5083 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EA8C741A833D4A00AF5083 /* MediaPlayer.framework */; };
@@ -502,23 +503,18 @@
 		048E2CD11A81F58A00530D86 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
 		04B6A9221A8A1FEA0025D841 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04B6A9241A8A1FEF0025D841 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04B9AA5C1AA977EA0024AB90 /* ADGConnectionForIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGConnectionForIOS.h; sourceTree = "<group>"; };
+		04B9AA5D1AA977EA0024AB90 /* ADGConnectionForIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ADGConnectionForIOS.mm; sourceTree = "<group>"; };
+		04B9AA601AA9787B0024AB90 /* ADGConnectionObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGConnectionObjC.h; sourceTree = "<group>"; };
+		04B9AA611AA9787B0024AB90 /* ADGMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGMessage.h; sourceTree = "<group>"; };
+		04B9AA621AA9787B0024AB90 /* libADGCocos2d-x1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libADGCocos2d-x1.1.1.a"; sourceTree = "<group>"; };
+		04B9AA641AA9793C0024AB90 /* ADG.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADG.framework; sourceTree = "<group>"; };
+		04B9AA661AA994A00024AB90 /* AppbankSSP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppbankSSP.h; path = ../Classes/AppbankSSP.h; sourceTree = "<group>"; };
+		04B9AA671AA994A00024AB90 /* AppbankSSP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppbankSSP.m; path = ../Classes/AppbankSSP.m; sourceTree = "<group>"; };
 		04BF4E941A8B743800BE68E2 /* Ponyo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ponyo.cpp; sourceTree = "<group>"; };
 		04BF4E951A8B743800BE68E2 /* Ponyo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ponyo.h; sourceTree = "<group>"; };
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
 		04C9CBD91A30608300E51608 /* BackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackGround.h; path = ../Classes/BackGround.h; sourceTree = "<group>"; };
-		04CECFF81A8B9E2500C52135 /* ADGConnectionForIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGConnectionForIOS.h; sourceTree = "<group>"; };
-		04CECFF91A8B9E2500C52135 /* ADGConnectionForIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ADGConnectionForIOS.mm; sourceTree = "<group>"; };
-		04CECFFC1A8B9E4000C52135 /* ADGConnectionObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGConnectionObjC.h; sourceTree = "<group>"; };
-		04CECFFD1A8B9E4000C52135 /* ADGMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGMessage.h; sourceTree = "<group>"; };
-		04CECFFE1A8B9E4000C52135 /* libADGCocos2d-x1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libADGCocos2d-x1.1.0.a"; sourceTree = "<group>"; };
-		04CED0011A8B9F2400C52135 /* ADGAdTruthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGAdTruthManager.h; sourceTree = "<group>"; };
-		04CED0021A8B9F2400C52135 /* ADGAdWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGAdWebView.h; sourceTree = "<group>"; };
-		04CED0031A8B9F2400C52135 /* ADGBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGBrowserViewController.h; sourceTree = "<group>"; };
-		04CED0041A8B9F2400C52135 /* ADGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGConstants.h; sourceTree = "<group>"; };
-		04CED0051A8B9F2400C52135 /* ADGInterstitialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGInterstitialManager.h; sourceTree = "<group>"; };
-		04CED0061A8B9F2400C52135 /* ADGInterstitialWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGInterstitialWindow.h; sourceTree = "<group>"; };
-		04CED0071A8B9F2400C52135 /* ADGManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGManagerViewController.h; sourceTree = "<group>"; };
-		04CED0081A8B9F2400C52135 /* libADG1.5.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libADG1.5.2.a; sourceTree = "<group>"; };
 		04DE3B0B1A5254960041D387 /* Zorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zorder.h; sourceTree = "<group>"; };
 		04EA8C701A833D1E00AF5083 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		04EA8C721A833D3000AF5083 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -688,7 +684,6 @@
 				045EAE891A7E29DD000059FF /* StoreKit.framework in Frameworks */,
 				04EA8C761A83594500AF5083 /* AdSupport.framework in Frameworks */,
 				04EA8C751A833D4A00AF5083 /* MediaPlayer.framework in Frameworks */,
-				04CECFFF1A8B9E4000C52135 /* libADGCocos2d-x1.1.0.a in Frameworks */,
 				04EA8C731A833D3000AF5083 /* EventKit.framework in Frameworks */,
 				04EA8C711A833D1E00AF5083 /* CoreTelephony.framework in Frameworks */,
 				048E2CC41A81E4AB00530D86 /* ImageIO.framework in Frameworks */,
@@ -699,7 +694,6 @@
 				045EAE871A7E29D6000059FF /* Security.framework in Frameworks */,
 				045EAE851A7E29C9000059FF /* QuartzCore.framework in Frameworks */,
 				045EAE831A7E29C2000059FF /* MobileCoreServices.framework in Frameworks */,
-				04CED0091A8B9F2400C52135 /* libADG1.5.2.a in Frameworks */,
 				045EAE811A7E29B8000059FF /* CoreLocation.framework in Frameworks */,
 				045EAE7F1A7E29AE000059FF /* CoreGraphics.framework in Frameworks */,
 				045EAE7D1A7E29A5000059FF /* CFNetwork.framework in Frameworks */,
@@ -711,6 +705,7 @@
 				048E2CBD1A81E47B00530D86 /* libNendAd.a in Frameworks */,
 				1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
+				04B9AA651AA9793C0024AB90 /* ADG.framework in Frameworks */,
 				045EAE791A7E2952000059FF /* Parse.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -718,6 +713,7 @@
 				04362EC51A846737008B9091 /* libappCCloud.a in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
+				04B9AA631AA9787B0024AB90 /* libADGCocos2d-x1.1.1.a in Frameworks */,
 				D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */,
 				045EAE781A7E2951000059FF /* Bolts.framework in Frameworks */,
 			);
@@ -838,29 +834,14 @@
 			path = NendAd;
 			sourceTree = "<group>";
 		};
-		04CECFFB1A8B9E4000C52135 /* wrapper */ = {
+		04B9AA5F1AA9787B0024AB90 /* wrapper */ = {
 			isa = PBXGroup;
 			children = (
-				04CECFFC1A8B9E4000C52135 /* ADGConnectionObjC.h */,
-				04CECFFD1A8B9E4000C52135 /* ADGMessage.h */,
-				04CECFFE1A8B9E4000C52135 /* libADGCocos2d-x1.1.0.a */,
+				04B9AA601AA9787B0024AB90 /* ADGConnectionObjC.h */,
+				04B9AA611AA9787B0024AB90 /* ADGMessage.h */,
+				04B9AA621AA9787B0024AB90 /* libADGCocos2d-x1.1.1.a */,
 			);
 			path = wrapper;
-			sourceTree = "<group>";
-		};
-		04CED0001A8B9F2400C52135 /* ADG_iOSSDK */ = {
-			isa = PBXGroup;
-			children = (
-				04CED0011A8B9F2400C52135 /* ADGAdTruthManager.h */,
-				04CED0021A8B9F2400C52135 /* ADGAdWebView.h */,
-				04CED0031A8B9F2400C52135 /* ADGBrowserViewController.h */,
-				04CED0041A8B9F2400C52135 /* ADGConstants.h */,
-				04CED0051A8B9F2400C52135 /* ADGInterstitialManager.h */,
-				04CED0061A8B9F2400C52135 /* ADGInterstitialWindow.h */,
-				04CED0071A8B9F2400C52135 /* ADGManagerViewController.h */,
-				04CED0081A8B9F2400C52135 /* libADG1.5.2.a */,
-			);
-			path = ADG_iOSSDK;
 			sourceTree = "<group>";
 		};
 		080E96DDFE201D6D7F000001 /* ios */ = {
@@ -882,8 +863,8 @@
 			isa = PBXGroup;
 			children = (
 				048E2CC61A81E4F400530D86 /* NendInterstitialModule.h */,
-				04CECFF81A8B9E2500C52135 /* ADGConnectionForIOS.h */,
-				04CECFF91A8B9E2500C52135 /* ADGConnectionForIOS.mm */,
+				04B9AA5C1AA977EA0024AB90 /* ADGConnectionForIOS.h */,
+				04B9AA5D1AA977EA0024AB90 /* ADGConnectionForIOS.mm */,
 				048E2CC71A81E4F400530D86 /* NendInterstitialModule.mm */,
 				048E2CC91A81E4F400530D86 /* NendModule.h */,
 				048E2CCA1A81E4F400530D86 /* NendModule.mm */,
@@ -929,6 +910,8 @@
 				041026FB1A6E5DB700837C82 /* CharacterSwitch.cpp */,
 				041026FC1A6E5DB700837C82 /* CharacterSwitch.h */,
 				04B6A9231A8A1FEA0025D841 /* InfoPlist.strings */,
+				04B9AA661AA994A00024AB90 /* AppbankSSP.h */,
+				04B9AA671AA994A00024AB90 /* AppbankSSP.m */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -963,8 +946,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				04CED0001A8B9F2400C52135 /* ADG_iOSSDK */,
-				04CECFFB1A8B9E4000C52135 /* wrapper */,
+				04B9AA641AA9793C0024AB90 /* ADG.framework */,
+				04B9AA5F1AA9787B0024AB90 /* wrapper */,
 				04362E671A846737008B9091 /* appc_cloud_ios_xcode_6 */,
 				048E2CB51A81E47B00530D86 /* NendAd */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -1525,6 +1508,7 @@
 				04362E641A8466D3008B9091 /* AppCCloudPlugin.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				046335761A690EA8003EF2B8 /* NativeLauncher.mm in Sources */,
+				04B9AA681AA994A00024AB90 /* AppbankSSP.m in Sources */,
 				041027001A6F514700837C82 /* PetitKiki.cpp in Sources */,
 				048E2CCE1A81E4F400530D86 /* NendModule.mm in Sources */,
 				040B16251A2F2A5700FDC891 /* Kiki.cpp in Sources */,
@@ -1541,7 +1525,7 @@
 				A490C8F31A84FF3000FB9F9E /* Enemy.cpp in Sources */,
 				A4CB43E51A403CFF00890E53 /* StorySelect.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				04CECFFA1A8B9E2500C52135 /* ADGConnectionForIOS.mm in Sources */,
+				04B9AA5E1AA977EA0024AB90 /* ADGConnectionForIOS.mm in Sources */,
 				040B16201A2F273900FDC891 /* GameScene.cpp in Sources */,
 				A4E4855A1A2F4F2200780AF3 /* TitleScene.cpp in Sources */,
 				04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */,
@@ -1665,7 +1649,7 @@
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "8fe8a043-0f77-4693-b1ec-2e9f5ff64145";
+				PROVISIONING_PROFILE = "be2515f2-6fda-4f78-ac63-6f25dfbb049d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1708,7 +1692,7 @@
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "8fe8a043-0f77-4693-b1ec-2e9f5ff64145";
+				PROVISIONING_PROFILE = "be2515f2-6fda-4f78-ac63-6f25dfbb049d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";

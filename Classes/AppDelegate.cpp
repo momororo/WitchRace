@@ -47,6 +47,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     NendInterstitialModule::createNADInterstitial(interstitialApiKey, interstitialSpotID);
     
     
+    //本番(appBank ssp)
+ //   ADGConnectionForIOS::initADG((char*)"20338" , (char*)"SP", 0, 0 , NULL);
+
+    
+    
 
     
 //GameCenterへのログイン
@@ -60,6 +65,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //    glview -> setDesignResolutionSize(1136, 640, ResolutionPolicy::SHOW_ALL);
     glview -> setDesignResolutionSize(640, 1136, ResolutionPolicy::SHOW_ALL);
     director->setContentScaleFactor(1.0f);
+    
 
 
     // turn on display FPS

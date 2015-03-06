@@ -24,6 +24,8 @@ public:
     //twitter
     static void openTweetDialog(const char* $tweet);
 
+    //appbank ssp
+    static void setAppbankSSP();
 };
 
 #endif
