@@ -6,10 +6,9 @@
 #include "NativeLauncher.h"
 #include "SelectCharacterScene.h"
 #include "AppCCloudPlugin.h"
-#include "ADGConnectionForIOS.h"
+//#include "ADGConnectionForIOS.h"
 #include "NendInterstitialModule.h"
-//#include "NendModule.h"
-//#include "NendInterstitialModule.h"
+#include "NendModule.h"
 //#include "AppCCloudPlugin.h"
 
 
@@ -88,9 +87,15 @@ bool TitleScene::init(){
     //テスト
   //ADGConnectionForIOS::initADG((char*)"10723", (char*)"SP", 0, selfFrame.height/2 + 50, NULL);
     //本番
-    ADGConnectionForIOS::initADG((char*)"20338 ", (char*)"SP", 0, selfFrame.height/2 + 50, NULL);
+  //  ADGConnectionForIOS::initADG((char*)"20338", (char*)"SP", 0, selfFrame.height/2 + 50, NULL);
     //終
     
+    //nendに変更
+    //ネンドの呼び出し(フッター)
+     char apiKey[] = "6252a4971cdf06a77bfee40a590c37ff7685daca";
+     char spotID[] = "311430";
+     NendModule::createNADViewBottom(apiKey, spotID);
+
 
     
     //didsimulate

@@ -485,9 +485,13 @@ void GameScene::makeGameClear(){
     playPoint = playPoint + stagePoint + characterPoint;
     userDef->setIntegerForKey("playPoint",playPoint);
     
-    
+//トータルポイントを計算し、gameCenterに送信する処理
+    //トータルポイントに加算
+    int totalPlayPoint = userDef->getIntegerForKey("totalPlayPoint");
+    totalPlayPoint = totalPlayPoint + stagePoint + characterPoint;
     //ゲームセンターにスコアを贈ろう
-    NativeLauncher::postHighScore("WitchRacePointRanking", playPoint);
+    NativeLauncher::postHighScore("grp.WitchRacePointRanking", totalPlayPoint);
+    userDef -> setIntegerForKey("totalPlayPoint", totalPlayPoint);
     
     
 //終
