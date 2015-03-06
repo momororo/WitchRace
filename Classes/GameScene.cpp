@@ -10,6 +10,7 @@
 #include "LoadScene.h"
 #include "NendInterstitialModule.h"
 #include "NativeLauncher.h"
+#include "Config.h"
 #define selfFrame Director::getInstance()->getWinSize()
 #define origin Director::getInstance()->getVisibleOrigin()
 
@@ -275,6 +276,8 @@ void GameScene::onTouchCancelled(Touch *touch, Event *unused_event){
 void GameScene::update( float frame )
 {
     
+
+    
 //キキ処理
     //キキちゃんの1フレーム毎の処理
     CharacterSwitch::getInstance()->characterUpdate();
@@ -288,7 +291,7 @@ void GameScene::update( float frame )
 //クリアか判定
     //30で全障害物設置完了
     //全障害物を通り抜けたらゲームクリア
-    if(BackGround::getInstance()->getReplaceCount() > 30){
+    if(BackGround::getInstance()->getReplaceCount() > configOfGoalCount){
         //ゲームクリア
         this->makeGameClear();
     }
@@ -334,6 +337,7 @@ void GameScene::makeGameOver(){
     gameOverOfLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height/2));
     gameOverOfLabel -> setOpacity(0);
     gameOverOfLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    gameOverOfLabel -> setName("gameOverOfLabel");
     this -> addChild(gameOverOfLabel,3);
     
     //gameOver画面のparticle
@@ -366,6 +370,7 @@ void GameScene::makeGameOver(){
     
     auto retryMenu = Menu::create(retryBtnItem, NULL);
     
+    retryMenu->setName("retry");
     retryMenu->setPosition(Vec2(selfFrame.width*3/4, selfFrame.height/3));
     retryMenu->setGlobalZOrder(zOrderOfPauseLabel);
     retryMenu->setColor(Color3B::BLACK);
@@ -396,6 +401,7 @@ void GameScene::makeGameOver(){
     
     auto homeMenu = Menu::create(homeBtnItem, NULL);
     
+    homeMenu->setName("home");
     homeMenu->setPosition(Vec2(selfFrame.width/4, selfFrame.height/3));
     homeMenu->setGlobalZOrder(zOrderOfPauseLabel);
     homeMenu->setColor(Color3B::BLACK);
@@ -406,10 +412,181 @@ void GameScene::makeGameOver(){
     auto gameOverLabel = Label::createWithSystemFont("Game Over", "MagicSchoolOne", 150);
     gameOverLabel -> setPosition(Vec2(selfFrame.width/2,selfFrame.height*2/3));
     gameOverLabel -> setColor(Color3B::BLACK);
+    
     gameOverOfLabel -> addChild(gameOverLabel);
     
     gameOverOfLabel -> setGlobalZOrder(300);
+    
+    //レビュー誘導
+    if (UserDefault::getInstance()->getBoolForKey("characterFlag1")==false) {
         
+        if(UserDefault::getInstance()->getBoolForKey("clearStory") == 0){
+
+            int rnd = arc4random_uniform(3);
+            
+            if (rnd == 0) {
+                
+                this->setReviewBox();
+                
+            }
+
+        }
+        
+    }
+
+        
+}
+
+
+void GameScene::setReviewBox(){
+    
+    
+    //アラートの型枠を適当に生成
+    
+    //OKの処理
+    auto reviewBox = Sprite::create("alert.png");
+    reviewBox->setPosition(Vec2(selfFrame.width/2,selfFrame.height/5*3));
+    reviewBox->setName("reviewBox");
+    this->getChildByName("gameOverOfLabel")->addChild(reviewBox);
+
+    
+    //ボタンの作成
+    //OKボタン作成
+    auto okBt = Label::createWithSystemFont("OK!", "MagicSchoolOne",80);
+    okBt -> setColor(Color3B::BLACK);
+    
+    auto okBtTaped = Label::createWithSystemFont("OK!", "MagicSchoolOne",80);
+    okBtTaped -> setColor(Color3B::BLACK);
+    okBtTaped -> setOpacity(150);
+
+    
+    //メニューアイテムの作成
+    auto okBtnItem = MenuItemSprite::create(okBt, okBtTaped, [&](Ref *ref){
+        
+        
+        //ここでフラグを管理して特典の付加を行う
+        
+        //レビューダイアログを消去
+        this->getChildByName("gameOverOfLabel")->removeChildByName("reviewBox");
+        
+        //ボタン効果音
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
+        
+        //他のボタンを操作可能にする(冗長的)
+        Menu* menu = (Menu*)this->getChildByName("home");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("retry");
+        menu->setEnabled(true);
+        
+        
+        //レビュー画面へ
+        NativeLauncher::openReview();
+        
+        //小さいキキのフラグをオンにする
+        UserDefault::getInstance()->setBoolForKey("characterFlag1", true);
+        
+    });
+    
+    //メニューの作成
+    auto okMenu = Menu::create(okBtnItem, NULL);
+    
+    okMenu->setPosition(Vec2(reviewBox->getContentSize().width/5*1,reviewBox->getContentSize().height/6));
+    okMenu->setGlobalZOrder(350);
+
+    
+    this-> getChildByName("gameOverOfLabel") -> getChildByName("reviewBox") -> addChild(okMenu,1);
+    
+    
+    //NGの処理
+    //ボタンの作成
+    //No作成
+    auto ngBt = Label::createWithSystemFont("NO...", "MagicSchoolOne",80);
+    ngBt -> setColor(Color3B::BLACK);
+    
+    auto ngBtTaped = Label::createWithSystemFont("NO...", "MagicSchoolOne",80);
+    ngBtTaped -> setColor(Color3B::BLACK);
+    ngBtTaped -> setOpacity(150);
+    
+    //メニューアイテムの作成
+    auto ngBtnItem = MenuItemSprite::create(ngBt, ngBtTaped, [&](Ref *ref){
+        
+        //ボタン効果音
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("button70.mp3");
+        
+        //レビューダイアログを消去
+        this->getChildByName("gameOverOfLabel")->removeChildByName("reviewBox");
+        
+        //他のボタンを操作可能にする(冗長的)
+        Menu* menu = (Menu*)this->getChildByName("home");
+        menu->setEnabled(true);
+        menu = (Menu*)this->getChildByName("retry");
+        menu->setEnabled(true);
+        
+        
+        
+        
+    });
+    
+    //メニューの作成
+    auto ngMenu = Menu::create(ngBtnItem, NULL);
+    
+    ngMenu->setPosition(Vec2(reviewBox->getContentSize().width/5*4,reviewBox->getContentSize().height/6));
+    ngMenu->setGlobalZOrder(300);
+
+    
+    reviewBox->addChild(ngMenu,2);
+    
+    
+    //他のボタンを操作不可能にする(冗長的)
+    Menu* menu = (Menu*)this->getChildByName("home");
+    menu->setEnabled(false);
+    menu = (Menu*)this->getChildByName("retry");
+    menu->setEnabled(false);
+    
+    //アラート本文
+    
+    //英語と日本語で分岐
+    //見出しテキスト
+    //説明文の変更(多言語化)
+    LanguageType language = Application::getInstance()->getCurrentLanguage();
+    
+    std::string headlineText;
+    
+    if(language == LanguageType::JAPANESE){
+        headlineText = "プレゼントのお知らせ";
+    }else{
+        headlineText = "News of the present";
+    }
+    
+    //見出しラベル
+    auto alertHeadLabel = Label::createWithSystemFont(headlineText, "Tanuki-Permanent-Marker", 40);
+    alertHeadLabel -> enableOutline(Color4B::BLACK,2);
+    alertHeadLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height*7/8));
+    alertHeadLabel -> setColor(Color3B::BLACK);
+    alertHeadLabel -> setGlobalZOrder(300);
+
+    reviewBox->addChild(alertHeadLabel,3);
+    
+    //中身テキスト
+    std::string contentText;
+    
+    if(language == LanguageType::JAPANESE){
+        contentText = "遊んでくれてありがとう。\nレビューを書いてくれた方に、\nキャラクター『ひよっこ魔女』\nをプレゼント！\n(☆５だととても嬉しいです...)";
+    }else{
+        contentText = "Thank you for playing.\nYou can get a new character\n      \"Younker witch\"      \nby reviewing this apps.\nWill you go to\n       the review page?";
+    }
+    
+    //中身ラベル
+    auto alertContentLabel = Label::createWithSystemFont(contentText, "Tanuki-Permanent-Marker", 30);
+    
+    alertContentLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height/2+50));
+    alertContentLabel -> setColor(Color3B::BLACK);
+    alertContentLabel -> setGlobalZOrder(300);
+
+    reviewBox -> addChild(alertContentLabel,4);
+    
+    
+    
 }
 
 #pragma mark-

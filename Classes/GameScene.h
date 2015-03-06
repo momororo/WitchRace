@@ -46,6 +46,8 @@ public:
     
     //GameClearの処理を実装
     void makeGameClear();
+    
+    void setReviewBox();
         
 };
 

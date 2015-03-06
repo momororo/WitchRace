@@ -484,6 +484,7 @@
 		046647D41A6F79020082A5D5 /* PorcoRosso.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PorcoRosso.cpp; path = ../Classes/PorcoRosso.cpp; sourceTree = "<group>"; };
 		046647D51A6F79020082A5D5 /* PorcoRosso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PorcoRosso.h; path = ../Classes/PorcoRosso.h; sourceTree = "<group>"; };
 		0473A7801A8B6C0100E80ABF /* character_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_bg.png; sourceTree = "<group>"; };
+		047A465A1AA9C65C00C1B2D2 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = ../Classes/Config.h; sourceTree = "<group>"; };
 		0485786E1A5AA1C80020DDF5 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = ../Classes/Enemy.cpp; sourceTree = "<group>"; };
 		0485786F1A5AA1C80020DDF5 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = ../Classes/Enemy.h; sourceTree = "<group>"; };
 		048E2CB61A81E47B00530D86 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
@@ -912,6 +913,7 @@
 				04B6A9231A8A1FEA0025D841 /* InfoPlist.strings */,
 				04B9AA661AA994A00024AB90 /* AppbankSSP.h */,
 				04B9AA671AA994A00024AB90 /* AppbankSSP.m */,
+				047A465A1AA9C65C00C1B2D2 /* Config.h */,
 			);
 			name = Classes;
 			path = ../classes;

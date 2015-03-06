@@ -19,7 +19,7 @@ USING_NS_CC;
 using namespace CocosDenshion;
 
 //保存先の生成
-//UserDefault *userDef = UserDefault::getInstance();
+UserDefault *userDef = UserDefault::getInstance();
 
 //画面生成
 Scene *TitleScene::createScene(){
@@ -439,7 +439,7 @@ void TitleScene::onEnterTransitionDidFinish(){
     
     if (UserDefault::getInstance()->getBoolForKey("characterFlag1")==false) {
     
-        int rnd = arc4random_uniform(2);
+        int rnd = arc4random_uniform(3);
         
         if (rnd == 0) {
             

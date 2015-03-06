@@ -6,6 +6,7 @@
 //
 //
 
+#include "Config.h"
 #include "BackGround.h"
 
 #define selfFrame Director::getInstance()->getWinSize()
@@ -241,7 +242,7 @@ void BackGround::replaceBackGround(){
     backGround->removeChildByName("enemy");
 
     //-2からスタートしているので数字を調整
-    if(count < (30 - 2)){
+    if(count < (configOfGoalCount - 2)){
         Enemy::getInstance()->addEnemyManager(backGround);
     }
     
@@ -260,7 +261,7 @@ void BackGround::replaceBackGround(){
 
     
     
-    staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPositionX((staticBackGround->getChildByName("countBar")->getContentSize().width-30)/32*(count+2));
+    staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPositionX((staticBackGround->getChildByName("countBar")->getContentSize().width- 40/*微調整用のリテラル*/)/(configOfGoalCount+2)*(count+2));
     
 
 
@@ -300,7 +301,7 @@ void BackGround::backGroundUpdate(){
     
 //進捗バーを滑らかに動かす処理    
 
-    staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPosition(Vec2(staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->getPositionX() + (staticBackGround->getChildByName("countBar")->getContentSize().width-30)/5800,staticBackGround->getChildByName("countBar")->getContentSize().height/2));
+    staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->setPosition(Vec2(staticBackGround->getChildByName("countBar")->getChildByName("countKiki")->getPositionX() + (staticBackGround->getChildByName("countBar")->getContentSize().width-40/*調整用のリテラル*/)/4700,staticBackGround->getChildByName("countBar")->getContentSize().height/2));
     
     
     
