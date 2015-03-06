@@ -6,9 +6,9 @@
 #include "NativeLauncher.h"
 #include "SelectCharacterScene.h"
 #include "AppCCloudPlugin.h"
-#include "ADGConnectionForIOS.h"
+//#include "ADGConnectionForIOS.h"
 #include "NendInterstitialModule.h"
-//#include "NendModule.h"
+#include "NendModule.h"
 
 
 
@@ -85,10 +85,14 @@ bool TitleScene::init(){
     
     
     
-    //広告(appBank SSP) y座標をselfframe.height/2にしているが、理由は不明
     //テスト
 //    ADGConnectionForIOS::initADG((char*)"10723", (char*)"SP", 0,0, NULL);
     
+    
+    
+    
+    
+/*
     //Xスケール、Yスケールを取得し、小さい方で調整
     float scall;
     if(Director::getInstance()->getOpenGLView()->getScaleX() <= Director::getInstance()->getOpenGLView()->getScaleY()){
@@ -96,31 +100,28 @@ bool TitleScene::init(){
     }else{
         scall = Director::getInstance()->getOpenGLView()->getScaleY();
     }
+*/
 //    ADGConnectionForIOS::initADGWithScale((char*)"10723", (char*)"FREE",0,(selfFrame.height * scall) - (50 * scall) , 320 * scall , 50 * scall , scall, NULL);
     
     //本番
 //   ADGConnectionForIOS::initADG((char*)"20338" , (char*)"SP", 0, 0 , NULL);
 //    ADGConnectionForIOS::initADGWithEarlyOS((char*)"20338", (char*)"SP", 0, 0, false, NULL);
     
-    //nendに変更
-    //ネンドの呼び出し(フッター)
-/*
-     char apiKey[] = "6252a4971cdf06a77bfee40a590c37ff7685daca";
-     char spotID[] = "311430";
-     NendModule::createNADViewBottom(apiKey, spotID);
-*/
     
     //ネイティブランチャー経由で、appbank sspを呼び出す
-    NativeLauncher::setAppbankSSP();
+//    NativeLauncher::setAppbankSSP();
     
 
     
     //didsimulate
 //    this->scheduleUpdate();
     
-    //MARK::ゲームセンターログイン
-    //GameCenterBridge::loginGameCenter();
-
+    //nendに変更
+    //ネンドの呼び出し(フッター)
+    
+     char apiKey[] = "6252a4971cdf06a77bfee40a590c37ff7685daca";
+     char spotID[] = "311430";
+     NendModule::createNADViewBottom(apiKey, spotID);
 
     
     
