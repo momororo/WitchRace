@@ -62,7 +62,8 @@ public:
 
     //staticGackGround
     cocos2d::Sprite* getStaticBackGround();
-        
+    
+    
     //backGroundの動作開始
     void startBackGround();
     

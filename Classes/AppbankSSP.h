@@ -13,10 +13,11 @@
 
 @interface AppbankSSP : NSObject <ADGManagerViewControllerDelegate , ADGInterstitialDelegate>
 
-@property (nonatomic, retain) ADGManagerViewController *adg;
-@property (nonatomic, retain) ADGInterstitial *adgInter;
-
 
 +(void)setAppbankSSP;
+//appBank ssp
++(void)startInterstitial;
++(void)stopInterstitial;
++(void)showInterstitial;
 
 @end

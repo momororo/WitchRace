@@ -305,6 +305,10 @@ void GameScene::makeGameOver(){
     //nend表示
     NendInterstitialModule::showNADInterstitialView();
     
+    //appBankInterstitial表示
+//    NativeLauncher::showInterstitial();
+
+    
     
     //スケジュールの停止
     this->unscheduleUpdate();
@@ -416,6 +420,174 @@ void GameScene::makeGameOver(){
     gameOverOfLabel -> addChild(gameOverLabel);
     
     gameOverOfLabel -> setGlobalZOrder(300);
+    
+    
+    
+
+    //ゲームオーバーでもポイントが加算されるように変更
+    auto userDef = UserDefault::getInstance();
+    auto selectStory = userDef->getIntegerForKey("selectStory");
+    
+    //ステージクリアの計算だ
+    int stagePoint ;
+    switch (selectStory) {
+        case 0:stagePoint = 10;break;
+        case 1:stagePoint = 20;break;
+        case 2:stagePoint = 40;break;
+        case 3:stagePoint = 60;break;
+        case 4:stagePoint = 80;break;
+        default:break;
+    }
+    
+    //途中加点を計算する処理
+    //背景のreplace回数を取得
+    int replaseCount = BackGround::getInstance()->getReplaceCount();
+    //0以下の場合は0に変更
+    if(replaseCount < 0){
+        replaseCount = 0;
+    }
+    //商を計算
+    int divineReplaceCount = replaseCount / 5;
+    
+    //25回を1.0として計算
+    stagePoint = float(stagePoint / 5 * divineReplaceCount);
+
+//クリア時の場合
+/*
+    //キャラクターに応じて計算だ
+    int characterPoint;
+    switch (userDef->getIntegerForKey("selectCharacter")) {
+        case 0:characterPoint = 0;break;
+        case 1:characterPoint = -10;break;
+        case 2:characterPoint = 10;break;
+        case 3:characterPoint = stagePoint * 3;break;
+        case 4:characterPoint = stagePoint * 5;break;
+        case 5:characterPoint = stagePoint * 10;break;
+        default:break;
+    }
+*/
+    
+    //キャラクターに応じて計算(計算式は暫定)
+    int characterPoint;
+    switch (userDef->getIntegerForKey("selectCharacter")) {
+        case 0:characterPoint = 0;break;
+        case 1:characterPoint = -10;break;
+        case 2:characterPoint = 10;break;
+        case 3:characterPoint = stagePoint * 3;break;
+        case 4:characterPoint = stagePoint * 5;break;
+        case 5:characterPoint = stagePoint * 10;break;
+        default:break;
+    }
+    
+    //ひよっこ魔女とハリーポーターさんだけは計算式を変えておく
+    //ひよっこ魔女の場合、絶対値において減点が加点を上まった場合、0ptとなるように変更
+    if(userDef->getIntegerForKey("selectCharacter") == 1 && (characterPoint * -1 ) >= stagePoint){
+        characterPoint = stagePoint * -1;
+    }
+    
+    //ハリーポーターさんの場合、ステージポイントと同じような計算式に
+    //25回を1.0として計算
+    if(userDef->getIntegerForKey("selectCharacter") == 2){
+        characterPoint = float(characterPoint / 5 * divineReplaceCount);
+    }
+
+
+    
+    
+    //ポイントに加算
+    int playPoint = userDef->getIntegerForKey("playPoint");
+    playPoint = playPoint + stagePoint + characterPoint;
+    userDef->setIntegerForKey("playPoint",playPoint);
+    
+    //トータルポイントを計算し、gameCenterに送信する処理
+    //トータルポイントに加算
+    int totalPlayPoint = userDef->getIntegerForKey("totalPlayPoint");
+    totalPlayPoint = totalPlayPoint + stagePoint + characterPoint;
+    //ゲームセンターにスコアを贈ろう
+    NativeLauncher::postHighScore("grp.WitchRacePointRanking", totalPlayPoint);
+    userDef -> setIntegerForKey("totalPlayPoint", totalPlayPoint);
+    
+    
+    //終
+
+    
+    //ステージポイントラベル
+    std::string stageStr = StringUtils::format("%s","STAGE POINTS");
+    auto stagePointLabel = Label::createWithSystemFont(stageStr.c_str(), "MagicSchoolOne", 35);
+    stagePointLabel -> setPosition(Vec2(selfFrame.width/6,selfFrame.height/20*11));
+    stagePointLabel -> setColor(Color3B::BLACK);
+    stagePointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
+    stagePointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    gameOverOfLabel -> addChild(stagePointLabel,5);
+    
+    //ステージポイント数値
+    auto stageNumStr = StringUtils::format("%5d",stagePoint);
+    auto stageNumLabel = Label::createWithSystemFont(stageNumStr.c_str(), "MagicSchoolOne", 35);
+    stageNumLabel -> setPosition(Vec2(selfFrame.width - selfFrame.width /6,stagePointLabel->getPositionY()));
+    stageNumLabel -> setColor(Color3B::BLACK);
+    stageNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
+    stageNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    gameOverOfLabel -> addChild(stageNumLabel,5);
+    
+    
+    
+    //キャラクターポイントラベル
+    std::string characterStr = StringUtils::format("%s","CHARACTER POINTS");
+    auto characterPointLabel = Label::createWithSystemFont(characterStr.c_str(), "MagicSchoolOne", 35);
+    characterPointLabel -> setPosition(Vec2(stagePointLabel->getPositionX(),stagePointLabel->getPositionY() - characterPointLabel->getContentSize().height));
+    characterPointLabel -> setColor(Color3B::BLACK);
+    characterPointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
+    characterPointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    gameOverOfLabel -> addChild(characterPointLabel,5);
+    
+    //キャラクターポイント数値
+    auto characterNumStr = StringUtils::format("%5d",characterPoint);
+    auto characterNumLabel = Label::createWithSystemFont(characterNumStr.c_str(), "MagicSchoolOne", 35);
+    characterNumLabel -> setPosition(Vec2(stageNumLabel->getPositionX(),characterPointLabel->getPositionY()));
+    characterNumLabel -> setColor(Color3B::BLACK);
+    characterNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
+    
+    characterNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    gameOverOfLabel -> addChild(characterNumLabel,5);
+    
+    
+    //ゲットポイントラベル
+    std::string getStr = StringUtils::format("%s","GET POINTS");
+    auto getPointLabel = Label::createWithSystemFont(getStr.c_str(), "MagicSchoolOne", 35);
+    getPointLabel -> setPosition(Vec2(stagePointLabel->getPositionX(),characterPointLabel->getPositionY() - getPointLabel->getContentSize().height));
+    getPointLabel -> setColor(Color3B::BLACK);
+    getPointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    getPointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
+    gameOverOfLabel -> addChild(getPointLabel,5);
+    
+    //ゲットポイント数値
+    auto getNumStr = StringUtils::format("%5d",stagePoint + characterPoint);
+    auto getNumLabel = Label::createWithSystemFont(getNumStr.c_str(), "MagicSchoolOne", 35);
+    getNumLabel -> setPosition(Vec2(stageNumLabel->getPositionX(),getPointLabel->getPositionY()));
+    getNumLabel -> setColor(Color3B::BLACK);
+    getNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
+    getNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    gameOverOfLabel -> addChild(getNumLabel,5);
+    
+    
+    //現在の総合ポイントラベル
+    std::string totalStr = StringUtils::format("%s","TOTAL POINTS");
+    auto totalPointLabel = Label::createWithSystemFont(totalStr.c_str(), "MagicSchoolOne", 35);
+    totalPointLabel -> setPosition(Vec2(stagePointLabel->getPositionX(),getPointLabel->getPositionY() - getPointLabel->getContentSize().height));
+    totalPointLabel -> setColor(Color3B::BLACK);
+    totalPointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
+    totalPointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    gameOverOfLabel -> addChild(totalPointLabel,5);
+    
+    //総合ポイント数値
+    auto totalNumStr = StringUtils::format("%5d",userDef->getIntegerForKey("playPoint"));
+    auto totalNumLabel = Label::createWithSystemFont(totalNumStr.c_str(), "MagicSchoolOne", 35);
+    totalNumLabel -> setPosition(Vec2(stageNumLabel->getPositionX(),totalPointLabel->getPositionY()));
+    totalNumLabel -> setColor(Color3B::BLACK);
+    totalNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
+    totalNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
+    gameOverOfLabel -> addChild(totalNumLabel,5);
+
     
     //レビュー誘導
     if (UserDefault::getInstance()->getBoolForKey("characterFlag1")==false) {
@@ -596,6 +768,9 @@ void GameScene::makeGameClear(){
     
     //nend表示
     NendInterstitialModule::showNADInterstitialView();
+    
+    //appBankInterstitial表示
+//    NativeLauncher::showInterstitial();
     
     //スケジュールの停止
     this->unscheduleUpdate();

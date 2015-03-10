@@ -49,6 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     //本番(appBank ssp)
  //   ADGConnectionForIOS::initADG((char*)"20338" , (char*)"SP", 0, 0 , NULL);
+    NativeLauncher::startInterstitial();
 
     
     
@@ -91,6 +92,9 @@ void AppDelegate::applicationDidEnterBackground() {
 
     // if you use SimpleAudioEngine, it must be pause
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    
+    //appbankInterstittial
+    NativeLauncher::stopInterstitial();
 }
 
 // this function will be called when the app is active again

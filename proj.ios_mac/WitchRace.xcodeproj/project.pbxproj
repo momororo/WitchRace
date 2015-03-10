@@ -91,6 +91,7 @@
 		04B9AA681AA994A00024AB90 /* AppbankSSP.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9AA671AA994A00024AB90 /* AppbankSSP.m */; };
 		04BF4E961A8B743800BE68E2 /* Ponyo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04BF4E941A8B743800BE68E2 /* Ponyo.cpp */; };
 		04C9CBDA1A30608300E51608 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CBD81A30608300E51608 /* BackGround.cpp */; };
+		04E39E3B1AADC57700CB90D0 /* ADG-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04E39E3A1AADC57700CB90D0 /* ADG-Resources.bundle */; };
 		04EA8C711A833D1E00AF5083 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EA8C701A833D1E00AF5083 /* CoreTelephony.framework */; };
 		04EA8C731A833D3000AF5083 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EA8C721A833D3000AF5083 /* EventKit.framework */; };
 		04EA8C751A833D4A00AF5083 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EA8C741A833D4A00AF5083 /* MediaPlayer.framework */; };
@@ -517,6 +518,7 @@
 		04C9CBD81A30608300E51608 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackGround.cpp; path = ../Classes/BackGround.cpp; sourceTree = "<group>"; };
 		04C9CBD91A30608300E51608 /* BackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackGround.h; path = ../Classes/BackGround.h; sourceTree = "<group>"; };
 		04DE3B0B1A5254960041D387 /* Zorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zorder.h; sourceTree = "<group>"; };
+		04E39E3A1AADC57700CB90D0 /* ADG-Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "ADG-Resources.bundle"; sourceTree = "<group>"; };
 		04EA8C701A833D1E00AF5083 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		04EA8C721A833D3000AF5083 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
 		04EA8C741A833D4A00AF5083 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
@@ -1037,6 +1039,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04E39E3A1AADC57700CB90D0 /* ADG-Resources.bundle */,
 				044BAC531A7F6FB500CBD57B /* Images.xcassets */,
 				A44C99651A820C9400200C91 /* fish.png */,
 				A4722A731A6E9B8A00CC1A42 /* tutorial_tapHold.png */,
@@ -1412,6 +1415,7 @@
 				A4BB071A1A3976A800991DCE /* kiki_down_shadow.png in Resources */,
 				04362EAC1A846737008B9091 /* appc_manga_background@2x.png in Resources */,
 				A473C8501A627D65009000A5 /* particle_gameClear.png in Resources */,
+				04E39E3B1AADC57700CB90D0 /* ADG-Resources.bundle in Resources */,
 				A4D045EB1A7CA30F00969D54 /* ponyo.plist in Resources */,
 				A47F2DB31A5D3A2B0050F464 /* forest_gameBg.png in Resources */,
 				04362EB31A846737008B9091 /* appc_marquee_bg@2x.png in Resources */,

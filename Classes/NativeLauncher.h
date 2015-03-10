@@ -26,6 +26,11 @@ public:
 
     //appbank ssp
     static void setAppbankSSP();
+    
+    //appbank interstittial
+    static void startInterstitial();
+    static void stopInterstitial();
+    static void showInterstitial();
 };
 
 #endif

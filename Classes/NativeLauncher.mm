@@ -65,3 +65,17 @@ void NativeLauncher::setAppbankSSP(){
     [AppbankSSP setAppbankSSP];
     
 }
+
+void NativeLauncher::startInterstitial(){
+    [AppbankSSP startInterstitial];
+}
+
+void NativeLauncher::stopInterstitial(){
+    [AppbankSSP stopInterstitial];
+}
+
+void NativeLauncher::showInterstitial(){
+    [AppbankSSP showInterstitial];
+}
+
+
