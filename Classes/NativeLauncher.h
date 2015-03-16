@@ -31,6 +31,7 @@ public:
     static void startInterstitial();
     static void stopInterstitial();
     static void showInterstitial();
+    static void loadInterstitial();
 };
 
 #endif

@@ -432,8 +432,10 @@ void TitleScene::setTwitterBt(){
 //initでアラートを呼ぶとなんか気持ちわるかったため
 void TitleScene::onEnterTransitionDidFinish(){
     
-    
-    NendInterstitialModule::showNADInterstitialView();
+    //Nend
+//    NendInterstitialModule::showNADInterstitialView();
+    //appBank SSP
+    NativeLauncher::showInterstitial();
     
     //デバッグ
     

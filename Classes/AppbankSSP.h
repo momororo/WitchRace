@@ -19,5 +19,6 @@
 +(void)startInterstitial;
 +(void)stopInterstitial;
 +(void)showInterstitial;
++(void)loadInterstitial;
 
 @end

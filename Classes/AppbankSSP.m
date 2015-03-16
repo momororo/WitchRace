@@ -35,7 +35,7 @@ ADGInterstitial *adgInterstitial = nil;
 +(void)startInterstitial{
     adgInterstitial = [[ADGInterstitial alloc] init]; // インスタンスの生成
     adgInterstitial.delegate = self; // デリゲートの代入
-    [adgInterstitial setLocationId:@"広告枠ID"]; //枠IDの設定
+    [adgInterstitial setLocationId:@"22071"]; //枠IDの設定
     //頻度の設定(25%に)
     [adgInterstitial setSpan:25 isPercentage:YES];
     //プリロードをしておく
@@ -52,7 +52,14 @@ ADGInterstitial *adgInterstitial = nil;
 
 +(void)showInterstitial{
     [adgInterstitial show];
+    [adgInterstitial preload];
+
 }
+
++(void)loadInterstitial{
+    [adgInterstitial preload];
+}
+
 
 
 @end

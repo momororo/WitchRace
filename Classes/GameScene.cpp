@@ -303,10 +303,10 @@ void GameScene::update( float frame )
 void GameScene::makeGameOver(){
     
     //nend表示
-    NendInterstitialModule::showNADInterstitialView();
+//    NendInterstitialModule::showNADInterstitialView();
     
     //appBankInterstitial表示
-//    NativeLauncher::showInterstitial();
+    NativeLauncher::showInterstitial();
 
     
     
@@ -431,9 +431,9 @@ void GameScene::makeGameOver(){
     //ステージクリアの計算だ
     int stagePoint ;
     switch (selectStory) {
-        case 0:stagePoint = 10;break;
-        case 1:stagePoint = 20;break;
-        case 2:stagePoint = 40;break;
+        case 0:stagePoint = 20;break;
+        case 1:stagePoint = 30;break;
+        case 2:stagePoint = 50;break;
         case 3:stagePoint = 60;break;
         case 4:stagePoint = 80;break;
         default:break;
@@ -451,43 +451,22 @@ void GameScene::makeGameOver(){
     
     //25回を1.0として計算
     stagePoint = float(stagePoint / 5 * divineReplaceCount);
-
-//クリア時の場合
-/*
-    //キャラクターに応じて計算だ
-    int characterPoint;
-    switch (userDef->getIntegerForKey("selectCharacter")) {
-        case 0:characterPoint = 0;break;
-        case 1:characterPoint = -10;break;
-        case 2:characterPoint = 10;break;
-        case 3:characterPoint = stagePoint * 3;break;
-        case 4:characterPoint = stagePoint * 5;break;
-        case 5:characterPoint = stagePoint * 10;break;
-        default:break;
-    }
-*/
     
     //キャラクターに応じて計算(計算式は暫定)
     int characterPoint;
     switch (userDef->getIntegerForKey("selectCharacter")) {
-        case 0:characterPoint = 0;break;
-        case 1:characterPoint = -10;break;
-        case 2:characterPoint = 10;break;
+        case 0:characterPoint = 10;break;
+        case 1:characterPoint = 0;break;
+        case 2:characterPoint = stagePoint * 2;break;
         case 3:characterPoint = stagePoint * 3;break;
         case 4:characterPoint = stagePoint * 5;break;
         case 5:characterPoint = stagePoint * 10;break;
         default:break;
     }
     
-    //ひよっこ魔女とハリーポーターさんだけは計算式を変えておく
-    //ひよっこ魔女の場合、絶対値において減点が加点を上まった場合、0ptとなるように変更
-    if(userDef->getIntegerForKey("selectCharacter") == 1 && (characterPoint * -1 ) >= stagePoint){
-        characterPoint = stagePoint * -1;
-    }
-    
-    //ハリーポーターさんの場合、ステージポイントと同じような計算式に
+    //キキさんの場合、ステージポイントと同じような計算式に
     //25回を1.0として計算
-    if(userDef->getIntegerForKey("selectCharacter") == 2){
+    if(userDef->getIntegerForKey("selectCharacter") == 0){
         characterPoint = float(characterPoint / 5 * divineReplaceCount);
     }
 
@@ -767,10 +746,10 @@ void GameScene::setReviewBox(){
 void GameScene::makeGameClear(){
     
     //nend表示
-    NendInterstitialModule::showNADInterstitialView();
+//    NendInterstitialModule::showNADInterstitialView();
     
     //appBankInterstitial表示
-//    NativeLauncher::showInterstitial();
+    NativeLauncher::showInterstitial();
     
     //スケジュールの停止
     this->unscheduleUpdate();
@@ -812,9 +791,9 @@ void GameScene::makeGameClear(){
     //ステージクリアの計算だ
     int stagePoint ;
     switch (selectStory) {
-        case 0:stagePoint = 10;break;
-        case 1:stagePoint = 20;break;
-        case 2:stagePoint = 40;break;
+        case 0:stagePoint = 20;break;
+        case 1:stagePoint = 30;break;
+        case 2:stagePoint = 50;break;
         case 3:stagePoint = 60;break;
         case 4:stagePoint = 80;break;
         default:break;
@@ -823,9 +802,9 @@ void GameScene::makeGameClear(){
     //キャラクターに応じて計算だ
     int characterPoint;
     switch (userDef->getIntegerForKey("selectCharacter")) {
-        case 0:characterPoint = 0;break;
-        case 1:characterPoint = -10;break;
-        case 2:characterPoint = 10;break;
+        case 0:characterPoint = 10;break;
+        case 1:characterPoint = 0;break;
+        case 2:characterPoint = stagePoint * 2;break;
         case 3:characterPoint = stagePoint * 3;break;
         case 4:characterPoint = stagePoint * 5;break;
         case 5:characterPoint = stagePoint * 10;break;

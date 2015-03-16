@@ -47,24 +47,24 @@ bool SelectCharacterScene::init()
     //日本語の場合は日本語の説明文を、それ以外は英語
     if(lang == LanguageType::JAPANESE){
         //キキ
-        kikiExText = "飛ぶのが得意なおてんば少女\n夢に向かって修行中";
+        kikiExText = "飛ぶのが得意なおてんば少女\n夢に向かって修行中\n\n～キャラクターボーナス～\nステージクリア時に10ポイント加算";
         //おまけキキ
         petitKikiExText = "飛ぶのが苦手なあなたに、まずは練習用\n\n～キャラクターボーナス～\n障害物にあたりにくくなる";
         //ハリーポッター
-        haryyPotterExText = "僕は生き残る！\n\n～キャラクターボーナス～\nストーリクリアポイントに10ポイント加算";
+        haryyPotterExText = "僕は生き残る！\n\n～キャラクターボーナス～\nステージポイント✕2ポイント加算";
         //ポニョ
-        ponyoExText = "元気いっぱい！空もかけちゃお♪\n\n～キャラクターボーナス～\nストーリクリアポイント✕3ポイント加算";
+        ponyoExText = "元気いっぱい！空もかけちゃお♪\n\n～キャラクターボーナス～\nステージポイント✕3ポイント加算";
         //空飛ぶ車
-        fordAngliaExText = "オジサンからかりた車\n\n～キャラクターボーナス～\nストーリークリアポイント✕5ポイント加算";
+        fordAngliaExText = "オジサンからかりた車\n\n～キャラクターボーナス～\nステージポイント✕5ポイント加算";
         //ポルコ・ロッソ
-        porcoRossoExText = "自由気ままに生きる、それが男！\n\n～キャラクターボーナス～\nストーリークリアポイント✕10ポイント加算";
+        porcoRossoExText = "自由気ままに生きる、それが男！\n\n～キャラクターボーナス～\nステージポイント✕10ポイント加算";
     }else{
         //キキ
-        kikiExText = "A tomboy witch,training herself for her dream.";
+        kikiExText = "A tomboy witch,training herself for her dream.\n～Character bonus～\nYou get 10pt when you get at stages end";
         //おまけキキ
         petitKikiExText = "A witch for practice\n～Character bonus～\nIt becomes easy to avoid obstacles";
         //ハリーポッター
-        haryyPotterExText = "I'll come back alive！\n～Character bonus～\nYou get 10pt when you get at stages end";
+        haryyPotterExText = "I'll come back alive！\n～Character bonus～\nYou get twice as many points as \npoints you get at stage end";
         //ポニョ
         ponyoExText = "She is quite energetic and flies high up in the sky\n～Character bonus～\nYou get three times as many points as \npoints you get at stage end";
         //空飛ぶ車

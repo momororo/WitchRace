@@ -27,6 +27,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "AppCCloud.h"
 
 @implementation AppController
 
@@ -242,6 +243,22 @@ static AppDelegate s_sharedApplication;
     [window release];
     [super dealloc];
 }
+/*
+//appcCloudのプッシュ通知
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) devToken
+{
+    [appCCloud pushNotificationDidRegisterWithDeviceToken:devToken];
+}
 
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *) err
+{
+    [appCCloud pushNotificationDidFailWithError:err];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [appCCloud pushNotificationDidReceive:userInfo appStat:application.applicationState];
+}
+*/
 
 @end

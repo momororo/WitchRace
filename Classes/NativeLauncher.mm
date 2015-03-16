@@ -78,4 +78,8 @@ void NativeLauncher::showInterstitial(){
     [AppbankSSP showInterstitial];
 }
 
+void NativeLauncher::loadInterstitial(){
+    [AppbankSSP loadInterstitial];
+}
+
 
