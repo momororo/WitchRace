@@ -169,7 +169,6 @@
 		A473C84A1A627B64009000A5 /* pause_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A473C8491A627B64009000A5 /* pause_gameClear.png */; };
 		A473C84F1A627D65009000A5 /* particle_gameClear.plist in Resources */ = {isa = PBXBuildFile; fileRef = A473C84D1A627D65009000A5 /* particle_gameClear.plist */; };
 		A473C8501A627D65009000A5 /* particle_gameClear.png in Resources */ = {isa = PBXBuildFile; fileRef = A473C84E1A627D65009000A5 /* particle_gameClear.png */; };
-		A476CC8F1A68DE280016BE06 /* gaugeBar.png in Resources */ = {isa = PBXBuildFile; fileRef = A476CC8D1A68DE280016BE06 /* gaugeBar.png */; };
 		A47F2DA01A5D39EA0050F464 /* factory.plist in Resources */ = {isa = PBXBuildFile; fileRef = A47F2D9E1A5D39EA0050F464 /* factory.plist */; };
 		A47F2DA11A5D39EA0050F464 /* factory.png in Resources */ = {isa = PBXBuildFile; fileRef = A47F2D9F1A5D39EA0050F464 /* factory.png */; };
 		A47F2DA61A5D39F50050F464 /* factory_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A47F2DA31A5D39F50050F464 /* factory_2.png */; };
@@ -243,6 +242,7 @@
 		A4D046051A7CDF9A00969D54 /* character_ponyo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D045FA1A7CDF9A00969D54 /* character_ponyo.png */; };
 		A4D046061A7CDF9A00969D54 /* character_ponyo_locked.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D045FB1A7CDF9A00969D54 /* character_ponyo_locked.png */; };
 		A4D046091A7CFB6400969D54 /* character_fordAnglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D046081A7CFB6400969D54 /* character_fordAnglia.png */; };
+		A4D9478B1AB70E0000BE254B /* gaugeBar.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D9478A1AB70E0000BE254B /* gaugeBar.png */; };
 		A4E4855A1A2F4F2200780AF3 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4E485581A2F4F2200780AF3 /* TitleScene.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -591,7 +591,6 @@
 		A473C8491A627B64009000A5 /* pause_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_gameClear.png; sourceTree = "<group>"; };
 		A473C84D1A627D65009000A5 /* particle_gameClear.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particle_gameClear.plist; sourceTree = "<group>"; };
 		A473C84E1A627D65009000A5 /* particle_gameClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_gameClear.png; sourceTree = "<group>"; };
-		A476CC8D1A68DE280016BE06 /* gaugeBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaugeBar.png; sourceTree = "<group>"; };
 		A47F2D9E1A5D39EA0050F464 /* factory.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = factory.plist; sourceTree = "<group>"; };
 		A47F2D9F1A5D39EA0050F464 /* factory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = factory.png; sourceTree = "<group>"; };
 		A47F2DA31A5D39F50050F464 /* factory_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = factory_2.png; sourceTree = "<group>"; };
@@ -667,6 +666,7 @@
 		A4D045FB1A7CDF9A00969D54 /* character_ponyo_locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_ponyo_locked.png; sourceTree = "<group>"; };
 		A4D046081A7CFB6400969D54 /* character_fordAnglia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_fordAnglia.png; sourceTree = "<group>"; };
 		A4D5496A1A31BF8B0066858C /* kiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiki.png; sourceTree = "<group>"; };
+		A4D9478A1AB70E0000BE254B /* gaugeBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaugeBar.png; sourceTree = "<group>"; };
 		A4E485581A2F4F2200780AF3 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		A4E485591A2F4F2200780AF3 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1067,8 +1067,8 @@
 				A48C105D1A68EBB4009D8C46 /* rankingBt.png */,
 				A48C105F1A68EBB4009D8C46 /* storyBt.png */,
 				A48C10601A68EBB4009D8C46 /* twitterBt.png */,
+				A4D9478A1AB70E0000BE254B /* gaugeBar.png */,
 				A48C10591A68DFA1009D8C46 /* gaugeOfKiki.png */,
-				A476CC8D1A68DE280016BE06 /* gaugeBar.png */,
 				A49DA1A01A68BAF10058BABF /* titleObject.png */,
 				A49DA1931A68BAED0058BABF /* ssUpperOrnament.png */,
 				A49DA1941A68BAED0058BABF /* ssDownerOrnament.png */,
@@ -1434,6 +1434,7 @@
 				04362EA61A846737008B9091 /* appc_cutin_btn_other_on@2x.png in Resources */,
 				04362EAB1A846737008B9091 /* appc_game_logo@2x.png in Resources */,
 				A48D62AB1A5E65CE003448B8 /* field_2.png in Resources */,
+				A4D9478B1AB70E0000BE254B /* gaugeBar.png in Resources */,
 				A411FC721A667EF700BC0515 /* nextObject.png in Resources */,
 				04362EA01A846737008B9091 /* appc_cutin2_btn_moreapp@2x.png in Resources */,
 				A434CCAF1A8C85C500D290EE /* porcoRosso.plist in Resources */,
@@ -1445,7 +1446,6 @@
 				04362EA11A846737008B9091 /* appc_cutin2_close@2x.png in Resources */,
 				048E2CBE1A81E47B00530D86 /* NADView_readme.txt in Resources */,
 				A411FC731A667EF700BC0515 /* backBt.png in Resources */,
-				A476CC8F1A68DE280016BE06 /* gaugeBar.png in Resources */,
 				04362EC41A846737008B9091 /* appcc_web_splash_logo2.gif in Resources */,
 				A48D62AA1A5E65CE003448B8 /* field_1.png in Resources */,
 				04362EB91A846737008B9091 /* appc_simple_bg@2x.png in Resources */,
@@ -1655,7 +1655,7 @@
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "be2515f2-6fda-4f78-ac63-6f25dfbb049d";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1698,7 +1698,7 @@
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "be2515f2-6fda-4f78-ac63-6f25dfbb049d";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
