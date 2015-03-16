@@ -433,7 +433,7 @@ void TitleScene::setTwitterBt(){
 void TitleScene::onEnterTransitionDidFinish(){
     
     //Nend
-//    NendInterstitialModule::showNADInterstitialView();
+    NendInterstitialModule::showNADInterstitialView();
     //appBank SSP
     NativeLauncher::showInterstitial();
     

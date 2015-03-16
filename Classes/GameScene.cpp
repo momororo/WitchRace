@@ -303,7 +303,7 @@ void GameScene::update( float frame )
 void GameScene::makeGameOver(){
     
     //nend表示
-//    NendInterstitialModule::showNADInterstitialView();
+    NendInterstitialModule::showNADInterstitialView();
     
     //appBankInterstitial表示
     NativeLauncher::showInterstitial();
@@ -497,7 +497,7 @@ void GameScene::makeGameOver(){
     stagePointLabel -> setColor(Color3B::BLACK);
     stagePointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     stagePointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
-    gameOverOfLabel -> addChild(stagePointLabel,5);
+    gameOverOfLabel -> addChild(stagePointLabel);
     
     //ステージポイント数値
     auto stageNumStr = StringUtils::format("%5d",stagePoint);
@@ -506,7 +506,7 @@ void GameScene::makeGameOver(){
     stageNumLabel -> setColor(Color3B::BLACK);
     stageNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
     stageNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
-    gameOverOfLabel -> addChild(stageNumLabel,5);
+    gameOverOfLabel -> addChild(stageNumLabel);
     
     
     
@@ -517,7 +517,7 @@ void GameScene::makeGameOver(){
     characterPointLabel -> setColor(Color3B::BLACK);
     characterPointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     characterPointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
-    gameOverOfLabel -> addChild(characterPointLabel,5);
+    gameOverOfLabel -> addChild(characterPointLabel);
     
     //キャラクターポイント数値
     auto characterNumStr = StringUtils::format("%5d",characterPoint);
@@ -527,7 +527,7 @@ void GameScene::makeGameOver(){
     characterNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
     
     characterNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
-    gameOverOfLabel -> addChild(characterNumLabel,5);
+    gameOverOfLabel -> addChild(characterNumLabel);
     
     
     //ゲットポイントラベル
@@ -537,7 +537,7 @@ void GameScene::makeGameOver(){
     getPointLabel -> setColor(Color3B::BLACK);
     getPointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
     getPointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
-    gameOverOfLabel -> addChild(getPointLabel,5);
+    gameOverOfLabel -> addChild(getPointLabel);
     
     //ゲットポイント数値
     auto getNumStr = StringUtils::format("%5d",stagePoint + characterPoint);
@@ -546,7 +546,7 @@ void GameScene::makeGameOver(){
     getNumLabel -> setColor(Color3B::BLACK);
     getNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
     getNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
-    gameOverOfLabel -> addChild(getNumLabel,5);
+    gameOverOfLabel -> addChild(getNumLabel);
     
     
     //現在の総合ポイントラベル
@@ -556,7 +556,7 @@ void GameScene::makeGameOver(){
     totalPointLabel -> setColor(Color3B::BLACK);
     totalPointLabel -> setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     totalPointLabel -> setGlobalZOrder(zOrderOfPauseLabel);
-    gameOverOfLabel -> addChild(totalPointLabel,5);
+    gameOverOfLabel -> addChild(totalPointLabel);
     
     //総合ポイント数値
     auto totalNumStr = StringUtils::format("%5d",userDef->getIntegerForKey("playPoint"));
@@ -565,7 +565,7 @@ void GameScene::makeGameOver(){
     totalNumLabel -> setColor(Color3B::BLACK);
     totalNumLabel ->setAnchorPoint(Vec2(Vec2::ANCHOR_MIDDLE_RIGHT));
     totalNumLabel -> setGlobalZOrder(zOrderOfPauseLabel);
-    gameOverOfLabel -> addChild(totalNumLabel,5);
+    gameOverOfLabel -> addChild(totalNumLabel);
 
     
     //レビュー誘導
@@ -714,7 +714,7 @@ void GameScene::setReviewBox(){
     alertHeadLabel -> enableOutline(Color4B::BLACK,2);
     alertHeadLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height*7/8));
     alertHeadLabel -> setColor(Color3B::BLACK);
-    alertHeadLabel -> setGlobalZOrder(300);
+    alertHeadLabel -> setGlobalZOrder(350);
 
     reviewBox->addChild(alertHeadLabel,3);
     
@@ -732,7 +732,7 @@ void GameScene::setReviewBox(){
     
     alertContentLabel -> setPosition(Vec2(reviewBox->getContentSize().width/2,reviewBox->getContentSize().height/2+50));
     alertContentLabel -> setColor(Color3B::BLACK);
-    alertContentLabel -> setGlobalZOrder(300);
+    alertContentLabel -> setGlobalZOrder(350);
 
     reviewBox -> addChild(alertContentLabel,4);
     
@@ -746,7 +746,7 @@ void GameScene::setReviewBox(){
 void GameScene::makeGameClear(){
     
     //nend表示
-//    NendInterstitialModule::showNADInterstitialView();
+    NendInterstitialModule::showNADInterstitialView();
     
     //appBankInterstitial表示
     NativeLauncher::showInterstitial();

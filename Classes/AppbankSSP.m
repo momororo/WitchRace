@@ -36,8 +36,8 @@ ADGInterstitial *adgInterstitial = nil;
     adgInterstitial = [[ADGInterstitial alloc] init]; // インスタンスの生成
     adgInterstitial.delegate = self; // デリゲートの代入
     [adgInterstitial setLocationId:@"22071"]; //枠IDの設定
-    //頻度の設定(25%に)
-    [adgInterstitial setSpan:25 isPercentage:YES];
+    //頻度の設定(35%に)
+    [adgInterstitial setSpan:35 isPercentage:YES];
     //プリロードをしておく
     [adgInterstitial preload];
 }
