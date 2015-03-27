@@ -859,7 +859,7 @@
 				503AE0FF17EB989F00D1A890 /* RootViewController.mm */,
 			);
 			name = ios;
-			path = Classes;
+			path = ../proj.ios_mac/Classes;
 			sourceTree = "<group>";
 		};
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
@@ -915,6 +915,7 @@
 				04B6A9231A8A1FEA0025D841 /* InfoPlist.strings */,
 				04B9AA661AA994A00024AB90 /* AppbankSSP.h */,
 				04B9AA671AA994A00024AB90 /* AppbankSSP.m */,
+				080E96DDFE201D6D7F000001 /* ios */,
 				047A465A1AA9C65C00C1B2D2 /* Config.h */,
 			);
 			name = Classes;
@@ -957,7 +958,6 @@
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
-				080E96DDFE201D6D7F000001 /* ios */,
 				503AE10617EB990700D1A890 /* mac */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				78C7DDAA14EBA5050085D0C2 /* Resources */,
@@ -1655,7 +1655,7 @@
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "be2515f2-6fda-4f78-ac63-6f25dfbb049d";
+				PROVISIONING_PROFILE = "8fe8a043-0f77-4693-b1ec-2e9f5ff64145";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1698,7 +1698,7 @@
 					"$(PROJECT_DIR)/ADG_iOSSDK",
 					"$(PROJECT_DIR)/appc_cloud_ios_xcode_6",
 				);
-				PROVISIONING_PROFILE = "be2515f2-6fda-4f78-ac63-6f25dfbb049d";
+				PROVISIONING_PROFILE = "8fe8a043-0f77-4693-b1ec-2e9f5ff64145";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";

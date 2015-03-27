@@ -440,6 +440,12 @@ void TitleScene::onEnterTransitionDidFinish(){
     //デバッグ
     
     if (UserDefault::getInstance()->getBoolForKey("characterFlag1")==false) {
+        
+        
+        //まだプレイしていない場合は何もせず終了
+        if(UserDefault::getInstance()->getIntegerForKey("playCountFor0") == 0){
+            return;
+        }
     
         int rnd = arc4random_uniform(3);
         
